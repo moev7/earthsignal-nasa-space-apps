@@ -23,3 +23,18 @@ No physical iPhone/Safari or assistive-technology session was available. Respons
 The deployed `e40f77a` build contained the local scroll-height helper, but that helper's source file was omitted from its commit. This continuation publishes `lib/story-scroll.ts`, including the explicit per-layout reading clearance and the closed disclosure-height measurement already used by `StoryStage` and the viewport fitter. It preserves the implementation inspected in accepted OpenCode review `d2d44592a8d247f69ffa771fd13f3274`.
 
 Added direct regressions for nested open disclosures (counted once), permanent controls with hidden summaries, closed panels, layout-bound fallback, nonnegative height, and explicit desktop clearance. All 380 web tests pass, including the mounted stage and fitter checks; TypeScript, scoped ESLint and production build pass. The package verifies 15 measured ground-motion files and 10 radar-study files. No additional design changes or browser/device claims are introduced by this source-completeness repair.
+
+## Musical source correction — 13 November 2026
+
+The user reported continuing overlap around the spacecraft/radar chapters. Both
+`orbital-ambience.mp3` and `orbital-wash.mp3` derive from Heavenly Loop, so allowing
+one of each still duplicates the music. Capture/found beats and phase input now
+filter the existing continuous bed for 650 ms instead of decoding/starting the
+wash. Water, ground-shift and collapse recordings remain independent foley.
+Narration ducking remains authoritative during input, idle and scene cleanup.
+
+The regression fails against the prior engine on the shared-source wash and
+passes against the correction. It covers 20 alternating beats with phase input,
+a late bed, filter restoration, narration ducking, material foley, mute/resume
+and disposal. All 380 web tests, TypeScript, scoped ESLint and production build
+pass. No new listening/device verification is claimed.

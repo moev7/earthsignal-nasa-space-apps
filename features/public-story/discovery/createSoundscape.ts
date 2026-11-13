@@ -35,19 +35,38 @@ export function createSoundscape(
     bed: Voice | null = null;
   let speaking = false;
   const bedLevel = () => speaking ? 0.055 : [...voices].some(v => v.clip === "collapse") ? 0.07 : 0.26;
+  let musicCutoff = 12000;
+  let releaseMusic: ReturnType<typeof setTimeout> | null = null;
   const syncBed = () => {
     if (!bed) return;
     bed.gain.gain.cancelScheduledValues(ctx.currentTime);
     bed.gain.gain.linearRampToValueAtTime(bedLevel(), ctx.currentTime + 0.12);
+    if (bed.filter) {
+      bed.filter.frequency.cancelScheduledValues(ctx.currentTime);
+      bed.filter.frequency.linearRampToValueAtTime(musicCutoff, ctx.currentTime + 0.12);
+    }
+  };
+  // The wash and ambience come from the same musical recording. Shape the
+  // continuous bed for radar/spacecraft input; never start a second music stem.
+  const resetMusic = () => {
+    if (releaseMusic !== null) clearTimeout(releaseMusic);
+    releaseMusic = null;
+    musicCutoff = 12000;
+    syncBed();
+  };
+  const shapeMusic = (cutoff: number) => {
+    if (releaseMusic !== null) clearTimeout(releaseMusic);
+    musicCutoff = cutoff;
+    syncBed();
+    releaseMusic = setTimeout(resetMusic, 650);
   };
   let gesture: Voice | null = null,
     gestureClip: Clip | null = null,
     gestureEpoch = 0,
     loadingGesture = false;
   let gestureState = {
-    kind: "water" as "water" | "strain" | "phase",
+    kind: "water" as "water" | "strain",
     value: 0,
-    wrapped: 0,
   };
   let releaseGesture: ReturnType<typeof setTimeout> | null = null;
   const cancelGesture = () => {
@@ -92,6 +111,7 @@ export function createSoundscape(
     syncBed();
   };
   const stopEffects = () => {
+    resetMusic();
     cancelGesture();
     effectEpoch++;
     for (const voice of [...voices])
@@ -99,6 +119,7 @@ export function createSoundscape(
     syncBed();
   };
   const stop = () => {
+    resetMusic();
     cancelGesture();
     bedEpoch++;
     effectEpoch++;
@@ -157,6 +178,7 @@ export function createSoundscape(
       if (!audible || disposed || epoch !== bedEpoch || ctx.state !== "running")
         return;
       bed = voice(audio, "bed", bedLevel(), "ambience");
+      if (bed.filter) bed.filter.frequency.value = musicCutoff;
     } catch {
       if (!disposed && audible && epoch === bedEpoch) onError();
     }
@@ -173,14 +195,16 @@ export function createSoundscape(
       void startBed();
       return;
     }
+    if (kind === "capture" || kind === "found") {
+      shapeMusic(1800);
+      return;
+    }
     const clip: Clip =
       kind === "water"
         ? "water"
         : kind === "strain"
           ? "shift"
-          : kind === "collapse"
-            ? "collapse"
-            : "wash";
+          : "collapse";
     // A story beat never layers or restarts a texture already audible.
     if ([...voices].some(v => v.clip === clip)) return;
     cancelGesture();
@@ -212,7 +236,7 @@ export function createSoundscape(
     }
   };
   /** A held texture follows an action, then expires after650ms of stillness.
-   * Recorded water/material/orbital stems only; no oscillator pings or melody.
+   * Water/material foley or filtering of the existing musical bed only.
    */
   const respond = async (
     kind: "water" | "strain" | "phase",
@@ -225,9 +249,14 @@ export function createSoundscape(
       ? Math.max(0, Math.min(1, intensity))
       : 0;
     const wrapped = Number.isFinite(phase) ? ((phase % 1) + 1) % 1 : 0;
-    gestureState = { kind, value, wrapped };
-    const clip: Clip =
-      kind === "water" ? "water" : kind === "strain" ? "shift" : "wash";
+    if (kind === "phase") {
+      cancelGesture();
+      shapeMusic(260 + wrapped * 1000);
+      return;
+    }
+    resetMusic();
+    gestureState = { kind, value };
+    const clip: Clip = kind === "water" ? "water" : "shift";
     if (gestureClip !== clip) {
       cancelGesture();
       gestureClip = clip;
@@ -235,21 +264,21 @@ export function createSoundscape(
     const epoch = gestureEpoch;
     const tune = () => {
       if (!gesture) return;
-      const { kind, value, wrapped } = gestureState;
-      const level = kind === "phase" ? 0.1 + value * 0.13 : 0.12 + value * 0.34;
+      const { value } = gestureState;
+      const level = 0.12 + value * 0.34;
       gesture.gain.gain.cancelScheduledValues(ctx.currentTime);
       gesture.gain.gain.linearRampToValueAtTime(level, ctx.currentTime + 0.06);
       if (gesture.filter) {
         gesture.filter.frequency.cancelScheduledValues(ctx.currentTime);
         gesture.filter.frequency.linearRampToValueAtTime(
-          kind === "phase" ? 260 + wrapped * 1000 : 220 + value * 2100,
+          220 + value * 2100,
           ctx.currentTime + 0.06,
         );
       }
       if (gesture.source.playbackRate) {
         gesture.source.playbackRate.cancelScheduledValues(ctx.currentTime);
         gesture.source.playbackRate.linearRampToValueAtTime(
-          kind === "phase" ? 0.85 + wrapped * 0.3 : 0.9 + value * 0.14,
+          0.9 + value * 0.14,
           ctx.currentTime + 0.06,
         );
       }
@@ -305,7 +334,7 @@ export function createSoundscape(
     respond,
     stopEffects,
     warm: () => {
-      for (const key of ["water", "shift", "collapse", "wash"] as Clip[])
+      for (const key of ["water", "shift", "collapse"] as Clip[])
         void buffer(key).catch(() => {});
     },
     volume: (value: number) => {

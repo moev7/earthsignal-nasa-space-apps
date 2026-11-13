@@ -124,7 +124,8 @@ const ticks = async () => {
   for (let i = 0; i < 8; i++) await Promise.resolve();
 };
 
-test("reactive recorded textures reuse a voice, follow the latest gain/filter state and fence late decode on scene exit", async () => {
+test("reactive recorded textures reuse a voice, follow the latest gain/filter state and fence late decode on scene exit", async (t) => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
   const fixture = audioFixture(),
     ctx = new fixture.Audio();
   ctx.state = "running";
@@ -184,14 +185,18 @@ test("reactive recorded textures reuse a voice, follow the latest gain/filter st
     "scrubbing reuses the same texture",
   );
   assert.equal(filters.at(-1)!.frequency.value, 2110);
+  await engine.respond("phase", 0.5, 0.75);
+  assert.equal(filters[0].frequency.value, 1010, "phase shapes the original bed filter");
+  t.mock.timers.tick(650);
+  assert.equal(filters[0].frequency.value, 12000, "idle restores the bed filter");
   const phase = engine.respond("phase", 0.5, 0.75);
   engine.setAudible(false);
-  pending.get(STORY_AUDIO.wash)!({ duration: 5 } as AudioBuffer);
   await phase;
+  assert.equal(pending.has(STORY_AUDIO.wash), false, "phase reuses the bed rather than decoding its musical stem");
   assert.equal(
     fixture.sources.length,
     count,
-    "mute fences a late phase texture",
+    "phase never creates a second musical source",
   );
   assert.ok(fixture.sources.every((s) => s.stopped));
   engine.dispose();
@@ -244,9 +249,9 @@ test("recorded soundscape has one sustained bed, bounded material voices and fen
     fixture.sources.filter((source) => !source.stopped && source.loop).length,
     1,
   );
-  const late = engine.cue("capture");
+  const late = engine.cue("strain");
   engine.dispose();
-  pending.get(STORY_AUDIO.wash)!({ duration: 5 } as AudioBuffer);
+  pending.get(STORY_AUDIO.shift)!({ duration: 5 } as AudioBuffer);
   await late;
   assert.ok(
     fixture.sources.every((source) => source.stopped && source.disconnected),
@@ -352,7 +357,7 @@ test("actual provider creates and fetches only on consent; pause, tab/page visib
     await flush();
     assert.equal(active().length, 1);
     assert.equal(active()[0].loop, true);
-    assert.equal(fetches, 5, "all local clips warm only after consent");
+    assert.equal(fetches, 4, "the bed and material clips warm only after consent");
     await act(async () => {
       sound.speak("radar-first");
       await ticks();
@@ -472,32 +477,54 @@ test("actual provider creates and fetches only on consent; pause, tab/page visib
   }
 });
 
-test("scroll beats and held phase share one wash; narrator duck survives effect cleanup and late bed creation", async () => {
+test("spacecraft/radar beats and phase retain one musical source, including narration and scene cleanup", async (t) => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
   const fixture = audioFixture(), ctx = new fixture.Audio();
   ctx.state = "running";
   const pending = new Map<string, (value: AudioBuffer) => void>();
-  const engine = createSoundscape(ctx as unknown as AudioContext, () => assert.fail("audio"), async url => new Promise(resolve => pending.set(url, resolve)));
+  const engine = createSoundscape(ctx as unknown as AudioContext, () => assert.fail("audio"), async url => {
+    if (url === STORY_AUDIO.wash) {
+      pending.set(url, () => {});
+      return { duration: 6 } as AudioBuffer;
+    }
+    return new Promise(resolve => pending.set(url, resolve));
+  });
   engine.setAudible(true);
   engine.duck(true);
-  pending.get(STORY_AUDIO.ambience)!({ duration: 40 } as AudioBuffer);
-  await ticks();
-  assert.equal(fixture.gains[1].gain.value, 0.055, "a late bed starts ducked");
-  const capture = engine.cue("capture");
-  pending.get(STORY_AUDIO.wash)!({ duration: 6 } as AudioBuffer);
-  await capture;
-  const active = () => fixture.sources.filter(s => !s.stopped);
-  for (let i = 0; i < 20; i++) await engine.cue(i % 2 ? "found" : "capture");
-  assert.equal(active().length, 2, "one bed plus exactly one wash, no retrigger pileup");
-  assert.equal(fixture.sources.length, 2, "repeated beats retain the playing recording");
-  await engine.respond("phase", 0.8, 0.6);
-  assert.equal(active().length, 2, "direct input transfers ownership of the same clip");
   await engine.cue("capture");
-  assert.equal(active().length, 2, "a beat does not interrupt or duplicate the held texture");
+  await engine.respond("phase", 0.8, 0.6);
+  const music = { duration: 40 } as AudioBuffer;
+  pending.get(STORY_AUDIO.ambience)!(music);
+  await ticks();
+  const active = () => fixture.sources.filter(s => !s.stopped);
+  const originalBed = active().find(s => s.buffer === music)!;
+  const bedGain = fixture.gains[fixture.sources.indexOf(originalBed) + 1].gain;
+  assert.equal(bedGain.value, 0.055, "a late bed starts ducked");
+  for (let i = 0; i < 20; i++) {
+    await engine.cue(i % 2 ? "found" : "capture");
+    await engine.respond("phase", i / 20, i / 20);
+  }
+  assert.equal(pending.has(STORY_AUDIO.wash), false, "wash is derived from the same recording as the bed and must never be layered");
+  assert.deepEqual(active(), [originalBed], "scrolling and phase input retain the original continuous music source");
+  assert.equal(fixture.sources.length, 1);
+  t.mock.timers.tick(650);
   engine.stopEffects();
-  assert.equal(active().length, 1);
-  assert.equal(fixture.gains[1].gain.value, 0.055, "effect cleanup cannot unduck ongoing narration");
+  assert.deepEqual(active(), [originalBed], "interaction expiry and scene exit leave the bed playing");
+  assert.equal(bedGain.value, 0.055, "effect cleanup cannot unduck ongoing narration");
   engine.duck(false);
-  assert.equal(fixture.gains[1].gain.value, 0.26);
+  assert.equal(bedGain.value, 0.26);
+  const water = engine.cue("water");
+  pending.get(STORY_AUDIO.water)!({ duration: 6 } as AudioBuffer);
+  await water;
+  assert.equal(active().length, 2, "material foley remains distinct from the single musical bed");
+  await engine.respond("phase", 0.5, 0.5);
+  engine.setAudible(false);
+  t.mock.timers.tick(1000);
+  assert.equal(active().length, 0, "an expired modulation cannot restart music after mute");
+  engine.setAudible(true);
+  await ticks();
+  assert.equal(active().length, 1, "resume creates exactly one music source");
   engine.dispose();
+  t.mock.timers.tick(1000);
   assert.equal(active().length, 0);
 });
