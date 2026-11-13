@@ -1,5 +1,5 @@
 {
-  "version": "echo-kokoro-v1",
+  "version": "echo-kokoro-v2",
   "model": "kokoro-v1.0.int8",
   "voice": "af_heart",
   "speed": "1.04",

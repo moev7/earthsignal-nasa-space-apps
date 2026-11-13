@@ -7,10 +7,19 @@ private workspace data is used.
 
 Only the finite reviewed `lib/echo-voice.json` cue bank can be narrated. New lines
 must be reviewed, versioned and rendered before releasing the client. `render.py`
-uses one ONNX thread and short clauses to bound vocoder activation memory. It
+uses one ONNX thread and complete reviewed sentences to bound vocoder activation
+memory. Sentences are never cut at arbitrary character or word boundaries: doing
+so resets Kokoro's prosody and makes an unfinished phrase sound final. The current
+bank's longest sentence is 62 characters; a future sentence over the 64-character
+budget is rejected for review rather than chopped. Commas, semicolons and decimal
+points stay inside their sentence. It
 locks the output directory, checks finite samples/duration/cache size, writes
 through an fsynced temporary file and atomically renames by a digest of model,
 voice, speed, cue ID and exact text. The renderer exits after preparation.
+
+The `echo-kokoro-v2` bank replaces the original 42-character word-split renderer.
+Its version changes the browser URL and file digest, so cached v1 clips cannot
+silently survive this prosody fix. Cue wording, speaker and speed are unchanged.
 
 The public `/api/echo-voice` route only reads these cached WAVs. It validates both
 cue and version, admits at most six file reads, caps file size and returns a
@@ -54,6 +63,14 @@ then generated all 18 cues successfully: 3m59s wall, 2m59s CPU at 75% quota,
 model file is **not** a claim about runtime RAM. The model process exits after
 rendering, so there is no idle inference process. This is a one-host measurement,
 not a hardware-independent performance or listening-quality guarantee.
+
+## Sentence-preserving render, 13 November 2026
+
+All 18 v2 cues were regenerated with whole sentences, longest first, under the
+same 1 GiB cap and 75% CPU quota. The run completed in 3m41s wall / 2m45s CPU;
+systemd reported a 769.1M memory peak and zero swap, with process maximum RSS
+650,972 KiB. No model stays resident after preparation. This fixes the artificial
+mid-sentence boundary; it does not claim that every intonation choice is perfect.
 
 Primary references: [model](https://huggingface.co/hexgrad/Kokoro-82M),
 [ONNX wrapper](https://github.com/thewh1teagle/kokoro-onnx),

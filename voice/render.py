@@ -17,7 +17,9 @@ import time
 import wave
 
 MAX_CHARS = 180
-MAX_CHUNK = 42
+# The reviewed bank's longest sentence is 62 characters. Reject longer future
+# sentences instead of silently cutting a phrase and resetting its prosody.
+MAX_SENTENCE = 64
 MAX_AUDIO_SECONDS = 22
 MAX_CACHE_BYTES = 32 * 1024 * 1024
 
@@ -27,18 +29,13 @@ def cue_digest(catalog, cue):
 
 
 def chunks(text):
-    """Short clauses keep vocoder activation memory bounded, without changing words."""
-    parts = []
-    for sentence in re.findall(r'[^.!?;]+[.!?;]?', text):
-        line = ''
-        for word in sentence.split():
-            if line and len(line) + len(word) + 1 > MAX_CHUNK:
-                parts.append(line)
-                line = ''
-            line = (line + ' ' + word).strip()
-        if line:
-            parts.append(line)
-    return parts
+    """Synthesize whole sentences: a character budget must never end a phrase.
+
+    Commas and semicolons stay with their surrounding sentence. A period inside
+    a number is not followed by whitespace, so it is not a sentence boundary.
+    This is a finite, reviewed English cue bank, not arbitrary public text.
+    """
+    return re.split(r'(?<=[.!?])\s+', ' '.join(text.split()))
 
 
 def validate(catalog):
@@ -49,7 +46,7 @@ def validate(catalog):
     for cue, text in catalog['cues'].items():
         assert re.fullmatch('[a-z]+(?:-[a-z]+)*', cue) and len(cue) < 48
         assert isinstance(text, str) and 0 < len(text) <= MAX_CHARS and text.isascii()
-        assert all(len(p) <= MAX_CHUNK for p in chunks(text))
+        assert all(len(p) <= MAX_SENTENCE for p in chunks(text)), 'Review or shorten the full sentence; never split it mid-phrase'
 
 
 def render(catalog_path, model_dir, cache_dir):
@@ -72,6 +69,9 @@ def render(catalog_path, model_dir, cache_dir):
     opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_BASIC
     session = ort.InferenceSession(str(Path(model_dir) / 'kokoro-v1.0.int8.onnx'), sess_options=opts, providers=['CPUExecutionProvider'])
     engine = Kokoro.from_session(session, str(Path(model_dir) / 'voices-v1.0.bin'))
+    # Admit the longest sentence first so the cold resource peak is visible
+    # before preparing the rest of the bank under the same cgroup limit.
+    pending.sort(key=lambda item: max(map(len, chunks(catalog['cues'][item[0]]))), reverse=True)
     for cue, digest in pending:
         started = time.monotonic(); frames = []
         for part in chunks(catalog['cues'][cue]):
