@@ -499,3 +499,214 @@
     max-height: none;
   }
 }
+
+/* Equal outcome-based entry, followed by real questions and the full processor. */
+.sar-workbench .sar-intro h1 {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+.sar-workbench .sar-intro {
+  padding-bottom: 24px;
+  gap: 24px;
+  margin-bottom: 0;
+}
+.sar-entry-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 0 0 48px;
+}
+.sar-entry-paths a {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--sar-line);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--sar-text);
+}
+.sar-entry-paths a:hover {
+  background: var(--sar-surface);
+  border-color: var(--sar-accent);
+}
+.sar-entry-paths strong {
+  font-size: 1.2rem;
+  color: var(--sar-accent);
+}
+.sar-entry-paths span {
+  font-size: 1rem;
+  max-width: 60ch;
+  color: var(--sar-muted);
+}
+.sar-question-gallery,
+.sar-question-setup {
+  scroll-margin-top: 24px;
+  margin: 0 0 48px;
+}
+.sar-question-gallery > h2,
+.sar-question-setup > h2 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+.sar-question-gallery > p,
+.sar-question-setup > p {
+  max-width: 72ch;
+  margin-bottom: 24px;
+  color: var(--sar-muted);
+}
+.sar-question-gallery .sar-published-grid {
+  display: block;
+  border-top: 1px solid var(--sar-line);
+  margin-top: 24px;
+}
+.sar-question-gallery .sar-published-grid article {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--sar-line);
+  border-radius: 0;
+  padding: 24px 0;
+}
+.sar-question-gallery h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+.sar-question-gallery article p + p {
+  margin-top: 12px;
+}
+.sar-question-gallery .sar-actions {
+  margin-top: 16px;
+}
+.sar-starting-point {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.sar-starting-point label {
+  flex: 1;
+  min-width: min(100%, 260px);
+  display: grid;
+  gap: 8px;
+}
+.sar-starting-point select {
+  width: 100%;
+  min-width: 0;
+}
+.sar-starting-point button {
+  flex-shrink: 0;
+  min-height: 48px;
+}
+.sar-question-context {
+  padding: 20px 0;
+  border-block: 1px solid var(--sar-line);
+  margin: 24px 0;
+}
+.sar-question-context h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.sar-question-context p + p {
+  margin-top: 12px;
+}
+.sar-task-route {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-inline-start: 24px;
+  margin: 24px 0 0;
+  color: var(--sar-muted);
+}
+.sar-task-route li {
+  flex: 1;
+  min-width: 190px;
+  padding-inline-start: 4px;
+}
+@media (max-width: 720px) {
+  .sar-workbench .sar-intro h1 {
+    font-size: 1.9rem;
+  }
+  .sar-entry-paths {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .sar-entry-paths a {
+    padding: 20px;
+  }
+  .sar-question-gallery .sar-published-grid article {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0;
+  }
+  .sar-starting-point {
+    align-items: stretch;
+  }
+  .sar-starting-point button {
+    width: 100%;
+  }
+  .sar-task-route {
+    display: block;
+  }
+  .sar-task-route li + li {
+    margin-top: 12px;
+  }
+}
+.sar-question-gallery article p {
+  font-size: 1rem;
+}
+.sar-question-gallery article .sar-note {
+  font-size: 0.875rem;
+}
+.sar-result-interpretation {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--sar-line);
+}
+.sar-result-interpretation h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+.sar-result-interpretation h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.sar-meaning-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+.sar-result-interpretation > label {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+}
+.sar-result-interpretation textarea {
+  font: inherit;
+  color: var(--sar-text);
+  background: var(--sar-deep);
+  border: 1px solid var(--sar-line);
+  border-radius: 6px;
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  resize: vertical;
+}
+.sar-result-interpretation .sar-actions {
+  margin: 20px 0 12px;
+}
+@media (max-width: 720px) {
+  .sar-meaning-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

@@ -1,8 +1,23 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SiteLink as Link } from "@/components/site-link";
-import { SAR_SOURCES, CHALLENGE_RESOURCES, SOURCE_READINESS, OFFICIAL_CHALLENGE_RESOURCES } from "@/lib/challenge-resources";
+import {
+  SAR_SOURCES,
+  CHALLENGE_RESOURCES,
+  SOURCE_READINESS,
+  OFFICIAL_CHALLENGE_RESOURCES,
+} from "@/lib/challenge-resources";
+import {
+  inspectionGuidance,
+  INSPECTION_NEXT_CHECKS,
+} from "@/lib/sar-inspection";
 import { PUBLIC_STUDIES } from "@/lib/public-study-registry";
+import {
+  SAR_STARTING_POINTS,
+  sarStartingPoint,
+  studyQuestion,
+  type SarStartingPoint,
+} from "@/lib/sar-investigations";
 import {
   sarJobSchema,
   sarPlanSchema,
@@ -140,9 +155,11 @@ async function verifiedArtifact(
 function NativeResult({
   job,
   onAuthExpired,
+  onRefine,
 }: {
   job: SarJob;
   onAuthExpired: () => void;
+  onRefine: () => void;
 }) {
   const [loaded, setLoaded] = useState<{
     id: string;
@@ -153,6 +170,22 @@ function NativeResult({
   } | null>(null);
   const [error, setError] = useState("");
   const [cell, setCell] = useState({ row: 0, col: 0 });
+  const [interpretation, setInterpretation] = useState("");
+  const [nextCheck, setNextCheck] = useState("");
+  const [briefStatus, setBriefStatus] = useState("");
+  const briefDownloads = useRef(
+    new Map<string, ReturnType<typeof setTimeout>>(),
+  );
+  useEffect(() => {
+    const downloads = briefDownloads.current;
+    return () => {
+      for (const [url, timer] of downloads) {
+        clearTimeout(timer);
+        URL.revokeObjectURL(url);
+      }
+      downloads.clear();
+    };
+  }, []);
   useEffect(() => {
     const abort = new AbortController();
     let url = "",
@@ -219,6 +252,72 @@ function NativeResult({
   if (!m) return null;
   const value =
     current?.data.values[cell.row * current.data.width + cell.col] ?? null;
+  const guidance = inspectionGuidance(m);
+  const followUp = INSPECTION_NEXT_CHECKS.find(
+    (check) => check.id === nextCheck,
+  );
+  function downloadPrivateBrief() {
+    if (!current || !m) return;
+    let url: string | undefined;
+    try {
+      const brief = {
+        schema: "earthsignal.private-investigation-brief/1",
+        status:
+          "private analytical result; not independently reviewed for publication",
+        jobId: job.id,
+        request: job.request,
+        method: m.method,
+        quantity: m.quantity,
+        unit: m.unit,
+        records: m.records,
+        grid: m.grid,
+        coverage: m.coverage,
+        artifactChecksums: m.artifacts,
+        selectedSample: {
+          row: cell.row,
+          column: cell.col,
+          value,
+          valid: value !== null,
+        },
+        evidence: guidance.observed,
+        notDetermined: guidance.notDetermined,
+        userInterpretation: {
+          text: interpretation,
+          status:
+            "user-authored, unverified hypothesis; not an analytical input",
+        },
+        nextCheck: followUp
+          ? { ...followUp, status: "planned, not performed" }
+          : null,
+        limitations: m.notices,
+      };
+      url = URL.createObjectURL(
+        new Blob([JSON.stringify(brief, null, 2)], {
+          type: "application/json;charset=utf-8",
+        }),
+      );
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `earthsignal-private-${job.id}-brief.json`;
+      link.click();
+      const downloadUrl = url;
+      briefDownloads.current.set(
+        url,
+        setTimeout(() => {
+          URL.revokeObjectURL(downloadUrl);
+          briefDownloads.current.delete(downloadUrl);
+        }, 1000),
+      );
+      setBriefStatus(
+        "Download requested. Your interpretation stays local; nothing was uploaded or published.",
+      );
+    } catch {
+      if (url) URL.revokeObjectURL(url);
+      setBriefStatus(
+        "The brief could not be prepared. Your source result remains available; try the download again.",
+      );
+    }
+  }
   return (
     <section className="sar-result" aria-label="Verified native result">
       <div className="sar-result-heading">
@@ -265,7 +364,10 @@ function NativeResult({
         <div className="sar-result-layout">
           <div
             className="sar-raster"
-            style={{ maxWidth: `${65 * current.data.width / current.data.height}vh`, width: "100%" }}
+            style={{
+              maxWidth: `${(65 * current.data.width) / current.data.height}vh`,
+              width: "100%",
+            }}
             onClick={(event) => {
               const box = event.currentTarget.getBoundingClientRect();
               setCell({
@@ -369,6 +471,70 @@ function NativeResult({
         native cells. Completion does not authorize public publication or
         establish a cause.
       </p>
+      {current && (
+        <section
+          className="sar-result-interpretation"
+          aria-label="Interpret this private result"
+        >
+          <h3>What does this result support?</h3>
+          <div className="sar-meaning-columns">
+            <div>
+              <h4>Recorded evidence</h4>
+              <p>{guidance.observed}</p>
+            </div>
+            <div>
+              <h4>Not determined</h4>
+              <p>{guidance.notDetermined}</p>
+            </div>
+          </div>
+          <p>
+            Completion and checksum verification do not make this a reviewed
+            public study. Keep your interpretation separate from the source
+            measurements.
+          </p>
+          <label>
+            My interpretation or hypothesis (unverified)
+            <textarea
+              value={interpretation}
+              maxLength={4000}
+              rows={3}
+              onChange={(event) => setInterpretation(event.target.value)}
+            />
+          </label>
+          <label>
+            Useful next check
+            <select
+              value={nextCheck}
+              onChange={(event) => setNextCheck(event.target.value)}
+            >
+              <option value="">Choose a follow-up check</option>
+              {INSPECTION_NEXT_CHECKS.map((check) => (
+                <option key={check.id} value={check.id}>
+                  {check.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          {followUp && (
+            <p className="sar-note">
+              Why: {followUp.why} This check has not been performed.
+            </p>
+          )}
+          <div className="sar-actions">
+            <button type="button" onClick={downloadPrivateBrief}>
+              Download private investigation brief
+            </button>
+            <button type="button" onClick={onRefine}>
+              Refine and recheck these settings
+            </button>
+          </div>
+          <p className="sar-note">
+            Notes are not saved automatically and are cleared when this result
+            closes. Download a brief to keep them.
+          </p>
+          {briefStatus && <p role="status">{briefStatus}</p>}
+        </section>
+      )}
       <details>
         <summary>Method, geometry and source evidence</summary>
         <p>
@@ -437,16 +603,36 @@ function NativeResult({
   );
 }
 
-export function SarWorkbench() {
-  const [sourceId, setSource] = useState<SarSourceId>("nisar"),
-    [area, setArea] = useState(PRESETS.nisar.bbox),
-    [start, setStart] = useState(PRESETS.nisar.start),
-    [end, setEnd] = useState(PRESETS.nisar.end);
-  const [pixelWindow, setPixelWindow] = useState("3700,5600,128,128");
-  const [product, setProduct] = useState("GCOV"),
-    [channel, setChannel] = useState("HH"),
-    [operation, setOperation] = useState("backscatter-observation");
-  const [component, setComponent] = useState("slant-range"), [layer, setLayer] = useState(1);
+export function SarWorkbench({
+  initialInvestigation = null,
+}: {
+  initialInvestigation?: string | null;
+}) {
+  const initialPoint = sarStartingPoint(initialInvestigation);
+  const [startingPoint, setStartingPoint] = useState(initialPoint?.id ?? "");
+  const [preparedQuestion, setPreparedQuestion] = useState(
+    initialPoint?.id ?? "",
+  );
+  const [sourceId, setSource] = useState<SarSourceId>(
+      initialPoint?.sourceId ?? "nisar",
+    ),
+    [area, setArea] = useState(
+      initialPoint?.bbox.join(",") ?? PRESETS.nisar.bbox,
+    ),
+    [start, setStart] = useState(initialPoint?.start ?? PRESETS.nisar.start),
+    [end, setEnd] = useState(initialPoint?.end ?? PRESETS.nisar.end);
+  const [pixelWindow, setPixelWindow] = useState(
+    initialPoint?.pixelWindow?.join(",") ?? "3700,5600,128,128",
+  );
+  const [product, setProduct] = useState<string>(
+      initialPoint?.product ?? "GCOV",
+    ),
+    [channel, setChannel] = useState<string>(initialPoint?.channel ?? "HH"),
+    [operation, setOperation] = useState<string>(
+      initialPoint?.operation ?? "backscatter-observation",
+    );
+  const [component, setComponent] = useState("slant-range"),
+    [layer, setLayer] = useState(1);
   const [records, setRecords] = useState<SarRecord[]>([]),
     [selected, setSelected] = useState<string[]>([]),
     [jobs, setJobs] = useState<SarJob[]>([]),
@@ -457,6 +643,7 @@ export function SarWorkbench() {
     } | null>(null),
     [busy, setBusy] = useState(""),
     [message, setMessage] = useState("");
+  const hasPrivateAccess = useRef(false);
   const epoch = useRef(0),
     controllers = useRef(new Set<AbortController>()),
     submitKey = useRef<{ fingerprint: string; key: string } | null>(null),
@@ -473,6 +660,22 @@ export function SarWorkbench() {
       ? { pixelWindow: numbers(pixelWindow) }
       : {}),
   };
+  const questionPoint = sarStartingPoint(preparedQuestion);
+  const questionMatches =
+    questionPoint &&
+    questionPoint.sourceId === sourceId &&
+    questionPoint.product === product &&
+    questionPoint.operation === operation &&
+    questionPoint.channel === channel &&
+    questionPoint.start === start &&
+    questionPoint.end === end &&
+    numbers(area).every(
+      (value, index) => value === questionPoint.bbox[index],
+    ) &&
+    numbers(area).length === 4 &&
+    (operation !== "native-observation" ||
+      JSON.stringify(numbers(pixelWindow)) ===
+        JSON.stringify(questionPoint.pixelWindow));
   const parsed = sarStudyRequestSchema.safeParse(requestInput),
     fingerprint = JSON.stringify(requestInput);
   const currentPlan = plan?.fingerprint === fingerprint ? plan.value : null;
@@ -501,13 +704,13 @@ export function SarWorkbench() {
     setBusy("");
     setMessage(message);
   }, []);
-  const authExpired = useCallback(
-    () =>
-      clearPrivate(
-        "Your session expired. Sign in using Collaborator access, then refresh history. Published studies remain open.",
-      ),
-    [clearPrivate],
-  );
+  const authExpired = useCallback(() => {
+    const message = hasPrivateAccess.current
+      ? "Your session expired. Sign in using Collaborator access, then refresh history. Published studies remain open."
+      : "Sign in using Collaborator access to search and process your own studies. Verified public evidence remains open.";
+    hasPrivateAccess.current = false;
+    clearPrivate(message);
+  }, [clearPrivate]);
   function invalidate() {
     epoch.current++;
     controllers.current.forEach((c) => c.abort());
@@ -544,7 +747,10 @@ export function SarWorkbench() {
       });
       if (!response.ok) throw await failure(response);
       const data: unknown = await response.json();
-      if (generation === epoch.current && !abort.signal.aborted) apply(data);
+      if (generation === epoch.current && !abort.signal.aborted) {
+        apply(data);
+        hasPrivateAccess.current = true;
+      }
     } catch (e) {
       if (
         generation === epoch.current &&
@@ -584,13 +790,18 @@ export function SarWorkbench() {
         const data = z
           .object({ jobs: z.array(sarJobSchema) })
           .parse(await r.json());
-        if (mounted && generation === epoch.current) setJobs(data.jobs);
+        if (mounted && generation === epoch.current) {
+          setJobs(data.jobs);
+          hasPrivateAccess.current = true;
+        }
       })
       .catch((e) => {
         if (!mounted || generation !== epoch.current || abort.signal.aborted)
           return;
-        if (e instanceof ServiceError && e.status === 401) authExpired();
-        else
+        if (e instanceof ServiceError && e.status === 401) {
+          if (hasPrivateAccess.current) authExpired();
+          else clearPrivate("");
+        } else
           setMessage(
             e instanceof Error
               ? e.message
@@ -598,10 +809,12 @@ export function SarWorkbench() {
           );
       })
       .finally(() => pending.delete(abort));
-    const auth = () =>
+    const auth = () => {
+      hasPrivateAccess.current = false;
       clearPrivate(
         "Account changed. Refresh your study history to load this account's results.",
       );
+    };
     window.addEventListener("earthsignal-auth-changed", auth);
     return () => {
       mounted = false;
@@ -635,6 +848,61 @@ export function SarWorkbench() {
       setSelected([]);
     }
   }
+  function prepareQuestion(point: SarStartingPoint) {
+    invalidate();
+    setSource(point.sourceId);
+    setArea(point.bbox.join(","));
+    setStart(point.start);
+    setEnd(point.end);
+    setProduct(point.product);
+    setOperation(point.operation);
+    setChannel(point.channel);
+    setPixelWindow(point.pixelWindow?.join(",") ?? "3700,5600,128,128");
+    setRecords([]);
+    setSelected([]);
+    setActiveId(null);
+    setPreparedQuestion(point.id);
+    setMessage(
+      "Example settings loaded. Review or edit them, then search for original records. No job has started.",
+    );
+  }
+  function refineJob(job: SarJob) {
+    const result = job.result;
+    if (!result) return;
+    invalidate();
+    const request = job.request;
+    setSource(request.sourceId);
+    setArea(request.bbox.join(","));
+    setOperation(request.operation);
+    setChannel(request.channel);
+    setPixelWindow(request.pixelWindow?.join(",") ?? "3700,5600,128,128");
+    setComponent(request.component ?? "slant-range");
+    setLayer(request.layer ?? 1);
+    const product = result.records[0]?.product;
+    setProduct(
+      product && ["GCOV", "GUNW", "GOFF", "GSLC"].includes(product)
+        ? product
+        : "GCOV",
+    );
+    const dates = result.records
+      .flatMap((record) => [record.acquiredAt, record.endAt])
+      .filter(
+        (date): date is string =>
+          typeof date === "string" && /^\d{4}-\d{2}-\d{2}/.test(date),
+      )
+      .map((date) => date.slice(0, 10))
+      .sort();
+    setStart(dates[0] ?? "");
+    setEnd(dates.at(-1) ?? "");
+    setRecords(result.records);
+    setSelected(request.recordIds);
+    setStartingPoint("");
+    setPreparedQuestion("");
+    setMessage(
+      "Loaded the source records, crop and quantity from this result. Review or edit them and inspect a new plan; no job has started.",
+    );
+    document.getElementById("native-question-title")?.focus();
+  }
   function updateJob(body: unknown) {
     const j = sarJobSchema.parse(body);
     setJobs((previous) => [j, ...previous.filter((x) => x.id !== j.id)]);
@@ -644,22 +912,136 @@ export function SarWorkbench() {
     <section className="sar-workbench" aria-labelledby="sar-title">
       <header className="sar-intro">
         <div>
-          <span className="sar-kicker">
-            Advanced tools · Dancing with the SARs
-          </span>
-          <h1 id="sar-title">
-            From a source record
-            <br />
-            to evidence you can inspect.
-          </h1>
+          <h1 id="sar-title">Follow a question to the evidence.</h1>
           <p>
-            Discover original radar observations, check what a method can
-            support, then run a bounded native-grid study. Broader science lives
-            here; the main story follows Tehran and Tokyo.
+            Explore a reviewed observation or prepare your own native-data
+            investigation. See what was measured, test an interpretation, and
+            choose the next useful check.
           </p>
         </div>
-        <Link href="/">Return to the Tehran & Tokyo story ↗</Link>
+        <Link href="/">Back to the Tehran & Tokyo story</Link>
       </header>
+      <nav className="sar-entry-paths" aria-label="Choose your investigation">
+        <a href="#verified-investigations">
+          <strong>Explore verified evidence</strong>
+          <span>
+            Start with a real question. Inspect original values and their limits
+            without signing in.
+          </span>
+        </a>
+        <a href="#native-investigation">
+          <strong>Investigate a question</strong>
+          <span>
+            Set your place, source and method. Keep full control over a private,
+            bounded study.
+          </span>
+        </a>
+      </nav>
+      <section
+        className="sar-published sar-question-gallery"
+        id="verified-investigations"
+        aria-labelledby="verified-title"
+      >
+        <h2 id="verified-title">What would you like to understand?</h2>
+        <p>
+          Each question opens real, reviewed evidence. The measured quantity
+          determines what you can learn from it.
+        </p>
+        <div className="sar-published-grid">
+          {PUBLIC_STUDIES.filter(
+            (s, i, all) => all.findIndex((other) => other.id === s.id) === i,
+          ).map((s) => {
+            const guide = studyQuestion(s);
+            return (
+              <article key={`${s.id}:${s.revision}`}>
+                <div>
+                  <h3>
+                    <a href={s.href}>{guide.question}</a>
+                  </h3>
+                  <p>{guide.learn}</p>
+                  <p className="sar-note">
+                    {s.period.start}
+                    {s.period.end !== s.period.start &&
+                      ` to ${s.period.end}`} · {s.unit} · {s.maturity}
+                  </p>
+                </div>
+                <div>
+                  <p>{guide.limit}</p>
+                  <div className="sar-actions">
+                    <a href={s.href}>Explore this study</a>
+                    <a
+                      href={`/api/public-studies/${s.id}?revision=${s.revision}`}
+                    >
+                      Pinned evidence revision
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+      <section
+        className="sar-question-setup"
+        id="native-investigation"
+        aria-labelledby="native-question-title"
+      >
+        <h2 id="native-question-title" tabIndex={-1}>
+          Prepare your own investigation.
+        </h2>
+        <p>
+          Choose a worked starting point or use the controls directly. Loading
+          settings does not search the archive or start a job.
+        </p>
+        <div className="sar-starting-point">
+          <label>
+            Question starting point
+            <select
+              value={startingPoint}
+              onChange={(event) => setStartingPoint(event.target.value)}
+            >
+              <option value="">Custom settings</option>
+              {SAR_STARTING_POINTS.map((point) => (
+                <option key={point.id} value={point.id}>
+                  {point.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            disabled={!sarStartingPoint(startingPoint) || !!busy}
+            onClick={() => {
+              const point = sarStartingPoint(startingPoint);
+              if (point) prepareQuestion(point);
+            }}
+          >
+            Use these settings
+          </button>
+        </div>
+        {initialInvestigation !== null && !initialPoint && (
+          <p className="sar-message" role="status">
+            That starting point is unavailable. Choose another example or use
+            custom settings below.
+          </p>
+        )}
+        {questionMatches && (
+          <div className="sar-question-context" role="status">
+            <h3>{questionPoint.question}</h3>
+            <p>{questionPoint.meaning}</p>
+            <p className="sar-note">
+              These are editable example settings. Your selected records and
+              processing plan determine the result. Search, choose acquisitions,
+              then inspect the plan.
+            </p>
+          </div>
+        )}
+        <ol className="sar-task-route">
+          <li>Find an acquisition with usable coverage.</li>
+          <li>Check its quantity, compatibility and processing limits.</li>
+          <li>Inspect the native result and choose a follow-up check.</li>
+        </ol>
+      </section>
       <nav className="sar-source-tabs" aria-label="Radar data source">
         {SAR_SOURCES.map((s) => (
           <button
@@ -773,7 +1155,9 @@ export function SarWorkbench() {
                       setOperation(
                         e.target.value === "GUNW"
                           ? "los-displacement"
-                          : e.target.value === "GOFF" ? "pixel-offset" : "backscatter-observation",
+                          : e.target.value === "GOFF"
+                            ? "pixel-offset"
+                            : "backscatter-observation",
                       );
                     }, true)
                   }
@@ -852,12 +1236,17 @@ export function SarWorkbench() {
                 })
               }
             >
-              {!(sourceId === "nisar" && ["GUNW", "GOFF"].includes(product)) && (
+              {!(
+                sourceId === "nisar" && ["GUNW", "GOFF"].includes(product)
+              ) && (
                 <option value="backscatter-observation">
                   Calibrated backscatter · one acquisition
                 </option>
               )}
-              {!(sourceId === "nisar" && ["GUNW", "GOFF", "GSLC"].includes(product)) && (
+              {!(
+                sourceId === "nisar" &&
+                ["GUNW", "GOFF", "GSLC"].includes(product)
+              ) && (
                 <option value="backscatter-change">
                   Backscatter difference · two acquisitions
                 </option>
@@ -868,7 +1257,9 @@ export function SarWorkbench() {
                 </option>
               )}
               {sourceId === "nisar" && product === "GOFF" && (
-                <option value="pixel-offset">Native pixel offset · one GOFF pair</option>
+                <option value="pixel-offset">
+                  Native pixel offset · one GOFF pair
+                </option>
               )}
               {sourceId === "radarsat-1" && (
                 <option value="native-observation">
@@ -877,14 +1268,33 @@ export function SarWorkbench() {
               )}
             </select>
           </label>
-          {operation === "pixel-offset" && <div className="sar-fields">
-            <label>Offset component<select value={component} onChange={e => edit(() => setComponent(e.target.value))}>
-              <option value="slant-range">Slant range</option><option value="along-track">Along track</option>
-            </select></label>
-            <label>Matching layer<select value={layer} onChange={e => edit(() => setLayer(Number(e.target.value)))}>
-              {[1,2,3].map(n => <option key={n} value={n}>Layer {n}</option>)}
-            </select></label>
-          </div>}
+          {operation === "pixel-offset" && (
+            <div className="sar-fields">
+              <label>
+                Offset component
+                <select
+                  value={component}
+                  onChange={(e) => edit(() => setComponent(e.target.value))}
+                >
+                  <option value="slant-range">Slant range</option>
+                  <option value="along-track">Along track</option>
+                </select>
+              </label>
+              <label>
+                Matching layer
+                <select
+                  value={layer}
+                  onChange={(e) => edit(() => setLayer(Number(e.target.value)))}
+                >
+                  {[1, 2, 3].map((n) => (
+                    <option key={n} value={n}>
+                      Layer {n}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          )}
           {operation === "native-observation" && (
             <label>
               Native pixel window · column, row, width, height
@@ -984,8 +1394,10 @@ export function SarWorkbench() {
             <p className="sar-note">
               {parsed.success
                 ? "The selected record does not list this channel. Choose a matching channel or acquisition."
-                : selected.length === 0 ? "Choose an original acquisition above to inspect its processing plan." : (parsed.error.issues[0]?.message ??
-                  "Select the required records and a small crop before inspecting the plan.")}
+                : selected.length === 0
+                  ? "Choose an original acquisition above to inspect its processing plan."
+                  : (parsed.error.issues[0]?.message ??
+                    "Select the required records and a small crop before inspecting the plan.")}
             </p>
           )}
           {currentPlan && (
@@ -1017,8 +1429,10 @@ export function SarWorkbench() {
             <strong>One result, one physical meaning.</strong>
             <p>
               Backscatter change uses dB. A GUNW pair describes relative motion
-              along the radar line of sight in mm. GOFF reports a native component offset in metres, with residual outliers possible. Neither diagnoses structural
-              safety, and neither turns missing observations into zero.
+              along the radar line of sight in mm. GOFF reports a native
+              component offset in metres, with residual outliers possible.
+              Neither diagnoses structural safety, and neither turns missing
+              observations into zero.
             </p>
           </aside>
         </section>
@@ -1142,47 +1556,43 @@ export function SarWorkbench() {
                 key={active.id}
                 job={active}
                 onAuthExpired={authExpired}
+                onRefine={() => refineJob(active)}
               />
             )}
           </div>
         )}
       </section>
-      <section className="sar-published">
-        <span className="sar-kicker">Reviewed public evidence</span>
-        <h2>Start with a verified study.</h2>
-        <div className="sar-published-grid">
-          {PUBLIC_STUDIES.map((s) => (
-            <article key={`${s.id}:${s.revision}`}>
-              <h3>{s.title}</h3>
+      <details className="sar-resources">
+        <summary>
+          Source readiness · checked {SOURCE_READINESS.checkedOn}
+        </summary>
+        <p>{SOURCE_READINESS.notice}</p>
+        <div className="sar-resource-grid">
+          {SOURCE_READINESS.sources.map((s) => (
+            <article key={s.sourceId}>
+              <h3>
+                {SAR_SOURCES.find((source) => source.id === s.sourceId)?.name}
+              </h3>
               <p>
-                {s.period.start} — {s.period.end} · {s.maturity}
+                {s.exampleVerified
+                  ? "Source values independently verified"
+                  : "Original-source numerical verification pending"}
               </p>
-              <p>{s.notice}</p>
+              <p>{s.detail}</p>
               <p>
-                {(s.coverageFraction * 100).toFixed(1)}% valid coverage ·{" "}
-                {s.unit}
+                <strong>Current limit:</strong> {s.gate}
               </p>
-              <div className="sar-actions">
-                <a href={s.href}>Explore this study ↗</a>
-                <a href={`/api/public-studies/${s.id}?revision=${s.revision}`}>
-                  Pinned evidence revision
-                </a>
-              </div>
+              <p>{s.nextAction}</p>
+              {s.operations.length > 0 && (
+                <ul>
+                  {s.operations.map((op) => (
+                    <li key={op}>{op}</li>
+                  ))}
+                </ul>
+              )}
             </article>
           ))}
         </div>
-      </section>
-      <details className="sar-resources">
-        <summary>Source readiness · checked {SOURCE_READINESS.checkedOn}</summary>
-        <p>{SOURCE_READINESS.notice}</p>
-        <div className="sar-resource-grid">{SOURCE_READINESS.sources.map(s => <article key={s.sourceId}>
-          <h3>{SAR_SOURCES.find(source => source.id === s.sourceId)?.name}</h3>
-          <p>{s.exampleVerified ? "Source values independently verified" : "Original-source numerical verification pending"}</p>
-          <p>{s.detail}</p>
-          <p><strong>Current limit:</strong> {s.gate}</p>
-          <p>{s.nextAction}</p>
-          {s.operations.length > 0 && <ul>{s.operations.map(op => <li key={op}>{op}</li>)}</ul>}
-        </article>)}</div>
       </details>
       <details className="sar-resources">
         <summary>
@@ -1198,7 +1608,15 @@ export function SarWorkbench() {
             <article key={r.id}>
               <span className="sar-kicker">{r.kind}</span>
               <h3>
-                <a href={OFFICIAL_CHALLENGE_RESOURCES.resources.find(original => original.id === r.id)?.challengeUrl ?? r.url} target="_blank" rel="noreferrer">
+                <a
+                  href={
+                    OFFICIAL_CHALLENGE_RESOURCES.resources.find(
+                      (original) => original.id === r.id,
+                    )?.challengeUrl ?? r.url
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {r.title} ↗
                 </a>
               </h3>

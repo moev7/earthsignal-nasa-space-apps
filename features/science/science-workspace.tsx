@@ -41,7 +41,7 @@ import { DecisionWorkspace } from "@/features/decisions/decision-workspace";
 import type { SearchNavigation, WorkspaceSearchEntry, WorkspaceSearchTarget } from "./workspace-search";
 import { currentSearchEpoch } from "./search-navigation";
 import { SarWorkbench } from "./sar-workbench";
-export function ScienceWorkspace({ publicStudyContext = null, initialView = "decisions" }: { publicStudyContext?: PublicStudyContext | null; initialView?: "decisions" | "sar" }) {
+export function ScienceWorkspace({ publicStudyContext = null, initialView = "decisions", initialSarInvestigation = null }: { publicStudyContext?: PublicStudyContext | null; initialView?: "decisions" | "sar"; initialSarInvestigation?: string | null }) {
   const model = useScience(publicStudyContext ? publicStudyCatalogQuery : undefined, publicStudyContext ? publicStudyRadarRequest(publicStudyContext) : null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [workspaceMode, setWorkspaceMode] = useState<"decisions" | "science" | "sar">(initialView);
@@ -121,7 +121,7 @@ export function ScienceWorkspace({ publicStudyContext = null, initialView = "dec
         <Link href={publicStudyExploreHref(publicStudyContext.selection)}>Back to the same radar selection</Link>
       </aside>}
 
-      {workspaceMode === "sar" && <SarWorkbench />}
+      {workspaceMode === "sar" && <SarWorkbench initialInvestigation={initialSarInvestigation} />}
       <div className="decision-frame" hidden={workspaceMode !== "decisions"}>
         <DecisionWorkspace publicStudyContext={publicStudyContext} onDiscoverPhoto={(point, start, end) => {
           model.clearSearchSelection();

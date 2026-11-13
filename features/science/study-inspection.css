@@ -1,0 +1,268 @@
+.study-inspection {
+  color: var(--earth-text);
+  font-family: var(--font-manrope), var(--earth-font), sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-width: 0;
+  color-scheme: dark;
+  caret-color: var(--earth-accent);
+  scrollbar-color: var(--earth-line) var(--earth-deep);
+}
+.study-inspection ::selection {
+  background: var(--earth-accent);
+  color: var(--earth-deep);
+}
+.study-inspection h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  max-width: 38ch;
+  margin: 0 0 var(--earth-space-4, 16px);
+  text-wrap: balance;
+}
+.study-inspection h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 var(--earth-space-4, 16px);
+  text-wrap: balance;
+}
+.study-inspection p {
+  max-width: 72ch;
+  margin: var(--earth-space-3, 12px) 0;
+  overflow-wrap: anywhere;
+}
+.study-inspection section {
+  border-top: 1px solid var(--earth-line);
+  padding-top: var(--earth-space-6, 24px);
+  margin-top: var(--earth-space-12, 48px);
+}
+.study-inspection .study-inspection-acquisitions {
+  padding-left: 20px;
+  color: var(--earth-muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.study-inspection .study-inspection-scene {
+  margin: var(--earth-space-8, 32px) 0;
+  min-width: 0;
+}
+.study-inspection .study-inspection-image-wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+  background: var(--earth-deep);
+}
+.study-inspection .study-inspection-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: fill;
+  image-rendering: pixelated;
+  cursor: crosshair;
+}
+.study-inspection .study-inspection-cursor {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--earth-text);
+  outline: 1px solid var(--earth-deep);
+  pointer-events: none;
+}
+.study-inspection .study-inspection-pin {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  min-width: 25px;
+  padding-inline: 3px;
+  height: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--earth-deep);
+  color: var(--earth-accent);
+  border: 1px solid var(--earth-accent);
+  pointer-events: none;
+}
+.study-inspection figcaption {
+  margin-top: var(--earth-space-4, 16px);
+  color: var(--earth-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 75ch;
+}
+.study-inspection .study-inspection-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--earth-space-4, 16px);
+  margin: var(--earth-space-6, 24px) 0;
+}
+.study-inspection label {
+  display: grid;
+  gap: var(--earth-space-2, 8px);
+  font-size: 15px;
+}
+.study-inspection .study-inspection-controls label {
+  width: min(140px, 100%);
+}
+.study-inspection input,
+.study-inspection button,
+.study-inspection textarea,
+.study-inspection select {
+  font: inherit;
+  line-height: 1.5;
+  min-height: 44px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 12px;
+  color: var(--earth-text);
+  background: var(--earth-deep);
+  border: 1px solid var(--earth-line);
+  border-radius: 6px;
+}
+.study-inspection button {
+  cursor: pointer;
+  white-space: normal;
+}
+.study-inspection button:hover:not(:disabled) {
+  border-color: var(--earth-accent);
+  background: var(--earth-surface);
+}
+.study-inspection button:disabled {
+  color: var(--earth-muted);
+  cursor: not-allowed;
+  border-style: dashed;
+}
+.study-inspection :focus-visible {
+  outline: 2px solid var(--earth-accent);
+  outline-offset: 4px;
+}
+.study-inspection textarea {
+  resize: vertical;
+  width: 100%;
+  min-height: 128px;
+}
+.study-inspection textarea::placeholder {
+  color: var(--earth-muted);
+  opacity: 1;
+}
+.study-inspection .study-inspection-reading {
+  display: block;
+  padding: var(--earth-space-4, 16px) 0;
+  border-block: 1px solid var(--earth-line);
+  font-size: clamp(18px, 2vw, 23px);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.study-inspection .study-inspection-pins {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--earth-space-6, 24px);
+  margin: var(--earth-space-6, 24px) 0;
+}
+.study-inspection .study-inspection-pins dt {
+  color: var(--earth-accent);
+  font-weight: 600;
+}
+.study-inspection .study-inspection-pins dd {
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.study-inspection .study-inspection-comparison {
+  padding-block: var(--earth-space-4, 16px);
+}
+.study-inspection .study-inspection-comparison strong {
+  color: var(--earth-accent);
+  font-variant-numeric: tabular-nums;
+}
+.study-inspection details {
+  border-top: 1px solid var(--earth-line);
+  padding-top: var(--earth-space-4, 16px);
+  margin-top: var(--earth-space-6, 24px);
+}
+.study-inspection summary {
+  min-height: 44px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.study-inspection code {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.study-inspection .study-inspection-profile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  margin-block: var(--earth-space-4, 16px);
+  background: var(--earth-deep);
+}
+.study-inspection .study-inspection-profile-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--earth-muted);
+  font-size: 14px;
+}
+.study-inspection-axis {
+  stroke: var(--earth-line);
+  fill: none;
+}
+.study-inspection-trace {
+  stroke: var(--earth-accent);
+  stroke-width: 1.5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.study-inspection-dot {
+  fill: var(--earth-accent);
+  stroke: var(--earth-deep);
+  stroke-width: 1;
+}
+.study-inspection-probe-line {
+  stroke: var(--earth-text);
+  stroke-dasharray: 3 4;
+  stroke-width: 1;
+}
+.study-inspection .study-inspection-brief label {
+  max-width: 72ch;
+  margin-block: var(--earth-space-6, 24px);
+}
+.study-inspection .study-inspection-download {
+  background: var(--earth-accent);
+  color: var(--earth-deep);
+  border-color: var(--earth-accent);
+  font-weight: 600;
+}
+.study-inspection .study-inspection-download:hover:not(:disabled) {
+  background: var(--earth-accent-hover);
+  color: var(--earth-deep);
+}
+@media (max-width: 600px) {
+  .study-inspection .study-inspection-pins {
+    grid-template-columns: 1fr;
+  }
+  .study-inspection .study-inspection-controls label {
+    flex: 1 1 100px;
+  }
+  .study-inspection .study-inspection-controls button {
+    flex: 1 1 120px;
+  }
+  .study-inspection .study-inspection-profile svg {
+    min-height: 150px;
+  }
+  .study-inspection select {
+    width: 100%;
+  }
+}

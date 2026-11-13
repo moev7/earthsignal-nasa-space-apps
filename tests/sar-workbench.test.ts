@@ -103,7 +103,9 @@ test("source discovery, preflight invalidation and account changes cannot enqueu
     );
     assert.equal(host.querySelectorAll(".sar-source-tabs button").length, 5);
     assert.equal(
-      host.querySelectorAll(".sar-resources:last-child .sar-resource-grid article").length,
+      host.querySelectorAll(
+        ".sar-resources:last-child .sar-resource-grid article",
+      ).length,
       14,
     );
     assert.equal(
@@ -253,6 +255,7 @@ async function scenario(
     unmount: () => Promise<void>;
     revoked: string[];
   }) => Promise<void>,
+  props: { initialInvestigation?: string | null } = {},
 ) {
   const css = registerHooks({
     load(url, context, next) {
@@ -301,7 +304,9 @@ async function scenario(
   };
   try {
     const { SarWorkbench } = await import("../features/science/sar-workbench");
-    await act(async () => root.render(React.createElement(SarWorkbench)));
+    await act(async () =>
+      root.render(React.createElement(SarWorkbench, props)),
+    );
     await run({
       host: host as unknown as HTMLElement,
       window,
@@ -707,6 +712,111 @@ test("a mismatched ready plan and blank crop cannot authorize processing; empty 
       await search();
       assert.match(host.textContent!, /not evidence of no change/);
       assert.equal(host.querySelectorAll(".sar-record").length, 0);
+    },
+  );
+});
+
+test("both first-screen routes work without a search and question presets keep scientific setup explicit", async () => {
+  const calls: string[] = [];
+  await scenario(
+    async (path, init) => {
+      calls.push(path);
+      if (path.endsWith("/search")) return searchResponse();
+      if (path.endsWith("/plan")) return planResponse(init);
+      return Response.json({ jobs: [] });
+    },
+    async ({ host, change, click, search, select }) => {
+      const paths = [...host.querySelectorAll(".sar-entry-paths a")];
+      assert.equal(paths.length, 2);
+      assert.equal(paths[0].getAttribute("href"), "#verified-investigations");
+      assert.equal(paths[1].getAttribute("href"), "#native-investigation");
+      assert.equal(
+        host.querySelectorAll("#verified-investigations article").length,
+        PUBLIC_STUDIES.length,
+      );
+      assert.ok(
+        host.querySelector('#verified-investigations a[href^="/studies/"]'),
+      );
+      await search();
+      await select();
+      await click("Inspect processing plan");
+      assert.ok(host.querySelector(".sar-plan"));
+      const count = calls.length;
+      await change("Question starting point", "arctic-magnitude");
+      await click("Use these settings");
+      assert.equal(
+        calls.length,
+        count,
+        "Loading a question must not search, preflight or submit",
+      );
+      assert.equal(host.querySelector(".sar-plan"), null);
+      assert.equal(host.querySelectorAll(".sar-record").length, 0);
+      assert.match(host.textContent!, /source-pixel window/);
+      assert.equal(
+        (
+          host.querySelector(
+            'option[value="native-observation"]',
+          ) as HTMLOptionElement
+        ).selected,
+        true,
+      );
+      assert.ok(
+        [...host.querySelectorAll("input")].some(
+          (i) => i.value === "3700,5600,128,128",
+        ),
+      );
+      await change("Crop", "-97.5,75.99,-97.49,76.00");
+      assert.equal(
+        host.querySelector(".sar-question-context"),
+        null,
+        "Edited settings must not keep the old question-specific explanation",
+      );
+    },
+  );
+});
+
+test("a revision-bound example handoff seeds editable controls without submitting or fetching science", async () => {
+  const calls: string[] = [];
+  await scenario(
+    async (path) => {
+      calls.push(path);
+      return Response.json({ jobs: [] });
+    },
+    async ({ host }) => {
+      assert.deepEqual(calls, ["/api/sar-studies"]);
+      assert.ok(
+        [...host.querySelectorAll("input")].some(
+          (i) => i.value === "-99.91,49.61,-99.9,49.62",
+        ),
+      );
+      assert.equal(
+        (host.querySelector('option[value="RR"]') as HTMLOptionElement)
+          .selected,
+        true,
+      );
+      assert.match(
+        host.querySelector(".sar-question-context")?.textContent ?? "",
+        /RR gamma0/,
+      );
+      const submit = [...host.querySelectorAll("button")].find((b) =>
+        b.textContent?.includes("Run native study"),
+      )!;
+      assert.equal(submit.disabled, true);
+    },
+    { initialInvestigation: "manitoba-echo" },
+  );
+});
+
+test("a first signed-out visit is not described as an expired session and an explicit request explains access", async () => {
+  await scenario(
+    async () => Response.json({ error: "Sign in required" }, { status: 401 }),
+    async ({ host, search }) => {
+      assert.doesNotMatch(host.textContent!, /session expired/);
+      assert.ok(host.querySelector("#verified-investigations"));
+      await search();
+      assert.match(host.textContent!, /Sign in using Collaborator access/);
+      assert.doesNotMatch(host.textContent!, /session expired/);
+      assert.equal(host.querySelector(".sar-plan"), null);
     },
   );
 });

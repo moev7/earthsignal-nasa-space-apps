@@ -1,3 +1,210 @@
-.published-sar{max-width:1200px;margin:auto;padding:32px 40px 64px;color:var(--earth-text);line-height:1.65;font-family:var(--font-manrope),sans-serif}
-.published-sar nav{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--earth-line);padding-bottom:24px;margin-bottom:40px}.published-sar nav a{display:flex;align-items:center;gap:12px}.published-sar nav svg{width:32px;height:32px}.published-sar a{color:var(--earth-accent);text-underline-offset:4px;overflow-wrap:anywhere}.published-sar h1{font-size:clamp(30px,4vw,48px);line-height:1.15;letter-spacing:-.025em;margin:0 0 16px}.published-sar h2{font-size:24px;line-height:1.3;margin:0 0 16px}.published-sar p{max-width:72ch}.published-sar header{margin-bottom:32px}.published-sar-main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,1fr);gap:40px;align-items:start}.published-sar figure{margin:0;min-width:0}.published-sar figure img{display:block;width:100%;height:auto;object-fit:contain;image-rendering:pixelated;background:var(--earth-deep);cursor:crosshair}.published-sar figcaption{font-size:14px;color:var(--earth-muted);margin-top:12px}.published-sar-coordinates{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}.published-sar label{display:grid;gap:8px}.published-sar input,.published-sar button{font:inherit;min-height:44px;min-width:0;padding:10px 12px;background:var(--earth-deep);border:1px solid var(--earth-line);border-radius:6px;color:var(--earth-text)}.published-sar output{display:block;font-size:24px;font-variant-numeric:tabular-nums;padding:16px 0;border-block:1px solid var(--earth-line);margin:16px 0}.published-sar dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px}.published-sar dt{color:var(--earth-muted)}.published-sar dd{margin:0;overflow-wrap:anywhere}.published-sar-context{margin:48px 0 32px}.published-sar li{margin:8px 0}.published-sar details{border-top:1px solid var(--earth-line);padding-top:20px}.published-sar summary{font-weight:600;cursor:pointer;min-height:44px}.published-sar code{overflow-wrap:anywhere;font-size:14px}.published-sar-downloads{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}.published-sar :focus-visible{outline:2px solid var(--earth-accent);outline-offset:4px}
-@media(max-width:720px){.published-sar{padding:24px 20px 48px}.published-sar-main{grid-template-columns:1fr;gap:32px}.published-sar nav{align-items:start;margin-bottom:32px;gap:20px}.published-sar dl{grid-template-columns:1fr;gap:4px}.published-sar dd{margin-bottom:12px}.published-sar figure img{max-height:none}}
+.published-sar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px 40px 64px;
+  color: var(--earth-text);
+  line-height: 1.65;
+  font-family: var(--font-manrope), sans-serif;
+}
+.published-sar nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--earth-line);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+.published-sar nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.published-sar nav svg {
+  width: 32px;
+  height: 32px;
+}
+.published-sar a {
+  color: var(--earth-accent);
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+.published-sar h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+.published-sar h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+.published-sar p {
+  max-width: 72ch;
+}
+.published-sar header {
+  margin-bottom: 32px;
+}
+.published-sar-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+.published-sar figure {
+  margin: 0;
+  min-width: 0;
+}
+.published-sar figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: var(--earth-deep);
+  cursor: crosshair;
+}
+.published-sar figcaption {
+  font-size: 14px;
+  color: var(--earth-muted);
+  margin-top: 12px;
+}
+.published-sar-coordinates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.published-sar label {
+  display: grid;
+  gap: 8px;
+}
+.published-sar input,
+.published-sar button {
+  font: inherit;
+  min-height: 44px;
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--earth-deep);
+  border: 1px solid var(--earth-line);
+  border-radius: 6px;
+  color: var(--earth-text);
+}
+.published-sar output {
+  display: block;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  padding: 16px 0;
+  border-block: 1px solid var(--earth-line);
+  margin: 16px 0;
+}
+.published-sar dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 20px;
+}
+.published-sar dt {
+  color: var(--earth-muted);
+}
+.published-sar dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.published-sar-context {
+  margin: 48px 0 32px;
+}
+.published-sar li {
+  margin: 8px 0;
+}
+.published-sar details {
+  border-top: 1px solid var(--earth-line);
+  padding-top: 20px;
+}
+.published-sar summary {
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+.published-sar code {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+.published-sar-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+.published-sar :focus-visible {
+  outline: 2px solid var(--earth-accent);
+  outline-offset: 4px;
+}
+@media (max-width: 720px) {
+  .published-sar {
+    padding: 24px 20px 48px;
+  }
+  .published-sar-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .published-sar nav {
+    align-items: start;
+    margin-bottom: 32px;
+    gap: 20px;
+  }
+  .published-sar dl {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .published-sar dd {
+    margin-bottom: 12px;
+  }
+  .published-sar figure img {
+    max-height: none;
+  }
+}
+.published-sar-eyebrow {
+  color: var(--earth-accent);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.published-sar-next {
+  margin-block: 48px;
+  padding-block: 28px;
+  border-top: 1px solid var(--earth-line);
+}
+.published-sar-next a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+@media (min-width: 1000px) {
+  .published-sar .study-inspection {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    column-gap: 36px;
+    align-items: start;
+  }
+  .published-sar .study-inspection > header,
+  .published-sar .study-inspection-profile,
+  .published-sar .study-inspection-meaning,
+  .published-sar .study-inspection-brief {
+    grid-column: 1/-1;
+  }
+  .published-sar .study-inspection-scene {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    position: sticky;
+    top: 24px;
+  }
+  .published-sar .study-inspection-probe {
+    grid-column: 2;
+    grid-row: 2;
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}

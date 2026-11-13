@@ -35,6 +35,35 @@ is exposed by `/api/sar-sources` and `/api/challenge-resources`, and readable in
 the workspace. `null` means unverified. Product support, runtime access, successful
 original-source verification and permission to publish are separate facts.
 
+## Two ways to investigate
+
+The first processor screen gives equal visibility to **Explore verified evidence**
+and **Investigate a question**. The open route starts with a question and a real,
+reviewed study. The analyst route jumps to the full source/product/date/AOI controls.
+Neither path needs a forced tour; private processing still requires collaborator access.
+
+Worked starting points populate the existing editable controls. They do not search,
+choose source records, bypass preflight or submit a job. Links from a published study
+use example settings only when its exact reviewed revision matches the preset;
+unknown starting points retain custom controls with an explicit message.
+
+Native public observations support two pinned sample locations, keyboard row/column
+selection and a native-row profile. A spatial B−A contrast is not a new temporal
+measurement. The power ratio is available only for a single calibrated backscatter
+observation in dB; raw source magnitudes, displacement, offsets and change products
+do not acquire that interpretation. Missing samples remain missing, including in
+profiles and exported briefs. Profile display thinning does not alter the native arrays.
+
+Quantity-specific explanations separate recorded evidence from what is not determined.
+Follow-up choices describe checks to perform, rather than completed validation or causal
+conclusions. A locally downloaded brief carries exact values/coordinates, dates, units,
+source maturity and revision provenance, plus clearly labelled unverified user notes.
+It is not uploaded, automatically saved, or promoted into the reviewed science.
+
+Numerical and DOM regression checks verify these interactions and scientific
+boundaries. Real-device rendering, human comprehension, field validation and
+decision-outcome studies are not claimed.
+
 ## Scientific quantities and actual checks
 
 | Source/product | Implemented computation | Original-source evidence / limit |
