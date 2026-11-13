@@ -443,7 +443,7 @@ def analyze(plan, directory):
                            "affine": list(transform)[:6], "cellAreaM2": 100,
                            "nominalSpacingToleranceM": 1e-9, "crossAssetTransformEquality": "exact",
                            "bandScales": 1, "bandOffsets": 0},
-            "crop": {**value["window"], "affine": list(transform @ rasterio.Affine.translation(384, 384))[:6]},
+            "crop": {**value["window"], "affine": list(transform * rasterio.Affine.translation(384, 384))[:6]},
             "units": {"input": "linear sigma0 power, provider asserted", "summary": "10 log10(power), dB",
                       "area": "native projected square metres", "percentileMethod": "linear"},
             "maskPolicy": {"rule": value["maskPolicy"],
