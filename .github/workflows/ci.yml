@@ -72,6 +72,7 @@ jobs:
             libgdal-dev \
             python3-gdal \
             python3-numpy \
+            python3-rasterio \
             python3-pil \
             python3-h5py \
             python3-pip \
@@ -80,7 +81,7 @@ jobs:
       - name: Run service tests with native GDAL
         run: |
           python3 -m venv --system-site-packages .venv
-          # Keep apt NumPy matched to the apt GDAL ABI. This checks exports, not production streaming.
+          # Keep NumPy, GDAL and rasterio together on the apt ABI; do not install the pip numerical requirements here.
           .venv/bin/pip install fastapi==0.118.0 uvicorn==0.38.0 httpx==0.28.1
           .venv/bin/python -m unittest discover -s service/tests -v
           # Atomic source replacement and interruption recovery require Linux.

@@ -112,14 +112,55 @@ class PublicRadarExportTests(unittest.TestCase):
                                       np.tile([245, 158, 11, 185], (714, 1)))
 
     def test_frozen_export_rebuild_and_read_only_check(self):
-        manifest = export_public_radar(check=True)
-        self.assertEqual(manifest, self.manifest)
+        before = {p.name: p.read_bytes() for p in OUTPUT.iterdir() if p.is_file()}
+        self.assertEqual(export_public_radar(check=True), self.manifest)
+        self.assertEqual(before, {p.name: p.read_bytes() for p in OUTPUT.iterdir() if p.is_file()})
         with tempfile.TemporaryDirectory() as tmp:
             destination = Path(tmp) / "public"
-            self.assertEqual(export_public_radar(destination), manifest)
-            self.assertEqual(export_public_radar(destination, check=True), manifest)
-            for name in (*manifest["files"], "manifest.json"):
+            rebuilt = export_public_radar(destination)
+            self.assertEqual(export_public_radar(destination, check=True), rebuilt)
+            self.assertEqual(rebuilt["source"], self.manifest["source"])
+            # Original TIFFs and the receipt are byte-exact on every platform.
+            for name in (*TIFF_NAMES, "verification.json"):
                 self.assertEqual((destination / name).read_bytes(), (OUTPUT / name).read_bytes())
+
+    def test_portable_check_allows_only_log_roundoff_and_lossless_png_encoding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            destination = Path(tmp)
+            manifest = export_public_radar(destination)
+            values_path = destination / "values.json"
+            original_values = json.loads(values_path.read_bytes())
+            values = copy.deepcopy(original_values)
+            index = next(i for i, v in enumerate(values["beforeDb"]) if v is not None)
+
+            def replace(name, raw):
+                (destination / name).write_bytes(raw)
+                manifest["files"][name] = {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
+                (destination / "manifest.json").write_text(json.dumps(manifest))
+
+            values["beforeDb"][index] += 1e-14
+            replace("values.json", json.dumps(values).encode())
+            image_path = destination / "before.png"
+            with Image.open(image_path) as image:
+                pixels = image.copy()
+            pixels.save(image_path, compress_level=0)
+            replace("before.png", image_path.read_bytes())
+            self.assertEqual(export_public_radar(destination, check=True), manifest)
+            values["beforeDb"][index] += 1e-8
+            replace("values.json", json.dumps(values).encode())
+            with self.assertRaisesRegex(ValueError, "values.json"):
+                export_public_radar(destination, check=True)
+            replace("values.json", json.dumps(original_values).encode())
+            values["beforeDb"][index] = None
+            replace("values.json", json.dumps(values).encode())
+            with self.assertRaisesRegex(ValueError, "values.json"):
+                export_public_radar(destination, check=True)
+            replace("values.json", json.dumps(original_values).encode())
+            pixels.putpixel((0, 0), (1, 2, 3, 255))
+            pixels.save(image_path)
+            replace("before.png", image_path.read_bytes())
+            with self.assertRaisesRegex(ValueError, "before.png"):
+                export_public_radar(destination, check=True)
 
     def test_corrupt_inputs_rejected_before_output(self):
         for name in ("manifest.json", *TIFF_NAMES, "verification.json"):

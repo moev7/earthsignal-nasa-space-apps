@@ -172,19 +172,61 @@ def _json_bytes(value):
     return (json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(",", ":")) + "\n").encode()
 
 
+def _check_export(output_dir, manifest, payloads):
+    """Verify file integrity and reconstructed content across libm/PNG builds.
+
+    Native TIFFs and receipts stay byte-exact. Float64 log10 can differ by a few
+    ulps across NumPy CPU implementations; PNG compression is not pixel content.
+    """
+    path = output_dir / "manifest.json"
+    _require(path.is_file(), "Frozen public export mismatch: manifest.json")
+    stored = json.loads(path.read_bytes())
+    _require({k: v for k, v in stored.items() if k != "files"} ==
+             {k: v for k, v in manifest.items() if k != "files"} and
+             set(stored.get("files", {})) == set(manifest["files"]),
+             "Frozen public export mismatch: manifest.json")
+    for name, expected in payloads.items():
+        if name == "manifest.json":
+            continue
+        path = output_dir / name
+        _require(path.is_file(), "Frozen public export mismatch: " + name)
+        raw = path.read_bytes()
+        _require(stored["files"][name] == {"bytes": len(raw),
+                 "sha256": hashlib.sha256(raw).hexdigest()},
+                 "Frozen public export integrity mismatch: " + name)
+        matches = raw == expected
+        if not matches and name == "values.json":
+            actual, rebuilt = json.loads(raw), json.loads(expected)
+            matches = (set(actual) == set(rebuilt) and
+                       all(actual[k] == rebuilt[k] for k in ("width", "height", "differenceDb")))
+            for key in ("beforeDb", "afterDb"):
+                left, right = actual.get(key, []), rebuilt[key]
+                if len(left) != len(right):
+                    matches = False
+                    break
+                # Preserve exact masks; permit only Float64 arithmetic roundoff.
+                if any((x is None) != (y is None) for x, y in zip(left, right)):
+                    matches = False
+                    break
+                valid = [(x, y) for x, y in zip(left, right) if y is not None]
+                matches = matches and np.allclose([x for x, _ in valid],
+                    [y for _, y in valid], rtol=0, atol=1e-12)
+        elif not matches and name.endswith(".png"):
+            with Image.open(io.BytesIO(raw)) as actual, Image.open(io.BytesIO(expected)) as rebuilt:
+                matches = (actual.mode == rebuilt.mode == "RGBA" and actual.size == rebuilt.size and
+                           np.array_equal(np.asarray(actual), np.asarray(rebuilt)))
+        _require(matches, "Frozen public export mismatch: " + name)
+    return stored
+
+
 def export_public_radar(output_dir=OUTPUT, *, check=False, source_dir=ROOT, verification_path=VERIFICATION):
     manifest, payloads = build_export(source_dir, verification_path)
     output_dir = Path(output_dir)
     if check:
-        # Rebuilding expected content also catches a corrupted file whose table hash
-        # was recomputed, or an altered source/stats/units in the public manifest.
-        for name, raw in payloads.items():
-            _require((output_dir / name).is_file() and (output_dir / name).read_bytes() == raw,
-                     "Frozen public export mismatch: " + name)
-    else:
-        output_dir.mkdir(parents=True, exist_ok=True)
-        for name, raw in payloads.items():
-            (output_dir / name).write_bytes(raw)
+        return _check_export(output_dir, manifest, payloads)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for name, raw in payloads.items():
+        (output_dir / name).write_bytes(raw)
     return manifest
 
 
