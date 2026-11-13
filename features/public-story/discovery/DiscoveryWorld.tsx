@@ -366,27 +366,33 @@ function StreetPlay({ onFinding }: { onFinding?: Found }) {
                 : "A big drop can stay level."}
             </h3>
           </div>
-          <div className="ed-actions play-primary-actions">
+          <div
+            className="ed-actions play-primary-actions"
+            role="group"
+            aria-label="Compare ground movement"
+          >
             <button
               type="button"
               aria-label="Settle together"
+              aria-pressed={tested.includes("together") && left === right}
               onClick={() => {
                 setEnds(18, 18);
                 cue("strain", 0);
               }}
             >
-              Move both together{" "}
+              Move together{" "}
               {tested.includes("together") && <Check size={16} />}
             </button>
             <button
               type="button"
               aria-label="Settle unevenly"
+              aria-pressed={tested.includes("uneven") && left !== right}
               onClick={() => {
                 setEnds(4, 18);
                 cue("strain", 14);
               }}
             >
-              Make a mismatch {tested.includes("uneven") && <Check size={16} />}
+              Move unevenly {tested.includes("uneven") && <Check size={16} />}
             </button>
           </div>
           <ConnectionGauge

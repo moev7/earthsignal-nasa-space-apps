@@ -85,7 +85,7 @@ test('actual explorer: hardware, finite clock, still steps and adversarial lifec
     await click('Follow an echo');
     assert.equal(host.querySelectorAll('.es-spacecraft-send').length, 1);
     assert.ok(button('Send a radar pulse').closest('.es-spacecraft-stage-actions'), 'the signal has one adjacent toolbar trigger');
-    assert.ok(host.querySelector('[data-artist-concept]'), 'credited fallback before load');
+    assert.equal(host.querySelectorAll('[data-artist-concept]').length, 0, 'loading uses the stable stage, not a photo that flashes on scroll');
     await click('2 · Ground echo'); assertPhase(MANUAL_PULSE.echo); assert.equal(requests, 0, 'manual fallback needs no RAF');
     assert.equal(intersections.size, 1); assert.equal(disclosure.open, true); assert.equal(window.document.visibilityState, 'visible');
     await visibility(true); assert.equal(made - disposed, 1, host.textContent!); assertPhase(MANUAL_PULSE.echo);
@@ -94,7 +94,12 @@ test('actual explorer: hardware, finite clock, still steps and adversarial lifec
     assert.deepEqual(flowChildren(),originalFlow,'ready does not add/remove normal-flow section children');
     assert.equal(host.querySelector('canvas')!.style.touchAction, 'pan-y');
     assert.equal(host.querySelector('canvas')!.style.pointerEvents, 'none');
-    assert.ok(host.querySelector('.es-spacecraft-sources [data-artist-concept]'), 'original source still available when 3D ready');
+    assert.equal(host.querySelectorAll('[data-artist-concept]').length, 0, 'no hidden photo layer beneath the live canvas');
+    const sources = host.querySelector('.es-spacecraft-sources') as typeof disclosure;
+    await act(async () => { sources.open = true; sources.dispatchEvent(new window.Event('toggle')); });
+    assert.ok(host.querySelector('.es-spacecraft-sources [data-artist-concept]'), 'original concept loads only when its source drawer is opened');
+    await act(async () => { sources.open = false; sources.dispatchEvent(new window.Event('toggle')); });
+    assert.equal(host.querySelectorAll('[data-artist-concept]').length, 0, 'closing sources removes its photo from the render tree');
     for (const part of PARTS) {
       await click(part.label); assert.equal(current!.selectedPart, part.id); assert.equal(views.at(-1), part.id);
       assert.equal(button(part.label).getAttribute('aria-pressed'), 'true');
@@ -140,7 +145,7 @@ test('actual explorer: hardware, finite clock, still steps and adversarial lifec
     for (const [phase, label] of [['send', '1 · Send'], ['echo', '2 · Ground echo'], ['receive', '3 · Receive']] as const) { await click(label); assertPhase(MANUAL_PULSE[phase]); }
     await click('Send a radar pulse'); assertPhase(MANUAL_PULSE.send); assert.equal(requests, atReduced, 'reduced motion uses zero RAF');
     await act(async () => { reduced = false; motions.forEach(callback => callback()); }); assert.equal(requests, atReduced);
-    key = await start(); const oldCanvas = host.querySelector('canvas'); await visibility(false); assert.deepEqual(flowChildren(),originalFlow,'leaving the scene cannot shift its own visibility boundary'); assert.equal(made, disposed); assert.equal(resizes.size, 0); await assertStale(key);
+    key = await start(); const oldCanvas = host.querySelector('canvas'); await visibility(false); assert.deepEqual(flowChildren(),originalFlow,'leaving the scene cannot shift its own visibility boundary'); assert.equal(made, disposed); assert.equal(resizes.size, 0); assert.equal(host.querySelectorAll('[data-artist-concept]').length, 0, 'scrolling offscreen never swaps the model for its concept photo'); await assertStale(key);
     await visibility(true); assert.deepEqual(flowChildren(),originalFlow); assert.notEqual(host.querySelector('canvas'), oldCanvas); assert.equal(made - disposed, 1); assert.equal(pending.size, 0);
     // Coalesced observer edges still invalidate/rebuild, even when React commits
     // only the final visible=true rather than an intermediate hidden render.

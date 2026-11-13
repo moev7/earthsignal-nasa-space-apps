@@ -27,6 +27,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
   const generation = useRef(0), raf = useRef<number | null>(null);
   const eligible = useRef(false), surfaceVisible = useRef(false), visibilityEpoch = useRef(0);
   const [mode, setMode] = useState<'hardware' | 'signal' | 'orbit'>('hardware');
+  const [sourcesOpen, setSourcesOpen] = useState(false);
   const [selected, setSelected] = useState<SpacecraftPart>('reflector');
   const [interactive, setInteractive] = useState(false);
   const [phase, setPhase] = useState<PulsePhase>('idle');
@@ -185,7 +186,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
     </div>
     <div className="es-spacecraft-stage" data-ready={usable} data-mode={mode}>
       <canvas hidden={mode === 'orbit'} key={`${retry}-${visible ? 'visible' : 'hidden'}`} ref={canvas} aria-hidden="true" style={{ visibility: usable ? 'visible' : 'hidden', pointerEvents: usable && interactive ? 'auto' : 'none', touchAction: usable && interactive ? 'none' : 'pan-y' }}/>
-      {mode === 'orbit' ? <OrbitalScale/> : !usable && <div className="es-spacecraft-fallback">{fallback}</div>}
+      {mode === 'orbit' ? <OrbitalScale/> : error && <div className="es-spacecraft-fallback">{fallback}</div>}
     {!usable && mode !== 'orbit' && <div className="es-spacecraft-status" role="status"><p>{error ?? (visible ? 'Preparing the 3D spacecraft…' : 'The 3D spacecraft loads when in view. Explore the hardware and signal steps below.')}</p>{error && <button type="button" onClick={() => { cancel(); setReady(false); setError(null); setRetry(value => value + 1); }}>Try 3D again</button>}</div>}
     </div>
     <p className="es-spacecraft-scale">{mode === 'orbit' ? 'Earth and orbit share one distance scale · spacecraft shown by an enlarged locator.' : mode === 'signal' ? 'Close-up schematic · radio path compressed; signal slowed for teaching.' : 'Spacecraft and Earth · schematic distance and relative size, chosen for clarity.'}</p>
@@ -211,7 +212,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
         <p className="es-spacecraft-hint">{paused ? 'Story paused · choose a still step.' : reduced ? 'Reduced motion · choose a still step.' : !usable ? 'Manual steps work without 3D.' : 'One short sequence per press; manual steps freeze each stage.'} A canceled pulse stays still until you send another.</p>
         <p className="es-spacecraft-science">This illustrates reflection only. Displacement needs comparison across repeat observations. <a href="#radar-model">Explore the repeat-pass radar lesson</a>.</p>
       </div>
-      <details className="es-spacecraft-sources"><summary>Sources, artist’s concept and context</summary><p>Procedural schematic, not engineering CAD, a live orbit, acquired imagery or a performance simulation. Hardware: <a href={HARDWARE_SOURCE}>NASA/JPL NISAR quick facts</a>. Earth texture: <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>, NASA GSFC / Reto Stöckli and Robert Simmon, a historical global mosaic for context. Earth and the spacecraft are deliberately shown at different scales. NISAR has both radar bands; the connected Tehran result uses L-band only, with no new S-band data.</p>{fallback}</details>
+      <details className="es-spacecraft-sources" onToggle={event => setSourcesOpen(event.currentTarget.open)}><summary>Sources, artist’s concept and context</summary><p>Procedural schematic, not engineering CAD, a live orbit, acquired imagery or a performance simulation. Hardware: <a href={HARDWARE_SOURCE}>NASA/JPL NISAR quick facts</a>. Earth texture: <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>, NASA GSFC / Reto Stöckli and Robert Simmon, a historical global mosaic for context. Earth and the spacecraft are deliberately shown at different scales. NISAR has both radar bands; the connected Tehran result uses L-band only, with no new S-band data.</p>{sourcesOpen && fallback}</details>
     </div>
   </div>;
 }

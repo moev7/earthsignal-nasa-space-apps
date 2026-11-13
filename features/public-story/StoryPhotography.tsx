@@ -1,11 +1,10 @@
 "use client";
 
-import { lazy, Suspense } from "react";
 import { SceneHelp } from "./StoryStage";
 import media from "@/docs/internal/story-media-sources.json";
+import NisarExplorer from "./spacecraft/NisarExplorer";
 
 type Photograph = "nisar" | "tehran" | "tokyo";
-const NisarExplorer = lazy(() => import("./spacecraft/NisarExplorer"));
 
 /** Context photographs and a spacecraft concept, kept distinct from data. */
 export function StoryPhotography({ subject, className = "" }: { subject: Photograph; className?: string }) {
@@ -29,7 +28,9 @@ export function StoryPhotography({ subject, className = "" }: { subject: Photogr
       </SceneHelp>
     </figcaption>
   </figure>;
+  // The light wrapper renders a stable frame immediately. Its heavy WebGL
+  // scene still loads only in view; do not flash a photo while it prepares.
   return subject === "nisar"
-    ? <Suspense fallback={photo}><NisarExplorer fallback={photo} className={className}/></Suspense>
+    ? <NisarExplorer fallback={photo} className={className}/>
     : photo;
 }

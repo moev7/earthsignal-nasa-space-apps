@@ -38,7 +38,7 @@ export function ConnectionGauge({
         </p>
       </header>
       <svg
-        viewBox="0 0 600 160"
+        viewBox={compact ? "0 0 600 140" : "0 0 600 160"}
         role="img"
         aria-label={`West pad${left}cm down,east${right}cm down,20m connectingstrip,localtilt${slope.toPrecision(3)}`}
       >
@@ -65,16 +65,19 @@ export function ConnectionGauge({
           stroke="var(--earth-text)"
           strokeDasharray="4 3"
         />
-        <text x="25" y="155">
-          WEST PAD
-        </text>
-        <text x="250" y="155">
-          20m JOIN
-        </text>
-        <text x="485" y="155">
-          EAST PAD
-        </text>
+        {!compact && (
+          <>
+            <text x="25" y="155">WEST PAD</text>
+            <text x="250" y="155">20m JOIN</text>
+            <text x="485" y="155">EAST PAD</text>
+          </>
+        )}
       </svg>
+      {compact && (
+        <div className="play-gauge-key" aria-hidden="true">
+          <span>West pad</span><span>20 m join</span><span>East pad</span>
+        </div>
+      )}
       <label>
         Inspection window{" "}
         <output>
