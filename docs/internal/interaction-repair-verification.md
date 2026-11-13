@@ -17,3 +17,9 @@ Based on `278a20b`, preserving the deployed photography, speech and data work.
 - Chrome advice: Claude Sonnet 5.5 Medium informed region/group/item spacing; browser DeepSeek informed clip ownership/duck-state counterexamples. Gemini Argon High was selected and a technical question submitted, but the conversation disappeared before a reply; no Gemini advice is claimed. Claude's later clarification failed to send. Individual consultation receipts and resource gates are recorded in the existing team.
 
 No physical iPhone/Safari or assistive-technology session was available. Responsive browser measurements are not claimed as physical-device verification. No radar math, measured bundles, masks, checksums, GUNW/GCOV units or Kokoro v2 narration text/cache changed.
+
+## T3 continuation completed — 13 November 2026
+
+The deployed `e40f77a` build contained the local scroll-height helper, but that helper's source file was omitted from its commit. This continuation publishes `lib/story-scroll.ts`, including the explicit per-layout reading clearance and the closed disclosure-height measurement already used by `StoryStage` and the viewport fitter. It preserves the implementation inspected in accepted OpenCode review `d2d44592a8d247f69ffa771fd13f3274`.
+
+Added direct regressions for nested open disclosures (counted once), permanent controls with hidden summaries, closed panels, layout-bound fallback, nonnegative height, and explicit desktop clearance. All 380 web tests pass, including the mounted stage and fitter checks; TypeScript, scoped ESLint and production build pass. The package verifies 15 measured ground-motion files and 10 radar-study files. No additional design changes or browser/device claims are introduced by this source-completeness repair.

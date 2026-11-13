@@ -1,7 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { Window } from "happy-dom";
 import {
   storyBeatIndex,
+  storyClosedHeight,
   storySceneCanPin,
   storySceneProgress,
   storyScrollProgress,
@@ -67,4 +69,58 @@ test("scene pinning reserves reading space across mobile chrome, enlarged text a
   assert.equal(storySceneCanPin(380, 760, 112, true), false);
   assert.equal(storySceneCanPin(0, 760, 112, false), false);
   assert.equal(storySceneCanPin(NaN, 760, 112, false), false);
+  assert.equal(
+    storySceneCanPin(580, 760, 112, false, 24),
+    true,
+    "desktop text beside the scene can use its explicit reading clearance",
+  );
+});
+
+test("expanded nested reading material is removed once while permanent scene chrome remains", async () => {
+  const window = new Window();
+  try {
+    const panel = window.document.createElement("div");
+    panel.innerHTML = `<details open id="outer"><summary>Instrument</summary>
+      <details open id="nested"><summary>Method</summary></details>
+      </details><details open id="sibling"><summary>Sources</summary></details>
+      <details open id="permanent"><summary hidden>Fixed controls</summary></details>`;
+    Object.defineProperty(panel, "offsetHeight", { value: 1000 });
+    const heights: Record<string, number> = {
+      outer: 400,
+      nested: 100,
+      sibling: 200,
+      permanent: 300,
+    };
+    for (const details of panel.querySelectorAll("details")) {
+      details.getBoundingClientRect = () =>
+        new window.DOMRect(0, 0, 400, heights[details.id]);
+      details.querySelector("summary")!.getBoundingClientRect = () =>
+        new window.DOMRect(0, 0, 400, 44);
+    }
+    assert.equal(
+      storyClosedHeight(panel as unknown as HTMLElement),
+      488,
+      "100px drawing plus summaries and fixed controls; nested content is not counted twice",
+    );
+  } finally {
+    await window.happyDOM.close();
+  }
+});
+
+test("closed-height measurement falls back to layout bounds and never becomes negative", async () => {
+  const window = new Window();
+  try {
+    const panel = window.document.createElement("div");
+    panel.innerHTML = "<details><summary>Inspect</summary></details>";
+    panel.getBoundingClientRect = () => new window.DOMRect(0, 0, 400, 500);
+    const details = panel.querySelector("details")!;
+    details.getBoundingClientRect = () => new window.DOMRect(0, 0, 400, 600);
+    details.querySelector("summary")!.getBoundingClientRect = () =>
+      new window.DOMRect(0, 0, 400, 44);
+    assert.equal(storyClosedHeight(panel as unknown as HTMLElement), 500);
+    details.open = true;
+    assert.equal(storyClosedHeight(panel as unknown as HTMLElement), 0);
+  } finally {
+    await window.happyDOM.close();
+  }
 });

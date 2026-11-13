@@ -18,6 +18,7 @@ export function storySceneCanPin(
   viewportHeight: number,
   inset: number,
   reduced: boolean,
+  clearance = storyReadingClearance(viewportHeight),
 ): boolean {
   // Leave room to actually read the next beat. Expanded controls, text zoom,
   // browser chrome and a landscape keyboard must never trap a tall scene.
@@ -25,8 +26,7 @@ export function storySceneCanPin(
     !reduced &&
     [stageHeight, viewportHeight, inset].every(Number.isFinite) &&
     stageHeight > 0 &&
-    viewportHeight - inset - stageHeight >=
-      storyReadingClearance(viewportHeight)
+    viewportHeight - inset - stageHeight >= clearance
   );
 }
 
@@ -55,4 +55,26 @@ export function storySceneProgress(
 ): number {
   // Reduced motion retains a still; the scene's explicit controls remain available.
   return paused || reduced ? previous : Math.max(0, Math.min(1, scroll));
+}
+
+/** Expanded reading material must not count as permanent scene chrome. Only
+ * outermost open disclosures count, so nested details are never subtracted twice. */
+export function storyClosedHeight(panel: HTMLElement): number {
+  let extra = 0;
+  for (const details of panel.querySelectorAll<HTMLDetailsElement>(
+    "details[open]",
+  )) {
+    if (details.parentElement?.closest("details[open]")) continue;
+    const summary = details.querySelector<HTMLElement>(":scope > summary");
+    if (summary && !summary.hidden)
+      extra += Math.max(
+        0,
+        details.getBoundingClientRect().height -
+          summary.getBoundingClientRect().height,
+      );
+  }
+  return Math.max(
+    0,
+    (panel.offsetHeight || panel.getBoundingClientRect().height) - extra,
+  );
 }
