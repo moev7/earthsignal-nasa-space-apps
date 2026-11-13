@@ -1,8 +1,18 @@
 # Earthsignal Documentation Hub
 
-Earthsignal is an environmental change observatory providing reproducible radar backscatter change detection, multi-source environmental context, and plain-language decision evidence.
+Earthsignal combines a public visual story about land subsidence, an optional five-station investigation game, frozen NISAR observations and a detailed scientific workspace. Start with the experience, then follow the methods or engineering path you need.
 
-Choose a reading path below. The detailed methods, contracts, operational manuals and historical checkpoints remain linked from this hub.
+## Start with the current experience
+
+- [Read the story](https://nasa.r8volt.com/) — follow water, ground motion and satellite echoes through interactive scenes.
+- [Play with Echo](https://nasa.r8volt.com/?mode=game#opening) — five hands-on discoveries with optional neural narration.
+- [Explore the observations](https://nasa.r8volt.com/explore) — Tehran ground motion, Tokyo context and Lake Mead radar images.
+- [Compare Tehran and Tokyo](https://nasa.r8volt.com/compare) — inspect the two case studies and their evidence boundaries.
+- [Public experience and verification](public-story.md) — feature integration, engine reuse and validation limits.
+- [Neural voice implementation](../voice/README.md) — reviewed cue bank, offline rendering and playback lifecycle.
+- [Advanced scientific workspace](https://nasa.r8volt.com/workspace) — the place-and-question workflow and underlying analysis tools.
+
+The detailed methods, contracts, operational manuals and historical checkpoints remain linked below.
 
 ---
 
