@@ -44,3 +44,32 @@
 .es-radar-lesson .es-radar-sources { margin-top:20px; padding-top:16px; border-top:1px solid var(--earth-line,#404948); color:var(--earth-muted,#b5bcb8); font-size:var(--earth-type-caption); line-height:1.8; }
 .es-radar-sources a { color:var(--earth-accent,#8bcec0); text-decoration:underline; text-underline-offset:3px; }
 @media(max-width:640px) { .es-radar-body { padding:18px; } .es-radar-heading { padding:16px 18px; } .es-radar-stage { height:380px; } .es-radar-scene-note { left:18px; font-size:var(--earth-type-caption); } .es-radar-ray-key { left:18px; gap:8px; font-size:var(--earth-type-caption); } .es-radar-lesson .es-radar-readings { grid-template-columns:repeat(2,minmax(0,1fr)); } .es-radar-lesson .es-radar-readings dd { font-size:1.4rem; } }
+
+/* Camera actions live beside the drawing, never on top of labels or probes. */
+.es-public.es-page-story .es-radar-lesson .es-radar-camera-bar { display:flex; flex-wrap:wrap; gap:8px; padding:12px 20px; align-items:center; }
+.es-public.es-page-story .es-radar-camera-bar button { min-width:44px; min-height:44px; }
+.es-public.es-page-story .es-radar-lesson .es-scene-gesture-hint { margin:0; padding:0 20px 16px; color:var(--earth-muted); font-size:var(--earth-type-caption); line-height:1.6; }
+.es-public.es-page-story .es-radar-lesson .es-radar-scene-note { padding:16px 20px 8px; gap:8px; line-height:1.6; }
+.es-public.es-page-story .es-radar-lesson .es-radar-ray-key { padding:12px 20px; gap:8px 20px; line-height:1.6; }
+.es-public.es-page-story .es-radar-lesson .es-radar-body { padding:0 20px 16px; }
+.es-public.es-page-story .es-radar-lesson .es-radar-explore-tools { margin-top:16px; gap:24px; }
+.es-public.es-page-story .es-radar-lesson .es-radar-readings { grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr)); gap:24px; }
+.es-public.es-page-story .es-radar-lesson .es-radar-readings dd { flex-wrap:wrap; gap:8px; line-height:1.4; }
+@media(max-width:640px) {
+ .es-public.es-page-story .es-radar-lesson :is(.es-radar-scene-note,.es-radar-ray-key,.es-radar-camera-bar,.es-radar-body,.es-scene-gesture-hint) { padding-inline:16px; }
+}
+
+/* Site names are repeated beside the instrument buttons/readings below. */
+.es-public.es-page-story .es-radar-scene-note .es-radar-selection-note { display:none; }
+
+.es-public.es-page-story .es-radar-ray-key > span:last-child { display:none; }
+@media(max-width:640px) {
+ .es-public.es-page-story .es-radar-lesson .es-radar-camera-bar { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px auto; }
+ .es-public.es-page-story .es-radar-camera-bar button { padding-inline:8px; font-size:14px; }
+}
+
+/* The story keeps one compact instrument entry; expanded content owns its own
+   spacing. Remove the old stacked shell padding, retaining 44px summaries. */
+.es-public.es-page-story .ea-radar-scene .es-radar-body { padding-block:0; }
+.es-public.es-page-story .ea-radar-scene .ed-radar-instruments { padding-block:0; }
+.es-public.es-page-story .ea-radar-scene .es-radar-camera-bar { padding-block:8px; }

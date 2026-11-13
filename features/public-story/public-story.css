@@ -380,3 +380,20 @@
 .es-public .es-radar-explore-section{padding-block:0}
 .es-public .es-radar-explore-section .es-radar-study{margin-top:0}
 @media(max-width:540px){.es-public .es-radar-explore-heading{padding-top:24px}.es-public .es-radar-explore-heading .es-study-navigation{gap:0 16px;font-size:.875rem}}
+
+/* Shared reading rhythm: regions own padding, controls own their hit area.
+   Disclosures and facts reflow with enlarged text instead of shrinking labels. */
+.es-public .es-disclosure-body { font-size:var(--earth-type-body); line-height:1.75; }
+.es-public .es-facts > div { gap:8px 24px; padding-block:12px; min-width:0; }
+.es-public .es-facts :is(dt,dd) { min-width:0; overflow-wrap:anywhere; line-height:1.6; }
+.es-public :is(.es-radar-actions,.es-radar-observations,.es-spacecraft-actions,.es-spacecraft-steps,.es-atlas-toolbar fieldset) { gap:12px; }
+.es-public :is(.ed-details,.es-radar-story-details,.es-spacecraft-camera,.es-spacecraft-sources)[open] > summary { margin-bottom:16px; }
+.es-public :is(.ed-details,.es-disclosure-body,.es-radar-story-details,.es-spacecraft-sources) :is(p,ul,ol,dl) + :is(p,ul,ol,dl,fieldset,details) { margin-top:20px; }
+.es-public :is(.ed-details,.es-disclosure-body,.es-radar-story-details,.es-spacecraft-sources) li + li { margin-top:12px; }
+.es-public :is(.es-atlas-inspector,.es-radar-study-inspector) { min-width:0; }
+.es-public :is(.es-atlas-fields,.es-radar-study-fields) { gap:16px 24px; }
+@media(max-width:760px) {
+ .es-public .es-disclosure-body { font-size:var(--earth-type-body); }
+ .es-public .es-facts > div { flex-direction:column; gap:8px; }
+ .es-public .es-facts dt { min-width:0; }
+}

@@ -471,3 +471,33 @@ test("actual provider creates and fetches only on consent; pause, tab/page visib
     }
   }
 });
+
+test("scroll beats and held phase share one wash; narrator duck survives effect cleanup and late bed creation", async () => {
+  const fixture = audioFixture(), ctx = new fixture.Audio();
+  ctx.state = "running";
+  const pending = new Map<string, (value: AudioBuffer) => void>();
+  const engine = createSoundscape(ctx as unknown as AudioContext, () => assert.fail("audio"), async url => new Promise(resolve => pending.set(url, resolve)));
+  engine.setAudible(true);
+  engine.duck(true);
+  pending.get(STORY_AUDIO.ambience)!({ duration: 40 } as AudioBuffer);
+  await ticks();
+  assert.equal(fixture.gains[1].gain.value, 0.055, "a late bed starts ducked");
+  const capture = engine.cue("capture");
+  pending.get(STORY_AUDIO.wash)!({ duration: 6 } as AudioBuffer);
+  await capture;
+  const active = () => fixture.sources.filter(s => !s.stopped);
+  for (let i = 0; i < 20; i++) await engine.cue(i % 2 ? "found" : "capture");
+  assert.equal(active().length, 2, "one bed plus exactly one wash, no retrigger pileup");
+  assert.equal(fixture.sources.length, 2, "repeated beats retain the playing recording");
+  await engine.respond("phase", 0.8, 0.6);
+  assert.equal(active().length, 2, "direct input transfers ownership of the same clip");
+  await engine.cue("capture");
+  assert.equal(active().length, 2, "a beat does not interrupt or duplicate the held texture");
+  engine.stopEffects();
+  assert.equal(active().length, 1);
+  assert.equal(fixture.gains[1].gain.value, 0.055, "effect cleanup cannot unduck ongoing narration");
+  engine.duck(false);
+  assert.equal(fixture.gains[1].gain.value, 0.26);
+  engine.dispose();
+  assert.equal(active().length, 0);
+});

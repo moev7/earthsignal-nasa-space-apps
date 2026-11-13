@@ -44,7 +44,7 @@
   .es-public .es-spacecraft-body { padding:16px; }
   .es-public .es-spacecraft-heading { padding:14px 16px; gap:12px; }
   .es-public .es-spacecraft-heading>span:last-child { display:none; }
-  .es-public .es-spacecraft-steps { gap:6px; }
+  .es-public .es-spacecraft-steps { gap:12px; }
   .es-public .es-spacecraft-steps button { flex-basis:80px; padding:10px 8px; }
 }
 
@@ -65,3 +65,8 @@
 }
 
 .es-public .es-orbital-scale input { display:block; width:100%; min-height:44px; accent-color:var(--es-accent); }
+
+.es-public .es-spacecraft-stage-actions { padding-bottom:12px; }
+.es-public .es-spacecraft-stage-actions button[aria-label^="Zoom"] { min-width:44px; }
+.es-public .es-spacecraft .es-spacecraft-camera[open] { padding-bottom:16px; }
+.es-public .es-spacecraft .es-spacecraft-sources[open] { padding-bottom:20px; }

@@ -157,7 +157,7 @@ export function JourneyCity({ progress }: { progress: number }) {
       }}
     >
       <div className="ea-scene-label">
-        <span>The same street. Unequal ground.</span>
+        <span>Uneven ground. One street.</span>
         <small>Invented 3D city</small>
       </div>
       <CityScene
@@ -170,9 +170,6 @@ export function JourneyCity({ progress }: { progress: number }) {
         ambient
         exhibition
       />
-      <p className="ea-scene-caption">
-        Scroll to change the ground. Explore in 3D to take the controls.
-      </p>
     </div>
   );
 }
@@ -186,8 +183,11 @@ export function JourneyRadar({ progress }: { progress: number }) {
   const phaseDetails = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
     const open = () => {
-      if (window.location.hash === "#phase-instrument" && phaseDetails.current)
+      if (window.location.hash === "#phase-instrument" && phaseDetails.current) {
         phaseDetails.current.open = true;
+        const instruments = phaseDetails.current.closest<HTMLDetailsElement>(".ed-radar-instruments");
+        if (instruments) instruments.open = true;
+      }
     };
     open();
     window.addEventListener("hashchange", open);
@@ -210,7 +210,7 @@ export function JourneyRadar({ progress }: { progress: number }) {
       }}
     >
       <div className="ea-scene-label">
-        <span>Two visits. One ground target.</span>
+        <span>Two visits. One target.</span>
         <small>Synthetic radar</small>
       </div>
       <InterferogramConcept
@@ -225,24 +225,26 @@ export function JourneyRadar({ progress }: { progress: number }) {
               selectedSite: "centre",
             }),
         }}
+        instrumentContent={
+            <details ref={phaseDetails} className="ed-details">
+              <summary id="phase-instrument">
+                Trace the phase &amp; the sinking together
+              </summary>
+              <PhaseInstrument
+                sinkingM={state.observation === "before" ? 0 : state.sinkingCm / 100}
+                probeX={state.probeXM ?? 120}
+                onProbe={(x) => setManual({ ...state, probeXM: x })}
+                onDepth={(depth) =>
+                  setManual({
+                    ...state,
+                    sinkingCm: depth * 100,
+                    observation: "compare",
+                  })
+                }
+              />
+            </details>
+        }
       />
-      <details ref={phaseDetails} className="ed-details">
-        <summary id="phase-instrument">
-          Trace the phase &amp; the sinking together
-        </summary>
-        <PhaseInstrument
-          sinkingM={state.observation === "before" ? 0 : state.sinkingCm / 100}
-          probeX={state.probeXM ?? 120}
-          onProbe={(x) => setManual({ ...state, probeXM: x })}
-          onDepth={(depth) =>
-            setManual({
-              ...state,
-              sinkingCm: depth * 100,
-              observation: "compare",
-            })
-          }
-        />
-      </details>
       {manual && (
         <button
           className="es-follow-story"

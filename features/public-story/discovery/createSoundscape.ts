@@ -12,6 +12,7 @@ type Voice = {
   source: AudioBufferSourceNode;
   gain: GainNode;
   lane: "bed" | "effect";
+  clip: Clip;
   filter: BiquadFilterNode | null;
 };
 
@@ -32,6 +33,13 @@ export function createSoundscape(
     bedEpoch = 0,
     effectEpoch = 0,
     bed: Voice | null = null;
+  let speaking = false;
+  const bedLevel = () => speaking ? 0.055 : [...voices].some(v => v.clip === "collapse") ? 0.07 : 0.26;
+  const syncBed = () => {
+    if (!bed) return;
+    bed.gain.gain.cancelScheduledValues(ctx.currentTime);
+    bed.gain.gain.linearRampToValueAtTime(bedLevel(), ctx.currentTime + 0.12);
+  };
   let gesture: Voice | null = null,
     gestureClip: Clip | null = null,
     gestureEpoch = 0,
@@ -81,16 +89,14 @@ export function createSoundscape(
     voices.delete(voice);
     if (voice === bed) bed = null;
     if (voice === gesture) gesture = null;
+    syncBed();
   };
   const stopEffects = () => {
     cancelGesture();
     effectEpoch++;
     for (const voice of [...voices])
       if (voice.lane === "effect") stopVoice(voice);
-    if (bed) {
-      bed.gain.gain.cancelScheduledValues(ctx.currentTime);
-      bed.gain.gain.setValueAtTime(0.26, ctx.currentTime);
-    }
+    syncBed();
   };
   const stop = () => {
     cancelGesture();
@@ -98,7 +104,7 @@ export function createSoundscape(
     effectEpoch++;
     for (const voice of [...voices]) stopVoice(voice);
   };
-  const voice = (audio: AudioBuffer, lane: Voice["lane"], level: number) => {
+  const voice = (audio: AudioBuffer, lane: Voice["lane"], level: number, clip: Clip) => {
     const source = ctx.createBufferSource(),
       gain = ctx.createGain();
     source.buffer = audio;
@@ -114,7 +120,7 @@ export function createSoundscape(
       filter.connect(gain);
     } else source.connect(gain);
     gain.connect(master);
-    const item: Voice = { source, gain, lane, filter };
+    const item: Voice = { source, gain, lane, filter, clip };
     voices.add(item);
     source.onended = () => {
       source.disconnect();
@@ -123,6 +129,7 @@ export function createSoundscape(
       voices.delete(item);
       if (bed === item) bed = null;
       if (gesture === item) gesture = null;
+      syncBed();
     };
     gain.gain.setValueAtTime(0, ctx.currentTime);
     gain.gain.linearRampToValueAtTime(
@@ -149,7 +156,7 @@ export function createSoundscape(
       if (ctx.state !== "running") await ctx.resume();
       if (!audible || disposed || epoch !== bedEpoch || ctx.state !== "running")
         return;
-      bed = voice(audio, "bed", 0.26);
+      bed = voice(audio, "bed", bedLevel(), "ambience");
     } catch {
       if (!disposed && audible && epoch === bedEpoch) onError();
     }
@@ -166,7 +173,6 @@ export function createSoundscape(
       void startBed();
       return;
     }
-    cancelGesture();
     const clip: Clip =
       kind === "water"
         ? "water"
@@ -175,6 +181,9 @@ export function createSoundscape(
           : kind === "collapse"
             ? "collapse"
             : "wash";
+    // A story beat never layers or restarts a texture already audible.
+    if ([...voices].some(v => v.clip === clip)) return;
+    cancelGesture();
     const epoch = ++effectEpoch;
     try {
       const audio = await buffer(clip);
@@ -185,6 +194,7 @@ export function createSoundscape(
         ctx.state !== "running"
       )
         return;
+      if ([...voices].some(v => v.clip === clip)) return;
       const effects = [...voices].filter((v) => v.lane === "effect");
       if (effects.length >= 3) stopVoice(effects[0]);
       const level =
@@ -195,21 +205,8 @@ export function createSoundscape(
             : kind === "water"
               ? 0.55
               : 0.25;
-      voice(audio, "effect", level);
-      if (kind === "collapse" && bed) {
-        const gain = bed.gain.gain;
-        gain.cancelScheduledValues(ctx.currentTime);
-        gain.setValueAtTime(0.26, ctx.currentTime);
-        gain.linearRampToValueAtTime(0.07, ctx.currentTime + 0.15);
-        gain.setValueAtTime(
-          0.07,
-          ctx.currentTime + Math.max(0.2, audio.duration - 0.8),
-        );
-        gain.linearRampToValueAtTime(
-          0.26,
-          ctx.currentTime + audio.duration + 0.6,
-        );
-      }
+      voice(audio, "effect", level, clip);
+      syncBed();
     } catch {
       if (!disposed && audible && epoch === effectEpoch) onError();
     }
@@ -291,7 +288,9 @@ export function createSoundscape(
         return;
       const effects = [...voices].filter((v) => v.lane === "effect");
       if (effects.length >= 3) stopVoice(effects[0]);
-      gesture = voice(audio, "effect", 0.1);
+      // Transfer this clip from a story accent to the held physical input.
+      for (const existing of [...voices]) if (existing.clip === clip) stopVoice(existing);
+      gesture = voice(audio, "effect", 0.1, clip);
       tune();
     } catch {
       if (!disposed && audible && epoch === gestureEpoch) onError();
@@ -301,15 +300,7 @@ export function createSoundscape(
   };
   return {
     setAudible,
-    duck: (speaking: boolean) => {
-      if (bed) {
-        bed.gain.gain.cancelScheduledValues(ctx.currentTime);
-        bed.gain.gain.linearRampToValueAtTime(
-          speaking ? 0.055 : 0.26,
-          ctx.currentTime + 0.12,
-        );
-      }
-    },
+    duck: (next: boolean) => { speaking = next; syncBed(); },
     cue,
     respond,
     stopEffects,

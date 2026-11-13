@@ -146,7 +146,7 @@
   min-height: 0;
 }
 .es-public .ea-radar-scene .es-radar-scene-note {
-  padding: 4px 0;
+  padding: 16px 20px;
 }
 .es-public .ea-radar-scene .es-radar-scene-note strong {
   font-size: 0.8125rem;
@@ -156,7 +156,7 @@
 }
 .es-public .ea-radar-scene .es-radar-ray-key {
   position: static;
-  padding: 8px 0;
+  padding: 12px 20px;
   font-size: var(--earth-type-caption);
   flex-wrap: wrap;
 }

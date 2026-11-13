@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { flushSync } from "react-dom";
 import { CircleHelp } from "lucide-react";
 import { useStory } from "@/features/ground-truth/components/story/StoryProvider";
 import { usePrefersReducedMotion } from "@/features/ground-truth/lib/useTimeline";
 import { useVisibleReplay } from "@/features/ground-truth/components/story/useVisibleReplay";
 import { useChapterPlayback } from "./quest/useChapterPlayback";
 import {
+  storyClosedHeight,
+  storyReadingClearance,
   storyBeatIndex,
   storySceneProgress,
   storyScrollProgress,
@@ -71,6 +74,8 @@ export function StoryStage({
   const [state, setState] = useState({ progress: 0, beat: 0, visible: false });
   const [manualBeat, setManualBeat] = useState<number | null>(null);
   const [canPin, setCanPin] = useState(false);
+  const releasedAfterInspection = useRef(false);
+  const inspection = useRef<{ originalY: number; heldY: number; restore: boolean } | null>(null);
   const playback = useChapterPlayback({
     enabled: stepped && animate,
     paused,
@@ -110,30 +115,33 @@ export function StoryStage({
           ? headerHeight + 12
           : Number.parseFloat(getComputedStyle(stage.current).top) || 120;
       const viewportHeight = storyViewportHeight();
+      if (bounds.top >= inset || bounds.bottom <= inset) releasedAfterInspection.current = false;
       setCanPin(
-        !stepped &&
+        !stepped && !releasedAfterInspection.current &&
           !stage.current.querySelector("details[open]") &&
           storySceneCanPin(
             stage.current.offsetHeight,
             viewportHeight,
             inset,
             reducedMotion,
+            window.innerWidth > 760 ? 24 : Math.min(96, storyReadingClearance(viewportHeight)),
           ),
       );
+      const expanded = Boolean(stage.current.querySelector("details[open]"));
       const raw = storyScrollProgress(
         bounds.top,
         bounds.height,
-        stage.current.offsetHeight,
+        storyClosedHeight(stage.current),
         inset,
       );
       const visible = bounds.bottom > inset && bounds.top < window.innerHeight;
       setState((previous) => {
         const progress = stepped
           ? previous.progress
-          : storySceneProgress(raw, previous.progress, paused, reducedMotion);
+          : storySceneProgress(raw, previous.progress, paused || expanded, reducedMotion);
         const beat = stepped
           ? previous.beat
-          : storyBeatIndex(raw, beats.length);
+          : expanded ? previous.beat : storyBeatIndex(raw, beats.length);
         return progress === previous.progress &&
           beat === previous.beat &&
           visible === previous.visible
@@ -157,6 +165,36 @@ export function StoryStage({
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     window.visualViewport?.addEventListener("resize", schedule);
+    // Keep the summary under the reader's finger when a tall disclosure
+    // releases/re-enters sticky flow. Commit before paint, not a later resize
+    // frame: otherwise scrolling back exposes one frame at the old position.
+    const toggleSummary = (event: Event) => {
+      const target = event.target as Element;
+      const summary = target.closest<HTMLElement>("summary");
+      if (!summary || !stage.current?.contains(summary) || target.closest("a,button,input,select,textarea,label")) return;
+      const details = summary.parentElement as HTMLDetailsElement;
+      const top = summary.getBoundingClientRect().top;
+      event.preventDefault();
+      const opening = !details.open;
+      if (inspection.current) inspection.current.restore &&= Math.abs(window.scrollY - inspection.current.heldY) < 1;
+      else if (opening) inspection.current = { originalY: window.scrollY, heldY: window.scrollY, restore: true };
+      flushSync(() => {
+        details.open = opening;
+        if (!stage.current?.querySelector("details[open]") && inspection.current) {
+          if (inspection.current.restore) window.scrollTo({ top: inspection.current.originalY, behavior: "instant" });
+          // After reading down a long panel, re-pinning would move its summary
+          // out from under the finger. Stay in flow until this chapter is exited.
+          else releasedAfterInspection.current = true;
+        }
+        measure();
+      });
+      const delta = summary.getBoundingClientRect().top - top;
+      if (Math.abs(delta) > 1) window.scrollBy({ top: delta, behavior: "instant" });
+      if (!stage.current?.querySelector("details[open]")) inspection.current = null;
+      else if (inspection.current) inspection.current.heldY = window.scrollY;
+      schedule();
+    };
+    observedGrid?.addEventListener("click", toggleSummary, true);
     observedGrid?.addEventListener("toggle", schedule, true);
     window.addEventListener("hashchange", schedule);
     window.addEventListener("popstate", schedule);
@@ -168,6 +206,7 @@ export function StoryStage({
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       window.visualViewport?.removeEventListener("resize", schedule);
+      observedGrid?.removeEventListener("click", toggleSummary, true);
       observedGrid?.removeEventListener("toggle", schedule, true);
       window.removeEventListener("hashchange", schedule);
       window.removeEventListener("popstate", schedule);
@@ -178,6 +217,8 @@ export function StoryStage({
     setState((previous) => ({ ...previous, progress: 0, beat: 0 }));
     setManualBeat(null);
     playback.clear();
+    inspection.current = null;
+    releasedAfterInspection.current = false;
     // Replaying changes the pose, never the reader's scroll position.
   });
   return (

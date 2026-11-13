@@ -70,7 +70,12 @@ export function createRadarScene(
     controls = new OrbitControls(camera, canvas);
     controls.enabled = false;
     controls.enableDamping = false;
-    controls.enablePan = false;
+    controls.enablePan = true;
+    controls.screenSpacePanning = true;
+    controls.rotateSpeed = 0.7;
+    controls.zoomSpeed = 0.8;
+    canvas.style.touchAction = "pan-y";
+    canvas.style.pointerEvents = "none";
     controls.minDistance = 9;
     controls.maxDistance = 60;
     controls.minPolarAngle = 0.08;
@@ -362,6 +367,8 @@ export function createRadarScene(
       }: RadarSceneState) {
         if (disposed) return;
         controls!.enabled = interactive;
+        canvas.style.touchAction = interactive ? "none" : "pan-y";
+        canvas.style.pointerEvents = interactive ? "auto" : "none";
         const shownSinking = observation === "before" ? 0 : sinkingM;
         for (let row = 0; row < count; row++)
           for (let col = 0; col < count; col++) {

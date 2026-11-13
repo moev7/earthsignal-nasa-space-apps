@@ -1,6 +1,6 @@
 export type SpacecraftPart = 'reflector' | 'arrays' | 'boom' | 'instruments';
 export type PulsePhase = 'idle' | 'send' | 'echo' | 'receive';
-export type CameraAction = 'overview' | SpacecraftPart | 'left' | 'right' | 'in' | 'out';
+export type CameraAction = 'overview' | SpacecraftPart | 'left' | 'right' | 'in' | 'out' | 'top';
 export interface SpacecraftState {
   selectedPart: SpacecraftPart;
   interactive: boolean;

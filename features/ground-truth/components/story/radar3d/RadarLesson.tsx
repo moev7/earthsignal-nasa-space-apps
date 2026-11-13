@@ -62,6 +62,7 @@ export function RadarLesson({
   story = false,
   onModelChange,
   children,
+  instrumentContent,
   experiment,
 }: {
   story?: boolean;
@@ -72,6 +73,7 @@ export function RadarLesson({
   onModelChange?: (state: RadarModelState) => void;
   experiment?: RadarExperimentControl;
   children?: ReactNode;
+  instrumentContent?: ReactNode;
 }) {
   const id = useId();
   const host = useRef<HTMLDivElement>(null);
@@ -343,8 +345,8 @@ export function RadarLesson({
             ? "Profile view · same 3D scene"
             : "t₁ + t₂ · same satellite position"}
         </strong>
-        <span>Radar path schematic · distance compressed · sinking ×240</span>
-        <span>
+        <span>Range compressed · sinking ×240</span>
+        <span className="es-radar-selection-note">
           Selected: {site.label} ·{" "}
           {colourMode === "phase" ? "wrapped phase" : "vertical sinking depth"}
         </span>
@@ -361,20 +363,6 @@ export function RadarLesson({
             visibility: usable ? "visible" : "hidden",
           }}
         />
-        {experiment && (
-          <button
-            type="button"
-            className="es-radar-quick-explore"
-            aria-label={
-              interactive ? "Finish orbiting the scene" : "Orbit the 3D scene"
-            }
-            aria-pressed={interactive}
-            disabled={!usable}
-            onClick={() => setInteractive(!interactive)}
-          >
-            {interactive ? "Finish exploring" : "Explore in 3D"}
-          </button>
-        )}
         {!usable && (
           <div className="es-radar-fallback" role="status">
             <strong>
@@ -403,9 +391,16 @@ export function RadarLesson({
           </div>
         )}
       </div>
+      <div className="es-radar-camera-bar" role="group" aria-label="Radar view controls">
+        <button type="button" aria-label={interactive ? "Finish orbiting the scene" : "Orbit the 3D scene"} aria-pressed={interactive} disabled={!usable} onClick={() => setInteractive(!interactive)}>{interactive ? "Finish exploring" : "Explore in 3D"}</button>
+        <button type="button" disabled={!usable} aria-label="Zoom radar in" onClick={() => view("in")}>+</button>
+        <button type="button" disabled={!usable} aria-label="Zoom radar out" onClick={() => view("out")}>−</button>
+        <button type="button" disabled={!usable} onClick={() => view("reset")}>Reset view</button>
+      </div>
+      {interactive && <p className="es-scene-gesture-hint">Drag to orbit · pinch or scroll to zoom · two fingers or right-drag to pan. Finish exploring to scroll the page.</p>}
       <div className="es-radar-ray-key" aria-hidden="true">
-        <span>┄ t₁ reference ray</span>
-        <span>━ t₂ repeat ray</span>
+        <span>┄ t₁ · reference</span>
+        <span>━ t₂ · repeat</span>
         <span>1 Centre · 2 Slope · 3 Stable edge</span>
       </div>
       <div className="es-radar-body">
@@ -415,7 +410,7 @@ export function RadarLesson({
           open={experiment ? undefined : true}
         >
           <summary hidden={!experiment}>
-            Instrument controls, readings &amp; model
+            Controls, readings &amp; model
           </summary>
           <div className="es-radar-explore-tools">
             <div>
@@ -616,6 +611,7 @@ export function RadarLesson({
                 : `${(sample.downM * 100).toFixed(2)} cm vertical sinking`}
             </p>
           </div>
+          {instrumentContent}
           <RadarTechnicalDetails story={story}>
             <p className="es-radar-explanation">
               One full phase colour cycle = 12 cm of{" "}

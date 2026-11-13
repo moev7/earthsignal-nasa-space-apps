@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { storyReadingClearance, storyViewportHeight } from "@/lib/story-scroll";
+import { storyClosedHeight, storyReadingClearance, storyViewportHeight } from "@/lib/story-scroll";
 
 /** Leave reading clearance after *all* caption/control chrome. */
 export function sceneCanvasBudget(
@@ -8,13 +8,14 @@ export function sceneCanvasBudget(
   header: number,
   chrome: number,
   preferred: number,
+  clearance = storyReadingClearance(viewport),
 ) {
   if (![viewport, header, chrome, preferred].every(Number.isFinite)) return 160;
   return Math.max(
     160,
     Math.min(
       preferred,
-      viewport - header - 12 - storyReadingClearance(viewport) - chrome - 8,
+      viewport - header - 12 - clearance - chrome - 8,
     ),
   );
 }
@@ -35,13 +36,16 @@ export function useSceneViewportFit(
       const stage = node.querySelector<HTMLElement>(stageSelector);
       const panel = node.closest<HTMLElement>(".es-story-visual");
       if (!stage || !panel) return;
+      // Inspection changes reading height, never the drawing or its camera.
+      // Keep the last admitted size until the disclosure closes.
+      if (panel.querySelector("details[open]")) return;
       const viewport = storyViewportHeight();
       const header =
         document.querySelector(".es-header")?.getBoundingClientRect().height ??
         116;
       const chrome = Math.max(
         0,
-        panel.getBoundingClientRect().height -
+        storyClosedHeight(panel) -
           stage.getBoundingClientRect().height,
       );
       const budget = Math.floor(
@@ -53,6 +57,7 @@ export function useSceneViewportFit(
             440,
             viewport * (window.innerWidth <= 760 ? smallRatio : largeRatio),
           ),
+          window.innerWidth > 760 ? 24 : Math.min(96, storyReadingClearance(viewport)),
         ),
       );
       // No state/flow rule depends on data-pin. A stable chrome measurement

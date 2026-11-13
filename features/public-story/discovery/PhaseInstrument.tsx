@@ -70,7 +70,7 @@ export function PhaseInstrument({
     Array.from(
       { length: 121 },
       (_, i) =>
-        `${i ? "L" : "M"}${20 + i * 4.66} ${30 + 12 * Math.sin((i / 120) * Math.PI * 12 + offset)}`,
+        `${i ? "L" : "M"}${(20 + i * 4.66).toFixed(3)} ${(30 + 12 * Math.sin((i / 120) * Math.PI * 12 + offset)).toFixed(3)}`,
     ).join(" ");
   return (
     <section className="ex-phase" aria-label="Orbital duet phase instrument">

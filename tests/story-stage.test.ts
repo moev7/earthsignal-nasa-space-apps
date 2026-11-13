@@ -214,15 +214,45 @@ test("the real scroll stage batches updates, freezes motion, resumes and cleans 
     );
     await scroll(113);
     assert.equal(pose.progress, 0, "reverse exit returns to the original pose");
-    const details = window.document.createElement("details");
-    details.open = true;
+    const details = window.document.createElement("details"), summary = window.document.createElement("summary");
+    summary.textContent = "Read the instruments";
+    details.append(summary);
     stage.append(details);
+    let pageY = 500;
+    const move = (delta: number) => { pageY += delta; top -= delta; };
+    Object.defineProperty(window, "scrollY", { get: () => pageY, configurable: true });
+    window.scrollBy = ((options: { top: number }) => move(options.top)) as typeof window.scrollBy;
+    window.scrollTo = ((options: { top: number }) => move(options.top - pageY)) as typeof window.scrollTo;
+    summary.getBoundingClientRect = () => new window.DOMRect(0, stage.getAttribute("data-pin") === "true" ? 500 : 500 + top - 113, 300, 44);
     await scroll(-100);
-    assert.equal(
-      stage.getAttribute("data-pin"),
-      "false",
-      "expanded controls release even if a stale size still fits",
-    );
+    const beforeInspect = pose.progress;
+    await act(async () => summary.click());
+    assert.equal(details.open, true, "pointer/keyboard click opens native details");
+    assert.equal(stage.getAttribute("data-pin"), "false", "expanded reading releases sticky flow before paint");
+    assert.equal(summary.getBoundingClientRect().top, 500, "the clicked summary stays in place");
+    await frame();
+    assert.equal(pose.progress, beforeInspect, "inspection does not seek the model");
+    await act(async () => controls.togglePaused());
+    await frame();
+    await act(async () => controls.togglePaused());
+    await frame();
+    await act(async () => summary.click());
+    await frame();
+    assert.equal(details.open, false);
+    assert.equal(pageY, 500, "a quick open/close restores the original story scroll position");
+    assert.equal(pose.progress, beforeInspect);
+    assert.equal(stage.getAttribute("data-pin"), "true");
+    await act(async () => summary.click());
+    window.scrollBy({ top: 50 });
+    await frame();
+    const readingY = pageY, readingTop = summary.getBoundingClientRect().top;
+    await act(async () => summary.click());
+    await frame();
+    assert.equal(pageY, readingY, "closing after reading never restores a stale scroll position");
+    assert.equal(summary.getBoundingClientRect().top, readingTop);
+    assert.equal(stage.getAttribute("data-pin"), "false", "long inspection returns to normal flow without a re-pin jump");
+    await scroll(113);
+    assert.equal(stage.getAttribute("data-pin"), "true", "returning through the chapter start restores native pinning");
     details.remove();
     smallHeight = 375;
     await act(async () => window.dispatchEvent(new window.Event("resize")));

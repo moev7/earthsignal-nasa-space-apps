@@ -34,7 +34,8 @@
   margin: 16px 0;
 }
 .es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) label output {
-  float: right;
+  display: block;
+  margin-top:8px;
   font-variant-numeric: tabular-nums;
   color: var(--earth-accent);
 }

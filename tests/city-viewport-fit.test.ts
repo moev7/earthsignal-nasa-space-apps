@@ -40,6 +40,7 @@ test("the mounted fitter measures captions and controls, converges and releases 
   let seq = 0,
     chrome = 285.6875;
   Object.defineProperty(window, "innerHeight", { value: 800, writable: true });
+  Object.defineProperty(window, "innerWidth", { value: 375, writable: true });
   window.HTMLElement.prototype.getBoundingClientRect = function () {
     const city = window.document.querySelector(".ea-city-scene") as
       import("happy-dom").HTMLElement | null;
@@ -115,16 +116,24 @@ test("the mounted fitter measures captions and controls, converges and releases 
     await act(async () => root.render(React.createElement(Fixture)));
     await draw();
     const city = host.querySelector(".ea-city-scene")!;
-    assert.equal(city.getAttribute("style"), "--city-canvas-height: 245px;");
+    assert.equal(city.getAttribute("style"), "--city-canvas-height: 293px;");
     for (let i = 0; i < 4; i++) {
       observers.forEach((fn) => fn());
       await draw();
-      assert.equal(city.getAttribute("style"), "--city-canvas-height: 245px;");
+      assert.equal(city.getAttribute("style"), "--city-canvas-height: 293px;");
     }
+    const details = window.document.createElement("details");
+    city.append(details); details.open = true;
+    chrome += 500;
+    observers.forEach(fn => fn()); await draw();
+    assert.equal(city.getAttribute("style"), "--city-canvas-height: 293px;", "expanded material never resizes the drawing");
+    details.open = false; chrome -= 500;
+    observers.forEach(fn => fn()); await draw();
+    assert.equal(city.getAttribute("style"), "--city-canvas-height: 293px;");
     chrome = 350;
     observers.forEach((fn) => fn());
     await draw();
-    assert.equal(city.getAttribute("style"), "--city-canvas-height: 181px;");
+    assert.equal(city.getAttribute("style"), "--city-canvas-height: 229px;");
     const probe = window.document.createElement("div");
     probe.className = "es-viewport-probe";
     window.document.body.append(probe);

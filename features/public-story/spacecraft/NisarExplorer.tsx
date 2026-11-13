@@ -191,7 +191,12 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
     </div>
     <p className="es-spacecraft-scale">{mode === 'orbit' ? 'Earth and orbit share one distance scale · spacecraft shown by an enlarged locator.' : mode === 'signal' ? 'Close-up schematic · radio path compressed; signal slowed for teaching.' : 'Spacecraft and Earth · schematic distance and relative size, chosen for clarity.'}</p>
     <div className="es-spacecraft-stage-actions" aria-label="Spacecraft actions">
-      {mode !== 'orbit' && <button type="button" disabled={!usable} aria-pressed={interactive} onClick={() => { latest.current.interactive = !latest.current.interactive; setInteractive(latest.current.interactive); scene.current?.update(latest.current); }}>{interactive ? 'Finish rotating' : 'Rotate view'}</button>}
+      {mode !== 'orbit' && <button type="button" disabled={!usable} aria-pressed={interactive} onClick={() => { latest.current.interactive = !latest.current.interactive; setInteractive(latest.current.interactive); scene.current?.update(latest.current); }}>{interactive ? 'Finish exploring' : 'Rotate view'}</button>}
+      {mode !== 'orbit' && <>
+        <button type="button" disabled={!usable} aria-label="Zoom spacecraft in" onClick={() => view('in')}>+</button>
+        <button type="button" disabled={!usable} aria-label="Zoom spacecraft out" onClick={() => view('out')}>−</button>
+        <button type="button" disabled={!usable} onClick={() => view('overview')}>Fit view</button>
+      </>}
       {mode === 'signal' && <button type="button" className="es-spacecraft-send" aria-controls={`${id}-signal`} onClick={send}>{running ? 'Restart radar pulse' : 'Send a radar pulse'}</button>}
       {running && <button type="button" onClick={() => cancel()}>Stop pulse</button>}
       <button type="button" onClick={reset}>Reset spacecraft</button>
@@ -201,7 +206,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
       <div id={`${id}-hardware`} className="es-spacecraft-description" aria-live="polite"><h3>{part.label}</h3><p>{part.explanation}</p><p><strong>{part.fact}</strong> <a href={HARDWARE_SOURCE}>NASA/JPL quick facts</a></p></div>
       </div>
       {mode !== 'orbit' && <details className="es-spacecraft-camera"><summary>Camera controls &amp; keyboard alternatives</summary><div className="es-spacecraft-actions" role="group" aria-label="Spacecraft camera">
-        {([['left', 'Orbit left'], ['right', 'Orbit right'], ['in', 'Zoom in'], ['out', 'Zoom out'], ['overview', 'Overview']] as const).map(([action, label]) => <button type="button" key={action} disabled={!usable} onClick={() => view(action)}>{label}</button>)}
+        {([['left', 'Orbit left'], ['right', 'Orbit right'], ['top', 'Overhead view'], ['in', 'Zoom in'], ['out', 'Zoom out'], ['overview', 'Overview']] as const).map(([action, label]) => <button type="button" key={action} disabled={!usable} onClick={() => view(action)}>{label}</button>)}
       </div>
       <p className="es-spacecraft-hint">Select a part to inspect it instantly. Choose Rotate view to drag or pinch; finish rotating to scroll over the scene. The view buttons also work with a keyboard.</p>
       </details>}

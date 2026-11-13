@@ -56,9 +56,9 @@
   --earth-space-6: 24px;
   --earth-space-8: 32px;
   --earth-space-12: 48px;
-  --earth-type-caption: .8125rem;
+  --earth-type-caption: .875rem;
   --earth-type-label: .875rem;
-  --earth-type-body: .9375rem;
+  --earth-type-body: 1rem;
   --earth-type-control: 1rem;
 }
 @theme inline {

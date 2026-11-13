@@ -756,17 +756,7 @@
   animation: none !important;
   transition: none !important;
 }
-.es-public.es-page-story .play-radar .es-radar-quick-explore {
-  position: static;
-  right: auto;
-  bottom: auto;
-  z-index: 2;
-  min-height: 44px;
-  font-size: var(--earth-type-body);
-  padding: 8px 12px;
-  background: var(--earth-deep);
-  margin: 12px 16px;
-}
+
 .es-public.es-page-story .play-policy .policy-city__model {
   position: relative;
 }
@@ -869,4 +859,10 @@
 .es-public.es-page-story .eg-game.ea-game .play-objective details[open] {
   grid-column: 1 / -1;
   width: 100%;
+}
+
+/* A long control/guide column should not scroll its model out of sight on a
+   wide screen. Phones and text-enlarged layouts retain one ordinary page flow. */
+@media(min-width:901px) and (min-height:700px) {
+ .es-public.es-page-story .play-stage > .play-visual { position:sticky; top:calc(var(--es-header-height,116px) + 12px); align-self:start; }
 }

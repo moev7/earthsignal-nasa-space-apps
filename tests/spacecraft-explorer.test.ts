@@ -107,7 +107,7 @@ test('actual explorer: hardware, finite clock, still steps and adversarial lifec
       assert.equal(host.querySelector('.es-spacecraft-description a')!.getAttribute('href'), 'https://www.jpl.nasa.gov/press-kits/nisar/quick-facts/');
     }
     await click('Rotate view'); assert.equal(current!.interactive, true); assert.equal(host.querySelector('canvas')!.style.touchAction, 'none');
-    await click('Finish rotating'); assert.equal(current!.interactive, false); assert.equal(host.querySelector('canvas')!.style.touchAction, 'pan-y');
+    await click('Finish exploring'); assert.equal(current!.interactive, false); assert.equal(host.querySelector('canvas')!.style.touchAction, 'pan-y');
     (host.querySelector('.es-spacecraft-camera') as unknown as {open:boolean}).open = true;
     const beforeViews = views.length;
     for (const label of ['Orbit left', 'Orbit right', 'Zoom in', 'Zoom out', 'Overview']) await click(label);
@@ -311,6 +311,26 @@ test('real Three geometry, highlights, signal parity, event-only cameras and res
       assert.ok(Math.abs(groundPoint.x) < 1 && Math.abs(groundPoint.y) < 1, 'ground echo remains in overview');
     }
     actual.update({ selectedPart: 'arrays', interactive: true, pulse: null }); assert.equal(canvas.style.touchAction, 'none'); assert.equal(canvas.style.pointerEvents, 'auto'); actual.view('left'); actual.view('out');
+    // Exercise actual OrbitControls input, not a mocked camera callback.
+    Object.defineProperty(canvas, 'clientHeight', { value: 450 });
+    Object.defineProperty(canvas, 'clientWidth', { value: 800 });
+    canvas.setPointerCapture = () => {};
+    canvas.releasePointerCapture = () => {};
+    const drag = (button: number) => {
+      for (const [type, x, y] of [['pointerdown', 100, 100], ['pointermove', 190, 145], ['pointerup', 190, 145]] as const)
+        canvas.dispatchEvent(new window.PointerEvent(type, { pointerId: 1, pointerType: 'mouse', button, buttons: type === 'pointerup' ? 0 : 1 << button, clientX: x, clientY: y, bubbles: true }) as unknown as Event);
+    };
+    const orbitStart = camera!.position.clone(); drag(0);
+    assert.ok(camera!.position.distanceTo(orbitStart) > 1, 'left drag freely orbits');
+    const rotated = camera!.position.clone();
+    actual.update({ selectedPart: 'boom', interactive: true, pulse: 0.2 });
+    actual.resize(800, 450);
+    vector(camera!.position, rotated);
+    const facing = camera!.quaternion.clone(); drag(2);
+    assert.ok(camera!.position.distanceTo(rotated) > 0.1, 'right drag pans like the city');
+    assert.ok(camera!.quaternion.angleTo(facing) < 1e-6, 'panning keeps the viewing angle');
+    actual.view('top'); assert.ok(Number.isFinite(camera!.position.y));
+    actual.view('overview');
     actual.update({ selectedPart: 'arrays', interactive: false, pulse: null }); assert.equal(canvas.style.touchAction, 'pan-y'); assert.equal(canvas.style.pointerEvents, 'none');
     const collectGeometry = () => { const values = new Set<THREE.BufferGeometry>(); scene!.traverse(object => { const geometry = (object as THREE.Mesh).geometry; if (geometry) values.add(geometry); }); return values; };
     const beforeGeometry = collectGeometry(); actual.pulse(0.7); actual.pulse(1); assert.deepEqual(collectGeometry(), beforeGeometry, 'ticks reuse the same geometry objects');

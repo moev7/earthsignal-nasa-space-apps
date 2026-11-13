@@ -46,9 +46,12 @@ export function createSpacecraftScene(
     canvas.style.pointerEvents = 'none';
     controls.enableDamping = false;
     controls.autoRotate = false;
-    controls.enablePan = false;
-    controls.minDistance = 12;
-    controls.maxDistance = 150;
+    controls.enablePan = true;
+    controls.screenSpacePanning = true;
+    controls.rotateSpeed = 0.7;
+    controls.zoomSpeed = 0.8;
+    controls.minDistance = 8;
+    controls.maxDistance = 280;
     controls.minPolarAngle = 0.15;
     controls.maxPolarAngle = Math.PI * 0.49;
     const render = () => { if (!disposed) renderer!.render(scene, camera); };
@@ -184,13 +187,13 @@ export function createSpacecraftScene(
     });
     let preset: 'overview' | SpacecraftPart = 'overview';
     let custom = false;
-    const targets: Record<'overview' | SpacecraftPart, THREE.Vector3> = { overview: new THREE.Vector3(-2, -12, 0), reflector: new THREE.Vector3(-6, 1.5, 0), arrays: new THREE.Vector3(3, 5.4, 0), boom: boomStart.clone().lerp(boomEnd, 0.5), instruments: new THREE.Vector3(3, 4.3, 0) };
+    const targets: Record<'overview' | SpacecraftPart, THREE.Vector3> = { overview: new THREE.Vector3(-2, 2, 0), reflector: new THREE.Vector3(-6, 1.5, 0), arrays: new THREE.Vector3(3, 5.4, 0), boom: boomStart.clone().lerp(boomEnd, 0.5), instruments: new THREE.Vector3(3, 4.3, 0) };
     const frame = () => {
       controls!.target.copy(targets[preset]);
       const span = preset === 'overview' ? 60 : preset === 'reflector' ? 16 : preset === 'arrays' ? 19 : 13;
       const vertical = THREE.MathUtils.degToRad(camera.fov);
       const horizontal = 2 * Math.atan(Math.tan(vertical / 2) * camera.aspect);
-      const distance = Math.min(150, span / (2 * Math.tan(Math.min(vertical, horizontal) / 2)));
+      const distance = Math.min(280, span / (2 * Math.tan(Math.min(vertical, horizontal) / 2)));
       camera.position.copy(controls!.target).add(new THREE.Vector3(0.95, 0.58, 1).normalize().multiplyScalar(distance));
       controls!.update(); render();
     };
@@ -225,8 +228,9 @@ export function createSpacecraftScene(
         if (action === 'overview' || action in groups) { preset = action as typeof preset; custom = false; frame(); return; }
         custom = true;
         const offset = camera.position.clone().sub(controls!.target);
-        if (action === 'left' || action === 'right') offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), action === 'left' ? -Math.PI / 8 : Math.PI / 8);
-        else offset.multiplyScalar(action === 'in' ? 0.8 : 1.25).clampLength(12, 150);
+        if (action === 'top') offset.set(0, offset.length(), 0.01);
+        else if (action === 'left' || action === 'right') offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), action === 'left' ? -Math.PI / 8 : Math.PI / 8);
+        else offset.multiplyScalar(action === 'in' ? 0.8 : 1.25).clampLength(8, 280);
         camera.position.copy(controls!.target).add(offset); controls!.update(); render();
       },
       dispose,
