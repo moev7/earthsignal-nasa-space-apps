@@ -172,6 +172,9 @@ class Store:
             elif kind == 'area-experiment':
                 from .area_jobs import validate_request as validate_area_request
                 validate_area_request(request)
+            elif kind == 'sar-study':
+                from .sar.jobs import validate_request as validate_sar_request
+                validate_sar_request(request)
             else:
                 raise ValueError()
         except (ValueError, TypeError, KeyError, OverflowError, RecursionError, UnicodeError):
@@ -304,6 +307,8 @@ class Store:
             if row['kind'] == 'area-experiment':
                 from .area_jobs import validate_manifest
                 validate_manifest(manifest, json.loads(row['request']))
+            if row['kind'] == 'sar-study' and (manifest.get('kind') != 'sar-study' or manifest.get('published') is not False):
+                raise ValueError('SAR result must be a private verified study')
             changed = db.execute("UPDATE jobs SET state='completed',phase='Completed',result=?,updated=?,lease=NULL,expires=? WHERE id=? AND state='running'", (json.dumps(manifest, allow_nan=False), self.clock(), self.clock()+self.config.expiry_seconds, job_id)).rowcount == 1
             if changed:
                 self._compact(db, job_id)

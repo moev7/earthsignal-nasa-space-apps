@@ -183,3 +183,10 @@ or EXIF payload. Custom point responses are private/no-store; at most24 ASF
 records are returned. A successful catalog response establishes record
 availability, not native-analysis compatibility or complete geographic coverage.
 See [photo workflow](photo-location.md) for explicit confirmation and privacy.
+
+
+## Challenge-native SAR API
+
+Source/product discovery, explicit preflight, native jobs, owner-only artifacts and
+reviewed public revisions are documented in [Challenge processing](challenge-processing.md#api-and-lifecycle).
+They share the existing collaborator gateway, queue and worker limits.

@@ -12,6 +12,8 @@ reason and left out; areas without reliable data stay NaN ("not measured").
 from __future__ import annotations
 
 import argparse
+import hashlib
+import math
 import json
 import os
 import re
@@ -70,11 +72,39 @@ def bbox_to_grid(bbox, epsg: int):
     return float(np.min(xs)), float(np.min(ys)), float(np.max(xs)), float(np.max(ys))
 
 
+def crop_cache_identity(granule, bbox, height):
+    """A crop is identified by source, footprint, geometry and reader version."""
+    if (len(bbox) != 4 or any(not math.isfinite(float(v)) for v in bbox) or
+            not -180 <= bbox[0] < bbox[2] <= 180 or not -90 <= bbox[1] < bbox[3] <= 90 or
+            not math.isfinite(float(height))):
+        raise ValueError('Invalid cached crop geometry')
+    value = {'schema': 'gunw-crop-cache/2', 'granule': granule['granule'],
+             'url': granule['url'], 'collection': granule['collection'],
+             'bbox': list(map(float, bbox)), 'height': float(height),
+             'reader': 'gunw-native-1.5.0-quality-1'}
+    return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False,
+                                    separators=(',', ':')).encode()).hexdigest()
+
+
 def fetch(granule: dict, cache: Path, bbox, netrc: Path, per_file_bytes: int, height: float):
-    """Return (PairCrop, bytes transferred), using the on-disk cache when present."""
-    path = cache / f"{granule['granule']}.npz"
-    if path.exists():
-        return PairCrop.load(path), 0
+    """Return crop and transfer count. Legacy granule-only cache is not reused.
+
+    Content-addressed source identity and request geometry prevent a different
+    footprint or height silently inheriting old samples. A saved byte digest
+    rejects corrupted local NPZs before reuse. Remote source mutation is checked
+    when reading; an offline cached run retains its original source provenance.
+    """
+    key = crop_cache_identity(granule, bbox, height)
+    path = cache / f"{key}.npz"
+    receipt = cache / f"{key}.json"
+    if path.is_file() and receipt.is_file():
+        proof = json.loads(receipt.read_text())
+        if proof.get('key') != key or proof.get('sha256') != hashlib.sha256(path.read_bytes()).hexdigest():
+            raise gm.GroundMotionError('CACHE_IDENTITY', 'Cached crop content does not match its identity receipt')
+        crop = PairCrop.load(path)
+        if crop.granule != granule['granule'] or crop.reference_height_m != float(height):
+            raise gm.GroundMotionError('CACHE_IDENTITY', 'Cached crop source or geometry changed')
+        return crop, 0
     from .gunw_reader import open_remote
     from .range_reader import TransferBudget
     budget = TransferBudget(per_file_bytes)
@@ -88,7 +118,14 @@ def fetch(granule: dict, cache: Path, bbox, netrc: Path, per_file_bytes: int, he
         raise gm.GroundMotionError('IDENTITY', 'The file identity does not match the catalogue record')
     tmp = path.with_suffix('.tmp.npz')
     crop.save(tmp)
+    sha = hashlib.sha256(tmp.read_bytes()).hexdigest()
     os.replace(tmp, path)
+    proof = {'key': key, 'sha256': sha, 'granule': granule['granule'], 'sourceUrl': granule['url'],
+             'etag': asset.etag, 'sourceBytes': asset.size, 'bbox': list(bbox),
+             'referenceHeightM': height}
+    staged = receipt.with_suffix('.tmp.json')
+    staged.write_text(json.dumps(proof, sort_keys=True, allow_nan=False))
+    os.replace(staged, receipt)
     return crop, int(budget.transferred)
 
 

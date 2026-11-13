@@ -40,10 +40,11 @@ import { useScienceTools } from "./webmcp";
 import { DecisionWorkspace } from "@/features/decisions/decision-workspace";
 import type { SearchNavigation, WorkspaceSearchEntry, WorkspaceSearchTarget } from "./workspace-search";
 import { currentSearchEpoch } from "./search-navigation";
-export function ScienceWorkspace({ publicStudyContext = null }: { publicStudyContext?: PublicStudyContext | null }) {
+import { SarWorkbench } from "./sar-workbench";
+export function ScienceWorkspace({ publicStudyContext = null, initialView = "decisions" }: { publicStudyContext?: PublicStudyContext | null; initialView?: "decisions" | "sar" }) {
   const model = useScience(publicStudyContext ? publicStudyCatalogQuery : undefined, publicStudyContext ? publicStudyRadarRequest(publicStudyContext) : null);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [workspaceMode, setWorkspaceMode] = useState<"decisions" | "science">("decisions");
+  const [workspaceMode, setWorkspaceMode] = useState<"decisions" | "science" | "sar">(initialView);
   const [investigationSeed, setInvestigationSeed] = useState<{ id: string; nonce: number } | null>(null);
   const [searchEntries, setSearchEntries] = useState<WorkspaceSearchEntry[]>([]);
   const [searchNavigation, setSearchNavigation] = useState<SearchNavigation | null>(null);
@@ -105,6 +106,7 @@ export function ScienceWorkspace({ publicStudyContext = null }: { publicStudyCon
         <div className="workspace-mode-switch" role="group" aria-label="Workspace view">
           <button type="button" aria-pressed={workspaceMode === "decisions"} onClick={() => setWorkspaceMode("decisions")}>Place & question</button>
           <button type="button" aria-pressed={workspaceMode === "science"} onClick={() => setWorkspaceMode("science")}>Scientific explorer</button>
+          <button type="button" aria-pressed={workspaceMode === "sar"} onClick={() => setWorkspaceMode("sar")}>Radar processor</button>
         </div>
         <div className="workspace-access"><CollaboratorAccess publicStudyContext={publicStudyContext} /></div>
         <div className="prototype-status">
@@ -119,6 +121,7 @@ export function ScienceWorkspace({ publicStudyContext = null }: { publicStudyCon
         <Link href={publicStudyExploreHref(publicStudyContext.selection)}>Back to the same radar selection</Link>
       </aside>}
 
+      {workspaceMode === "sar" && <SarWorkbench />}
       <div className="decision-frame" hidden={workspaceMode !== "decisions"}>
         <DecisionWorkspace publicStudyContext={publicStudyContext} onDiscoverPhoto={(point, start, end) => {
           model.clearSearchSelection();

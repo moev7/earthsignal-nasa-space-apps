@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { publicStudy, verifyPublicManifest } from "./public-study-registry";
 import { radarResultSchema } from "./radar-contract";
 
 export const RADAR_STUDY_ID = "lake-mead-gcov-2026" as const;
@@ -161,12 +162,12 @@ async function readBytes(url: string, limit: number, signal?: AbortSignal) {
 export async function loadPublicRadarStudy(
   signal?: AbortSignal,
 ): Promise<RadarStudy> {
+  const rawManifest = await readBytes(`${RADAR_STUDY_BASE}manifest.json`, 250_000, signal);
+  const revision = publicStudy(RADAR_STUDY_ID);
+  if (!revision) throw new Error("This radar study has no reviewed public revision.");
+  await verifyPublicManifest(revision, rawManifest);
   const manifest = publicRadarManifestSchema.parse(
-    JSON.parse(
-      new TextDecoder().decode(
-        await readBytes(`${RADAR_STUDY_BASE}manifest.json`, 250_000, signal),
-      ),
-    ),
+    JSON.parse(new TextDecoder().decode(rawManifest)),
   );
   const names = [
     "values.json",

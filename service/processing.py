@@ -19,7 +19,8 @@ from .range_reader import (RangeError, RangeFile, RangeProxy, RemoteAsset,
                            SafeRedirect, TransferBudget, authenticated_opener,
                            validate_url)
 
-ALGORITHM_VERSION = "gcov-hhhh-v3"
+ALGORITHM_VERSION = "gcov-hhhh-v4"
+SUPPORTED_COLLECTIONS = frozenset({"NISAR_L2_GCOV_PROVISIONAL_V1", "NISAR_L2_GCOV_V1"})
 MAX_PIXELS = 1_000_000
 GRID_PATH = "/science/LSAR/GCOV/grids/frequencyA"
 IDENTIFICATION = "/science/LSAR/identification"
@@ -119,8 +120,8 @@ def validate_pair(before: dict, after: dict) -> None:
         if before.get(key) is None or before.get(key) != after.get(key):
             raise ProcessingError("INCOMPATIBLE_PAIR", f"Both products must have the same known catalog {key}")
     collection = before["collectionName"]
-    if not isinstance(collection, str) or not collection.startswith("NISAR_L2_GCOV_PROVISIONAL_"):
-        raise ProcessingError("UNSUPPORTED_COLLECTION", "Only matching NISAR GCOV provisional collections are supported")
+    if collection not in SUPPORTED_COLLECTIONS:
+        raise ProcessingError("UNSUPPORTED_COLLECTION", "Choose matching explicitly supported provisional or validated GCOV collections")
     if before.get("pgeVersion") != after.get("pgeVersion"):
         raise ProcessingError("INCOMPATIBLE_PAIR", "Catalog processor releases differ")
 
@@ -170,11 +171,11 @@ def mask_policy(attrs: dict) -> str:
     return MASK_POLICY
 
 
-def inspect_metadata(asset: RemoteAsset, catalog: dict) -> dict:
+def inspect_metadata(asset: RemoteAsset, catalog: dict, *, file_reader=RangeFile) -> dict:
     import h5py
     import numpy as np
     try:
-        with RangeFile(asset) as fileobj, h5py.File(fileobj, "r") as h5:
+        with file_reader(asset) as fileobj, h5py.File(fileobj, "r") as h5:
             if IDENTIFICATION not in h5 or GRID_PATH not in h5:
                 raise ProcessingError("METADATA_MISSING", "NISAR LSAR GCOV ancillary groups are absent")
             ident, grid = h5[IDENTIFICATION], h5[GRID_PATH]
@@ -203,10 +204,10 @@ def inspect_metadata(asset: RemoteAsset, catalog: dict) -> dict:
             # record exactly this evidence without inventing an HDF5 field.
             collection = catalog.get("collectionName")
             archive_parts = parse.unquote(parse.urlsplit(catalog["url"]).path).split("/")
-            if (not isinstance(collection, str) or not collection.startswith("NISAR_L2_GCOV_PROVISIONAL_")
+            if (collection not in SUPPORTED_COLLECTIONS
                     or collection not in archive_parts or not meta["granuleId"].startswith("NISAR_L2_PR_GCOV_")
                     or meta["processingType"] != "Nominal"):
-                raise ProcessingError("UNSUPPORTED_COLLECTION", "Exact ASF provisional archive collection and nominal GCOV identification must agree")
+                raise ProcessingError("UNSUPPORTED_COLLECTION", "Exact supported ASF archive collection and nominal GCOV identification must agree")
             meta["collectionVerification"] = {
                 "collection": collection, "authority": "ASF exact fileID catalog record and official asset archive directory",
                 "hdf5Evidence": "Exact granuleId matches ASF sceneName; NISAR L2 PR GCOV identifier agrees with processingType=Nominal and compositeReleaseId",

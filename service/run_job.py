@@ -35,6 +35,17 @@ def main():
             return 0
         config = Config.environment()
         if len(raw)>config.artifact_bytes:raise ValueError('IPC request exceeds bound')
+        if isinstance(request,dict) and request.get('kind') == 'sar-study':
+            from .sar.jobs import run
+            from .sar.net import SarError
+            from .range_reader import RangeError
+            from .processing import ProcessingError
+            from .ground_motion import GroundMotionError
+            safe_errors=(SarError,RangeError,ProcessingError,GroundMotionError)
+            if set(request)!={'kind','request','owner'} or not valid_owner(request['owner']):raise ValueError('Invalid SAR envelope')
+            resource.setrlimit(resource.RLIMIT_FSIZE,(config.artifact_bytes,config.artifact_bytes))
+            run(request['request'],config,output)
+            return 0
         if isinstance(request, dict) and request.get('kind') in ('assessment', 'scenario'):
             from .assessment_validation import (validate_assessment_request, validate_scenario_request,
                 validate_assessment_manifest, validate_scenario_manifest)

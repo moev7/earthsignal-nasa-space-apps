@@ -79,6 +79,8 @@ export function parseAsfCatalog(input: unknown): Scene[] {
         ? "Provisional"
         : collection.includes("BETA")
           ? "Beta"
+          : /^NISAR_L2_(GCOV|GUNW|GOFF|GSLC)_V\d+$/.test(collection)
+            ? "Validated"
           : "Not specified in catalog",
       processorVersion: typeof p.pgeVersion === "string" ? p.pgeVersion : null,
       collection: collection || null,

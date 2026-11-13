@@ -14,6 +14,7 @@
  *  - Missing values stay missing (`null`), they are never read as zero.
  */
 import { useEffect, useState } from 'react'
+import { publicStudy, verifyPublicManifest } from '@/lib/public-study-registry'
 import type { FeatureCollection, Polygon } from 'geojson'
 
 import type { DataSource } from './types'
@@ -215,6 +216,7 @@ async function fetchVerified(id: BundleId, manifest: BundleManifest, file: strin
   const res = await fetch(bundleFileUrl(id, file))
   if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`)
   const buffer = await res.arrayBuffer()
+  if (buffer.byteLength !== expected.bytes) throw new Error(`${file} does not match its manifest byte count`)
   if ((await sha256Hex(buffer)) !== expected.sha256) {
     throw new Error(`${file} does not match its manifest checksum`)
   }
@@ -253,7 +255,11 @@ export function loadBundle(id: BundleId): Promise<LoadedBundle> {
       // Revalidate: the manifest is tiny and every other file is hash-checked against it.
       const res = await fetch(bundleFileUrl(id, 'manifest.json'), { cache: 'no-cache' })
       if (!res.ok) throw new Error(`manifest.json: HTTP ${res.status}`)
-      const manifest = (await res.json()) as Partial<BundleManifest>
+      const raw = new Uint8Array(await res.arrayBuffer())
+      const revision = publicStudy(id)
+      if (!revision) throw new Error('This study has no reviewed public revision')
+      await verifyPublicManifest(revision, raw)
+      const manifest = JSON.parse(new TextDecoder().decode(raw)) as Partial<BundleManifest>
       checkManifest(manifest)
       const [gridBuf, imageBuf] = await Promise.all([
         fetchVerified(id, manifest, manifest.values.file),

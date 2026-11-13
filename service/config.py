@@ -23,6 +23,7 @@ class Config:
     scenarios_enabled: bool = True
     gauge_vintages_enabled: bool = False
     area_experiments_enabled: bool = False
+    rcm_access_approved: bool = False
 
     @classmethod
     def environment(cls):
@@ -47,6 +48,8 @@ class Config:
         if scenarios not in ('true','false'): raise RuntimeError('Invalid scenario feature flag')
         area = os.environ.get('EARTHSIGNAL_AREA_EXPERIMENTS_ENABLED','false')
         if area not in ('true','false'): raise RuntimeError('Invalid area experiment feature flag')
+        rcm = os.environ.get('EARTHSIGNAL_RCM_ACCESS_APPROVED','false')
+        if rcm not in ('true','false'): raise RuntimeError('Invalid RCM access approval flag')
         return cls(root=Path(os.environ.get('EARTHSIGNAL_DATA_DIR', '/var/lib/earthsignal')),
             secret=secret, netrc=Path(os.environ.get('EARTHSIGNAL_NETRC', '/etc/earthsignal/earthdata.netrc')),
             max_pixels=bounded('MAX_PIXELS',1_000_000,1,1_000_000),
@@ -58,4 +61,4 @@ class Config:
             storage_bytes=bounded('STORAGE_BYTES',1024**3,96*1024**2+1,1024**3),
             reserve_bytes=bounded('RESERVE_BYTES',3*1024**3,3*1024**3,1024**4),
             expiry_seconds=bounded('EXPIRY_SECONDS',7*86400,1,7*86400),
-            lease_seconds=bounded('LEASE_SECONDS',60,5,60), assessment_domains=domains, scenarios_enabled=scenarios=='true',gauge_vintages_enabled=vintages=='true',area_experiments_enabled=area=='true')
+            lease_seconds=bounded('LEASE_SECONDS',60,5,60), assessment_domains=domains, scenarios_enabled=scenarios=='true',gauge_vintages_enabled=vintages=='true',area_experiments_enabled=area=='true',rcm_access_approved=rcm=='true')

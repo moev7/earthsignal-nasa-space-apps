@@ -1,6 +1,7 @@
 """Loopback-only HTTP gateway backend. No browser cookies or public identity accepted."""
 import json
 import mimetypes
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import unquote, urlsplit
 from .auth import authenticate, body_limit
@@ -17,17 +18,52 @@ def capability(config):
     return {'ready': ready, 'message': message, 'maxPixels': config.max_pixels}
 
 class API:
-    def __init__(self, store, capability_check=None, algorithm='gcov-hhhh-v3'):
+    def __init__(self, store, capability_check=None, algorithm='gcov-hhhh-v4'):
         self.store = store
         self.capability_check = capability_check or (lambda: capability(store.config))
         self.algorithm = algorithm
         self.annotations = Annotations(store)
+        self.sar_metadata_slots = threading.BoundedSemaphore(2)
 
     def dispatch(self, method, target, headers, body):
         path = urlsplit(target).path
         if path == '/health' and method == 'GET':
             return 200, {'status': 'ok', 'schemaVersion': '1.0'}, None
         user = authenticate(self.store, method, target, headers, body)
+        if path.startswith('/api/sar-studies'):
+            from .sar import jobs as sar
+            from .sar.catalog import search as sar_search
+            from .sar.net import SarError
+            try:
+                if target != path:raise Problem(400,'invalid_request','Use an exact SAR endpoint without query parameters')
+                if path == '/api/sar-studies' and method == 'GET':
+                    return 200, {'schemaVersion':'1.0','jobs':self.store.list(user,sar.KIND)}, None
+                if path in ('/api/sar-studies/search','/api/sar-studies/plan','/api/sar-studies') and method == 'POST':
+                    try:payload=json.loads(body,parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
+                    except (ValueError,UnicodeError,RecursionError):raise Problem(400,'invalid_request','Invalid SAR request JSON') from None
+                    if path.endswith(('/search','/plan')):
+                        if not self.sar_metadata_slots.acquire(blocking=False):raise Problem(429,'metadata_busy','Two source checks are already active; retry after they finish')
+                        try:return 200,(sar_search(payload) if path.endswith('/search') else sar.preflight(payload,self.store.config)),None
+                        finally:self.sar_metadata_slots.release()
+                    sar.validate_request(payload)
+                    if payload['sourceId']=='saocom':raise Problem(403,'license_required','SAOCOM access requires a verified CONAE grant and product reader; no license has been accepted automatically')
+                    if payload['sourceId']=='rcm' and not self.store.config.rcm_access_approved:raise Problem(403,'license_required','RCM imagery access needs explicit operator approval of the Public User License')
+                    # Heavy native reads remain in the single existing worker. Metadata gates are explicit preflight, not an unbounded submission side effect.
+                    return 202,self.store.submit(user,payload,headers.get('Idempotency-Key',''),sar.METHOD,kind=sar.KIND),None
+                import re
+                match=re.fullmatch(r'/api/sar-studies/([a-f0-9]{32})(?:/(cancel|artifacts/(manifest\.json|values\.json|preview\.png|provenance\.json)))?',path)
+                if match:
+                    job_id,action,name=match.groups()
+                    if action is None and method=='GET':return 200,self.store.get(user,job_id,sar.KIND),None
+                    if action=='cancel' and method=='POST':
+                        if body not in (b'',b'{}'):raise Problem(400,'invalid_request','Cancellation requires an empty object')
+                        return 200,self.store.cancel(user,job_id,sar.KIND),None
+                    if name and method=='GET':
+                        try:return 200,None,sar.download(self.store.config.root,self.store.get(user,job_id,sar.KIND),name)
+                        except (OSError,ValueError,KeyError):raise Problem(404,'not_found','SAR artifact not found') from None
+                raise Problem(404,'not_found','SAR endpoint not found')
+            except SarError as e:
+                raise Problem(400 if e.code=='invalid_request' else 503,e.code,str(e)) from None
         from . import area_jobs
         if path == '/api/area-experiments':
             if method == 'GET':

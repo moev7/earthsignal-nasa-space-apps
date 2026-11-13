@@ -18,6 +18,7 @@ Example (reads cached crops, transfers nothing):
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from collections import defaultdict
@@ -131,15 +132,38 @@ def build(crops, decisions, min_coherence: float, min_coverage: float):
     return gx, gy, a['epochs'], up, report
 
 
-def load_crops(granules, cache: Path):
+def load_crops(granules, cache: Path, bbox=None, *, allow_legacy=False):
     from .gunw_reader import PairCrop
     crops, missing = defaultdict(list), []
+    receipts = []
+    for receipt in cache.glob('*.json'):
+        value = json.loads(receipt.read_text())
+        if isinstance(value, dict) and 'key' in value and 'granule' in value:
+            receipts.append(value)
     for name in granules:
-        path = cache / f'{name}.npz'
+        matches = [v for v in receipts if v['granule'] == name and
+                   (bbox is None or v.get('bbox') == list(bbox))]
+        if len(matches) > 1:
+            raise gm.GroundMotionError('CACHE_AMBIGUOUS', 'Multiple crop geometries match this study; use an isolated study cache')
+        if matches:
+            proof = matches[0]
+            if not __import__('re').fullmatch('[a-f0-9]{64}', proof['key']):
+                raise gm.GroundMotionError('CACHE_IDENTITY', 'Unsafe crop cache identity')
+            path = cache / (proof['key'] + '.npz')
+            if path.is_symlink() or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != proof.get('sha256'):
+                raise gm.GroundMotionError('CACHE_IDENTITY', 'Crop cache content changed')
+        else:
+            # Read-only compatibility for the original frozen study's legacy cache.
+            # New processing never reuses or creates these granule-only entries.
+            path = cache / f'{name}.npz'
+            if path.exists() and not allow_legacy:
+                raise gm.GroundMotionError('CACHE_IDENTITY', 'Legacy crops have no verified geometry receipt; migrate or explicitly inspect the historical cache before reuse')
         if not path.exists():
             missing.append(name)
             continue
         c = PairCrop.load(path)
+        if c.granule != name:
+            raise gm.GroundMotionError('CACHE_IDENTITY', 'Crop source does not match study granule')
         crops[(c.direction, c.track, c.frame)].append(c)
     if missing:
         raise gm.GroundMotionError('CACHE_MISSING', f'{len(missing)} granules are not cached, e.g. {missing[0]}')
@@ -152,7 +176,7 @@ def export(bundle: Path, cache: Path) -> dict:
 
     manifest = json.loads((bundle / 'manifest.json').read_text())
     src, proc = manifest['source'], manifest['processing']
-    crops = load_crops(src['granules'], cache)
+    crops = load_crops(src['granules'], cache, manifest['bbox_lonlat'])
     decisions = {(s['direction'], s['track'], s['frame']): bool(s['troposphere_applied']) for s in src['stacks']}
     gx, gy, epochs, up, report = build(crops, decisions, proc['min_coherence'], proc['min_coverage'])
     zone = gm.utm_zone_from_epsg(int(proc['grid_crs'].split(':')[1]))

@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "1.0",
+  "checkedOn": "2026-11-13",
+  "notice": "Actual source-window experiments. Does not claim full-file checksums or access beyond these observations.",
+  "studies": [
+    {
+      "sourceId": "radarsat-1",
+      "sourceVerification": {
+        "sourceId": "radarsat-1",
+        "recordId": "eb802eeb-2135-4f26-a829-ec3b3c63fca4",
+        "asset": "https://s3-ca-central-1.amazonaws.com/radarsat-r1-l1-cog/1996/3/RS1_P0515763_F5_19960304_130234_HH_SLC.tif",
+        "sourceBytes": 489125350,
+        "etag": "\"30c37ce5b657b828468792a3247aa8f1\"",
+        "nativeWindow": [
+          3700,
+          5600,
+          128,
+          128
+        ],
+        "independentDecoder": "tifffile 2026.11.12 / imagecodecs; independent of GDAL/rasterio and production range proxy",
+        "dtype": "complex64",
+        "quantity": "uncalibrated complex sample magnitude",
+        "comparison": "all16384 original sample magnitudes exactly match candidate values",
+        "transferredBytes": 535678,
+        "blocks": [
+          {
+            "offset": 0,
+            "bytes": 16,
+            "sha256": "e8d07f90f8d4ada27ec593e90d631ced4fe6af93b83a85b610c5f51e1d51f800"
+          },
+          {
+            "offset": 0,
+            "bytes": 4,
+            "sha256": "75a2a13326b2a4a0b2265dbc2d0a91bfc7b540f0b10b5b9abd2a3fc9d7b83016"
+          },
+          {
+            "offset": 4,
+            "bytes": 4,
+            "sha256": "dc765660b06ee03dd16fd7ca5b957e8c805161ac2c4af28c5a100ab2ab432ca1"
+          },
+          {
+            "offset": 8,
+            "bytes": 2,
+            "sha256": "d94e7f1e9bb1f8a9b90996ba12c461b84956f0e7f230145cc594c2f80b067aa0"
+          },
+          {
+            "offset": 10,
+            "bytes": 204,
+            "sha256": "86322fb56f519086500cdff5f2b8dd3c93381102cef0be2d9aae792cdccf41bc"
+          },
+          {
+            "offset": 5798,
+            "bytes": 5580,
+            "sha256": "0d035577e7223dd165689734cf86c2cdf27ff64839f01dfbaec8fd22d8a3a7dc"
+          },
+          {
+            "offset": 218,
+            "bytes": 5580,
+            "sha256": "3c32bb9b6c2a8c89d1e7b9c59f59d17b9480b0232c1c57a382a16cd72d0ec188"
+          },
+          {
+            "offset": 297760230,
+            "bytes": 262144,
+            "sha256": "1867096a897fec54e073aae63e185b5c3d697db5534f1e9f45b356e4a447afe4"
+          },
+          {
+            "offset": 305886694,
+            "bytes": 262144,
+            "sha256": "7aba9f591b7908fc6a2eecf60c51b74bf5e6e91981e6572d827d62d328bcb763"
+          }
+        ],
+        "valuesSha256": "c6c9399033e4e2282ddbd6ca7a486b64dc9f6737f845820e4cae84290111c1e4"
+      },
+      "candidateManifestSha256": "e22eac7c5b48e1308ae50bc9b75785ec753410e916b93d6bc58e2e1084d1575e",
+      "verificationReceiptSha256": "e6554081ecde561234bd79a1c0b58a2b40d696bb94c2bf6b3eab4e0c132e243a"
+    },
+    {
+      "sourceId": "rcm",
+      "sourceVerification": {
+        "sourceId": "rcm",
+        "recordId": "0be3851c-1965-4e33-b37a-6206e3f14df9",
+        "channel": "RR",
+        "representation": "gamma0 linear float32 power ->10log10 dB; source quality code1 only",
+        "independentDecoder": "tifffile 2026.11.12 / imagecodecs, independent of GDAL/rasterio and production range proxy",
+        "grid": {
+          "width": 37,
+          "height": 56,
+          "crs": "PROJCS[\"WGS 84 / UTM zone 14N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-99],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32614\"]]",
+          "transform": [
+            434260.0,
+            20.0,
+            0,
+            5496780.0,
+            0,
+            -20.0
+          ]
+        },
+        "allPixels": 2072,
+        "validPixels": 2072,
+        "comparison": "every validity decision and dB value exactly matches original source floats and mask",
+        "transferredBytes": 242786,
+        "sources": [
+          {
+            "url": "https://rcm-ceos-ard.s3.ca-central-1.amazonaws.com/MLC/2025/02/27/RCM2_OK3308027_PK3500892_1_SC30MCPB_20250227_002159_CH_CV_MLC/RCM2_OK3308027_PK3500892_1_SC30MCPB_20250227_002159_RR.tif",
+            "etag": "\"dbc5ab1762e4ef6f0303b9f6fecf6cbb-7\"",
+            "sourceBytes": 55391330,
+            "pixelWindow": [
+              3537,
+              1897,
+              37,
+              56
+            ],
+            "dtype": "float32",
+            "blocks": [
+              {
+                "offset": 0,
+                "bytes": 16,
+                "sha256": "30da10c412761210a011aef010c24779aaa52417a510beedfff892abc7352bea"
+              },
+              {
+                "offset": 0,
+                "bytes": 4,
+                "sha256": "75a2a13326b2a4a0b2265dbc2d0a91bfc7b540f0b10b5b9abd2a3fc9d7b83016"
+              },
+              {
+                "offset": 4,
+                "bytes": 4,
+                "sha256": "60f2e332c71bcda81951ea38d3c52d4a9b1a2056b334f99001f41c588afd0892"
+              },
+              {
+                "offset": 192,
+                "bytes": 2,
+                "sha256": "78b4be1f9eeef9da65c393e4385f67edd142709b400ca7d900bd952e0c3cf727"
+              },
+              {
+                "offset": 194,
+                "bytes": 252,
+                "sha256": "7b8138c629762c823532c0f86dbd937499ebf062e4407f9f1a25abed12b8712a"
+              },
+              {
+                "offset": 470,
+                "bytes": 62,
+                "sha256": "a65417ac15aa03592769161ec5c8cef073ea80692e6ccbd811b37974a5a4c1ab"
+              },
+              {
+                "offset": 1628,
+                "bytes": 1680,
+                "sha256": "bb71d8c30aa92a4d3647e401dd60aca488dbe0b487544740798508c5805e7770"
+              },
+              {
+                "offset": 3308,
+                "bytes": 1680,
+                "sha256": "a4ababf5d20c4c0c5c0486ce6eac05e9f57cf4ec8d6c00ba285a62d4c5e651c0"
+              },
+              {
+                "offset": 532,
+                "bytes": 24,
+                "sha256": "8310e851eae8390ee7f7b05942b02fc79b59ddf59690fb62b1d443d60d33a4de"
+              },
+              {
+                "offset": 556,
+                "bytes": 48,
+                "sha256": "a432ef0df29c01a129ad52ac3bff34ce59762dfd4e561fa571c5a1268de98096"
+              },
+              {
+                "offset": 34885803,
+                "bytes": 235149,
+                "sha256": "e01fc59b751258d77d7d3922fdecb3b59d1c96d44377fa648f74738c56210b76"
+              }
+            ],
+            "sourceGrid": [
+              363520.0,
+              20.0,
+              0,
+              5534720.0,
+              0,
+              -20.0
+            ]
+          },
+          {
+            "url": "https://rcm-ceos-ard.s3.ca-central-1.amazonaws.com/MLC/2025/02/27/RCM2_OK3308027_PK3500892_1_SC30MCPB_20250227_002159_CH_CV_MLC/RCM2_OK3308027_PK3500892_1_SC30MCPB_20250227_002159_bitmask.tif",
+            "etag": "\"a5029afe5e4648b16c6734cb7034fba0\"",
+            "sourceBytes": 85845,
+            "pixelWindow": [
+              3537,
+              1897,
+              37,
+              56
+            ],
+            "dtype": "uint8",
+            "blocks": [
+              {
+                "offset": 0,
+                "bytes": 16,
+                "sha256": "30da10c412761210a011aef010c24779aaa52417a510beedfff892abc7352bea"
+              },
+              {
+                "offset": 0,
+                "bytes": 4,
+                "sha256": "75a2a13326b2a4a0b2265dbc2d0a91bfc7b540f0b10b5b9abd2a3fc9d7b83016"
+              },
+              {
+                "offset": 4,
+                "bytes": 4,
+                "sha256": "60f2e332c71bcda81951ea38d3c52d4a9b1a2056b334f99001f41c588afd0892"
+              },
+              {
+                "offset": 192,
+                "bytes": 2,
+                "sha256": "78b4be1f9eeef9da65c393e4385f67edd142709b400ca7d900bd952e0c3cf727"
+              },
+              {
+                "offset": 194,
+                "bytes": 252,
+                "sha256": "a636066f5208423f14cd9c69215d9665a5acf071d54d22b941a2c273be6eec90"
+              },
+              {
+                "offset": 470,
+                "bytes": 8,
+                "sha256": "f584c4ec2ff3c1a47340964f4cc2b0e39c7f95b441e9d2a166b792307086c36b"
+              },
+              {
+                "offset": 478,
+                "bytes": 62,
+                "sha256": "a65417ac15aa03592769161ec5c8cef073ea80692e6ccbd811b37974a5a4c1ab"
+              },
+              {
+                "offset": 1636,
+                "bytes": 1680,
+                "sha256": "ed75428f8060e37099e1d8f79b20cc6248885832302e6080053eea4a05de858f"
+              },
+              {
+                "offset": 3316,
+                "bytes": 1680,
+                "sha256": "716cd160e7b0b1fc5f9f22f632947a60701d53df1bdccef6ff4fe0ea74137304"
+              },
+              {
+                "offset": 540,
+                "bytes": 24,
+                "sha256": "8310e851eae8390ee7f7b05942b02fc79b59ddf59690fb62b1d443d60d33a4de"
+              },
+              {
+                "offset": 564,
+                "bytes": 48,
+                "sha256": "a432ef0df29c01a129ad52ac3bff34ce59762dfd4e561fa571c5a1268de98096"
+              },
+              {
+                "offset": 59508,
+                "bytes": 85,
+                "sha256": "3447367f2e022f5bd2fc26b897d6c40ab3d917a269a4a55e009e274bceaef0d4"
+              }
+            ],
+            "sourceGrid": [
+              363520.0,
+              20.0,
+              0,
+              5534720.0,
+              0,
+              -20.0
+            ]
+          }
+        ],
+        "valuesSha256": "f01d252dba4577259b2e9927c341d0466f5e58a57f25b1f224c468ba3405db18"
+      },
+      "candidateManifestSha256": "5fd836b054ae547b0c81d36ac3a84f7464ffe83d00fd6041e9251afe57741bbf",
+      "verificationReceiptSha256": "709701f53bc9e69a2250b95ab76aec33c3d280003bb3b9e4d959620ecb032a98"
+    },
+    {
+      "sourceId": "nisar",
+      "sourceVerification": {
+        "status": "exact-source-values-and-mask-match",
+        "samples": 2475,
+        "total": 2475,
+        "decoder": "GDAL netCDF driver, separate process; independent mask/10log10 calculation",
+        "pixelWindow": [
+          10451,
+          14220,
+          45,
+          55
+        ],
+        "planes": {
+          "HHHH": {
+            "dtype": "float32",
+            "sha256": "1c094d3e9646c218377ced3db1c1cfaa8c04b359046ec98ed957f37d34137814"
+          },
+          "mask": {
+            "dtype": "uint8",
+            "sha256": "c804243e22bb5e1380cf87bbbd833db450412c65627b6556e51f8948a87fab4b"
+          },
+          "inputDataExceptionMask": {
+            "dtype": "uint16",
+            "sha256": "e60c8a51309f0e92dab60140c0b23e11cfe76574ea85a3146923339d7bf5ced5"
+          }
+        },
+        "valuesSha256": "7025b323886e649cd16615fc393119d233827396574d6723138bc683f4ab3323",
+        "etag": "\"3031ee4cadbed17393ea4d2e713d52c0-7\"",
+        "sourceBytes": 1824522240,
+        "transferBytes": 2490369,
+        "elapsedSeconds": 32.436671414005104
+      },
+      "candidateManifestSha256": "ecb794b6c5f346bc0a90c3b47dfbb5060ea9c7d79e3dc456bbff7d9514aea451",
+      "verificationReceiptSha256": "5d52aab9f0bdc46426271e7d006440c64887e717d3feba8b0b5cb4c4e48ff6ad"
+    }
+  ]
+}

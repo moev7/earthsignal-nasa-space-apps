@@ -1,8 +1,24 @@
 import { readFile, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 
 const root = path.resolve(process.argv[2] ?? 'dist/standalone');
+const registry = JSON.parse(await readFile(path.join(root, 'public/data/challenge/studies.json'), 'utf8'));
+if (registry.schemaVersion !== '1.0' || registry.studies.length < 2) throw new Error('Unexpected reviewed public-study registry');
+for (const study of registry.studies) {
+  if (!/^\/data\/(?:(?:nisar|radar)\/[a-z0-9-]+|sar\/[a-z0-9-]+\/[a-f0-9]{16})\/manifest\.json$/.test(study.manifestUrl)) throw new Error('Unsafe registry path');
+  const raw = await readFile(path.join(root, 'public', study.manifestUrl.slice(1)));
+  const sha = createHash('sha256').update(raw).digest('hex');
+  if (sha !== study.manifestSha256 || raw.length !== study.manifestBytes || !sha.startsWith(study.revision)) throw new Error('Published manifest differs from its reviewed registry revision');
+  const original = JSON.parse(raw);
+  if (!isDeepStrictEqual(study.files, original.files)) throw new Error('Registry artifact table differs from published manifest');
+  for (const [name, expected] of Object.entries(study.files)) {
+    if (!/^[A-Za-z0-9_-][A-Za-z0-9_.-]*(\/[A-Za-z0-9_-][A-Za-z0-9_.-]*)?$/.test(name) || name.split('/').some(p => p === '.' || p === '..')) throw new Error('Unsafe public artifact path');
+    const bytes = await readFile(path.join(root, 'public', path.dirname(study.manifestUrl).slice(1), name));
+    if (bytes.length !== expected.bytes || createHash('sha256').update(bytes).digest('hex') !== expected.sha256) throw new Error(`Public study integrity failed: ${study.id}/${name}`);
+  }
+}
 const bundle = path.join(root, 'public/data/nisar/tehran-sw-2026');
 const manifest = JSON.parse(await readFile(path.join(bundle, 'manifest.json'), 'utf8'));
 if (manifest.schema !== 'earthsignal.result-bundle/1' || manifest.provenance !== 'measured') throw new Error('The public release must contain the measured result bundle.');

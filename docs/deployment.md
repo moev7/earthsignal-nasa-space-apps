@@ -104,3 +104,30 @@ a new staging/backup path and retains the same final-admission boundary.
 ## Verify activation
 
 Check enabled/active units, HTTP→HTTPS redirect, valid hostname certificate, `/health`200, workspace200, session endpoint200/null anonymously, jobs/artifacts401 anonymously, and spoofed identity headers401. Sign in, inspect the retained study and protected downloads, submit a small job twice with one idempotency key, and verify another account cannot read its ordinary result. Check both memory limits under load. Test a renewal dry run during an appropriate maintenance window; certificate issuance alone does not prove future renewal.
+
+
+## Challenge SAR source activation
+
+The guarded [r24 activation](../scripts/activate-science-sar-r24-20261114.py)
+uses [the source package builder](../scripts/build-sar-science-package.py) to bind
+an actual live inventory, candidate inventory, tar hash and separately pinned
+operator receipt. Inventory excludes environments, credentials, tests and hidden
+files; all runtime source imports must be packaged. It preserves the shared queue
+and prepared results, rehearses source rollback, and never restores a database
+backup over later jobs. An internal virtual environment must first move to a
+stable external directory with a verified symlink, source/retention checks and
+restored supervised services.
+
+Generate inputs from observed production state; do not reuse another release's
+hashes or set approval checks without evidence. Run `python3 -B
+scripts/test_sar_activation.py` and the existing Linux interruption suite with
+`--recipe scripts/activate-science-sar-r24-20261114.py`. The recipe supports
+bounded delayed web startup because stopping the API can also stop the dependent
+web unit. Inspect any partial activation path rather than replaying the command.
+The publication command is separate from worker activation; neither admits
+automatic public publication of collaborator results.
+
+RCM imagery is disabled by default. Enable `EARTHSIGNAL_RCM_ACCESS_APPROVED=true`
+only after approval of the identified royalty-free source terms; the reader also
+pins the exact license PDF hash. That flag does not authorize other licenses,
+archive accounts, purchases or new access grants.

@@ -35,6 +35,10 @@ class Worker:
         from .assessment_validation import (ARTIFACTS as OBSERVATORY_ARTIFACTS, RASTER_ARTIFACTS, VINTAGE_ARTIFACTS,
             validate_assessment_manifest, validate_scenario_manifest, validate_brief)
         kind = row.get('kind', 'radar')
+        if kind == 'sar-study':
+            from .sar.jobs import verify
+            manifest = verify(stage, json.loads(row['request']))
+            return self._commit_publication(row, stage, manifest)
         if kind == 'area-experiment':
             from .area_jobs import verify
             manifest = verify(stage, json.loads(row['request']))
@@ -179,6 +183,10 @@ class Worker:
             environment = dict(os.environ, GDAL_CACHEMAX='32', GDAL_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
                                OMP_NUM_THREADS='1', EARTHSIGNAL_DATA_DIR=str(self.store.config.root),
                                EARTHSIGNAL_NETRC=str(self.store.config.netrc),
+                               EARTHSIGNAL_TRANSFER_BYTES=str(self.store.config.transfer_bytes),
+                               EARTHSIGNAL_MAX_PIXELS=str(self.store.config.max_pixels),
+                               EARTHSIGNAL_WALL_SECONDS=str(self.store.config.wall_seconds),
+                               EARTHSIGNAL_RCM_ACCESS_APPROVED=str(self.store.config.rcm_access_approved).lower(),
                                EARTHSIGNAL_GAUGE_VINTAGES_ENABLED=str(self.store.config.gauge_vintages_enabled).lower(),
                                EARTHSIGNAL_STORAGE_BYTES=str(self.store.config.storage_bytes),
                                EARTHSIGNAL_RESERVE_BYTES=str(self.store.config.reserve_bytes))
@@ -209,8 +217,8 @@ class Worker:
                 return True
             if process.returncode != 0:
                 error = json.loads((stage/'error.json').read_text()) if (stage/'error.json').is_file() else {}
-                self.store.fail(row['id'],error.get('code','processing_failed') if row['kind'] == 'radar' else 'processing_failed',
-                    error.get('message','Processing could not produce a verified compatible crop') if row['kind'] == 'radar' else 'Assessment processing or publication failed')
+                self.store.fail(row['id'],error.get('code','processing_failed') if row['kind'] in ('radar','sar-study') else 'processing_failed',
+                    error.get('message','Processing could not produce a verified compatible crop') if row['kind'] in ('radar','sar-study') else 'Assessment processing or publication failed')
             else:
                 if not self.store.disk_ready():
                     self.store.fail(row['id'],'storage_limit','Processing storage limit reached')

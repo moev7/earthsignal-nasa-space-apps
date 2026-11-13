@@ -1,34 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { loadBundle, type BundleId } from '../features/ground-truth/data/nisar';
+import { readFile } from 'node:fs/promises';
+import { loadBundle } from '../features/ground-truth/data/nisar';
 
-test('a corrupted or missing measured bundle never becomes substitute data, and can recover', async () => {
+test('a reviewed measured bundle rejects corrupted files and manifests, then recovers', async () => {
   const original = globalThis.fetch;
-  const grid = JSON.stringify({ rows: 1, cols: 1, vertical_rate: [-100], vertical_sigma: [10] });
-  const image = new Uint8Array([137, 80, 78, 71]);
-  const hash = (value: string | Uint8Array) => createHash('sha256').update(value).digest('hex');
-  const manifest = { schema: 'earthsignal.result-bundle/1', provenance: 'measured', source: { granules: ['fixture'] }, caveats: [{ id: 'test', text: 'Synthetic test fixture' }], values: { file: 'grid.json' }, layers: { vertical_rate: { file: 'rate.png' } }, files: { 'grid.json': { sha256: hash(grid) }, 'rate.png': { sha256: hash(image) } } };
-  let corrupt = true;
+  const root = new URL('../public/data/nisar/tehran-sw-2026/', import.meta.url);
+  let mode: 'corrupt-values' | 'valid' | 'missing' | 'changed-manifest' = 'corrupt-values';
   globalThis.fetch = async input => {
-    const url = String(input);
-    if (url.endsWith('/manifest.json')) return Response.json(manifest);
-    if (url.endsWith('/grid.json')) return new Response(corrupt ? 'corrupt bytes' : grid);
-    if (url.endsWith('/rate.png')) return new Response(image);
-    return new Response(null, { status: 404 });
+    const name = String(input).split('/').pop()!;
+    if (mode === 'missing') return new Response(null, {status: 404});
+    const raw = await readFile(new URL(name, root));
+    if (name === 'manifest.json' && mode === 'changed-manifest') return new Response(raw.toString().replace('measured', 'invented'));
+    if (name !== 'manifest.json' && mode === 'corrupt-values') { const changed = new Uint8Array(raw); changed[0] ^= 1; return new Response(changed); }
+    return new Response(raw);
   };
   try {
-    const id = 'test-integrity' as BundleId;
-    await assert.rejects(loadBundle(id), /checksum/);
-    corrupt = false;
-    const valid = await loadBundle(id);
-    assert.equal(valid.grid.vertical_rate[0], -100);
+    await assert.rejects(loadBundle('tehran-sw-2026'), /checksum/);
+    mode = 'missing';
+    await assert.rejects(loadBundle('tehran-sw-2026'), /HTTP 404/);
+    mode = 'changed-manifest';
+    await assert.rejects(loadBundle('tehran-sw-2026'), /reviewed revision/);
+    mode = 'valid';
+    const valid = await loadBundle('tehran-sw-2026');
+    assert.ok(valid.grid.vertical_rate.length > 1);
     URL.revokeObjectURL(valid.imageUrl);
-    globalThis.fetch = async () => new Response(null, { status: 404 });
-    await assert.rejects(loadBundle('test-missing' as BundleId), /HTTP 404/);
-    globalThis.fetch = async () => Response.json({ ...manifest, provenance: 'demo' });
-    await assert.rejects(loadBundle('test-demo' as BundleId), /provenance/);
-    globalThis.fetch = async () => Response.json({ ...manifest, schema: 'future/99' });
-    await assert.rejects(loadBundle('test-schema' as BundleId), /Unsupported bundle schema/);
   } finally { globalThis.fetch = original; }
 });

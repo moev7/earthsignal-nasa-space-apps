@@ -1,0 +1,77 @@
+{
+  "sourceUrl": "https://www.spaceappschallenge.org/2026/challenges/dancing-with-the-sars/?tab=resources",
+  "inspectedOn": "2026-11-13",
+  "verification": "Actual hydrated official Resources panel inspected in browser; 9 NASA and 5 partner resources",
+  "resources": [
+    {
+      "id": "earthdata",
+      "title": "NASA Earthdata Search",
+      "challengeUrl": "https://search.earthdata.nasa.gov/search"
+    },
+    {
+      "id": "asf",
+      "title": "ASF Data Search Vertex",
+      "challengeUrl": "https://search.asf.alaska.edu/"
+    },
+    {
+      "id": "nisar-guide",
+      "title": "NISAR Data User Guide",
+      "challengeUrl": "https://nisar-docs.asf.alaska.edu/"
+    },
+    {
+      "id": "remote-sensing",
+      "title": "Intro to Remote Sensing",
+      "challengeUrl": "https://earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing"
+    },
+    {
+      "id": "sar-intro",
+      "title": "Intro to Synthetic Aperture Radar",
+      "challengeUrl": "https://earthdata.nasa.gov/learn/earth-observation-data-basics/sar"
+    },
+    {
+      "id": "arset",
+      "title": "NASA ARSET Trainings",
+      "challengeUrl": "https://appliedsciences.nasa.gov/get-involved/training"
+    },
+    {
+      "id": "storymaps",
+      "title": "NISAR StoryMaps",
+      "challengeUrl": "https://nisar.jpl.nasa.gov/applications/arcgis-storymaps/"
+    },
+    {
+      "id": "white-papers",
+      "title": "NISAR Applications White Papers",
+      "challengeUrl": "https://nisar.jpl.nasa.gov/applications/societal-benefit/"
+    },
+    {
+      "id": "uavsar-postcards",
+      "title": "UAVSAR Postcards",
+      "challengeUrl": "https://uavsar.jpl.nasa.gov/education/postcards.html"
+    },
+    {
+      "id": "rcm",
+      "title": "Radarsat Constellation Mission Data",
+      "challengeUrl": "https://donnees-data.asc-csa.gc.ca/en/dataset/rcm"
+    },
+    {
+      "id": "csa-tutorial",
+      "title": "Synthetic Aperture Radar Python Tutorial",
+      "challengeUrl": "https://github.com/asc-csa/Synthetic_Aperture_Radar_Tutorial"
+    },
+    {
+      "id": "radarsat-1",
+      "title": "RADARSAT 1 Data",
+      "challengeUrl": "https://donnees-data.asc-csa.gc.ca/en/dataset/radarsat1"
+    },
+    {
+      "id": "saocom",
+      "title": "SAOCOM Catalogue",
+      "challengeUrl": "https://catalogos.conae.gov.ar/catalogo/catalogoSatSaocomInfo.html"
+    },
+    {
+      "id": "saocom-access",
+      "title": "SAOCOM Catalogue Registration",
+      "challengeUrl": "https://argentina.gob.ar/noticias/la-informacion-saocom-cada-vez-mas-accesible"
+    }
+  ]
+}

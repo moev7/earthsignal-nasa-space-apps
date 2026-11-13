@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0",
+  "checkedOn": "2026-11-13",
+  "notice": "Operator verification snapshot, not a live availability promise. Null means unverified. Each source and product retains its own units, masks and rights.",
+  "sources": [
+    {
+      "sourceId": "nisar",
+      "discoverable": true,
+      "accessGranted": true,
+      "metadataInspected": true,
+      "nativeReadable": true,
+      "exampleVerified": true,
+      "publishAllowed": true,
+      "operations": [
+        "GCOV: HH gamma0 observation and compatible-pair difference",
+        "GUNW: HH relative LOS, schema 1.5",
+        "GSLC: implemented schema 1.6 beta0/complex-preserving reader; live pilot gated by missing transmit-state metadata",
+        "GOFF: implemented schema 1.6 component/quality reader; live pilot gated by source schema"
+      ],
+      "evidence": [
+        "/studies/tehran-validated-gcov-20261028",
+        "/data/radar/lake-mead-gcov-2026/manifest.json",
+        "/data/nisar/tehran-sw-2026/manifest.json"
+      ],
+      "detail": "The validated 28 October 2026 Tehran GCOV observation matched every source sample and validity decision in an independent GDAL read. Existing Tehran motion results retain their original acquisition maturity. GSLC/GOFF live checks are tracked separately.",
+      "gate": "The tested validated GSLC file lacks the producer-defined isReceiveOnly attribute; calibrated execution is withheld. The tested GOFF file is outside the verified 1.6 schema. No matching validated two-date Tehran GCOV pair was returned by the bounded search. GUNW schema 1.6 is withheld.",
+      "nextAction": "Inspect the product, schema and pair-specific preflight before processing. Validated release availability does not reclassify older provisional products."
+    },
+    {
+      "sourceId": "radarsat-1",
+      "discoverable": true,
+      "accessGranted": true,
+      "metadataInspected": true,
+      "nativeReadable": true,
+      "exampleVerified": true,
+      "publishAllowed": true,
+      "operations": [
+        "Native pixel-window magnitude in source units"
+      ],
+      "evidence": [
+        "/studies/radarsat-1-arctic-1996"
+      ],
+      "detail": "16,384 original complex source magnitudes independently reproduced exactly. Published under the source archive\u2019s Open Government Licence.",
+      "gate": "This original SLC has GCPs rather than a verified geographic affine grid. Calibration and geographic geocoding are withheld.",
+      "nextAction": "Inspect the published source-pixel window. Do not interpret its magnitude as calibrated dB or motion."
+    },
+    {
+      "sourceId": "rcm",
+      "discoverable": true,
+      "accessGranted": true,
+      "metadataInspected": true,
+      "nativeReadable": true,
+      "exampleVerified": true,
+      "publishAllowed": true,
+      "operations": [
+        "CEOS ARD calibrated gamma0 observation",
+        "Compatible native-grid backscatter difference"
+      ],
+      "evidence": [
+        "/studies/rcm-manitoba-2025"
+      ],
+      "detail": "2,072 RR gamma0 samples and mask decisions independently reproduced exactly. The identified royalty-free Public User License was approved and its exact PDF hash is checked before imagery access.",
+      "gate": "Only one acquisition was found for this small Manitoba example in the checked February\u2013March 2025 period; it establishes an observation, not temporal change.",
+      "nextAction": "Use preflight to establish matching acquisition geometry, calibration, processing and exact grid before requesting a difference."
+    },
+    {
+      "sourceId": "uavsar",
+      "discoverable": true,
+      "accessGranted": null,
+      "metadataInspected": true,
+      "nativeReadable": null,
+      "exampleVerified": false,
+      "publishAllowed": null,
+      "operations": [
+        "Implemented: diagonal HH/HV/VV numeric GRD power with original annotation"
+      ],
+      "evidence": [
+        "https://uavsar.jpl.nasa.gov/science/documents/polsar-format.html"
+      ],
+      "detail": "The reader has numerical fixture coverage and exact original ASF product links. Postcard images are used for context only.",
+      "gate": "The existing processing-host grant did not retrieve the selected ASF annotation; a separate original JPL postcard product download endpoint returned ACCESS DENIED. No original-source numerical pilot has passed.",
+      "nextAction": "Resolve a public producer product or existing authorization; do not substitute a postcard, guessed calibration or a new paid service."
+    },
+    {
+      "sourceId": "saocom",
+      "discoverable": false,
+      "accessGranted": false,
+      "metadataInspected": false,
+      "nativeReadable": false,
+      "exampleVerified": false,
+      "publishAllowed": false,
+      "operations": [],
+      "evidence": [
+        "https://catalogos.conae.gov.ar/catalogo/catalogoSatSaocomInfo.html"
+      ],
+      "detail": "CONAE permits catalogue search and thumbnails without registration. Numerical product downloads and processing orders require registration, a CONAE agreement and a signed use license.",
+      "gate": "The catalogue app advertises a products query endpoint, but the bounded unauthenticated query returned HTTP 403. Downloads and processing orders additionally require CONAE registration, an agreement and signed product-use license; those actions were not taken.",
+      "nextAction": "Establish the exact free access and redistribution terms before implementing and validating that product level."
+    }
+  ]
+}

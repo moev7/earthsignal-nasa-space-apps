@@ -58,3 +58,6 @@ __pycache__/
 *.tsbuildinfo
 /.impeccable/hook.cache.json
 .nisar-cache/
+
+# Operator-only source publication lock
+.earthsignal-sar-publication.lock

@@ -10,6 +10,7 @@ Earthsignal combines a public visual story about land subsidence, an optional fi
 - [Compare Tehran and Tokyo](https://nasa.r8volt.com/compare) — inspect the two case studies and their evidence boundaries.
 - [Public experience and verification](public-story.md) — feature integration, engine reuse and validation limits.
 - [Neural voice implementation](../voice/README.md) — reviewed cue bank, offline rendering and playback lifecycle.
+- [Challenge resources and native SAR processing](challenge-processing.md) — source-specific readers, verified original values, publication and current gates.
 - [Advanced scientific workspace](https://nasa.r8volt.com/workspace) — the place-and-question workflow and underlying analysis tools.
 
 The detailed methods, contracts, operational manuals and historical checkpoints remain linked below.
