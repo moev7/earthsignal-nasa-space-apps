@@ -33,9 +33,9 @@ function isSettling(world: CityWorld | null): boolean {
   return typeof simulation.isSettling === 'function' && simulation.isSettling();
 }
 
-export default function SinkingCity3D({ mode = 'measured', preview = false, controlledProgress, story = false, ambient = false, exhibition = false, manualProgress = false, intro = false, onSoundEvent }: { mode?: CityMode; preview?: boolean; controlledProgress?: number; story?: boolean; ambient?: boolean; exhibition?: boolean; manualProgress?: boolean;
-  /** Opening only: once ready and visible, run 30 projected years in 5 seconds with ground-tilt colours. */
-  intro?: boolean; onSoundEvent?: (event: "collapse" | "stop") => void }) {
+export default function SinkingCity3D({ mode = 'measured', preview = false, controlledProgress, story = false, ambient = false, exhibition = false, manualProgress = false, intro = false, introView = 'landing', onSoundEvent }: { mode?: CityMode; preview?: boolean; controlledProgress?: number; story?: boolean; ambient?: boolean; exhibition?: boolean; manualProgress?: boolean;
+  /** Once ready and visible, run 30 projected years in 5 seconds with the shared HUD. */
+  intro?: boolean; introView?: 'landing' | 'neighbourhood'; onSoundEvent?: (event: "collapse" | "stop") => void }) {
   const { paused, replayToken } = useStory();
   const reducedMotion = usePrefersReducedMotion();
   const id = useId();
@@ -170,7 +170,16 @@ export default function SinkingCity3D({ mode = 'measured', preview = false, cont
     if (!world || world.kind !== 'simulation' || error || ((paused || reducedMotion) && !manualProgress) || !visible || !documentVisible || manualOverride || latestScrollTime.current === null) return;
     if (latestScrollTime.current !== time.current || animatedPose.current) applyTime(latestScrollTime.current);
   }, [controlledProgress, followsScroll, manualProgress, world, error, paused, reducedMotion, visible, documentVisible, manualOverride, applyTime]);
-  const takeManualControl = useCallback(() => { if (followsScroll) setManualOverride(true); }, [followsScroll]);
+  const takeManualControl = useCallback(() => {
+    if (followsScroll) setManualOverride(true);
+    // Inspecting the scene takes time authority from its finite introduction.
+    // Ambient street life can continue, but the projected year stays still.
+    if (tween.current?.intro) {
+      tween.current = null;
+      setIntroState('done');
+      setTransitionKey(value => value + 1);
+    }
+  }, [followsScroll]);
   useEffect(() => {
     const controls = stage.current?.controls;
     if (!controls) return;
@@ -246,16 +255,17 @@ export default function SinkingCity3D({ mode = 'measured', preview = false, cont
     const width = east.length * spacing;
     const depth = north.length * spacing;
     const target = new THREE.Vector3((east[0] + east[east.length - 1]) / 2, city.view.target.y, -(north[0] + north[north.length - 1]) / 2);
-    const direction = city.view.position.clone().sub(city.view.target).normalize();
+    const direction = (introView === 'neighbourhood' ? new THREE.Vector3(430, 430, -650) : city.view.position.clone().sub(city.view.target)).normalize();
     const vertical = THREE.MathUtils.degToRad(active.camera.fov);
     const horizontal = 2 * Math.atan(Math.tan(vertical / 2) * active.camera.aspect);
-    const radius = 0.5 * Math.hypot(width, depth) * INTRO_FIT;
+    const fit = introView === 'neighbourhood' ? 0.74 : INTRO_FIT;
+    const radius = 0.5 * Math.hypot(width, depth) * fit;
     const distance = Math.min(active.controls.maxDistance, radius / Math.sin(Math.min(vertical, horizontal) / 2));
     active.controls.target.copy(target);
     active.camera.position.copy(target).addScaledVector(direction, distance);
     active.controls.update();
     active.renderer.render(active.scene, active.camera);
-  }, [focus]);
+  }, [focus, introView]);
   // A new world starts in rate colours; only the opening switches to tilt colours.
   useEffect(() => {
     if (!showIntro || world?.kind !== 'measured') return;
@@ -362,7 +372,7 @@ export default function SinkingCity3D({ mode = 'measured', preview = false, cont
       {futureOpen && <section className="es-city-future" aria-label="Selected future scenario summary"><div><h4>{mode==='measured'?`If these rates continued for ${years.toFixed(1)} years`:`Invented city · illustration year ${years.toFixed(1)}`}</h4><button type="button" aria-label="Close future summary" onClick={()=>setFutureOpen(false)}>Close</button></div>{mode==='measured'&&measuredRates.length>0?<><p>The median ground cell would be {Math.abs(measuredRates[Math.floor(measuredRates.length/2)]*years/1000).toFixed(1)} m {measuredRates[Math.floor(measuredRates.length/2)]<0?'lower':'higher'} relative to the regional reference. The fastest-sinking cell would be {Math.abs(measuredRates[0]*years/1000).toFixed(1)} m lower.</p><p>This extends four months of provisional observations at a fixed rate. Sinking can slow, accelerate or stop. It does not estimate damage to these buildings.</p></>:simulationSummary&&<p>In this invented model, {simulationSummary.cracked} buildings show cracks or worse, {simulationSummary.damaged} show illustrative structural damage and {simulationSummary.falling} are shown falling. These counts describe the teaching simulation.</p>}</section>}
       <p className="es-city-note">{paused ? 'Story animations are paused. Resume in the story controls. ' : ''}{reducedMotion ? 'Reduced motion is on: use the slider to compare still states. ' : ''}{mode === 'measured' ? `${focus ? formatPeriod(focus.bundle.manifest) : 'June–October 2026'}. Four months of provisional observations; future movement assumes these rates continue. This is not a building-damage forecast.` : 'The ground, buildings and rates are invented. Collapse is an exaggerated teaching illustration, not an engineering prediction.'}</p>
       <details className="es-city-options"><summary>View controls and more detail</summary><div className="es-city-option-row">
-        <button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(0.8)}>Zoom in</button><button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(1.25)}>Zoom out</button><button type="button" disabled={!world || Boolean(error)} onClick={() => { takeManualControl(); frameCamera(false); }}>Neighbourhood view</button>
+        <button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(0.8)}>Zoom in</button><button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(1.25)}>Zoom out</button><button type="button" disabled={!world || Boolean(error)} onClick={() => { takeManualControl(); if (showIntro) fitWholeSquare(); else frameCamera(false); }}>Neighbourhood view</button>
         {mode === 'measured' && <button type="button" disabled={!world || Boolean(error)} onClick={() => { takeManualControl(); frameCamera(true); }}>Overhead view · north up</button>}
         <label><input type="checkbox" checked={colours} onChange={event => setColours(event.target.checked)} />{mode === 'measured' ? 'Colour by ground-motion rate' : 'Illustrative damage colours'}</label>
         {mode === 'measured' && <label><input type="checkbox" checked={cells} onChange={event => setCells(event.target.checked)} />Show 80 m measurement cells</label>}

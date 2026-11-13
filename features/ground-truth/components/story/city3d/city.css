@@ -67,7 +67,7 @@
 .es-public .es-city-intro li i { width:9px; height:9px; border-radius:2px; flex:none; }
 .es-public .es-city-intro li b { min-width:3ch; text-align:right; color:#f0f0e9; font-size:15px; font-variant-numeric:tabular-nums; }
 .es-public .es-city-intro-note { margin:5px 0 0; color:#9aa19a; font-size:var(--earth-type-caption); line-height:1.35; }
-.es-public .es-city-intro button { margin-top:6px; min-height:32px; padding:4px 10px; border-radius:6px; border:1px solid #8bcec0; background:#8bcec0; color:#121617; font-size:var(--earth-type-body); font-weight:600; line-height: 1.5; min-width: 0; }
+.es-public .es-city-intro button { margin-top:6px; min-height:44px; padding:4px 10px; border-radius:6px; border:1px solid #8bcec0; background:#8bcec0; color:#121617; font-size:var(--earth-type-body); font-weight:600; line-height: 1.5; min-width: 0; }
 .es-public .es-city-intro button:disabled { opacity:.5; }
 .es-public .es-sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 @media (max-width: 560px) {

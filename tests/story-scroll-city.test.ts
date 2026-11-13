@@ -12,11 +12,12 @@ type CityProps = React.ComponentProps<CityComponent>;
 function rendererFixture() {
   const worlds: ReturnType<typeof makeWorld>[] = [];
   const stages: ReturnType<typeof makeStage>[] = [];
-  const ready = { status: 'ready', data: { focus: { buildings: [], grid: { vertical_rate: [[-100, -20]] } }, bundle: { manifest: { layers: { vertical_rate: { colour: { stops: [] } } }, stats: { median_sigma: 10 } } } } };
+  const ready = { status: 'ready', data: { focus: { buildings: [], spacing_m: 80, grid: { east: [-80, 0, 80], north: [-80, 0, 80], vertical_rate: [[-100, -20]] } }, bundle: { manifest: { layers: { vertical_rate: { colour: { stops: [] } } }, stats: { median_sigma: 10 } } } } };
   function makeWorld(kind: 'simulation' | 'measured') {
     const world = {
       kind, buildingCount: 1, now: 0,
       times: [] as Array<{ time: number; forward: boolean; animate: boolean }>,
+      colourModes: [] as string[], setColourMode(value: string) { world.colourModes.push(value); },
       ambientToggles: [] as boolean[], ambientSteps: [] as number[], physicsSteps: 0,
       crossings: [] as Array<number | undefined>, debrisClears: 0, disposed: false,
       view: { position: new THREE.Vector3(560, 360, 600), target: new THREE.Vector3(20, -10, 0), from: new THREE.Vector3() },
@@ -37,7 +38,7 @@ function rendererFixture() {
     const stage = {
       scene: new THREE.Scene(), camera: new THREE.PerspectiveCamera(), disposed: false, renders: 0, shadowInvalidations: 0,
       loop: null as (() => void) | null,
-      controls: { target: new THREE.Vector3(), enabled: false, enableZoom: true, enableDamping: true, update() {},
+      controls: { maxDistance: 3600, target: new THREE.Vector3(), enabled: false, enableZoom: true, enableDamping: true, update() {},
         addEventListener(_event: string, listener: () => void) { starts.add(listener); },
         removeEventListener(_event: string, listener: () => void) { starts.delete(listener); },
       },
@@ -84,14 +85,14 @@ test('city scroll authority and story presentation', async t => {
     const visibility = new Set<(entries: { isIntersecting: boolean }[]) => void>();
     const motion = new Set<() => void>();
     let reduced = false;
-    let resizeDisconnects = 0;
+    let resizeDisconnects = 0, resizeObservers = 0;
     for (const [key, value] of Object.entries({ window, document: window.document, navigator: window.navigator, HTMLElement: window.HTMLElement, HTMLCanvasElement: window.HTMLCanvasElement, IS_REACT_ACT_ENVIRONMENT: true, __storyCityFixture: fixture })) install(key, value);
     install('IntersectionObserver', class {
       constructor(private callback: (entries: { isIntersecting: boolean }[]) => void) {}
       observe() { visibility.add(this.callback); this.callback([{ isIntersecting: visible }]); }
       disconnect() { visibility.delete(this.callback); }
     });
-    install('ResizeObserver', class { observe() {} disconnect() { resizeDisconnects++; } });
+    install('ResizeObserver', class { constructor() { resizeObservers++; } observe() {} disconnect() { resizeDisconnects++; } });
     window.matchMedia = (() => ({ get matches() { return reduced; }, addEventListener(_type: string, callback: () => void) { motion.add(callback); }, removeEventListener(_type: string, callback: () => void) { motion.delete(callback); } })) as unknown as typeof window.matchMedia;
     const { createRoot } = await import('react-dom/client');
     const host = window.document.createElement('div');
@@ -126,7 +127,7 @@ test('city scroll authority and story presentation', async t => {
         assert.ok(fixture.worlds.every(world => world.disposed), 'all worlds disposed');
         assert.ok(fixture.stages.every(stage => stage.disposed && stage.loop === null && stage.starts.size === 0), 'loops and control listeners released');
         assert.equal(visibility.size, 0); assert.equal(motion.size, 0);
-        assert.equal(resizeDisconnects, fixture.stages.length);
+        assert.equal(resizeDisconnects, resizeObservers, 'every scene and framing observer is released');
         await window.happyDOM.close();
         for (const [key, descriptor] of originals) { if (descriptor) Object.defineProperty(globalThis, key, descriptor); else Reflect.deleteProperty(globalThis, key); }
       },
@@ -285,6 +286,45 @@ test('city scroll authority and story presentation', async t => {
       assert.match(env.host.textContent, /does not estimate damage/);
       assert.equal(env.world.debrisClears, 0); assert.equal(env.world.crossings.length, 0);
       assert.equal(env.host.querySelector('.es-city-follow'), null);
+    } finally { await env.close(); }
+  });
+
+  await t.test('the non-preview Explore introduction frames the square, progresses with the shared HUD and yields to manual inspection', async () => {
+    const env = await setup({ mode: 'measured', intro: true, exhibition: true, introView: 'neighbourhood' });
+    try {
+      assert.ok(env.host.querySelector('.es-city-intro'), 'the standalone Explore scene has the opening HUD');
+      assert.equal(env.host.querySelector('.es-city-preview'), null, 'full timeline and gated camera remain available');
+      assert.equal(env.stage.controls.enabled, false);
+      assert.equal(env.world.colourModes.at(-1), 'tilt');
+      assert.equal(env.stage.controls.target.x, 0, 'the camera aims at the full grid centre');
+      assert.equal(Math.abs(env.stage.controls.target.z), 0);
+      const offset = env.stage.camera.position.clone().sub(env.stage.controls.target);
+      assert.ok(Math.abs(offset.x / offset.z - 430 / -650) < 1e-6, 'the road-facing oblique angle matches the Explore preset');
+      assert.ok(env.stage.loop, 'one finite introduction starts once visible');
+      await act(async () => env.stage.loop?.());
+      assert.ok(env.year > 0);
+      assert.match(env.host.querySelector('.es-city-intro-year')!.textContent, /if 2026 rates continue/);
+      const beforePause = env.year;
+      await env.pause(); assert.equal(env.stage.loop, null);
+      await env.pause();
+      await act(async () => env.stage.loop?.());
+      assert.ok(env.year > beforePause);
+      await env.hidden(true); assert.equal(env.stage.loop, null);
+      await env.hidden(false);
+      await env.click('Explore in 3D');
+      const manualYear = env.year;
+      for (let i = 0; i < 5; i++) await act(async () => env.stage.loop?.());
+      assert.equal(env.year, manualYear, 'camera interaction cancels the automatic projection');
+      await env.click('Finish moving the view');
+      await env.seek(12); assert.equal(env.year, 12);
+      await env.click('Replay 30 years');
+      for (let i = 0; i < 102; i++) await act(async () => env.stage.loop?.());
+      assert.equal(env.year, 30, 'the projection ends without looping');
+      assert.equal(env.stage.loop, null);
+      assert.equal(env.world.debrisClears, 0, 'measured footprints never acquire collapse effects');
+      await env.reduced(true); await env.click('Back to 2026');
+      assert.equal(env.year, 0);
+      assert.equal(env.stage.loop, null, 'reduced motion uses explicit still steps');
     } finally { await env.close(); }
   });
 
