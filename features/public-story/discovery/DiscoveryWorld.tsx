@@ -749,10 +749,7 @@ function EvidencePlay({ onFinding, radarOnly = false }: { onFinding?: Found; rad
             This is a real mapped neighbourhood. The motion is exaggerated so
             you can see it; the buildings are not being diagnosed.
           </Echo>
-          <p className="ed-evidence">
-            Measured ground motion · provisional · estimated building heights ·
-            exaggerated movement. Future playback is conditional.
-          </p>
+
         </>
       ) : (
         <>
@@ -766,10 +763,7 @@ function EvidencePlay({ onFinding, radarOnly = false }: { onFinding?: Found; rad
             <RealRadar onInspect={inspectRadar} />
           </Suspense>
 
-          <p className="ed-evidence">
-            Separate NISAR HH backscatter study, in dB. A changed echo is not by
-            itself a measurement of subsidence.
-          </p>
+
         </>
       )}
       {activity && (
@@ -1167,11 +1161,8 @@ export function EvidenceMap({
         </span>
       </div>
 
-      <p className="ed-evidence">
-        Relative yearly rate from a short record; not an absolute height change
-        or building assessment. Typical pixel uncertainty ±
-        {Math.round(m.stats.median_sigma)} mm/year.
-      </p>
+      <p className="ed-evidence">Relative rate · gaps are unmeasured · not a building assessment</p>
+      <ContextNote label="About these ground readings"><p>The short record is expressed as a yearly rate, not an absolute height change. Typical pixel uncertainty ±{Math.round(m.stats.median_sigma)} mm/year. Individual inspected values retain their own uncertainty.</p></ContextNote>
     </>
   );
 }
@@ -1226,12 +1217,12 @@ function TokyoPlay({ onFinding }: { onFinding?: Found }) {
       </details>
       <details className="ed-details">
         <summary>Tokyo changed course. See the real story.</summary>
+        <p>This response is illustrated: no policy effect or recovery rate is estimated for Tehran.</p>
         <StoryPhotography subject="tokyo" />
         <TokyoStory story />
       </details>
       <p className="ed-evidence">
-        Illustrated response, not a forecast for Tehran. No policy effect or
-        recovery rate is estimated.
+        Illustrated response · not a forecast for Tehran.
       </p>
     </>
   );

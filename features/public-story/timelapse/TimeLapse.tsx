@@ -130,11 +130,9 @@ function Player({ data, title }: { data: LoadedTimeSeries; title?: string }) {
           </div>
           <Chart dates={series.dates} values={values} index={index} />
           <figcaption id={`${id}-t`}>
-            {reduced ? "" : "Scroll to move through time. "}
-            {series.dates.length} NISAR acquisitions, {shortDate(series.dates[0])} → {shortDate(series.dates[last])} {series.dates[last].slice(0, 4)}.
-            Relative motion · select a place to chart it.
+            Provisional NISAR · relative motion · gaps are unmeasured.
           </figcaption>
-          <ContextNote label="How to read this time-lapse"><p>Motion is cumulative since the first pass, relative to the area’s median. The frames and profile come from a frozen, provisional NISAR study; missing measurements stay unknown. Use the date slider for still frames, or select a different place on the map.</p></ContextNote>
+          <ContextNote label="How to read this time-lapse"><p>{series.dates.length} acquisitions, {shortDate(series.dates[0])} to {shortDate(series.dates[last])} {series.dates[last].slice(0, 4)}. Motion is cumulative since the first pass, relative to the area’s median. The frames and profile come from a frozen, provisional NISAR study; missing measurements stay unknown. Use the date slider for still frames, or select a different place on the map.</p></ContextNote>
         </figure>
       </div>
     </div>

@@ -232,7 +232,10 @@ export function CityComparison() {
           <a href="#comparison-trends">Explore the curves</a>
           <a href="#comparison-milestones">Historical milestones</a>
           <a href="#comparison-evidence">Compare the evidence</a>
-          <a href="#comparison-water">Water &amp; policy</a>
+          <a href="#comparison-water" onClick={event => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            document.getElementById('comparison-water')?.closest('details')?.setAttribute('open', '');
+          }}>Water &amp; policy</a>
         </nav>
       </header>
 
@@ -271,11 +274,12 @@ export function CityComparison() {
         <MilestoneTimeline />
       </section>
 
+      <details className="es-wrap ec-disclosure ec-optional-section"><summary>What makes each city different?</summary>
       <section
-        className="ec-section ec-section-context"
+        className="ec-section ec-section-context ec-secondary-reading"
         aria-labelledby="comparison-profile-title"
       >
-        <div className="es-wrap">
+        <div>
           <div className="ec-section-intro">
             <h2 id="comparison-profile-title">
               The setting beneath the streets.
@@ -292,19 +296,20 @@ export function CityComparison() {
           </div>
         </div>
       </section>
+      </details>
 
       <section
         id="comparison-evidence"
-        className="es-wrap ec-section"
+        className="es-wrap ec-section ec-secondary-reading"
         aria-labelledby="comparison-table-title"
       >
+        <details className="ec-disclosure"><summary>Compare all ten dimensions</summary>
         <div className="ec-section-intro">
           <h2 id="comparison-table-title">Keep the differences in view.</h2>
           <p>
             Compare each dimension with its rating and explanation alongside it.
           </p>
         </div>
-        <details className="ec-disclosure"><summary>Compare all ten dimensions</summary>
         <p className="ec-help" id="comparison-table-help">
           On a narrow screen, scroll the table horizontally to read both cities
           and the interpretation.
@@ -351,12 +356,13 @@ export function CityComparison() {
         </details>
       </section>
 
+      <details className="es-wrap ec-disclosure ec-optional-section"><summary>Water choices and policy history</summary>
       <section
         id="comparison-water"
-        className="ec-section ec-section-context"
+        className="ec-section ec-section-context ec-secondary-reading"
         aria-labelledby="comparison-water-title"
       >
-        <div className="es-wrap">
+        <div>
           <div className="ec-section-intro">
             <h2 id="comparison-water-title">
               Measure the change.
@@ -375,11 +381,13 @@ export function CityComparison() {
           </div>
         </div>
       </section>
+      </details>
 
       <section
-        className="es-wrap ec-section ec-lessons"
+        className="es-wrap ec-section ec-lessons ec-secondary-reading"
         aria-labelledby="comparison-lessons-title"
       >
+        <details className="ec-disclosure"><summary>Five lessons for water and monitoring</summary>
         <div className="ec-section-intro">
           <h2 id="comparison-lessons-title">
             A response takes more than a map.
@@ -388,8 +396,7 @@ export function CityComparison() {
             Five lessons to carry into questions about water management and
             monitoring.
           </p>
-        </div>
-        <details className="ec-disclosure"><summary>Five lessons for water and monitoring</summary><ol>
+        </div><ol>
           {LEARNINGS.map((lesson) => (
             <li key={lesson.title}>
               <h3>{lesson.title}</h3>

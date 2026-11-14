@@ -141,6 +141,10 @@ test("public comparison controls and Tokyo embed retain source content and hones
     await act(async () => {
       root.render(React.createElement(CityComparison));
     });
+    const policyReading = host.querySelector('#comparison-water')!.closest('details')!;
+    assert.equal(policyReading.hasAttribute("open"), false);
+    await click('.ec-section-links a[href="#comparison-water"]');
+    assert.equal(policyReading.hasAttribute("open"), true, 'the section shortcut reveals the optional policy content before fragment navigation');
     assert.equal(
       host.querySelectorAll(".ec-table tbody tr").length,
       COMPARISON_ROWS.length,

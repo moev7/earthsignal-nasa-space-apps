@@ -77,6 +77,10 @@ test('public viewer runs native controls, rejects corrupt files, retries, preser
     await act(async () => { release(); await flush(); });
     assert.equal(urls.size, 4);
     assert.match(host.textContent!, /26 Jun 2026/); assert.match(host.textContent!, /30 Sept 2026/);
+    assert.match(host.querySelector('.ex-study-hook')!.textContent!, /dB.*median HH echo/);
+    const quantity = host.querySelector('.es-radar-study-intro')!;
+    assert.match(quantity.textContent!, /Backscatter change, in dB.*Not ground motion or water depth/);
+    assert.equal(quantity.closest('details,dialog'), null, 'quantity and non-motion meaning stay visible without duplicate wrapper copy');
     assert.match(host.textContent!, /Provisional/); assert.match(host.textContent!, /93\.3% common coverage/);
     assert.match(host.textContent!, /do not establish sinking, flooding or damage/);
     assert.match(host.textContent!, /No analysis starts automatically/);

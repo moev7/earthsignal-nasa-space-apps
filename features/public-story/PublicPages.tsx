@@ -1,7 +1,7 @@
 'use client'
 
 import { SiteLink as Link } from '@/components/site-link'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { readPublicStudyContext, publicStudyQuery, publicStudyExploreHref } from '@/lib/public-study-context'
 const PublicRadarStudy = lazy(() => import('./radar-study/PublicRadarStudy'))
 import { useSearchParams } from 'next/navigation'
@@ -24,12 +24,28 @@ export function PublicExplore() {
     </div>
     {study ? <section className="es-wrap es-radar-explore-section"><Suspense fallback={<p role="status">Preparing the radar image viewer…</p>}><PublicRadarStudy key={`${publicStudyQuery(study.selection)}:${proof??'compare'}`} selection={study.selection} initialMode={proof==='difference'?'difference':undefined} /></Suspense></section> : <>
     <section className="es-wrap"><InteractiveAtlas key={`${initialCity}:${initialProof??'map'}`} initialCity={initialCity} initialProof={initialProof} /></section>
-    <section className="es-wrap es-explore-scene" aria-labelledby="explore-city-title"><h2 id="explore-city-title">One neighbourhood, seen through ground motion.</h2><p>Watch the projection, or take the camera and timeline.</p><div className="es-scene-block"><CityScene mode="measured" ambient exhibition intro introView="neighbourhood" /></div></section>
-    <section className="es-wrap es-secondary-section" aria-labelledby="explore-map-title"><div className="es-section-intro"><h2 id="explore-map-title">Pull back to the plain.</h2><p>Look for the broad sinking pattern in the south-west. Gaps are unmeasured.</p></div><MeasuredMap /></section>
+    <ExploreExtras />
     <section className="es-wrap es-secondary-section"><div className="es-workspace-invitation"><div><h2>Investigating a particular place?</h2><p>Bring a location and a question to Advanced tools.</p></div><ActionLink href="/workspace" primary>Investigate a place</ActionLink></div></section>
     </>}
     <Sources />
   </PublicFrame>
+}
+
+
+/** Secondary views load on first request; closing them preserves local controls. */
+export function ExploreExtras() {
+  const [cityOpened, setCityOpened] = useState(false)
+  const [plainOpened, setPlainOpened] = useState(false)
+  return <section className="es-wrap es-secondary-section es-explore-extras" aria-label="More ways to explore">
+    <details className="es-disclosure" onToggle={event => { if (event.currentTarget.open) setCityOpened(true) }}>
+      <summary id="explore-city-title">Visit a Tehran neighbourhood in 3D</summary>
+      {cityOpened && <div className="es-explore-scene"><p>Watch the conditional projection, or take the camera and timeline.</p><div className="es-scene-block"><CityScene mode="measured" ambient exhibition intro introView="neighbourhood" /></div></div>}
+    </details>
+    <details className="es-disclosure" onToggle={event => { if (event.currentTarget.open) setPlainOpened(true) }}>
+      <summary id="explore-map-title">See the wider Tehran plain</summary>
+      {plainOpened && <MeasuredMap />}
+    </details>
+  </section>
 }
 
 export function PublicCompare() {
@@ -40,10 +56,10 @@ export function PublicAbout() {
   return <PublicFrame page="about">
     <div className="es-wrap es-secondary-heading"><h1>The ground is complex.<br />The explanation should be clear.</h1><p className="es-lead">Earthsignal helps people understand land subsidence: what drives it, how satellites observe it, and where the evidence stops.</p></div>
     <div className="es-wrap es-about-body">
-      <section className="es-about-section"><h2>One experience, different kinds of truth.</h2><div><p>The public story brings together a schematic aquifer, an invented city, measured Tehran ground motion and conditional future views. Each is labelled where you see it.</p><p>Measurements describe an observation period. Schematics explain a mechanism. Simulations explore assumptions. A convincing animation does not turn an assumption into a measurement.</p></div></section>
-      <section className="es-about-section"><h2>Frozen evidence, with its limits attached.</h2><div><details className="es-disclosure"><summary>Data, processing &amp; limitations</summary><p>The Tehran views load a local, versioned NISAR result bundle. Its manifest records source granules, observation dates, processing, uncertainty, caveats, attribution and file hashes. The visible raster and grid must pass the shared loader’s integrity checks.</p><p>The products are provisional. The record is short, the yearly rates may contain seasonal effects, and the reference is relative to the region’s median. There is no live monitoring or address-level safety diagnosis.</p><p>Mapped footprints come from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors (ODbL 1.0)</a>. Many building heights are estimates. Ground tilt and illustrative damage thresholds do not establish a building’s structural condition.</p></details><ActionLink href="/explore">See the observations and caveats</ActionLink></div></section>
-      <section className="es-about-section"><h2>You control the pace.</h2><div><p>Read by scrolling, jump between chapters through the header contents, or pause and replay the scenes. The aquifer responds to its slider and before/after buttons. Your device’s reduced-motion preference quiets automatic animation.</p><p>The written explanations, data limitations and figure descriptions remain available without playing a scene. The workspace is a separate route for detailed investigation.</p><ActionLink href="/workspace">Open the investigation workspace</ActionLink></div></section>
-      <section className="es-about-section"><h2>A purpose, and a boundary.</h2><div><p>This is an educational Earth-observation experience. It is not an official NASA, ISRO or local-authority product. A visible crack needs qualified inspection; a satellite-derived pattern alone cannot explain damage to a particular structure.</p><p>For the wider purpose, start with <Link href="/">the Tehran story</Link>. For the evidence behind it, open the sources below.</p></div></section>
+      <details className="es-disclosure"><summary>What is measured, and what is illustrated?</summary><div className="es-disclosure-body"><p>The public story brings together a schematic aquifer, an invented city, measured Tehran ground motion and conditional future views. Each is labelled where you see it.</p><p>Measurements describe an observation period. Schematics explain a mechanism. Simulations explore assumptions. A convincing animation does not turn an assumption into a measurement.</p></div></details>
+      <details className="es-disclosure"><summary>Where do the data come from?</summary><div className="es-disclosure-body"><p>The Tehran views load a local, versioned NISAR result bundle. Its manifest records source granules, observation dates, processing, uncertainty, caveats, attribution and file hashes. The visible raster and grid must pass the shared loader’s integrity checks.</p><p>The products are provisional. The record is short, the yearly rates may contain seasonal effects, and the reference is relative to the region’s median. There is no live monitoring or address-level safety diagnosis.</p><p>Mapped footprints come from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors (ODbL 1.0)</a>. Many building heights are estimates. Ground tilt and illustrative damage thresholds do not establish a building’s structural condition.</p><ActionLink href="/explore">See the observations and caveats</ActionLink></div></details>
+      <details className="es-disclosure"><summary>How do the controls work?</summary><div className="es-disclosure-body"><p>Read by scrolling, jump between chapters through the header contents, or pause and replay the scenes. The aquifer responds to its slider and before/after buttons. Your device’s reduced-motion preference quiets automatic animation.</p><p>The written explanations, data limitations and figure descriptions remain available without playing a scene. The workspace is a separate route for detailed investigation.</p><ActionLink href="/workspace">Open the investigation workspace</ActionLink></div></details>
+      <details className="es-disclosure"><summary>What can this tell me about a building?</summary><div className="es-disclosure-body"><p>This is an educational Earth-observation experience. It is not an official NASA, ISRO or local-authority product. A visible crack needs qualified inspection; a satellite-derived pattern alone cannot explain damage to a particular structure.</p><p>For the wider purpose, start with <Link href="/">the Tehran story</Link>. For the evidence behind it, open the sources below.</p></div></details>
     </div>
     <Sources />
   </PublicFrame>

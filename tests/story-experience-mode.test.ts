@@ -52,10 +52,12 @@ test("the actual home route defaults to sticky scroll story and exposes the inve
         "three live chapters restore scroll-driven visuals",
       );
       assert.ok(host.querySelector(".es-scroll-journey"));
+      assert.ok(host.querySelector(".sa-watch"), "real ground-motion observations retain their interactive time-lapse");
+      assert.equal(host.querySelector('#observations [data-discovery]'), null, "the landing does not duplicate the optional radar study");
       assert.equal(
         host.querySelectorAll("[data-discovery]").length,
-        2,
-        "real observations and city choices stay interactive",
+        1,
+        "the city-choice activity remains while duplicate radar investigations are optional",
       );
       assert.ok(
         host.querySelector("[data-water-level]"),

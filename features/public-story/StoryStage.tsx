@@ -46,6 +46,7 @@ export function StoryStage({
   kicker,
   challenge,
   animate = true,
+  notes,
 }: {
   id: string;
   title: ReactNode;
@@ -58,6 +59,7 @@ export function StoryStage({
   kicker?: ReactNode;
   challenge?: ReactNode;
   animate?: boolean;
+  notes?: { label: string; content: ReactNode };
 }) {
   const { paused, replayToken } = useStory();
   const reducedMotion = usePrefersReducedMotion();
@@ -227,6 +229,7 @@ export function StoryStage({
       <header className="es-act-heading">
         <h2 id={`${id}-title`}>{title}</h2>
         <p>{description}</p>
+        {notes && <ContextNote label={notes.label}>{notes.content}</ContextNote>}
       </header>
       <div className="es-act-grid" ref={grid}>
         <div className="es-story-visual" ref={stage} data-pin={canPin}>

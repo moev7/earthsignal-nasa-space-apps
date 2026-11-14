@@ -179,14 +179,7 @@ function MissionDeck({ id }: { id: MissionId }) {
         </details>
       )}
       <div className="ed-game-next">
-        <p>
-          {earned && (
-            <strong>
-              <Check size={16} /> Finding collected
-            </strong>
-          )}
-          {HOOKS[id]}
-        </p>
+        {earned && <p><strong><Check size={16} /> Finding collected</strong>{HOOKS[id]}</p>}
         <button
           type="button"
           className="eg-launch"

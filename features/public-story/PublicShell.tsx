@@ -378,9 +378,7 @@ export function PublicFrame({
           </Link>
         </nav>
         <p className="es-footer-note">
-          An educational experience. Frozen observations, clearly labelled
-          demonstrations. Not an official NASA or ISRO product, a live warning
-          service, or a building safety assessment.
+          Educational · not a safety or warning service.
         </p>
       </footer>
     </div>

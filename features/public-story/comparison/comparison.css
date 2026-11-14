@@ -934,3 +934,8 @@
     padding-block: 24px;
   }
 }
+
+/* Supporting comparison reading is a compact optional entry. */
+.es-public .ec-optional-section { margin-block:24px; }
+.es-public .ec-secondary-reading { padding-block:24px; }
+.es-public .ec-optional-section .ec-secondary-reading { margin:0; }

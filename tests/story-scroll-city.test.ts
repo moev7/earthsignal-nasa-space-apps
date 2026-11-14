@@ -293,6 +293,7 @@ test('city scroll authority and story presentation', async t => {
     const env = await setup({ mode: 'measured', intro: true, exhibition: true, introView: 'neighbourhood' });
     try {
       assert.ok(env.host.querySelector('.es-city-intro'), 'the standalone Explore scene has the opening HUD');
+      assert.match(env.host.querySelector('.es-city-caption dialog')!.textContent, /heights mostly estimated/, 'shared city help retains estimated-height context without a duplicate wrapper paragraph');
       const thresholds = [...env.host.querySelectorAll('.es-city-intro li')];
       assert.equal(thresholds.length, 3);
       assert.deepEqual(thresholds.map(item => item.querySelector('.es-city-tilt-short')?.textContent), ['1:500', '1:300', '1:150']);

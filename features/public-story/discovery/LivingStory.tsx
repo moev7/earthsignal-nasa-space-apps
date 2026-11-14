@@ -54,7 +54,7 @@ function Chapter({
   setup,
   hook,
   next,
-  radarOnly,
+  world = true,
   children,
 }: {
   anchor: string;
@@ -63,7 +63,7 @@ function Chapter({
   setup: string;
   hook?: string;
   next?: [string, string];
-  radarOnly?: boolean;
+  world?: boolean;
   children?: ReactNode;
 }) {
   const { replayToken } = useStory();
@@ -78,7 +78,7 @@ function Chapter({
         <h2 id={`${anchor}-title`}>{title}</h2>
         <p>{setup}</p>
       </header>
-      <DiscoveryWorld key={replayToken} id={id} invitation={false} radarOnly={radarOnly} />
+      {world && <DiscoveryWorld key={replayToken} id={id} invitation={false} />}
       {children}
       {hook && next && (
         <div className="ed-next-question">
@@ -143,7 +143,7 @@ export function LivingStory() {
             </span>
             <span>
               <strong>Play the investigation</strong>
-              <small>Five hands-on missions · Echo is your co-pilot</small>
+              <small>Five hands-on missions</small>
             </span>
             <ArrowRight size={20} />
           </Link>
@@ -191,46 +191,25 @@ export function LivingStory() {
             The ground remembers.
           </>
         }
-        description="Stay with this street as you scroll. We are going beneath it."
+        description="Scroll to follow the water."
+        notes={{ label: "Why the street stays down", content: <>
+          <p>Water fills tiny spaces in sand and sediment, rather than a giant underground lake. A well draws water from those spaces.</p>
+          <p>When water pressure falls, some fine layers squeeze and the ground above settles. Refilling does not necessarily reopen that lost space.</p>
+          <p>The dashed line marks where the illustrated street began. Return the water to compare the water level with the land surface.</p>
+        </> }}
         visual={({ progress }) => <JourneyWater progress={progress} />}
         beats={[
           {
             title: "First, look between the grains.",
-            body: (
-              <>
-                <p>
-                  There is no giant lake under this street. Water fills tiny
-                  spaces in sand and sediment. A well draws from those spaces.
-                </p>
-                <p className="ea-look">↓ Watch the blue layer as you scroll.</p>
-              </>
-            ),
+            body: <p>Water sits between grains. Watch the blue layer fall.</p>,
           },
           {
             title: "Take the water. Lose some space.",
-            body: (
-              <p>
-                When water pressure falls, some fine layers squeeze. Everything
-                above them settles too. The city can move while an ordinary day
-                carries on.
-              </p>
-            ),
+            body: <p>Less water pressure lets fine layers squeeze. The street settles.</p>,
           },
           {
             title: "Now bring the water back.",
-            body: (
-              <>
-                <p>
-                  Here is the twist: refilling does not necessarily reopen the
-                  space that was squeezed out. The water can return without the
-                  street returning.
-                </p>
-                <p className="ea-look">
-                  Try returning the water yourself. The dashed line remembers
-                  where the street began.
-                </p>
-              </>
-            ),
+            body: <p>Refill the water. Some squeezed-out space stays lost.</p>,
           },
         ]}
         evidence={
@@ -256,41 +235,25 @@ export function LivingStory() {
             Two different speeds.
           </>
         }
-        description="A road, a pipe, a row of homes: they connect places that may move differently."
+        description="Scroll to see the connections change."
+        notes={{ label: "Why uneven sinking matters", content: <>
+          <p>Buildings sit on ground; roads and pipes connect them. If one place settles more than another, those connections change shape.</p>
+          <p>The difference across a street can matter as much as the largest sinking number. This invented city explains that mechanism; its damage is not a forecast.</p>
+          <p>A person can inspect a crack. Satellite observations help reveal a wider pattern, without diagnosing any individual building.</p>
+        </> }}
         visual={({ progress }) => <JourneyCity progress={progress} />}
         beats={[
           {
             title: "Everything is connected.",
-            body: (
-              <p>
-                Start with an invented neighbourhood. The buildings sit on
-                ground; roads and pipes connect them. Now let the ground move.
-              </p>
-            ),
+            body: <p>Buildings, roads and pipes share ground that can move.</p>,
           },
           {
             title: "Watch what happens between places.",
-            body: (
-              <p>
-                One part settles more than another. The connections change
-                shape. The difference across a street can matter as much as the
-                largest sinking number.
-              </p>
-            ),
+            body: <p>Uneven sinking bends the connections between places.</p>,
           },
           {
             title: "You cannot watch every street.",
-            body: (
-              <>
-                <p>
-                  A person can inspect a crack. A city needs a way to notice a
-                  much wider pattern—before turning an observation into a claim.
-                </p>
-                <p className="ea-look">
-                  Next stop: an instrument that brings its own light.
-                </p>
-              </>
-            ),
+            body: <p>To see a wider pattern, we need a view from orbit.</p>,
           },
         ]}
         evidence={
@@ -323,7 +286,12 @@ export function LivingStory() {
             Two can reveal a change.
           </>
         }
-        description="Follow the same ground target across two visits. Scroll to bring the echoes together."
+        description="Scroll to compare two visits."
+        notes={{ label: "How two echoes reveal movement", content: <>
+          <p>The satellite sends a microwave signal and records the echo. It measures along the radar’s line of sight, rather than simply taking a photograph.</p>
+          <p>If the ground moves, the signal travels a different distance. Comparing phase—the position within a repeating wave—reveals that difference.</p>
+          <p>Repeated colour cycles make the change visible. Atmosphere, viewing geometry and other effects also matter; real estimates need processing and checks.</p>
+        </> }}
         visual={({ progress }) => (
           <div id="radar-model">
             <JourneyRadar progress={progress} />
@@ -332,39 +300,15 @@ export function LivingStory() {
         beats={[
           {
             title: "Send. Bounce. Return.",
-            body: (
-              <p>
-                The satellite sends a microwave signal and records the echo. It
-                measures along the radar’s line of sight, rather than simply
-                taking a photograph.
-              </p>
-            ),
+            body: <p>Radar sends a signal and listens for its echo.</p>,
           },
           {
             title: "Come back to the same place.",
-            body: (
-              <p>
-                If the ground moved between visits, the signal travels a
-                different distance. Compare the phase—the position within the
-                repeating wave.
-              </p>
-            ),
+            body: <p>Moving ground changes the distance the next signal travels.</p>,
           },
           {
             title: "The colours are a clue, not a verdict.",
-            body: (
-              <>
-                <p>
-                  Repeated colour cycles help make an invisible change visible.
-                  But atmosphere, viewing geometry and other effects also
-                  matter. A real estimate needs processing and checks.
-                </p>
-                <p className="ea-look">
-                  We have made a model. Now let us leave it and open the actual
-                  record.
-                </p>
-              </>
-            ),
+            body: <p>Colour cycles reveal a difference. A real measurement needs more checks.</p>,
           },
         ]}
         evidence={
@@ -384,22 +328,17 @@ export function LivingStory() {
             real ground.
           </>
         }
-        setup="This record is real. Compare two radar visits, then scroll through four months of Tehran’s ground."
+        setup="Scroll through four months of real observations."
         hook="Measurements can reveal change. They do not decide what happens next."
         next={["what-we-can-do", "Meet a city that changed course"]}
-        radarOnly
+        world={false}
       >
         <section className="sa-watch" aria-label="Four months of ground, one pass at a time">
           <TimeLapse title="Four months of ground, one pass at a time." />
         </section>
         <RadarEvidenceBridge />
         <AtlasDepth />
-        <div className="es-evidence-exits">
-          <ActionLink href="/explore">Explore the observations</ActionLink>
-          <ActionLink href="/explore?study=lake-mead-gcov-2026">
-            Full radar comparison & downloads
-          </ActionLink>
-        </div>
+        <div className="es-evidence-exits"><ActionLink href="/explore">Explore the observations</ActionLink></div>
       </Chapter>
       <Chapter
         anchor="what-we-can-do"
@@ -420,10 +359,7 @@ export function LivingStory() {
               <br />
               about your place?
             </h3>
-            <p>
-              How much water leaves? What is the ground doing? What could
-              change—and how would you check?
-            </p>
+
           </div>
           <div className="es-finish-links">
             <ActionLink href="/workspace" primary>
