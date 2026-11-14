@@ -7,7 +7,7 @@ import { useStory } from "@/features/ground-truth/components/story/StoryProvider
 import { usePrefersReducedMotion } from "@/features/ground-truth/lib/useTimeline";
 import { StoryPhotography } from "../StoryPhotography";
 import { Sources } from "../Sources";
-import { SceneHelp, StoryStage } from "../StoryStage";
+import { StoryStage } from "../StoryStage";
 import { JourneyWater, JourneyCity, JourneyRadar } from "./NarrativeScenes";
 import { ActionLink } from "../PublicShell";
 import { DiscoveryWorld } from "./DiscoveryWorld";
@@ -133,8 +133,8 @@ export function LivingStory() {
             </span>
           </h1>
           <p>
-            Your street looks still. A satellite tells a different story. Follow
-            the water beneath a city—and the echo that gives its secret away.
+            A street looks still. A satellite sees it move.
+            Follow the water—and the echo that reveals the change.
           </p>
           <SoundEntrance href="#hidden-cause" label="Begin the story" />
           <Link className="es-optional-game" href="/?mode=game#opening">
@@ -152,21 +152,13 @@ export function LivingStory() {
           <CityScene mode="measured" preview ambient exhibition intro />
           <figcaption>
             <span>
-              South-west Tehran · provisional measured ground motion,
-              exaggerated for visibility
+              South-west Tehran
             </span>
-            <SceneHelp label="What is real in this neighbourhood?">
-              <p>
-                Mapped footprints, mostly estimated heights. Frozen provisional
-                NISAR observations, 18 June–21 October 2026. Ground motion is
-                not a building safety assessment.
-              </p>
-            </SceneHelp>
           </figcaption>
         </figure>
       </section>
       <div className="es-wrap ed-story-toolbar">
-        <p>Scroll to reveal the story · stop anywhere and take the controls</p>
+        <p>Scroll to begin · explore at your own pace</p>
         <SoundSwitch />
       </div>
       <section
@@ -181,8 +173,7 @@ export function LivingStory() {
             An invisible change.
           </h2>
           <p>
-            A street, a home, a water supply. Our story starts with something
-            this city needs every day.
+            Every home needs water. What happens when it comes from beneath the street?
           </p>
         </div>
         <div>
@@ -244,8 +235,7 @@ export function LivingStory() {
         ]}
         evidence={
           <span>
-            Schematic mechanism · exaggerated geometry · no measured depths or
-            elapsed years
+            Illustration · exaggerated geometry
           </span>
         }
         appendix={<Depth topic="mechanism" />}
@@ -305,8 +295,7 @@ export function LivingStory() {
         ]}
         evidence={
           <span>
-            Invented city · exaggerated motion · illustrative damage is not a
-            safety forecast
+            Invented city · illustrative damage, not a forecast
           </span>
         }
       />
@@ -319,9 +308,7 @@ export function LivingStory() {
             an echo.
           </h2>
           <p>
-            NASA and ISRO built NISAR to notice a changing Earth. Radar works
-            through clouds and in darkness. Explore the spacecraft, then follow
-            one signal home.
+            Meet NISAR, NASA and ISRO’s radar satellite. Follow one signal home.
           </p>
         </div>
         <StoryPhotography subject="nisar" />
@@ -382,8 +369,7 @@ export function LivingStory() {
         ]}
         evidence={
           <span>
-            Synthetic repeat-pass lesson · invented geometry · not satellite
-            imagery
+            Synthetic radar model · not satellite imagery
           </span>
         }
         appendix={<Depth topic="radar" />}

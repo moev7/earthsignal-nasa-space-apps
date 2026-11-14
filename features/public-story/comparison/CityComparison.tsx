@@ -76,18 +76,18 @@ function CityProfile({ city }: { city: CaseCity }) {
         {city.region} · {city.country}
       </p>
       <p className="ec-profile-tagline">{city.tagline}</p>
-      <p>{city.overview}</p>
       <div className="ec-reference-headline">
         <span>Published-reference summary</span>
         <strong>{city.subsidence.headline}</strong>
       </div>
-      <CityReferences city={city} />
       <Link className="ec-profile-map" href={`/explore?city=${city.id}`}>
         Explore {city.name} on the map
       </Link>
       <details className="ec-disclosure">
         <summary>Environmental context &amp; observation record</summary>
         <div className="ec-disclosure-body">
+          <p>{city.overview}</p>
+          <CityReferences city={city} />
           <dl className="ec-definition-list">
             {CONTEXT.map(({ key, label }) => (
               <div key={key}>
@@ -125,7 +125,7 @@ function ManagementHistory({ city }: { city: CaseCity }) {
     <article className="ec-management">
       <h3 style={{ color: CITY_COLORS[city.id] }}>{city.name}</h3>
       <p>{city.groundwater.summary}</p>
-      <details className="ec-disclosure" open>
+      <details className="ec-disclosure">
         <summary>Groundwater management history</summary>
         <ol className="ec-history">
           {city.groundwater.history.map((phase) => (
@@ -226,9 +226,7 @@ export function CityComparison() {
           Different turning points.
         </h1>
         <p className="es-lead">
-          Two cities on compressible sediments. Explore their histories, the
-          groundwater decisions that shaped them, and the limits of placing
-          their evidence side by side.
+          Two cities. Different choices about the water beneath them.
         </p>
         <nav className="ec-section-links" aria-label="Comparison sections">
           <a href="#comparison-trends">Explore the curves</a>
@@ -306,6 +304,7 @@ export function CityComparison() {
             Compare each dimension with its rating and explanation alongside it.
           </p>
         </div>
+        <details className="ec-disclosure"><summary>Compare all ten dimensions</summary>
         <p className="ec-help" id="comparison-table-help">
           On a narrow screen, scroll the table horizontally to read both cities
           and the interpretation.
@@ -349,6 +348,7 @@ export function CityComparison() {
             </tbody>
           </table>
         </div>
+        </details>
       </section>
 
       <section
@@ -389,14 +389,14 @@ export function CityComparison() {
             monitoring.
           </p>
         </div>
-        <ol>
+        <details className="ec-disclosure"><summary>Five lessons for water and monitoring</summary><ol>
           {LEARNINGS.map((lesson) => (
             <li key={lesson.title}>
               <h3>{lesson.title}</h3>
               <p>{lesson.detail}</p>
             </li>
           ))}
-        </ol>
+        </ol></details>
         <div className="ec-next">
           <Link href="/explore" className="es-action es-action-primary">
             Explore both cities

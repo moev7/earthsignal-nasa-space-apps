@@ -8,7 +8,7 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { Volume2, VolumeX, ArrowDown } from "lucide-react";
+import { Volume2, VolumeX, ArrowDown, SlidersHorizontal } from "lucide-react";
 import { useStory } from "@/features/ground-truth/components/story/StoryProvider";
 import { createSoundscape, type SoundCue } from "./createSoundscape";
 import {
@@ -274,7 +274,7 @@ export function DiscoverySound({ children }: { children: ReactNode }) {
         <div className="ea-sound-dock">
           <SoundSwitch iconOnly />
           <details>
-            <summary aria-label="Sound level">Level</summary>
+            <summary className="ea-sound-level" aria-label="Sound level"><SlidersHorizontal size={17} aria-hidden="true" /><span>Level</span></summary>
             <div className="ea-sound-settings">
               <label>
                 Sound level

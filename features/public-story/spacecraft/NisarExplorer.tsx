@@ -6,6 +6,7 @@ import { useVisibleReplay } from '@/features/ground-truth/components/story/useVi
 import { HARDWARE_SOURCE, MANUAL_PULSE, PARTS, PULSE_DURATION_MS, PULSE_TEXT, pulseAt } from './spacecraft-model';
 import type { CameraAction, PulsePhase, SpacecraftPart, SpacecraftScene, SpacecraftSceneLoader, SpacecraftState } from './types';
 import './spacecraft.css';
+import { ContextNote } from '../ContextNote';
 import { OrbitalScale } from './OrbitalScale';
 import { useDiscoverySound } from '../discovery/DiscoverySound';
 
@@ -189,7 +190,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
       {mode === 'orbit' ? <OrbitalScale/> : error && <div className="es-spacecraft-fallback">{fallback}</div>}
     {!usable && mode !== 'orbit' && <div className="es-spacecraft-status" role="status"><p>{error ?? (visible ? 'Preparing the 3D spacecraft…' : 'The 3D spacecraft loads when in view. Explore the hardware and signal steps below.')}</p>{error && <button type="button" onClick={() => { cancel(); setReady(false); setError(null); setRetry(value => value + 1); }}>Try 3D again</button>}</div>}
     </div>
-    <p className="es-spacecraft-scale">{mode === 'orbit' ? 'Earth and orbit share one distance scale · spacecraft shown by an enlarged locator.' : mode === 'signal' ? 'Close-up schematic · radio path compressed; signal slowed for teaching.' : 'Spacecraft and Earth · schematic distance and relative size, chosen for clarity.'}</p>
+    <p className="es-spacecraft-scale">{mode === 'orbit' ? 'Orbit to scale · spacecraft enlarged' : mode === 'signal' ? 'Schematic · compressed distance and slowed signal' : 'Schematic · Earth distance and spacecraft size not to scale'}</p>
     <div className="es-spacecraft-stage-actions" aria-label="Spacecraft actions">
       {mode !== 'orbit' && <button type="button" disabled={!usable} aria-pressed={interactive} onClick={() => { latest.current.interactive = !latest.current.interactive; setInteractive(latest.current.interactive); scene.current?.update(latest.current); }}>{interactive ? 'Finish exploring' : 'Rotate view'}</button>}
       {mode !== 'orbit' && <>
@@ -203,7 +204,7 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
     </div>
     <div className="es-spacecraft-body">
       <div hidden={mode !== 'hardware'}><div className="es-spacecraft-actions es-spacecraft-parts" role="group" aria-label="Spacecraft hardware">{PARTS.map(item => <button key={item.id} type="button" aria-pressed={selected === item.id} aria-controls={`${id}-hardware`} onClick={() => choose(item.id)}>{item.label}</button>)}</div>
-      <div id={`${id}-hardware`} className="es-spacecraft-description" aria-live="polite"><h3>{part.label}</h3><p>{part.explanation}</p><p><strong>{part.fact}</strong> <a href={HARDWARE_SOURCE}>NASA/JPL quick facts</a></p></div>
+      <div id={`${id}-hardware`} className="es-spacecraft-description" aria-live="polite"><h3>{part.label}</h3><p>{part.explanation}</p><ContextNote label={`${part.label}: facts & source`}><p><strong>{part.fact}</strong></p><a href={HARDWARE_SOURCE}>NASA/JPL quick facts</a></ContextNote></div>
       </div>
       {mode !== 'orbit' && <details className="es-spacecraft-camera"><summary>Camera controls &amp; keyboard alternatives</summary><div className="es-spacecraft-actions" role="group" aria-label="Spacecraft camera">
         {([['left', 'Orbit left'], ['right', 'Orbit right'], ['top', 'Overhead view'], ['in', 'Zoom in'], ['out', 'Zoom out'], ['overview', 'Overview']] as const).map(([action, label]) => <button type="button" key={action} disabled={!usable} onClick={() => view(action)}>{label}</button>)}
@@ -214,10 +215,10 @@ export default function NisarExplorer({ fallback, className = '', sceneLoader = 
         <h3 id={`${id}-signal`}>Follow one radar echo</h3>
         <div className="es-spacecraft-steps" role="group" aria-label="Manual signal steps">{([['send', '1 · Send'], ['echo', '2 · Ground echo'], ['receive', '3 · Receive']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={phase === value} onClick={() => step(value)}>{label}</button>)}</div>
         <p className="es-spacecraft-readout" role="status" data-phase={phase}>{PULSE_TEXT[phase]}</p>
-        <p className="es-spacecraft-hint">{paused ? 'Story paused · choose a still step.' : reduced ? 'Reduced motion · choose a still step.' : !usable ? 'Manual steps work without 3D.' : 'One short sequence per press; manual steps freeze each stage.'} A canceled pulse stays still until you send another.</p>
-        <p className="es-spacecraft-science">This illustrates reflection only. Displacement needs comparison across repeat observations. <a href="#radar-model">Explore the repeat-pass radar lesson</a>.</p>
+        <p className="es-spacecraft-hint">{paused ? 'Story paused · choose a still step.' : reduced ? 'Reduced motion · choose a still step.' : !usable ? 'Manual steps work without 3D.' : 'Press a step to hold the signal still.'}</p>
+        <ContextNote label="What can one echo tell us?"><p>This illustrates reflection only. Displacement needs comparison across repeat observations. One short sequence runs per press; manual steps freeze each stage. A canceled pulse stays still until you send another.</p><a href="#radar-model">Explore the repeat-pass radar lesson</a></ContextNote>
       </div>
-      <details className="es-spacecraft-sources" onToggle={event => setSourcesOpen(event.currentTarget.open)}><summary>Sources, artist’s concept and context</summary><p>Procedural schematic, not engineering CAD, a live orbit, acquired imagery or a performance simulation. Hardware: <a href={HARDWARE_SOURCE}>NASA/JPL NISAR quick facts</a>. Earth texture: <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>, NASA GSFC / Reto Stöckli and Robert Simmon, a historical global mosaic for context. Earth and the spacecraft are deliberately shown at different scales. NISAR has both radar bands; the connected Tehran result uses L-band only, with no new S-band data.</p>{sourcesOpen && fallback}</details>
+      <details className="es-spacecraft-sources" onToggle={event => setSourcesOpen(event.currentTarget.open)}><summary>Sources, artist’s concept and context</summary><p>Earth and orbit share one distance scale only in Orbit scale mode; the spacecraft uses an enlarged locator. The close-up compresses the radio path and slows the signal for teaching. Procedural schematic, not engineering CAD, a live orbit, acquired imagery or a performance simulation. Hardware: <a href={HARDWARE_SOURCE}>NASA/JPL NISAR quick facts</a>. Earth texture: <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>, NASA GSFC / Reto Stöckli and Robert Simmon, a historical global mosaic for context. Earth and the spacecraft are deliberately shown at different scales. NISAR has both radar bands; the connected Tehran result uses L-band only, with no new S-band data.</p>{sourcesOpen && fallback}</details>
     </div>
   </div>;
 }

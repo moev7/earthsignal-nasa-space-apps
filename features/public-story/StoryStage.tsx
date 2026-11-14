@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
-import { CircleHelp } from "lucide-react";
+import { ContextNote } from "./ContextNote";
 import { useStory } from "@/features/ground-truth/components/story/StoryProvider";
 import { usePrefersReducedMotion } from "@/features/ground-truth/lib/useTimeline";
 import { useVisibleReplay } from "@/features/ground-truth/components/story/useVisibleReplay";
@@ -31,15 +31,7 @@ export function SceneHelp({
   label: string;
   children: ReactNode;
 }) {
-  return (
-    <details className="es-scene-help">
-      <summary aria-label={label}>
-        <CircleHelp size={20} aria-hidden="true" />
-        <span>{label}</span>
-      </summary>
-      <div>{children}</div>
-    </details>
-  );
+  return <ContextNote label={label} iconOnly>{children}</ContextNote>;
 }
 
 export function StoryStage({

@@ -6,16 +6,14 @@ import {
   formatPeriod,
 } from "@/features/ground-truth/data/nisar";
 import { HumanScale } from "./FieldInstruments";
+import { ContextNote } from "../ContextNote";
 const Study = lazy(() => import("../radar-study/PublicRadarStudy"));
 
 export function TehranScale() {
   const state = useNisarBundle(NISAR_BUNDLES.tehran);
   if (state?.status !== "ready")
     return (
-      <p className="es-caption">
-        The neighbourhood reading appears after the observation bundle passes
-        its integrity checks.
-      </p>
+      <p className="es-caption">Checking the neighbourhood reading…</p>
     );
   const m = state.data.manifest,
     r = m.stats.fastest_neighbourhood;
@@ -26,31 +24,32 @@ export function TehranScale() {
         <strong>
           {Math.abs(r.vertical_rate / 10).toFixed(1)} centimetres a year down.
         </strong>{" "}
-        A relative rate estimated for one selected neighbourhood—not every
-        street in Tehran.
+        In one selected neighbourhood.
       </p>
       <HumanScale
         value={r.vertical_rate}
         unit="mm/yr"
-        label={`${(r.size_m / 1000).toFixed(1)}km neighbourhood aggregate · provisional measured estimate`}
+        label={`${(r.size_m / 1000).toFixed(1)}km neighbourhood · provisional relative rate`}
       />
-      <details>
-        <summary>What this rate describes</summary>
+      <ContextNote label="What this rate describes">
         <p>
+          This relative rate describes one selected neighbourhood, not every street in Tehran.
           {formatPeriod(m)} · relative short-record rate. The diagram compares
           its millimetres with a ruler; it is not a full year of directly
           observed height loss, a future forecast or a building assessment.
           Seasonal and atmospheric effects matter; consult the measurement
           record.
         </p>
-      </details>
+      </ContextNote>
     </div>
   );
 }
 export function RadarEvidenceBridge() {
   const [open, setOpen] = useState(false);
   return (
-    <section
+    <details className="ed-details ex-radar-bridge-optional">
+      <summary>A different radar clue: Lake Mead</summary>
+      <section
       className="ex-radar-bridge"
       aria-label="NISAR's two different ways to notice change"
     >
@@ -112,7 +111,8 @@ export function RadarEvidenceBridge() {
         can have several explanations; this comparison does not establish lake
         depth, ground sinking or its cause.
       </p>
-    </section>
+      </section>
+    </details>
   );
 }
 

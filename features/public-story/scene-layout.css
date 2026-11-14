@@ -27,6 +27,7 @@
 .es-public.es-page-story .es-city-preview { display:flex; flex-direction:column; }
 .es-public.es-page-story .es-city-preview .es-city-preview-explore { align-self:start; }
 .es-public.es-page-story .es-journey-city .es-city-caption span { display:none; }
+.es-public.es-page-story .es-journey-city .es-city-caption .es-city-scale { display:block; }
 .es-public.es-page-story .es-journey-city > figcaption { padding:8px 0 0; gap:12px; }
 .es-public.es-page-story .es-object-notes { position:static; flex-direction:row; flex-wrap:wrap; margin-top:12px; gap:8px 24px; }
 .es-public.es-page-story .es-object-notes a { background:transparent; padding:0; }

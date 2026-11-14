@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { ContextNote } from '@/features/public-story/ContextNote';
 import * as THREE from 'three';
 import { Pause, Play, RotateCcw, Move, X } from 'lucide-react';
 import { advanceSceneTime, sceneEvidence, sceneTimeLabel, type CityMode } from '@/lib/story-evidence';
@@ -370,7 +371,7 @@ export default function SinkingCity3D({ mode = 'measured', preview = false, cont
         {!story && mode === 'simulation' && <button type="button" disabled={!world || Boolean(error) || paused} onClick={watchFall}>Watch the collapse illustration</button>}
       </div>
       {futureOpen && <section className="es-city-future" aria-label="Selected future scenario summary"><div><h4>{mode==='measured'?`If these rates continued for ${years.toFixed(1)} years`:`Invented city · illustration year ${years.toFixed(1)}`}</h4><button type="button" aria-label="Close future summary" onClick={()=>setFutureOpen(false)}>Close</button></div>{mode==='measured'&&measuredRates.length>0?<><p>The median ground cell would be {Math.abs(measuredRates[Math.floor(measuredRates.length/2)]*years/1000).toFixed(1)} m {measuredRates[Math.floor(measuredRates.length/2)]<0?'lower':'higher'} relative to the regional reference. The fastest-sinking cell would be {Math.abs(measuredRates[0]*years/1000).toFixed(1)} m lower.</p><p>This extends four months of provisional observations at a fixed rate. Sinking can slow, accelerate or stop. It does not estimate damage to these buildings.</p></>:simulationSummary&&<p>In this invented model, {simulationSummary.cracked} buildings show cracks or worse, {simulationSummary.damaged} show illustrative structural damage and {simulationSummary.falling} are shown falling. These counts describe the teaching simulation.</p>}</section>}
-      <p className="es-city-note">{paused ? 'Story animations are paused. Resume in the story controls. ' : ''}{reducedMotion ? 'Reduced motion is on: use the slider to compare still states. ' : ''}{mode === 'measured' ? `${focus ? formatPeriod(focus.bundle.manifest) : 'June–October 2026'}. Four months of provisional observations; future movement assumes these rates continue. This is not a building-damage forecast.` : 'The ground, buildings and rates are invented. Collapse is an exaggerated teaching illustration, not an engineering prediction.'}</p>
+      <>{(paused || reducedMotion) && <p className="es-city-note">{paused ? 'Story paused.' : 'Reduced motion.'} Use the slider to compare still states.</p>}</>
       <details className="es-city-options"><summary>View controls and more detail</summary><div className="es-city-option-row">
         <button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(0.8)}>Zoom in</button><button type="button" disabled={!world || Boolean(error)} onClick={() => zoom(1.25)}>Zoom out</button><button type="button" disabled={!world || Boolean(error)} onClick={() => { takeManualControl(); if (showIntro) fitWholeSquare(); else frameCamera(false); }}>Neighbourhood view</button>
         {mode === 'measured' && <button type="button" disabled={!world || Boolean(error)} onClick={() => { takeManualControl(); frameCamera(true); }}>Overhead view · north up</button>}
@@ -401,18 +402,24 @@ export default function SinkingCity3D({ mode = 'measured', preview = false, cont
           <button type="button" aria-label="Reset view" onClick={() => { setTouched(true); if (showIntro) fitWholeSquare(); else frameCamera(false); }}><RotateCcw size={14} aria-hidden="true" /></button>
         </div>
       </div>}
-      {ambient && <p className="es-city-activity-label">Street life is illustrative</p>}
+
       {showIntro && world && !error && !loadError && <div className="es-city-intro" data-state={introState} aria-live="off">
         <p className="es-city-intro-year"><span>{Math.floor(MEASURED_EPOCH + years)}</span><small>{years < 0.05 ? 'measured' : 'if 2026 rates continue'}</small></p>
         <ul aria-label="Buildings by how far the ground beneath them has tilted">
-          {TILT_LIMITS.map(limit => <li key={limit.r} title={`${limit.label} (${limit.meaning})`}><i style={{ background: limit.colour }} aria-hidden="true" /><b>{world.countAt(limit.r, years)}</b><span>{limit.short}</span></li>)}
+          {TILT_LIMITS.map(limit => <li key={limit.r} aria-label={`${world.countAt(limit.r, years)} buildings ${limit.label.toLowerCase()} ground tilt`} title={`${limit.label} (${limit.meaning})`}><i style={{ background: limit.colour }} aria-hidden="true" /><b>{world.countAt(limit.r, years)}</b><span className="es-city-tilt-long">{limit.short}</span><span className="es-city-tilt-short" aria-hidden="true">1:{limit.r}</span></li>)}
         </ul>
-        <p className="es-city-intro-note">Ground tilt under buildings, not observed damage</p>
-        {(introState === 'done' || reducedMotion || paused) && <button type="button" disabled={paused && !reducedMotion} onClick={() => { takeManualControl(); if (reducedMotion) seek(years > 0 ? 0 : T_MAX); else runIntro(); }}>{reducedMotion ? (years > 0 ? 'Back to 2026' : 'Show 2056') : 'Replay 30 years'}</button>}
+        <p className="es-city-intro-note"><span className="es-city-tilt-long">Ground tilt under buildings, not observed damage</span><span className="es-city-tilt-short">Ground tilt exceeded · not damage</span></p>
+        {(introState === 'done' || reducedMotion || paused) && <button type="button" aria-label={reducedMotion ? (years > 0 ? 'Back to 2026' : 'Show 2056') : 'Replay 30 years'} disabled={paused && !reducedMotion} onClick={() => { takeManualControl(); if (reducedMotion) seek(years > 0 ? 0 : T_MAX); else runIntro(); }}><RotateCcw size={17} aria-hidden="true" /><span>{reducedMotion ? (years > 0 ? 'Back to 2026' : 'Show 2056') : 'Replay 30 years'}</span></button>}
       </div>}
       {(!world || error || loadError) && <div className="es-city-fallback" role="status"><p>{error || (loadError ? 'The measured neighbourhood could not be verified. No substitute data is shown.' : 'Preparing the neighbourhood…')}</p>{(error || loadError) && <p>{mode === 'measured' ? 'Satellite observations show uneven ground movement across south-west Tehran. Use the verified map for available measurements.' : 'Uneven sinking can tilt and damage structures. This invented city explains the mechanism; it does not diagnose real buildings.'}</p>}{error && <button type="button" onClick={() => { setError(null); setRetry(value => value + 1); }}>Try 3D again</button>}</div>}
     </div>
-    <div className="es-city-caption"><strong>{status}</strong><span>{mode === 'measured' ? 'Mapped footprints · heights mostly estimated' : 'Not a prediction for a real city'} · movement ×{EXAG}</span></div>
+    <div className="es-city-caption"><div><strong>{status}</strong><span className="es-city-scale">Movement ×{EXAG}{mode === 'simulation' ? ' · Not a prediction for a real city' : ''}</span></div><ContextNote label={mode === 'measured' ? 'About this Tehran view' : 'About the invented city'} iconOnly>
+      <p>{mode === 'measured' ? `${focus ? formatPeriod(focus.bundle.manifest) : 'June–October 2026'}. Frozen NISAR L-band observations over four months; future movement assumes these rates continue. This is not a building-damage forecast.` : 'The ground, buildings and rates are invented. Collapse is an exaggerated teaching illustration, not an engineering prediction.'}</p>
+      {mode === 'measured' && <p>Mapped OpenStreetMap footprints; heights mostly estimated. The HUD describes ground tilt beneath footprints, not observed damage or structural safety. © OpenStreetMap contributors, ODbL.</p>}
+      {mode === 'measured' && focus && <p>Typical pixel uncertainty ±{Math.round(focus.bundle.manifest.stats.median_sigma)} mm/year. Rates are relative and the short record may include seasonal motion. This focus was selected for higher ground-tilt ratings; it does not represent the whole city.</p>}
+      {ambient && <p>Street life is illustrative. Canopy positions are illustrative within mapped parks.</p>}
+      <p>Drag to look around. Use two fingers or right-drag to move; pinch or use the zoom buttons to zoom. Reset view restores the camera.</p>
+    </ContextNote></div>
     {!preview && <>
       {story && <div className="es-city-story-status">
         <p className="es-city-note">{mode === 'measured' && years === 0 ? `${focus ? formatPeriod(focus.bundle.manifest) : 'June–October 2026'} · measurement period` : mode === 'measured' ? `${years.toFixed(1)} years beyond the observations` : sceneTimeLabel(mode, years)}</p>

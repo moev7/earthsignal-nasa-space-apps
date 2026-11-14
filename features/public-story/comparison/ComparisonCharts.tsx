@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { ContextNote } from "../ContextNote";
 import type { PointerEvent } from "react";
 import { TEHRAN, TOKYO } from "@/features/ground-truth/data/cities";
 import type { CaseCity } from "@/features/ground-truth/data/types";
@@ -364,11 +365,16 @@ export function TrendExplorer() {
         ))}
       </div>
       <figcaption>
+        Illustrated trends · synthetic lines and bands, not comparable measurements.
+      </figcaption>
+      <ContextNote label="How to compare these curves">
+        <p>
         The lines and ± bands are synthetic. Higher values mean faster sinking
         in the illustration. Tokyo’s historical peak and Tehran’s satellite era
         are different records. Dashed lines mark the 1956 and 1962 water laws,
         not proof of their effect on a plotted point.
-      </figcaption>
+        </p>
+      </ContextNote>
     </figure>
   );
 }
@@ -510,12 +516,12 @@ export function MilestoneTimeline({
         <h3>{selected.event.title}</h3>
         <p>{selected.event.detail}</p>
       </article>
-      <p className="ec-help">
+      <ContextNote label="About these historical records"><p className="ec-help">
         Educational historical summaries, not acquisition dates. Early Tokyo
         levelling and Tehran satellite radar have different coverage and
         uncertainties. A shared time axis does not make them equivalent
         measurements.
-      </p>
+      </p></ContextNote>
     </div>
   );
 }

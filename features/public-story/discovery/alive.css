@@ -748,3 +748,11 @@
     display: none;
   }
 }
+
+.es-public .ea-sound-dock .ea-sound-level { display:flex; align-items:center; gap:6px; }
+.es-public .ea-sound-level::marker { content:""; }
+.es-public .ea-sound-level::-webkit-details-marker { display:none; }
+@media(max-width:560px) {
+  .es-public .ea-sound-dock .ea-sound-level { width:44px; min-width:44px; min-height:44px; padding:10px; justify-content:center; }
+  .es-public .ea-sound-level>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+}

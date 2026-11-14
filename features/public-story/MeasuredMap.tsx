@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useId } from 'react'
+import { ContextNote } from './ContextNote'
 import { ArrowUp, RotateCcw } from 'lucide-react'
 import { NISAR_BUNDLES, formatPeriod, rampGradient, useNisarBundle } from '@/features/ground-truth/data/nisar'
 import type { BundleManifest, LoadedBundle } from '@/features/ground-truth/data/nisar'
@@ -13,7 +14,7 @@ export function MeasuredMap() {
 function MeasuredMapResult({ retry }: { retry: () => void }) {
   const result = useNisarBundle(NISAR_BUNDLES.tehran)
   const titleId = useId()
-  if (!result || result.status === 'loading') return <div className="es-data-message" role="status"><p>Checking the Tehran observations…</p><p>The map appears after its data and image pass their integrity checks.</p></div>
+  if (!result || result.status === 'loading') return <div className="es-data-message" role="status"><p>Checking the Tehran observations…</p></div>
   if (result.status === 'error') return <div className="es-data-message" role="alert"><h3>The measured map could not be verified.</h3><p>{result.message}</p><p>No demonstration data has been substituted.</p><button type="button" className="es-action" onClick={retry}><RotateCcw size={16} aria-hidden="true" />Try loading the map again</button></div>
   return <VerifiedRaster bundle={result.data} titleId={titleId} />
 }
@@ -38,10 +39,10 @@ function VerifiedRaster({ bundle, titleId }: { bundle: LoadedBundle; titleId: st
       <div className="es-colour-scale" style={{ background: rampGradient(m) }} />
       <div><span>{scale} mm/year down</span><span>0</span><span>{scale} mm/year up</span></div>
     </div>
-    <figcaption><strong>Read the broad pattern.</strong> Warm colours show sinking relative to the area’s median; cool colours show apparent upward movement. Transparent gaps are unmeasured, not stable. The map spans {south.toFixed(2)}–{north.toFixed(2)}° N.</figcaption>
-    <MeasurementNotes manifest={m} />
+    <figcaption>Relative movement: warm colours sink; cool colours show apparent uplift. Gaps are unmeasured.</figcaption>
+    <p className="es-caption">{formatPeriod(m)} · {m.source.product_status} observations</p>
     <details className="es-disclosure"><summary>Map method, coverage &amp; limitations</summary><div className="es-disclosure-body">
-      <dl className="es-facts"><div><dt>Measured area</dt><dd>{Math.round(m.stats.measured_fraction * 100)}% of this region</dd></div><div><dt>Radar grid</dt><dd>{m.processing.grid_spacing_m} m pixels</dd></div><div><dt>Processing</dt><dd>{m.producer.software} · {m.producer.algorithm}</dd></div></dl>
+      <MeasurementNotes manifest={m} /><p>The map spans {south.toFixed(2)}–{north.toFixed(2)}° N. Blue colours in the northern foothills may be atmospheric artefacts; read broad neighbourhood patterns, not individual pixels.</p><dl className="es-facts"><div><dt>Measured area</dt><dd>{Math.round(m.stats.measured_fraction * 100)}% of this region</dd></div><div><dt>Radar grid</dt><dd>{m.processing.grid_spacing_m} m pixels</dd></div><div><dt>Processing</dt><dd>{m.producer.software} · {m.producer.algorithm}</dd></div></dl>
       <ul>{m.caveats.map((caveat) => <li key={caveat.id}>{caveat.text}</li>)}</ul>
       <p>{m.attribution.join(' · ')}</p>
       <a href={`/data/nisar/${NISAR_BUNDLES.tehran}/manifest.json`}>Read the original result manifest</a>
@@ -61,5 +62,5 @@ export function MeasuredPeriod() {
   const result = useNisarBundle(NISAR_BUNDLES.tehran)
   if (!result || result.status === 'loading') return <p className="es-caption">Measured scene: checking the frozen observation bundle.</p>
   if (result.status === 'error') return <p className="es-caption">Measured observations unavailable: the bundle could not be verified.</p>
-  return <p className="es-caption">{formatPeriod(result.data.manifest)} · {result.data.manifest.source.product_status} NISAR L-band observations. Typical pixel uncertainty ±{Math.round(result.data.manifest.stats.median_sigma)} mm/year. Geometry and movement are exaggerated for visibility.</p>
+  return <div className="es-measured-period"><p className="es-caption">{formatPeriod(result.data.manifest)} · {result.data.manifest.source.product_status} NISAR observations</p><ContextNote label="Reading these observations"><p>Typical pixel uncertainty ±{Math.round(result.data.manifest.stats.median_sigma)} mm/year. Geometry and movement are exaggerated for visibility. The short record is expressed as a yearly rate and may include seasonal motion. It is not a building assessment.</p></ContextNote></div>
 }

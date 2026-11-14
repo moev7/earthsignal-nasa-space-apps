@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState, type FormEvent } from "react";
+import { ContextNote } from "../ContextNote";
 import { ArrowUp, RotateCcw } from "lucide-react";
 import {
   loadPublicRadarStudy,
@@ -351,36 +352,30 @@ function VerifiedStudy({
           )}
           <RadarLegend mode={mode} study={study} />
           <figcaption id={`${id}-grid-help`}>
-            Tap a cell to inspect it, or focus the image and use arrow keys.
-            Native {source.crop.resolution[0]} m grid · {width} × {height} cells
-            · enlarged without interpolation. Scroll normally on touch screens.
+            Select a cell to inspect it. Arrow keys also work on the image.
           </figcaption>
         </figure>
         <div className="es-radar-study-reading">
           <div className="es-radar-study-intro">
             <h3>What changed in the radar return?</h3>
             <p>
-              Move the divider to compare the same patch of land on two dates.
-              Choose Difference to see where the HH radar return became weaker
-              or stronger.
+              Slide between dates. Choose Difference to reveal the change.
             </p>
             <p>
-              <strong>Backscatter change, in dB.</strong> This is not a
-              ground-motion rate. Speckle, moisture, vegetation, roughness and
-              acquisition conditions can change the signal. These two
-              observations do not establish sinking, flooding or damage.
+              <strong>Backscatter change, in dB.</strong> Not ground motion or water depth.
             </p>
           </div>
           <p className="es-radar-study-coverage">
             <strong>
               {source.coverage.commonValidPercent.toFixed(1)}% common coverage
             </strong>
-            <br />
-            {count(source.coverage.commonValidPixels)} of{" "}
-            {count(source.coverage.totalPixels)} native cells ·{" "}
-            {source.coverage.validAreaKm2.toFixed(4)} km² valid area. Orange
-            cells are excluded, not zero change.
+            <br />Orange cells are excluded, not zero change.
           </p>
+          <ContextNote label="Coverage &amp; interpretation">
+            <p>Native {source.crop.resolution[0]} m grid · {width} × {height} cells · enlarged without interpolation. Scroll normally on touch screens.</p>
+            <p>{count(source.coverage.commonValidPixels)} of {count(source.coverage.totalPixels)} native cells · {source.coverage.validAreaKm2.toFixed(4)} km² valid area.</p>
+            <p>Speckle, moisture, vegetation, roughness and acquisition conditions can change the signal. These two observations do not establish sinking, flooding or damage.</p>
+          </ContextNote>
           <div
             className="es-radar-study-inspection"
             aria-live="polite"

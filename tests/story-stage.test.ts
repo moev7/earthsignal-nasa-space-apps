@@ -1,11 +1,12 @@
-import test from "node:test";
+import test, { after } from "node:test";
+import { registerHooks } from "node:module";
 import assert from "node:assert/strict";
 import React, { act } from "react";
 import { Window } from "happy-dom";
-import {
-  StoryStage,
-  type StoryStageState,
-} from "../features/public-story/StoryStage";
+import type { StoryStageState } from "../features/public-story/StoryStage";
+const styles = registerHooks({ load(url, context, next) { return url.endsWith(".css") ? { format: "module", source: "export {};", shortCircuit: true } : next(url, context); } });
+after(() => styles.deregister());
+const { StoryStage } = await import("../features/public-story/StoryStage");
 import {
   StoryProvider,
   useStory,

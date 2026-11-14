@@ -2,8 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Window } from 'happy-dom';
 import React, { act } from 'react';
+import { registerHooks } from 'node:module';
 
 test('unavailable WebGL and a lost context leave a usable description and retry', async () => {
+  const css = registerHooks({ load(url, context, next) { return url.endsWith('.css') ? { format:'module', source:'export {};', shortCircuit:true } : next(url, context); } });
   const window = new Window({ url: 'http://localhost/' });
   const saved = new Map<string, PropertyDescriptor | undefined>();
   const install = (key: string, value: unknown) => { saved.set(key, Object.getOwnPropertyDescriptor(globalThis, key)); Object.defineProperty(globalThis, key, { configurable: true, writable: true, value }); };
@@ -32,6 +34,7 @@ test('unavailable WebGL and a lost context leave a usable description and retry'
     await act(async () => { container.querySelector('canvas')!.dispatchEvent(new window.Event('webglcontextrestored')); });
     assert.match(container.textContent, /3D is unavailable/);
   } finally {
+    css.deregister();
     await act(async () => root.unmount());
     console.error = originalError;
     await window.happyDOM.close();

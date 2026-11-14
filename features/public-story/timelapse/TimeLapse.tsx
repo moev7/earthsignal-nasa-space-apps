@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useId, useRef, useState, type MouseEvent } from "react";
+import { ContextNote } from "../ContextNote";
 import { RotateCcw } from "lucide-react";
 import {
   NISAR_BUNDLES,
@@ -131,8 +132,9 @@ function Player({ data, title }: { data: LoadedTimeSeries; title?: string }) {
           <figcaption id={`${id}-t`}>
             {reduced ? "" : "Scroll to move through time. "}
             {series.dates.length} NISAR acquisitions, {shortDate(series.dates[0])} → {shortDate(series.dates[last])} {series.dates[last].slice(0, 4)}.
-            Motion since the first pass, relative to the area’s median. Click the map to chart any place.
+            Relative motion · select a place to chart it.
           </figcaption>
+          <ContextNote label="How to read this time-lapse"><p>Motion is cumulative since the first pass, relative to the area’s median. The frames and profile come from a frozen, provisional NISAR study; missing measurements stay unknown. Use the date slider for still frames, or select a different place on the map.</p></ContextNote>
         </figure>
       </div>
     </div>

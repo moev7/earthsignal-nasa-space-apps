@@ -293,6 +293,10 @@ test('city scroll authority and story presentation', async t => {
     const env = await setup({ mode: 'measured', intro: true, exhibition: true, introView: 'neighbourhood' });
     try {
       assert.ok(env.host.querySelector('.es-city-intro'), 'the standalone Explore scene has the opening HUD');
+      const thresholds = [...env.host.querySelectorAll('.es-city-intro li')];
+      assert.equal(thresholds.length, 3);
+      assert.deepEqual(thresholds.map(item => item.querySelector('.es-city-tilt-short')?.textContent), ['1:500', '1:300', '1:150']);
+      assert.ok(thresholds.every(item => /buildings past 1 in (500|300|150) ground tilt/.test(item.getAttribute('aria-label') ?? '')), 'compact labels retain the meaning for assistive technology');
       assert.equal(env.host.querySelector('.es-city-preview'), null, 'full timeline and gated camera remain available');
       assert.equal(env.stage.controls.enabled, false);
       assert.equal(env.world.colourModes.at(-1), 'tilt');

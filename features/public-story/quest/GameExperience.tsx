@@ -64,16 +64,13 @@ function GameOpening() {
           <em>You have the instruments.</em>
         </h1>
         <p>
-          A street looks perfectly still. Your job: uncover what is moving,
-          catch its echo, and decide what deserves a closer look. Pull a well
-          valve. Bend a pipe. Catch a colour that repeats. Every clue you keep
-          comes from something you actually tried.
+          Pull a well valve. Bend a pipe. Catch an echo.
+          Uncover what is moving beneath this city.
         </p>
         <div className="ed-opening-voice">
           <EchoPortrait />
           <p>
-            “I’m Echo. Pull things apart. Try the opposite. I’ll notice what
-            your instruments reveal.”
+            “I’m Echo. Try things. I’ll help you follow the clues.”
           </p>
         </div>
         <div className="ed-instrument-bar">

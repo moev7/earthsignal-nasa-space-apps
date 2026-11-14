@@ -33,6 +33,7 @@ import {
   type LoadedBundle,
 } from "@/features/ground-truth/data/nisar";
 import { radarSample } from "@/lib/radar-interferometry";
+import { ContextNote } from "../ContextNote";
 import { TokyoStory } from "../comparison/TokyoStory";
 import { StoryPhotography } from "../StoryPhotography";
 import { useDiscoverySound } from "./DiscoverySound";
@@ -309,10 +310,7 @@ function WaterPlay({ onFinding }: { onFinding?: Found }) {
           <SeasonalControls state={trial} change={setTrial} />
         </details>
       )}
-      <p className="ed-evidence">
-        Illustration · no elapsed years, measured pressure or calibrated
-        compaction law.
-      </p>
+      <ContextNote label="About this aquifer model"><p>Illustration · no elapsed years, measured pressure or calibrated compaction law.</p></ContextNote>
     </>
   );
 }
@@ -359,7 +357,7 @@ function StreetPlay({ onFinding }: { onFinding?: Found }) {
         </div>
         <div className="play-dock">
           <div className="play-control-title">
-            <small>ONE PIPE. TWO ENDS.</small>
+            <small>Illustrated street · one pipe, two ends</small>
             <h3>
               {difference
                 ? "The join is doing the bending."
@@ -445,9 +443,7 @@ function StreetPlay({ onFinding }: { onFinding?: Found }) {
           </div>
         )}
       </details>
-      <p className="ed-evidence">
-        Invented geometry · teaching inputs, never engineering safety limits.
-      </p>
+      <ContextNote label="About this street experiment"><p>Invented geometry · teaching inputs, never engineering safety limits.</p></ContextNote>
     </>
   );
 }
@@ -679,10 +675,7 @@ function RadarPlay({ onFinding }: { onFinding?: Found }) {
           />
         </details>
       )}
-      <p className="ed-evidence">
-        Synthetic repeat-pass experiment · same-orbit geometry · not an acquired
-        image.
-      </p>
+      <ContextNote label="About this radar experiment"><p>Synthetic repeat-pass experiment · same-orbit geometry · not an acquired image.</p></ContextNote>
     </>
   );
 }

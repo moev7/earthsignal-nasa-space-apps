@@ -1,11 +1,14 @@
-import test from 'node:test';
+import test, { after } from 'node:test';
+import { registerHooks } from 'node:module';
 import assert from 'node:assert/strict';
 import { TEHRAN, TOKYO } from '../features/ground-truth/data/cities';
 import { pointAtYear, illustrationBand, milestones, latestMilestone } from '../features/public-story/comparison/model';
 import React, { act } from 'react';
 import { Window } from 'happy-dom';
 import { renderToString } from 'react-dom/server';
-import { IllustratedPlot } from '../features/public-story/comparison/ComparisonCharts';
+const styles = registerHooks({ load(url, context, next) { return url.endsWith('.css') ? { format: 'module', source: 'export {};', shortCircuit: true } : next(url, context); } });
+after(() => styles.deregister());
+const { IllustratedPlot, TrendExplorer } = await import('../features/public-story/comparison/ComparisonCharts');
 test('comparison readings preserve missing years and distinct same-year Tokyo events',()=>{
   assert.equal(pointAtYear(TEHRAN,1962),undefined,'a joined line must not create a Tehran observation in Tokyo’s peak year');
   assert.equal(pointAtYear(TOKYO,1980)?.rateMmPerYear,-35);
@@ -45,4 +48,19 @@ test('the comparison plot hydrates its accessible SVG title without replacing se
       else Reflect.deleteProperty(globalThis, key);
     }
   }
+});
+
+
+test('trend methodology is optional while evidence identity and inspection controls stay visible', () => {
+  const window = new Window();
+  const host = window.document.createElement('div');
+  host.innerHTML = renderToString(React.createElement(TrendExplorer));
+  const caption = host.querySelector('figcaption')!;
+  assert.match(caption.textContent!, /synthetic lines and bands, not comparable measurements/);
+  assert.equal(caption.closest('dialog'), null);
+  const help = host.querySelector('dialog')!;
+  assert.equal(help.hasAttribute('open'), false);
+  assert.match(help.textContent!, /1956 and 1962 water laws/);
+  assert.equal(host.querySelector('select')!.closest('dialog'), null, 'the timeline remains available without help');
+  return window.happyDOM.close();
 });
