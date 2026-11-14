@@ -1,0 +1,26 @@
+{
+  "version": "echo-kokoro-v1",
+  "model": "kokoro-v1.0.int8",
+  "voice": "af_heart",
+  "speed": "1.04",
+  "cues": {
+    "welcome": "I'm Echo. The ground has a secret. Let's find it together.",
+    "water-draw": "Pump water out. Watch the street above the thin clay layer.",
+    "water-return": "Now bring the water back. Will the street come back too?",
+    "water-found": "The water returned. The squeezed space did not. You found the twist.",
+    "street-together": "Move both blocks down together. Keep your eye on their shared pipe.",
+    "street-uneven": "Now make one end sink farther. Watch the connection bend.",
+    "street-inspect": "Look between the two blocks. Inspect the joining pipe.",
+    "street-found": "The difference between the ends bends the connection. Not just the size of the drop.",
+    "radar-first": "Save the first echo. That gives us something to compare with.",
+    "radar-repeat": "Slide the ground down. Then capture the repeat echo.",
+    "radar-compare": "Two visits are saved. Reveal the difference and watch the colours appear.",
+    "radar-found": "You caught movement in the echo. The colours repeat. Try the phase puzzle if you're curious.",
+    "evidence-probe": "Choose a measured patch. Then find a gap. Can both tell us the ground is still?",
+    "evidence-found": "No measurement is not the same as no movement. Keep that distinction in your case file.",
+    "policy-water": "Give the city another water route, or turn down its well. Watch which connection changes.",
+    "policy-monitor": "Now add monitoring. Changing a cause and checking a result are two different jobs.",
+    "policy-found": "You changed the route and added a way to check it. Lost ground height does not reset.",
+    "dossier": "Five discoveries. One trail of evidence. Take your field notes into the real world."
+  }
+}
