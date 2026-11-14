@@ -2,81 +2,71 @@
 
 ![Earthsignal](docs/images/earthsignal-banner.png)
 
-# Earthsignal
+# 🛰️ Earthsignal
 
-**The ground under Tehran is sinking. NISAR can see it.**
+### The ground under Tehran is sinking. You can't feel it. A satellite can.
 
-An interactive story built on real NISAR radar observations for NASA Space Apps 2026, *Dancing with the SARs*.
+An interactive story built on real NISAR radar data for NASA Space Apps 2026: *Dancing with the SARs*.
 
-**[Open the story →](https://nasa.r8volt.com)**
+**[🌍 Step into the story →](https://nasa.r8volt.com)**
 
 </div>
 
-## What it shows
+---
 
-A scroll-driven story that takes you from groundwater beneath a city to the radar measurements that reveal it:
+## 💧 The story
 
-1. **Hidden cause:** pumping water squeezes fine sediment, and the ground above settles.
-2. **Consequences:** neighbouring places sink at different speeds and strain the roads and pipes between them.
-3. **From space:** how two radar visits reveal a change in distance.
-4. **Real ground:** NISAR radar images of south-west Tehran, plus a time-lapse of four months of vertical motion that you scroll through.
-5. **Another path:** how Tokyo slowed its subsidence.
+Scroll from a quiet street, down into the water beneath it, and back up into orbit.
 
-A five-mission game version is available at `/?mode=game`.
+1. **🕳️ The hidden cause.** Pump water out from under a city, and the ground slowly settles. Put the water back, and it may never rise again.
+2. **🏘️ Why it matters.** Next-door neighbours sink at different speeds, and the roads and pipes between them feel the strain.
+3. **📡 Seeing it from space.** NISAR sends a radar pulse, listens for the echo, comes back, and listens again. The difference reveals the change.
+4. **📍 Back on real ground.** Real NISAR images of Tehran, and four months of the city sinking, one satellite pass at a time, as you scroll.
+5. **🗼 Another path.** Tokyo once faced the same problem, and changed course.
 
-## The data
+🎮 Prefer to play? Try the five-mission game at [`/?mode=game`](https://nasa.r8volt.com/?mode=game), with Echo as your co-pilot.
 
-- **Source:** NISAR L2 GUNW interferograms, 36 pairs (18 June–21 October 2026, provisional products, 80 m pixels):
-  - ascending track 56 (frames 19 and 20)
-  - descending track 136 (frames 70 and 71)
-- **Method:** sequential pairs are chained into a cumulative displacement per date, and the two viewing directions are combined to separate vertical from east–west motion. Results are referenced to the median of the whole area.
-- **Result:** about 1,240 km² measured. In the fastest neighbourhood the ground is sinking about 30 cm a year, which is about 10 cm over the 120 days of observations.
-- **Bundle:** results ship as a hash-verified bundle in [`public/data/nisar/tehran-sw-2026`](public/data/nisar/tehran-sw-2026).
+## 📉 What we found
 
-The numbers show ground motion, not building safety. The products are provisional and the 3D buildings are illustrative.
+- 🛰️ **36 NISAR radar pairs** over south-west Tehran, from 18 June to 21 October 2026.
+- 🗺️ **About 1,240 km²** of ground measured.
+- ⬇️ **The fastest neighbourhood is sinking about 30 cm a year.** That's about 10 cm in just four months.
 
-## Reviewed radar studies
+These numbers describe the ground, not whether a building is safe. The data is still provisional, and the 3D city is an illustration.
 
-Three single observations, each kept on its original grid with no resampling and checked against the source values. Each opens at `/studies/<id>`.
+## 🔭 More radar to explore
 
-| Study | Mission | Source |
-|---|---|---|
-| `tehran-validated-gcov-20261028` | NISAR L2 GCOV, 28 Oct 2026 | NASA–ISRO, ASF DAAC |
-| `rcm-manitoba-2025` | RADARSAT Constellation Mission, 27 Feb 2025 | Canadian Space Agency |
-| `radarsat-1-arctic-1996` | RADARSAT-1, 4 Mar 1996 | Canadian Space Agency |
+Three hand-checked radar views, each one shown exactly as the satellite recorded it:
 
-The radar processor under Advanced tools (`/workspace?view=sar`) finds and processes more scenes and lets you inspect the values pixel by pixel. Different sensors use different calibrations, so their values are not directly comparable. See [challenge processing](docs/challenge-processing.md).
+- 🇮🇷 **Tehran**, NISAR, October 2026
+- 🇨🇦 **Southern Manitoba**, RADARSAT Constellation Mission, February 2025
+- 🧊 **The Canadian Arctic**, RADARSAT-1, March 1996
 
-## Run it
+Want to go further? The radar processor in **Advanced tools** lets you find new scenes and inspect them pixel by pixel.
+
+## 🙏 Data from
+
+- **NISAR**: NASA and ISRO, via the Alaska Satellite Facility
+- **RADARSAT-1 and the RADARSAT Constellation Mission**: Canadian Space Agency
+- **Buildings**: © OpenStreetMap contributors
+
+## 🛠️ Run it yourself
 
 You need Node 22.13 or later.
 
 ```sh
 npm ci
-npm run dev        # http://127.0.0.1:5173
+npm run dev   # then open http://127.0.0.1:5173
 ```
 
-To rebuild the time-lapse from cached NISAR crops (this needs Earthdata credentials to fetch them):
-
-```sh
-PYTHONPATH=. python -m service.ground_motion_timeseries \
-  --bundle public/data/nisar/tehran-sw-2026 --cache .nisar-cache
-```
-
-## Project layout
-
-| Path | What it holds |
-|---|---|
-| `app/` | Routes: story `/`, `/explore`, `/compare`, `/studies/<id>`, `/workspace` |
-| `features/public-story/` | The story, the game and the time-lapse |
-| `features/ground-truth/` | 3D city scenes and the result-bundle loader |
-| `features/science/` | Workspace tools, including the radar workbench |
-| `service/` | Python radar processing (NISAR GUNW and GCOV, RADARSAT, ground motion, time series) |
-| `public/data/` | Frozen result bundles and reviewed radar studies |
-| `scripts/` | Build, release check and deployment |
-
-More detail: [service guide](service/README.md), [deployment](docs/deployment.md), [reproducibility](docs/reproducibility.md), [contributing](CONTRIBUTING.md).
+Curious how it works? See the [processing guide](docs/challenge-processing.md), [reproducibility notes](docs/reproducibility.md) and [contributing guide](CONTRIBUTING.md).
 
 ---
 
-Built for NASA Space Apps 2026. This does not imply NASA or ISRO endorsement.
+<div align="center">
+
+**Made with 🌍 and a lot of radar echoes for NASA Space Apps 2026.**
+
+<sub>An independent project. It does not imply NASA or ISRO endorsement.</sub>
+
+</div>
