@@ -1,0 +1,55 @@
+name: Scientific discrepancy
+description: Question a measurement, comparison, forecast or explanation with traceable evidence.
+title: "[Science] "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A surprising result can be a useful finding. Help us trace the quantity, support and interpretation.
+        Share public identifiers or sanitized excerpts; keep private areas, records, credentials and signed URLs out of this issue.
+        Unknown evidence is useful to report as unknown. A report does not need a complete validation study.
+  - type: dropdown
+    id: result-type
+    attributes:
+      label: Result being questioned
+      options:
+        - Radar backscatter comparison
+        - Optical water / vegetation / surface-temperature indicator
+        - Historical or seasonal analysis
+        - Station-discharge forecast or baseline evaluation
+        - Scenario or planning comparison
+        - Explanation / cross-result relationship
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Exact result or wording
+      description: Quote the displayed claim and say whether it is labelled measured, derived, experimental, scenario or proposed. Include a shareable code/method version.
+    validations:
+      required: true
+  - type: textarea
+    id: support
+    attributes:
+      label: Sources and observation support
+      description: Public product or station IDs, source/release, actual observation dates, quantity/units, resolution and shareable area/support. Describe missing metadata explicitly.
+    validations:
+      required: true
+  - type: textarea
+    id: discrepancy
+    attributes:
+      label: Expected versus observed
+      description: Include values with units and how to reproduce the difference. Distinguish a numerical mismatch from an interpretation concern.
+    validations:
+      required: true
+  - type: textarea
+    id: validity
+    attributes:
+      label: Masks, coverage and comparison conditions
+      description: Relevant grid/CRS, valid pixels, quality masks, date or geometry mismatch, threshold and uncertainty. For forecasts, include horizon, training/calibration/test windows and freshness.
+  - type: textarea
+    id: reference
+    attributes:
+      label: Independent reference or counterexample
+      description: Optional producer specification, independent observation, simple forecast baseline, calculation or non-event example. State which claim it can test and what remains unknown.

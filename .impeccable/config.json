@@ -1,0 +1,18 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "files": [
+          "features/public-story/atlas.css"
+        ],
+        "createdAt": "2026-11-10T07:10:47.374Z",
+        "reason": "Codex triage: Arial is intentionally limited to Leaflet plus/minus zoom-control glyphs at atlas.css:19; page and workspace typography use Manrope. Preserve this utility control rather than redesigning the interface."
+      }
+    ]
+  }
+}

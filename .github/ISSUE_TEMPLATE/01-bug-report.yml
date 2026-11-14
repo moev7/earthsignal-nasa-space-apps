@@ -1,0 +1,55 @@
+name: Bug report
+description: Reproduce a problem with the interface, processing or exports.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Earthsignal. Share only non-sensitive steps and evidence.
+        Keep passwords, cookies, signed URLs, Earthdata credentials and private study details out of this issue.
+        For vulnerabilities, follow [private security reporting](https://github.com/meowtappeparlechat/earthsignal/blob/main/SECURITY.md).
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where does the problem occur?
+      options:
+        - Place & question
+        - Map, layers or overlays
+        - Scientific explorer / radar analytics
+        - Processing or source access
+        - History, forecasts or scenarios
+        - Exports or saved snapshots
+        - Sign-in
+        - Documentation or other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the selected domain, controls and observation dates when relevant. Use public example products or a sanitized case.
+      placeholder: |
+        1. Open…
+        2. Select…
+        3. Observe…
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: What should happen, and what happened instead? Include non-sensitive error text or status codes.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser/version, device or viewport, OS; commit and Node/Python/GDAL versions for local processing issues.
+      placeholder: Safari, macOS, 390 × 844; deployed app or local commit…
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Optional sanitized screenshot, small log excerpt or public source/product identifier. Review downloads before attaching them.

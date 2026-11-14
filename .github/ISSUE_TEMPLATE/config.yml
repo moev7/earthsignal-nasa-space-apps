@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation and source capabilities
+    url: https://github.com/meowtappeparlechat/earthsignal/blob/main/docs/index.md
+    about: Find guides, methods, source availability and reproducibility instructions.
+  - name: Private security reporting
+    url: https://github.com/meowtappeparlechat/earthsignal/blob/main/SECURITY.md
+    about: Follow the private reporting instructions for vulnerabilities or credential exposure.

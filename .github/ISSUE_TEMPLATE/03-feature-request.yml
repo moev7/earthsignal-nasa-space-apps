@@ -1,0 +1,36 @@
+name: Feature or research proposal
+description: Describe a useful scientific or product improvement and how to evaluate it.
+title: "[Idea] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the user or scientific question. Share public references and non-sensitive examples.
+        New model ideas remain proposals until their data access, resource needs and validation are checked.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Who needs this, and what decision or task would improve?
+      description: Describe the current limitation and the practical monitoring, analysis or workflow benefit.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change and alternatives
+      description: Describe the smallest useful version and any simpler existing approach.
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: How would we know it helped?
+      description: A concrete acceptance check. Scientific models should name an independent reference or baseline, held-out population and relevant error/uncertainty measures.
+    validations:
+      required: true
+  - type: textarea
+    id: feasibility
+    attributes:
+      label: Sources, access and feasibility
+      description: Optional public papers/repositories/data products, license/access terms, place/date coverage and bounded compute/storage needs. Explain whether the proposal can use currently available free resources.

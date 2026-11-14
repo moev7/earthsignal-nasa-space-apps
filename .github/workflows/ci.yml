@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend-and-gateway:
+    name: Frontend & Gateway Checks
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify TypeScript types
+        run: npm run typecheck
+
+      - name: Run frontend & gateway tests
+        run: npm test
+
+      - name: Production build check
+        run: npm run build
+
+  service-python-unit:
+    name: Science Service Unit Tests (Python 3.12)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install unit test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r service/requirements-test.txt
+
+      - name: Run service unit tests
+        run: python -m unittest discover -s service/tests -v
+
+  service-python-gdal:
+    name: Science Service GDAL Tests (Ubuntu Native GDAL)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install system GDAL and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gdal-bin \
+            libgdal-dev \
+            python3-gdal \
+            python3-numpy \
+            python3-pil \
+            python3-h5py \
+            python3-pip \
+            python3-venv
+
+      - name: Run service tests with native GDAL
+        run: |
+          python3 -m venv --system-site-packages .venv
+          # Keep apt NumPy matched to the apt GDAL ABI. This checks exports, not production streaming.
+          .venv/bin/pip install fastapi==0.118.0 uvicorn==0.38.0 httpx==0.28.1
+          .venv/bin/python -m unittest discover -s service/tests -v
+          # Atomic source replacement and interruption recovery require Linux.
+          .venv/bin/python scripts/test_science_activation.py
+          .venv/bin/python scripts/test_science_activation.py --recipe scripts/activate-science-1.6.0.py
+          .venv/bin/python scripts/test_science_activation.py --recipe scripts/activate-science-1.6.0-ipc.py
+          .venv/bin/python scripts/test_science_activation.py --recipe scripts/activate-science-class1-20261013.py
+          .venv/bin/python scripts/test_science_activation.py --recipe scripts/activate-science-area-r22-20261014.py

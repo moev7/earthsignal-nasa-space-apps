@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T19:45:46.199301+00:00",
+  "title": "Design System: Earthsignal public experience",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "#00130c",
+          "#002f26",
+          "#004e43",
+          "#2b6e63",
+          "#4e9084",
+          "#72b4a6",
+          "#96d9cb",
+          "#bafff0"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Accent Hover",
+        "tonalRamp": [
+          "#00120b",
+          "#002d25",
+          "#1d4b42",
+          "#3e6b61",
+          "#5f8d82",
+          "#81b0a5",
+          "#a4d5c9",
+          "#c9fbef"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "tonalRamp": [
+          "#090c0d",
+          "#232627",
+          "#3f4344",
+          "#5e6263",
+          "#7f8384",
+          "#a2a6a7",
+          "#c6cacb",
+          "#ebeff1"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "#080c0d",
+          "#222627",
+          "#3e4344",
+          "#5d6263",
+          "#7e8384",
+          "#a1a6a7",
+          "#c5cacb",
+          "#eaf0f1"
+        ]
+      },
+      "deep": {
+        "role": "neutral",
+        "displayName": "Deep",
+        "tonalRamp": [
+          "#080c0d",
+          "#222627",
+          "#3e4344",
+          "#5d6263",
+          "#7e8385",
+          "#a1a6a7",
+          "#c5cacc",
+          "#eaf0f1"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "tonalRamp": [
+          "#0d0b07",
+          "#272520",
+          "#44423c",
+          "#64615b",
+          "#85827c",
+          "#a8a59e",
+          "#ccc9c2",
+          "#f1eee7"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "#080c0a",
+          "#212724",
+          "#3e4440",
+          "#5d635f",
+          "#7e8480",
+          "#a0a7a3",
+          "#c4cbc7",
+          "#e9f1ec"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "#060d0c",
+          "#1f2726",
+          "#3b4443",
+          "#5a6362",
+          "#7b8584",
+          "#9da8a6",
+          "#c1ccca",
+          "#e6f1f0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Story headings"
+      },
+      "body": {
+        "displayName": "Reading",
+        "purpose": "Shared reading typography for public explanations and advanced tools; the workspace preserves its compact specialist layout."
+      },
+      "story-display": {
+        "displayName": "Industrial story display",
+        "purpose": "User-requested public story display in self-hosted Barlow Condensed 600; short uppercase headings up to6rem, with Manrope retained for reading and controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "contents",
+        "value": "0 16px 32px #0004",
+        "purpose": "Contents menu only"
+      }
+    ],
+    "motion": [
+      {
+        "name": "scroll-story",
+        "value": "normal scroll; frame-batched progress",
+        "purpose": "Aquifer and invented city follow reading progress. Manual controls take authority until Follow the story. Pause and reduced motion retain still-state controls."
+      },
+      {
+        "name": "manual",
+        "value": "user controlled",
+        "purpose": "Radar, Tokyo history and measured/future exploration preserve explicit controls and offscreen suspension."
+      },
+      {
+        "name": "street-life",
+        "value": "independent illustrative ambient clock",
+        "purpose": "Bounded cars and pedestrians accompany the public3Dcity without advancing scientifictime; pause, reduced-motion and visibility controls govern them."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "480px"
+      },
+      {
+        "name": "story-stack",
+        "value": "760px"
+      },
+      {
+        "name": "compact-navigation",
+        "value": "800px"
+      },
+      {
+        "name": "story-columns",
+        "value": "1050px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main action for a story moment.",
+      "html": "<button class=\"ds-primary\">Begin the story</button>",
+      "css": ".ds-primary{background:#8bcec0;color:#121617;padding:12px 20px;border:0;border-radius:6px;min-height:52px;font:550 15px Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif;cursor:pointer}.ds-primary:hover{background:#afe0d4}.ds-primary:focus-visible{outline:2px solid #8bcec0;outline-offset:4px}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "An optional path or view control.",
+      "html": "<button class=\"ds-secondary\">Explore in 3D</button>",
+      "css": ".ds-secondary{background:#191c1d;color:#f1eee7;padding:12px 20px;border:1px solid #404948;border-radius:6px;min-height:52px;font:15px Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif;cursor:pointer}.ds-secondary:hover{border-color:#8bcec0}.ds-secondary:focus-visible{outline:2px solid #8bcec0;outline-offset:4px}"
+    },
+    {
+      "name": "Inspection field",
+      "kind": "input",
+      "description": "Keyboard alternative to map inspection.",
+      "html": "<label class=\"ds-field\">Latitude<input type=\"number\" value=\"35.62\" step=\"any\"></label>",
+      "css": ".ds-field{display:block;color:#f1eee7;font:14px Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif;background:#191c1d;padding:16px}.ds-field input{display:block;margin-top:6px;background:#222627;color:#f1eee7;border:1px solid #404948;border-radius:6px;padding:10px 14px;min-height:28px;font:inherit}.ds-field input:focus-visible{outline:2px solid #8bcec0;outline-offset:4px}"
+    },
+    {
+      "name": "Persistent disclosure",
+      "kind": "custom",
+      "description": "Secondary explanation available by keyboard and touch.",
+      "html": "<details class=\"ds-details\"><summary>Sources and methods</summary><p>Measured observations and illustrative scenes have separate source records.</p></details>",
+      "css": ".ds-details{background:#191c1d;color:#f1eee7;padding:16px;border-top:1px solid #404948;font:16px/1.7 Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif}.ds-details summary{cursor:pointer;min-height:44px}.ds-details summary:hover{color:#8bcec0}.ds-details summary:focus-visible{outline:2px solid #8bcec0;outline-offset:4px}"
+    },
+    {
+      "name": "Public navigation",
+      "kind": "nav",
+      "description": "Direct access to the story, places, comparison and advanced tools.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#story\">The story</a><a href=\"#places\">Explore places</a><a href=\"#comparison\">Tehran &amp; Tokyo</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:24px;background:#191c1d;padding:16px;font:14px Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif;color:#b5bcb8}.ds-nav a{color:inherit;min-height:44px;display:flex;align-items:center}.ds-nav a:hover{color:#8bcec0}.ds-nav a:focus-visible{outline:2px solid #8bcec0;outline-offset:4px}"
+    },
+    {
+      "name": "Evidence status",
+      "kind": "custom",
+      "description": "A plain label beside its scene rather than a decorative badge.",
+      "html": "<div class=\"ds-status\"><strong>Measured \u00b7 provisional</strong><span>18 Jun \u2013 21 Oct 2026</span></div>",
+      "css": ".ds-status{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;background:#191c1d;padding:16px;color:#b5bcb8;font:13px Manrope, Inter, \"Helvetica Neue\", Arial, sans-serif}.ds-status strong{color:#f1eee7;font-weight:600}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Dark exhibition",
+    "overview": "Scientific scenes receive the space and attention of an exhibition. Warm white text sits on charcoal; a restrained mint accent identifies interaction. Scenes, maps and direct manipulation carry the explanation, with short prose nearby and specialist material in persistent disclosures.\n\nThe public story and advanced investigation workspace share the same palette, Manrope typography and Earthsignal mark. Public pages use editorial layouts; the workspace keeps its compact scientific panels and an explicit \u201cBack to the story\u201d link.",
+    "keyCharacteristics": [
+      "Large interactive scenes with calm editorial spacing.",
+      "Normal scrolling and compact chapter navigation.",
+      "Evidence labels beside the content they qualify.",
+      "Purposeful motion with pause, replay and still-state alternatives."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Colour Rule",
+        "body": "Reserve multicolour scales for explaining data. Preserve the scientific raster\u2019s original colour scale.",
+        "section": "colors"
+      },
+      {
+        "name": "The Focus Rule",
+        "body": "Simplify presentation without deleting useful data or interactions. Put supporting options behind clear controls, and keep the primary map, scene or comparison discoverable.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do give the interactive scientific content the largest visual area.",
+      "Do preserve useful features through progressive disclosure.",
+      "Do keep dates and evidence status near the scene.",
+      "Do preserve keyboard controls and ordinary page scrolling."
+    ],
+    "donts": [
+      "Don't use gradient headings, glowing actions or decorative grids.",
+      "Don't turn every paragraph into an icon card.",
+      "Don't label simulated collapse or extrapolated ground motion as a real building prediction.",
+      "Don't create a separate visual identity for Advanced tools; share theme tokens while preserving scientific data colours and its specialist layout."
+    ]
+  }
+}
