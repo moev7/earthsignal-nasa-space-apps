@@ -1,0 +1,17 @@
+# Verified production Ubuntu26.04.1 apt runtime (system Python3.14.4).
+# apt: python3-gdal/libgdal 3.12.2+dfsg-1build2; use --system-site-packages venv.
+# GDAL is deliberately supplied by apt, not a mismatching pip native build.
+# System scientific package versions: NumPy2.3.5 Pillow12.1.1 h5py3.15.1.
+fastapi==0.118.0
+uvicorn==0.38.0
+# Tested transport dependency versions (avoid drifting parser/schema behavior).
+starlette==0.48.0
+pydantic==2.14.0
+pydantic-core==2.50.0
+annotated-types==0.8.0
+anyio==4.15.1
+click==8.5.0
+h11==0.16.0
+idna==3.20
+typing_extensions==4.16.0
+typing-inspection==0.4.4

@@ -1,0 +1,10 @@
+[Unit]
+Description=Earthsignal combined API and worker resource budget
+
+[Slice]
+MemoryAccounting=yes
+MemoryMax=384M
+MemorySwapMax=0
+CPUAccounting=yes
+CPUQuota=50%
+TasksMax=32

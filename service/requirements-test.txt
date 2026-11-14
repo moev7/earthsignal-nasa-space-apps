@@ -1,0 +1,10 @@
+# Queue/auth tests use stdlib. Numerical tests require these; GDAL integration separate.
+numpy==2.2.6
+Pillow==11.2.1
+h5py==3.14.0
+fastapi==0.118.0
+uvicorn==0.38.0
+httpx==0.28.1
+
+# Offline GEOID native-grid/quality regression fixtures; never a production dependency.
+rasterio==1.4.4

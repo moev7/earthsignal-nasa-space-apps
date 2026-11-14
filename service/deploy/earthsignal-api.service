@@ -1,0 +1,26 @@
+[Unit]
+Description=Earthsignal signed processing API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=earthsignal
+Group=earthsignal
+Slice=earthsignal.slice
+WorkingDirectory=/opt/earthsignal
+EnvironmentFile=/etc/earthsignal/service.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/earthsignal/service/.venv/bin/python -m service.api
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/earthsignal
+LimitNOFILE=128
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

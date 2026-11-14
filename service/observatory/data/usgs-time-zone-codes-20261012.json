@@ -1,0 +1,782 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ACST",
+        "time_zone_name": "Central Australia Standard Time",
+        "time_zone_description": "Central Australia",
+        "time_zone_utc_offset": "+09:30",
+        "time_zone_daylight_savings_time_code": "ACSST",
+        "time_zone_daylight_savings_time_name": "Central Australia Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+10:30"
+      },
+      "id": "ACST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AEST",
+        "time_zone_name": "Australia Eastern Standard Time",
+        "time_zone_description": "Eastern Australia",
+        "time_zone_utc_offset": "+10:00",
+        "time_zone_daylight_savings_time_code": "AESST",
+        "time_zone_daylight_savings_time_name": "Australia Eastern Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+11:00"
+      },
+      "id": "AEST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AFT",
+        "time_zone_name": "Afghanistan Time",
+        "time_zone_description": "Afghanistan",
+        "time_zone_utc_offset": "+04:30",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "AFT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AKST",
+        "time_zone_name": "Alaska Standard Time",
+        "time_zone_description": "Alaska",
+        "time_zone_utc_offset": "-09:00",
+        "time_zone_daylight_savings_time_code": "AKDT",
+        "time_zone_daylight_savings_time_name": "Alaska Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-08:00"
+      },
+      "id": "AKST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AST",
+        "time_zone_name": "Atlantic Standard Time (Canada)",
+        "time_zone_description": "Atlantic (Canada)",
+        "time_zone_utc_offset": "-04:00",
+        "time_zone_daylight_savings_time_code": "ADT",
+        "time_zone_daylight_savings_time_name": "Atlantic Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-03:00"
+      },
+      "id": "AST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AWST",
+        "time_zone_name": "Australia Western Standard Time",
+        "time_zone_description": "Western Australia",
+        "time_zone_utc_offset": "+08:00",
+        "time_zone_daylight_savings_time_code": "AWSST",
+        "time_zone_daylight_savings_time_name": "Australia Western Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+09:00"
+      },
+      "id": "AWST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BT",
+        "time_zone_name": "Baghdad Time",
+        "time_zone_description": "Baghdad",
+        "time_zone_utc_offset": "+03:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "BT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CAST",
+        "time_zone_name": "Central Australia Standard Time",
+        "time_zone_description": "Central Australia",
+        "time_zone_utc_offset": "+09:30",
+        "time_zone_daylight_savings_time_code": "CADT",
+        "time_zone_daylight_savings_time_name": "Central Australia Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+10:30"
+      },
+      "id": "CAST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CCT",
+        "time_zone_name": "China Coastal Time",
+        "time_zone_description": "China Coastal",
+        "time_zone_utc_offset": "+08:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "CCT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CET",
+        "time_zone_name": "Central European Time",
+        "time_zone_description": "Central Europe",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": "CETDST",
+        "time_zone_daylight_savings_time_name": "Central European Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+02:00"
+      },
+      "id": "CET",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CST",
+        "time_zone_name": "Central Standard Time",
+        "time_zone_description": "Central North America",
+        "time_zone_utc_offset": "-06:00",
+        "time_zone_daylight_savings_time_code": "CDT",
+        "time_zone_daylight_savings_time_name": "Central Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-05:00"
+      },
+      "id": "CST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DNT",
+        "time_zone_name": "Dansk Normal Time",
+        "time_zone_description": "Dansk",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "DNT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DST",
+        "time_zone_name": "Dansk Summer Time",
+        "time_zone_description": "Dansk",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "DST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EAST",
+        "time_zone_name": "East Australian Standard Time",
+        "time_zone_description": "East Australia",
+        "time_zone_utc_offset": "+10:00",
+        "time_zone_daylight_savings_time_code": "EASST",
+        "time_zone_daylight_savings_time_name": "East Australian Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+11:00"
+      },
+      "id": "EAST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EET",
+        "time_zone_name": "Eastern Europe Standard Time",
+        "time_zone_description": "Eastern Europe, Russia Zone 1",
+        "time_zone_utc_offset": "+02:00",
+        "time_zone_daylight_savings_time_code": "EETDST",
+        "time_zone_daylight_savings_time_name": "Eastern Europe Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+03:00"
+      },
+      "id": "EET",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EST",
+        "time_zone_name": "Eastern Standard Time",
+        "time_zone_description": "Eastern North America",
+        "time_zone_utc_offset": "-05:00",
+        "time_zone_daylight_savings_time_code": "EDT",
+        "time_zone_daylight_savings_time_name": "Eastern Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-04:00"
+      },
+      "id": "EST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "FST",
+        "time_zone_name": "French Summer Time",
+        "time_zone_description": "French",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": "FWT",
+        "time_zone_daylight_savings_time_name": "French Winter Time",
+        "time_zone_daylight_savings_utc_offset": "+02:00"
+      },
+      "id": "FST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GST",
+        "time_zone_name": "Guam Standard Time",
+        "time_zone_description": "Guam Standard Time, Russia Zone 9",
+        "time_zone_utc_offset": "+10:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "GST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "HST",
+        "time_zone_name": "Hawaii Standard Time",
+        "time_zone_description": "Hawaii",
+        "time_zone_utc_offset": "-10:00",
+        "time_zone_daylight_savings_time_code": "HDT",
+        "time_zone_daylight_savings_time_name": "Hawaii Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-09:00"
+      },
+      "id": "HST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IDLE",
+        "time_zone_name": "International Date Line, East",
+        "time_zone_description": "International Date Line, East",
+        "time_zone_utc_offset": "+12:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "IDLE",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IDLW",
+        "time_zone_name": "International Date Line, West",
+        "time_zone_description": "International Date Line, West",
+        "time_zone_utc_offset": "-12:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "IDLW",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IST",
+        "time_zone_name": "Israel Standard Time",
+        "time_zone_description": "Israel",
+        "time_zone_utc_offset": "+02:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "IST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IT",
+        "time_zone_name": "Iran Time",
+        "time_zone_description": "Iran",
+        "time_zone_utc_offset": "+03:30",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "IT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JST",
+        "time_zone_name": "Japan Standard Time",
+        "time_zone_description": "Japan Standard Time, Russia Zone 8",
+        "time_zone_utc_offset": "+09:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "JST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "JT",
+        "time_zone_name": "Java Time",
+        "time_zone_description": "Java",
+        "time_zone_utc_offset": "+07:30",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "JT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KST",
+        "time_zone_name": "Korea Standard Time",
+        "time_zone_description": "Korea",
+        "time_zone_utc_offset": "+09:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "KST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "LIGT",
+        "time_zone_name": "Melbourne, Australia",
+        "time_zone_description": "Melbourne",
+        "time_zone_utc_offset": "+10:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "LIGT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MET",
+        "time_zone_name": "Middle Europe Time",
+        "time_zone_description": "Middle Europe",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": "METDST",
+        "time_zone_daylight_savings_time_name": "Middle Europe Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+02:00"
+      },
+      "id": "MET",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEWT",
+        "time_zone_name": "Middle Europe Winter Time",
+        "time_zone_description": "Middle Europe",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": "MEST",
+        "time_zone_daylight_savings_time_name": "Middle Europe Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+02:00"
+      },
+      "id": "MEWT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MEZ",
+        "time_zone_name": "Middle Europe Zone",
+        "time_zone_description": "Middle Europe",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "MEZ",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MST",
+        "time_zone_name": "Mountain Standard Time",
+        "time_zone_description": "Mountain North America",
+        "time_zone_utc_offset": "-07:00",
+        "time_zone_daylight_savings_time_code": "MDT",
+        "time_zone_daylight_savings_time_name": "Mountain Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-06:00"
+      },
+      "id": "MST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MT",
+        "time_zone_name": "Moluccas Time",
+        "time_zone_description": "Moluccas",
+        "time_zone_utc_offset": "+08:30",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "MT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NFT",
+        "time_zone_name": "Newfoundland Standard Time",
+        "time_zone_description": "Newfoundland",
+        "time_zone_utc_offset": "-03:30",
+        "time_zone_daylight_savings_time_code": "NDT",
+        "time_zone_daylight_savings_time_name": "Newfoundland Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-02:30"
+      },
+      "id": "NFT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NOR",
+        "time_zone_name": "Norway Standard Time",
+        "time_zone_description": "Norway",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "NOR",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NST",
+        "time_zone_name": "Newfoundland Standard Time",
+        "time_zone_description": "Newfoundland",
+        "time_zone_utc_offset": "-03:30",
+        "time_zone_daylight_savings_time_code": "NDT",
+        "time_zone_daylight_savings_time_name": "Newfoundland Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-02:30"
+      },
+      "id": "NST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NZST",
+        "time_zone_name": "New Zealand Standard Time",
+        "time_zone_description": "New Zealand",
+        "time_zone_utc_offset": "+12:00",
+        "time_zone_daylight_savings_time_code": "NZDT",
+        "time_zone_daylight_savings_time_name": "New Zealand Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+13:00"
+      },
+      "id": "NZST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NZT",
+        "time_zone_name": "New Zealand Time",
+        "time_zone_description": "New Zealand",
+        "time_zone_utc_offset": "+12:00",
+        "time_zone_daylight_savings_time_code": "NZDT",
+        "time_zone_daylight_savings_time_name": "New Zealand Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+13:00"
+      },
+      "id": "NZT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PST",
+        "time_zone_name": "Pacific Standard Time",
+        "time_zone_description": "Pacific North America",
+        "time_zone_utc_offset": "-08:00",
+        "time_zone_daylight_savings_time_code": "PDT",
+        "time_zone_daylight_savings_time_name": "Pacific Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "-07:00"
+      },
+      "id": "PST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SAT",
+        "time_zone_name": "South Australian Standard Time",
+        "time_zone_description": "South Australia",
+        "time_zone_utc_offset": "+09:30",
+        "time_zone_daylight_savings_time_code": "SADT",
+        "time_zone_daylight_savings_time_name": "South Australian Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+10:30"
+      },
+      "id": "SAT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SET",
+        "time_zone_name": "Seychelles Time",
+        "time_zone_description": "Seychelles",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "SET",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SWT",
+        "time_zone_name": "Swedish Winter Time",
+        "time_zone_description": "Swedish",
+        "time_zone_utc_offset": "+01:00",
+        "time_zone_daylight_savings_time_code": "SST",
+        "time_zone_daylight_savings_time_name": "Swedish Summer Time",
+        "time_zone_daylight_savings_utc_offset": "+02:00"
+      },
+      "id": "SWT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "UTC",
+        "time_zone_name": "Universal Coordinated Time",
+        "time_zone_description": "Universal Coordinated Time",
+        "time_zone_utc_offset": "+00:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "UTC",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WAST",
+        "time_zone_name": "West Australian Standard Time",
+        "time_zone_description": "West Australia",
+        "time_zone_utc_offset": "+07:00",
+        "time_zone_daylight_savings_time_code": "WADT",
+        "time_zone_daylight_savings_time_name": "West Australian Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+08:00"
+      },
+      "id": "WAST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WAT",
+        "time_zone_name": "West Africa Time",
+        "time_zone_description": "West Africa",
+        "time_zone_utc_offset": "-01:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "WAT",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WET",
+        "time_zone_name": "Western Europe",
+        "time_zone_description": "Western Europe",
+        "time_zone_utc_offset": "+00:00",
+        "time_zone_daylight_savings_time_code": "WETDST",
+        "time_zone_daylight_savings_time_name": "Western Europe Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+01:00"
+      },
+      "id": "WET",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WST",
+        "time_zone_name": "West Australian Standard Time",
+        "time_zone_description": "West Australian",
+        "time_zone_utc_offset": "+08:00",
+        "time_zone_daylight_savings_time_code": "WDT",
+        "time_zone_daylight_savings_time_name": "West Australian Daylight Time",
+        "time_zone_daylight_savings_utc_offset": "+09:00"
+      },
+      "id": "WST",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP-11",
+        "time_zone_name": "UTC -11 hours",
+        "time_zone_description": "UTC -11 hours",
+        "time_zone_utc_offset": "-11:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP-11",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP-2",
+        "time_zone_name": "UTC -2 hours",
+        "time_zone_description": "Zone UTC -2 Hours",
+        "time_zone_utc_offset": "-02:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP-2",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP-3",
+        "time_zone_name": "UTC -3 hours",
+        "time_zone_description": "Zone UTC -3 Hours",
+        "time_zone_utc_offset": "-03:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP-3",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP11",
+        "time_zone_name": "UTC +11 hours",
+        "time_zone_description": "Zone UTC +11 Hours",
+        "time_zone_utc_offset": "+11:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP11",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP4",
+        "time_zone_name": "UTC +4 hours",
+        "time_zone_description": "Zone UTC +4 Hours",
+        "time_zone_utc_offset": "+04:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP4",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP5",
+        "time_zone_name": "UTC +5 hours",
+        "time_zone_description": "Zone UTC +5 Hours",
+        "time_zone_utc_offset": "+05:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP5",
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ZP6",
+        "time_zone_name": "UTC +6 hours",
+        "time_zone_description": "Zone UTC +6 Hours",
+        "time_zone_utc_offset": "+06:00",
+        "time_zone_daylight_savings_time_code": null,
+        "time_zone_daylight_savings_time_name": null,
+        "time_zone_daylight_savings_utc_offset": null
+      },
+      "id": "ZP6",
+      "geometry": null
+    }
+  ],
+  "numberReturned": 53,
+  "numberMatched": 53,
+  "links": [
+    {
+      "type": "application/geo+json",
+      "rel": "self",
+      "title": "This document as GeoJSON",
+      "href": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes/items?f=json"
+    },
+    {
+      "rel": "alternate",
+      "type": "application/ld+json",
+      "title": "This document as RDF (JSON-LD)",
+      "href": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes/items?f=jsonld"
+    },
+    {
+      "type": "text/html",
+      "rel": "alternate",
+      "title": "This document as HTML",
+      "href": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes/items?f=html"
+    },
+    {
+      "type": "text/csv; charset=utf-8",
+      "rel": "alternate",
+      "title": "This document as CSV",
+      "href": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes/items?f=csv"
+    },
+    {
+      "type": "application/json",
+      "title": "Time zone codes",
+      "rel": "collection",
+      "href": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes"
+    }
+  ],
+  "timeStamp": "2026-10-12T12:40:39.450055Z"
+}

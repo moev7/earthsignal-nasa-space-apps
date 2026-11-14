@@ -1,0 +1,32 @@
+[Unit]
+Description=Earthsignal authenticated scientific workspace
+After=network.target earthsignal-api.service
+Requires=earthsignal-api.service
+
+[Service]
+Type=simple
+User=earthsignal-web
+Group=earthsignal-web
+WorkingDirectory=/opt/earthsignal/web/current
+EnvironmentFile=/etc/earthsignal/web.env
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3040
+Environment=NODE_OPTIONS=--max-old-space-size=112
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+UMask=0077
+MemoryMax=192M
+MemorySwapMax=0
+CPUQuota=50%
+TasksMax=32
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/earthsignal-web
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
