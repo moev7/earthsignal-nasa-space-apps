@@ -278,6 +278,9 @@ def run_assessment(request,config,output,*,owner=None):
         if selected is not None and enabled('landsat-c2-lst'): _provider(out,'Landsat STAC',lambda:p.stac_discovery(request,budget,'landsat'))
         out['missing'].append('Annual NLCD release-specific COG endpoints and matched annual change are not implemented; no old multi-year NLCD substitution.')
     _measure(out,request,config,budget,output)
+    if selected is not None and 'meteomatics-weather-context' in selected:
+        from .meteomatics import historical_context
+        _provider(out,'Meteomatics historical context',lambda:historical_context(request,config,budget))
     if enabled('nws-weather-context'): _provider(out,'NWS context',lambda:p.nws_context(request,budget))
     processed_at=datetime.now(timezone.utc)
     from .history import analyze_series, gauge_evaluation
@@ -312,7 +315,10 @@ def run_assessment(request,config,output,*,owner=None):
     out['findings']=[f for f in out['findings'] if set(f['evidenceIds'])<=refs]
     out['missing']=list(dict.fromkeys(out['missing']))
     claims,brief=_claims_and_brief(out,request)
-    outcome='partial' if out['observations']>0 else 'unavailable'
+    weather_estimates=sum(point['value'] is not None
+        for series in out['series'] if series['id'].startswith('meteomatics-')
+        for point in series['points'])
+    outcome='partial' if out['observations']>0 or weather_estimates else 'unavailable'
     # v1 intentionally reports partial until the requested question's full
     # evidence/temporal comparison is supported, even if individual metrics exist.
     result=dict(schemaVersion='1.0',kind='assessment',domain=domain,question=request['question'],area=request['area'],
@@ -320,7 +326,7 @@ def run_assessment(request,config,output,*,owner=None):
         title=domain.capitalize()+' assessment: '+request['question'],outcome=outcome,evidence=out['evidence'],claims=claims,
         metrics=out['metrics'],quality=[
             dict(dimension='coverage',status='limited' if out['observations'] else 'unknown',message=('Common temporal valid coverage: '+', '.join(f"{v['quantity']}: {v['validPixels']} / {v['totalPixels']} selected-area pixels ({v['commonCoveragePercent']:.2f}%)" for v in out['rasters'])+'. Statistics describe the common valid subset; high coverage does not establish representativeness. Masks and excluded pixels are exported.' if out['rasters'] else 'Exact support is recorded per source; whole-area and common temporal coverage are not established.')),
-            dict(dimension='measurement',status='limited' if out['observations'] else 'withheld',message=('Recorded source values are limited to supported station-days or valid pixels; source estimates retain their flags. ' if out['observations'] else 'No usable local observation was measured. ')+(' '.join(out['missing'])[:3600] or 'The selected question remains only partly supported.')),
+            dict(dimension='measurement',status='limited' if out['observations'] else 'withheld',message=('Recorded source values are limited to supported station-days or valid pixels; source estimates retain their flags. ' if out['observations'] else 'Historical modeled weather context is available; no direct local observation was measured. ' if weather_estimates else 'No usable local observation was measured. ')+(' '.join(out['missing'])[:3600] or 'The selected question remains only partly supported.')),
             dict(dimension='attribution',status='withheld',message='No validated causal attribution; deterministic boundaries only.'),
             dict(dimension='prediction',status='limited' if evaluation and evaluation['forecasts'] else 'withheld',message='Single-station forecast evaluation is experimental; all evaluated horizons and withholding reasons are retained. Prospective reliability is not established.' if evaluation else 'No validated local numeric forecast; official NWS context is separately dated.'),
             dict(dimension='transfer',status='unknown',message='Scientific generalization to other stations, seasons or regions has not been validated.'),

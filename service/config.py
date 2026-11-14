@@ -1,11 +1,11 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 import os
 
 @dataclass(frozen=True)
 class Config:
     root: Path
-    secret: bytes
+    secret: bytes = field(repr=False)
     netrc: Path = Path('/etc/earthsignal/earthdata.netrc')
     max_pixels: int = 1_000_000
     queue_limit: int = 8
@@ -24,6 +24,9 @@ class Config:
     gauge_vintages_enabled: bool = False
     area_experiments_enabled: bool = False
     rcm_access_approved: bool = False
+    meteomatics_username: str = field(default='', repr=False)
+    meteomatics_password: str = field(default='', repr=False)
+    meteomatics_valid_until: str = field(default='', repr=False)
 
     @classmethod
     def environment(cls):
@@ -51,6 +54,9 @@ class Config:
         rcm = os.environ.get('EARTHSIGNAL_RCM_ACCESS_APPROVED','false')
         if rcm not in ('true','false'): raise RuntimeError('Invalid RCM access approval flag')
         return cls(root=Path(os.environ.get('EARTHSIGNAL_DATA_DIR', '/var/lib/earthsignal')),
+            meteomatics_username=os.environ.get('EARTHSIGNAL_METEOMATICS_USERNAME',''),
+            meteomatics_password=os.environ.get('EARTHSIGNAL_METEOMATICS_PASSWORD',''),
+            meteomatics_valid_until=os.environ.get('EARTHSIGNAL_METEOMATICS_VALID_UNTIL',''),
             secret=secret, netrc=Path(os.environ.get('EARTHSIGNAL_NETRC', '/etc/earthsignal/earthdata.netrc')),
             max_pixels=bounded('MAX_PIXELS',1_000_000,1,1_000_000),
             queue_limit=bounded('QUEUE_LIMIT',8,1,8),

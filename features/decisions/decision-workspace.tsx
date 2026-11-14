@@ -189,6 +189,7 @@ function downloadable(value: unknown, name: string) {
 }
 function MeasurementTable({ assessment }: { assessment: Assessment }) {
   const [metric, setMetric] = useState(false);
+  const weather=assessment.evidence.some(e=>e.sourceId==='meteomatics-weather-context');
   return (
     <>
       <label className="check-label">
@@ -209,14 +210,14 @@ function MeasurementTable({ assessment }: { assessment: Assessment }) {
         className="decision-table"
         tabIndex={0}
         role="region"
-        aria-label="Measured values and supporting populations"
+        aria-label={weather?"Source values and supporting populations":"Measured values and supporting populations"}
       >
         <table aria-describedby="measurement-table-help">
-          <caption>Measurements and their valid populations</caption>
+          <caption>{weather?"Source values and their supporting populations":"Measurements and their valid populations"}</caption>
           <thead>
             <tr>
               <th>Quantity</th>
-              <th>Measured value</th>
+              <th>{weather?"Source value":"Measured value"}</th>
               <th>Units</th>
               <th>Population / limitations</th>
             </tr>

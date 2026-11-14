@@ -6,6 +6,15 @@ def _source(id,title,domains,url,description,support,access,capabilities,limitat
 
 def source_registry():
     return [
+        _source('meteomatics-weather-context','Meteomatics historical weather estimates',['water','fire','ecology','urban'],
+            'https://www.meteomatics.com/en/api/request/optional-parameters/data-source/',
+            'Optional enhanced-downscaled ERA5 reanalysis estimates: daily precipitation and mean air temperature. Explicit selection only.',
+            'One deterministic in-area point; not an area mean or station observation',
+            'Private server configuration and unexpired account required',['historical-context','bounded-series-with-gaps'],
+            ['At most 31 most recent requested completed UTC days; current/future days withheld explicitly.',
+             'Fixed ecmwf-era5 source; enhanced-downscaled modeled estimates, not station or satellite observations.',
+             'No claimed 90m accuracy, causal attribution, forecast skill, hazard advice or water-volume inference.',
+             'Private shared quota/cache and storage gates; no retries or fallback.']),
         _source('pinned-water-mosaic','Historical OPERA regional water example',['water'],
             'https://nasa.r8volt.com/data/processed-water.json',
             'Public statistics of the pinned 2023-03-31 OPERA Applications regional mosaic.','30m native pixels across the complete regional mosaic',

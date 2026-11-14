@@ -2,6 +2,13 @@
 
 The authoritative machine registry is `service/observatory/sources.py`. `available` means the named adapter/capability is implemented; it does not promise coverage, valid pixels, current observations, or credential-free raster access for a particular request. A catalogue result is not an environmental measurement. Unsupported and research entries expose no implemented capabilities.
 
+The optional `meteomatics-weather-context` adapter supplies historical daily
+precipitation and mean air-temperature estimates at one sampled point. It runs
+only when explicitly selected and configured in the private science service.
+It is enhanced-downscaled ERA5 reanalysis context, with UTC daily intervals and
+explicit missing values, rather than station observations or an area average.
+See [Meteomatics setup and interpretation](meteomatics.md).
+
 | Source ID | Implemented capability | Access and scientific limits |
 | --- | --- | --- |
 | `pinned-water-mosaic` | Bounded public historical JSON, provenance pin, regional class statistics | Entire 2023-03-31 repository mosaic, never a private AOI crop or Lake Mead-only estimate. Date derives from filename. Class 2 is not fractional open-water area. |
