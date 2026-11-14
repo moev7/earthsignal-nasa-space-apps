@@ -1,0 +1,37 @@
+.photo-place { border-block: 1px solid #454d48; margin: 18px 0; padding: 10px 0; }
+.photo-place > summary { display: flex; align-items: center; gap: 9px; cursor: pointer; font-weight: 650; min-height: 44px; color: var(--earth-text); }
+.photo-place > summary::after { content: "+"; margin-left: auto; color: var(--earth-accent); font-size: 20px; }
+.photo-place[open] > summary::after { content: "−"; }
+.photo-place-body { padding-top: 10px; }
+.photo-place-body p { margin: 0 0 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.photo-place-body .photo-small { font-size: var(--earth-type-caption); color: var(--earth-muted); margin-top: 10px; }
+.photo-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.photo-actions button { flex: 1 1 95px; }
+.photo-preview { width: 100%; max-height: 160px; object-fit: contain; background: var(--earth-background); border-radius: 8px; margin-block: 10px 16px; }
+.photo-coordinates, .photo-dates { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.photo-place .photo-coordinates label, .photo-place .photo-dates label { margin: 0 0 12px; }
+.photo-place input { min-width: 0; width: 100%; font-variant-numeric: tabular-nums; caret-color: var(--earth-accent); }
+.photo-place input::placeholder { color: var(--earth-muted); }
+.photo-place .photo-error { color: #ffc4ac; }
+.photo-place .photo-text-action { background: transparent; border-color: transparent; padding-inline: 0; text-align: left; justify-content: flex-start; color: var(--earth-muted); }
+.photo-place .photo-primary { background: var(--earth-accent); color: #192016; width: 100%; }
+.photo-place .photo-primary:hover { background: #c4ff70; }
+.photo-place .photo-confirmation { font-size: var(--earth-type-caption); color: var(--earth-text); margin-top: 18px; }
+.photo-map { margin-block: 16px 22px; }
+.photo-map > p { font-size: var(--earth-type-body); color: var(--earth-muted); }
+.photo-map .map-panel { height: 260px; min-height: 260px; border-radius: 10px; }
+.photo-map .map-label { max-width: 150px; font-size: var(--earth-type-caption); }
+.photo-map .map-bottom { display: none; }
+.photo-map .map-top { pointer-events: none; }
+.photo-map .map-top > button { display: none; }
+@media print { .photo-place { display: none; } }
+
+.photo-discovery-summary { margin: 18px 20px 0; padding: 0 0 18px; border-bottom: 1px solid #454d48; color: var(--earth-text); }
+.photo-discovery-summary h2 { margin: 0 0 8px; font-size: 18px; line-height: 1.5; min-width: 0; }
+.photo-discovery-summary p { margin: 8px 0; font-size: var(--earth-type-body); line-height: 1.55; color: var(--earth-muted); overflow-wrap: anywhere; min-width: 0; }
+.photo-discovery-summary button { min-height: 44px; padding: 8px 12px; border: 1px solid #68716b; border-radius: 8px; background: #242729; color: var(--earth-text); cursor: pointer; }
+.photo-discovery-summary button:focus-visible { outline: 3px solid var(--earth-accent); outline-offset: 3px; }
+
+.photo-coordinate-editor { margin: 10px 0 16px; border: 0; padding: 0; }
+.photo-coordinate-editor > summary { cursor: pointer; min-height: 44px; color: var(--earth-muted); font-size: var(--earth-type-body); padding-block: 10px; line-height: 1.5; min-width: 0; }
+.photo-coordinate-editor[open] > summary { margin-bottom: 10px; }

@@ -1,0 +1,21 @@
+.forecast-benefit { margin: 1.2rem 0; padding: 1.25rem; border: 1px solid color-mix(in srgb, var(--earth-accent) 14.12%, transparent); border-radius: 18px; background: linear-gradient(140deg,color-mix(in srgb, var(--earth-accent) 3.14%, transparent),#171a18); }
+.forecast-benefit h4 { margin: .5rem 0; font-size: 1.15rem; }
+.forecast-benefit p, .forecast-benefit small { color: var(--earth-muted); line-height: 1.6; }
+.forecast-benefit-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr)); gap: 1rem; margin: 1rem 0; }
+.forecast-benefit-grid article { min-width: 0; padding: 1rem; border-radius: 12px; border: 1px solid #ffffff0c; background: #1e221f; }
+.forecast-benefit-heading { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: space-between; }
+.forecast-benefit-heading span { font-size: var(--earth-type-caption); color: var(--earth-muted); }
+.forecast-benefit .forecast-benefit-reduction { font-size: 1.4rem; color: var(--earth-text); }
+.forecast-benefit-reduction small { display: block; font-size: var(--earth-type-caption); }
+.forecast-error-bars { margin: 1rem 0; }
+.forecast-error-bars dt { font-size: var(--earth-type-caption); color: var(--earth-muted); margin-top: .65rem; overflow-wrap: anywhere; }
+.forecast-error-bars dd { margin: .35rem 0 0; }
+.forecast-error-bars dd strong { font-size: var(--earth-type-caption); font-weight: 500; }
+.forecast-error-track { display: block; height: 6px; background: #ffffff08; border-radius: 9px; margin-bottom: .25rem; }
+.forecast-error-track > span { display: block; height: 100%; border-radius: inherit; background: #61c9de; }
+.forecast-error-track > span[data-selected=true] { background: var(--earth-accent); }
+.nisar-investigation { padding: 1rem; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--earth-accent) 14.12%, transparent); background: color-mix(in srgb, var(--earth-accent) 1.96%, transparent); }
+.nisar-investigation p, .nisar-investigation small { color: var(--earth-muted); font-size: var(--earth-type-caption); line-height: 1.55; }
+.nisar-investigation small { display: block; margin-top: .6rem; }
+.nisar-investigation button { width: 100%; }
+.radar-investigate { margin: .5rem 0 1rem; }

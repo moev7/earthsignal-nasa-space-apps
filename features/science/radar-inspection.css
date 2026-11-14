@@ -1,0 +1,17 @@
+.radar-inspection { margin:24px 0; padding:20px 0; border-block:1px solid #ffffff18; }
+.radar-inspection h4 { margin:0 0 12px; font-size:19px; }
+.radar-inspection p { color:var(--earth-muted); line-height:1.7; font-size:var(--earth-type-body); margin:12px 0; }
+.inspection-candidates { padding-left:24px; margin:18px 0; }
+.inspection-candidates > li { padding:16px 0; border-top:1px solid #ffffff12; }
+.inspection-candidates h5 { font-size:14px; margin:0 0 12px; line-height:1.6; }
+.inspection-candidates dl { margin:0 0 12px; font-size:13px; line-height:1.6; }
+.inspection-candidates dl > div { display:grid; grid-template-columns:minmax(110px,1fr) minmax(0,2fr); gap:12px; margin:7px 0; }
+.inspection-candidates dt { color:var(--earth-muted); }
+.inspection-candidates dd { margin:0; overflow-wrap:anywhere; }
+.inspection-candidates button,.inspection-expand { min-height:44px; padding:9px 12px; border:1px solid #ffffff26; border-radius:8px; font:inherit; background:#ffffff06; color:var(--earth-text); cursor:pointer; }
+.inspection-candidates button:disabled { opacity:.5; cursor:default; }
+.inspection-candidates button:focus-visible,.inspection-expand:focus-visible,.radar-inspection-map:focus-visible { outline:3px solid var(--earth-accent); outline-offset:3px; }
+.radar-inspection details { margin-top:18px; }
+.radar-inspection summary { cursor:pointer; min-height:44px; padding:10px 0; font-size:var(--earth-type-body); line-height:1.5; min-width:0; }
+.radar-inspection details li { font-size:var(--earth-type-caption); color:var(--earth-muted); line-height:1.6; }
+@media(max-width:480px) { .inspection-candidates dl > div { grid-template-columns:1fr; gap:2px; } .inspection-candidates { padding-left:20px; } }

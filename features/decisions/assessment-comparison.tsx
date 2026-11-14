@@ -1,0 +1,15 @@
+import { useState } from "react";
+import type { Assessment, AssessmentJob } from "@/lib/observatory-contract";
+import { compareAssessments } from "@/lib/assessment-insights";
+export function AssessmentComparison({ assessment, currentId, jobs }: { assessment: Assessment; currentId: string | null; jobs: AssessmentJob[] }) {
+  const [referenceId,setReferenceId] = useState("");
+  const candidates = jobs.filter(j=>j.id !== currentId && j.status === "completed" && j.result);
+  const reference = candidates.find(j=>j.id === referenceId);
+  const comparison = reference?.result ? compareAssessments(reference.result,assessment) : null;
+  return <section className="assessment-comparison" aria-label="Compare recorded assessments"><details><summary>Compare with another assessment</summary>
+    <p>Compare reported summaries from your saved jobs. This does not align native pixels or establish environmental change.</p>
+    <label>Reference assessment<select value={referenceId} onChange={e=>setReferenceId(e.target.value)}><option value="">Choose a completed assessment</option>{candidates.map(j=><option key={j.id} value={j.id}>{j.result!.title} · {j.request.start} → {j.request.end} · {j.id.slice(0,6)}</option>)}</select></label>
+    {!candidates.length && <p>No other completed assessments yet. Run the same question and boundary for another period, then compare here.</p>}
+    {comparison && <><p><strong>{comparison.comparable ? "Compatible reported quantities" : "Numerical comparison withheld"}</strong></p>{comparison.reasons.length>0&&<ul>{comparison.reasons.map(reason=><li key={reason}>{reason}</li>)}</ul>}<div className="decision-table"><table><caption>Reported summary comparison · current minus reference</caption><thead><tr><th>Quantity</th><th>Reference</th><th>Current</th><th>Difference</th></tr></thead><tbody>{comparison.rows.map(row=><tr key={row.id}><th scope="row">{row.label}<small>{row.unit}</small></th><td>{row.reference ?? "Unavailable"}</td><td>{row.current ?? "Unavailable"}</td><td>{row.delta === null ? <span>{row.reason ?? "Not comparable"}</span> : `${row.delta > 0 ? "+" : ""}${row.delta.toLocaleString(undefined,{maximumSignificantDigits:6})} ${row.unit}`}</td></tr>)}</tbody></table></div><p>Reference {reference!.result!.time.start} → {reference!.result!.time.end}; current {assessment.time.start} → {assessment.time.end}. Even matching definitions may sample different valid populations. Check coverage and source records in both briefs.</p><button type="button" onClick={()=>{const payload={kind:"reported-summary-comparison",referenceId:reference!.id,currentId,reference:reference!.result,current:assessment,comparison,limitation:"Not a native common-pixel comparison or causal estimate"};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="earthsignal-summary-comparison.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}>Export comparison and evidence</button></>}
+  </details></section>;
+}
