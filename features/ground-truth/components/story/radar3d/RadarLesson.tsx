@@ -1,4 +1,5 @@
 "use client";
+import { RotateCcw } from "lucide-react";
 import {
   useCallback,
   useEffect,
@@ -395,7 +396,7 @@ export function RadarLesson({
         <button type="button" aria-label={interactive ? "Finish orbiting the scene" : "Orbit the 3D scene"} aria-pressed={interactive} disabled={!usable} onClick={() => setInteractive(!interactive)}>{interactive ? "Finish exploring" : "Explore in 3D"}</button>
         <button type="button" disabled={!usable} aria-label="Zoom radar in" onClick={() => view("in")}>+</button>
         <button type="button" disabled={!usable} aria-label="Zoom radar out" onClick={() => view("out")}>−</button>
-        <button type="button" disabled={!usable} onClick={() => view("reset")}>Reset view</button>
+        <button type="button" className="es-radar-reset-view" aria-label="Reset radar view" title="Reset view" disabled={!usable} onClick={() => view("reset")}><RotateCcw size={17} aria-hidden="true" /><span>Reset view</span></button>
       </div>
       {interactive && <p className="es-scene-gesture-hint">Drag to orbit · pinch or scroll to zoom · two fingers or right-drag to pan. Finish exploring to scroll the page.</p>}
       <div className="es-radar-ray-key" aria-hidden="true">

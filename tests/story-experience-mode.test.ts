@@ -210,6 +210,11 @@ test("the real aquifer visual recedes with scroll, reverses, freezes, and keeps 
     });
     Object.defineProperty(stage, "offsetHeight", { value: 500 });
     await draw();
+    const follow = host.querySelector(".es-follow-story")!;
+    assert.equal(follow.getAttribute("aria-hidden"), "true");
+    assert.equal(follow.hasAttribute("disabled"), true);
+    assert.equal(follow.getAttribute("tabindex"), "-1");
+    const controlCount = host.querySelectorAll(".ea-still-controls button").length;
     const full = waterY();
     await scroll(-618);
     const midway = waterY();
@@ -250,6 +255,12 @@ test("the real aquifer visual recedes with scroll, reverses, freezes, and keeps 
       reduced = false;
       motions.forEach((fn) => fn());
     });
+    assert.equal(host.querySelector(".es-follow-story"), follow, "manual input reuses the reserved button rather than adding layout chrome");
+    assert.equal(host.querySelectorAll(".ea-still-controls button").length, controlCount);
+    assert.equal(follow.getAttribute("aria-hidden"), null);
+    assert.equal(follow.getAttribute("data-available"), "true");
+    assert.equal(follow.hasAttribute("disabled"), false);
+    assert.equal(follow.getAttribute("tabindex"), "0");
     const manualY = waterY();
     await scroll(-618);
     assert.equal(
@@ -262,9 +273,9 @@ test("the real aquifer visual recedes with scroll, reverses, freezes, and keeps 
     await click("Draw water");
     await act(async () => controls.replay());
     assert.equal(
-      host.querySelector(".es-follow-story"),
-      null,
-      "replay clears the actual visual manual override",
+      host.querySelector(".es-follow-story")?.getAttribute("data-available"),
+      "false",
+      "replay clears the manual override while reserving its control space",
     );
     await act(async () => root.unmount());
     assert.equal(frames.size, 0);

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { RotateCcw } from "lucide-react";
 import { AquiferCrossSection } from "@/features/ground-truth/components/story/AquiferCrossSection";
 import { CityScene } from "@/features/ground-truth/components/story/CityScene";
 import { InterferogramConcept } from "@/features/ground-truth/components/story/InterferogramConcept";
@@ -126,15 +127,20 @@ export function JourneyWater({ progress }: { progress: number }) {
           <button type="button" onClick={() => change(0)}>
             Return water
           </button>
-          {manual && (
-            <button
-              type="button"
-              className="es-follow-story"
-              onClick={() => setManual(null)}
-            >
-              Follow the story
-            </button>
-          )}
+          <button
+            type="button"
+            className="es-follow-story"
+            aria-label="Follow the story"
+            title="Follow the story"
+            aria-hidden={!manual || undefined}
+            disabled={!manual}
+            tabIndex={manual ? 0 : -1}
+            data-available={Boolean(manual)}
+            onClick={() => setManual(null)}
+          >
+            <RotateCcw size={17} aria-hidden="true" />
+            <span>Follow the story</span>
+          </button>
         </div>
       </figure>
       <details className="ed-details">

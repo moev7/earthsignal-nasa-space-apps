@@ -756,3 +756,14 @@
   .es-public .ea-sound-dock .ea-sound-level { width:44px; min-width:44px; min-height:44px; padding:10px; justify-content:center; }
   .es-public .ea-sound-level>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 }
+
+/* Manual water control never adds a row to the sticky panel. */
+.es-public .ea-water-scene .es-follow-story { display:inline-flex; align-items:center; justify-content:center; gap:6px; margin:0; }
+.es-public .ea-water-scene .es-follow-story[data-available=false] { visibility:hidden; pointer-events:none; }
+@media(max-width:760px) {
+  .es-public .ea-water-scene figcaption { min-block-size:3lh; }
+  .es-public .ea-water-scene .ea-still-controls { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px; gap:8px; }
+  .es-public .ea-water-scene .ea-still-controls button { min-height:44px; padding:6px 8px; font-size:14px; line-height:1.4; }
+  .es-public .ea-water-scene .es-follow-story { width:44px; height:44px; padding:10px; }
+  .es-public .ea-water-scene .es-follow-story>span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+}
