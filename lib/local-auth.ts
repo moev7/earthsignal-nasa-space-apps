@@ -66,6 +66,20 @@ async function verifyPassword(password: string, encoded?: string) {
   const matches = timingSafeEqual(actual, expected);
   return Boolean(valid && matches);
 }
+/**
+ * Temporary open access: until EARTHSIGNAL_OPEN_ACCESS_UNTIL (an ISO date), visitors who are not
+ * signed in get a private guest identity. It switches off by itself once the date passes.
+ * The guest id is a salted hash of the client address, so each visitor only sees their own jobs
+ * and per-owner limits still apply. nginx overwrites X-Forwarded-For with $remote_addr.
+ */
+export function openAccessGuest(request: Request, now = Date.now()): LocalUser | null {
+  const until = Date.parse(process.env.EARTHSIGNAL_OPEN_ACCESS_UNTIL ?? "");
+  if (!(until > now)) return null;
+  const address = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim();
+  if (!address) return null;
+  const id = digest(`${process.env.EARTHSIGNAL_GATEWAY_SECRET ?? ""}|open-access-guest|${address}`).slice(0, 16);
+  return { id: `guest-${id}`, username: `guest-${id.slice(0, 6)}` };
+}
 function webOrigin(config: LocalAuthConfig) {
   const value = config.publicOrigin;
   if (!value) throw new AuthError(503);
@@ -231,6 +245,15 @@ export class LocalAuth {
     });
   }
   async user(request: Request): Promise<LocalUser | null> {
+    // A real collaborator session always wins over guest access.
+    const collaborator = await this.collaborator(request);
+    if (collaborator) return collaborator;
+    try {
+      if (request.method === "POST" && request.headers.get("origin") !== webOrigin(this.config)) return null;
+    } catch { return null; }
+    return openAccessGuest(request, this.now());
+  }
+  private async collaborator(request: Request): Promise<LocalUser | null> {
     try {
       const origin = webOrigin(this.config);
       if (request.method === "POST" && request.headers.get("origin") !== origin) return null;
