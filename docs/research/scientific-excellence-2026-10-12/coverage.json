@@ -1,0 +1,108 @@
+{
+  "team_id": "earthsignal-scientific-excellence-20261012",
+  "revision": 2,
+  "providers": {
+    "codex": {
+      "surface": "cli",
+      "plan": "planned",
+      "role": "engine_auditor",
+      "reason": "Actual accepted revision1 engine audit and benchmark research retained after revision2 handoff-only checkpoint; scientific brief and app HEAD unchanged.",
+      "outcome": "none",
+      "contributed": false,
+      "historical": true
+    },
+    "cursor": {
+      "surface": "cli",
+      "plan": "skipped",
+      "reason": "No distinct extraction beyond accepted engine and benchmark assignments.",
+      "outcome": "none",
+      "contributed": false
+    },
+    "grok": {
+      "surface": "cli",
+      "plan": "skipped",
+      "reason": "No distinct risk question beyond final reviewer contract and browser logic advice; no token activity added.",
+      "outcome": "none",
+      "contributed": false
+    },
+    "antigravity": {
+      "surface": "cli",
+      "plan": "unavailable",
+      "role": "reviewer",
+      "reason": "Assigned final reviewer job858804f42dcc4cc3a7b1566194f05c93 ended in provider server read timeout. No final verdict, no accepted contribution, no retry/fallback.",
+      "outcome": "none",
+      "contributed": false
+    },
+    "deepseek": {
+      "surface": "cli",
+      "plan": "skipped",
+      "reason": "Counterexamples already assigned to engine audit and independently verified; duplicate experiment not useful.",
+      "outcome": "none",
+      "contributed": false
+    },
+    "deepseek-browser": {
+      "surface": "browser",
+      "plan": "planned",
+      "reason": "Completed evaluation-risk consultation remains applicable; exact receipt6d923c3b9de04eba9ba7874a6f7aeabb.",
+      "outcome": "completed",
+      "contributed": true,
+      "resolved": true,
+      "early": null,
+      "verdict": "partly_accepted"
+    },
+    "kimi": {
+      "surface": "browser",
+      "plan": "planned",
+      "reason": "Completed requirement/task consultation remains applicable to unchanged research; exact receipt21256883d99143889b87ffaad24c8bbf.",
+      "outcome": "completed",
+      "contributed": true,
+      "resolved": true,
+      "early": null,
+      "verdict": "partly_accepted"
+    },
+    "perplexity": {
+      "surface": "browser",
+      "plan": "unavailable",
+      "reason": "Native query produced no retained response; receiptb9468ef07ce04c2c9fd95f0b8588131e. Actual source research completed separately.",
+      "outcome": "unavailable",
+      "contributed": false,
+      "resolved": true,
+      "early": null,
+      "verdict": "not_applicable"
+    },
+    "claude": {
+      "surface": "browser",
+      "plan": "planned",
+      "reason": "Completed architecture consultation remains applicable; exact receiptbee24b2fe46e4294afa428bb90f0e466.",
+      "outcome": "completed",
+      "contributed": true,
+      "resolved": true,
+      "early": null,
+      "verdict": "partly_accepted"
+    }
+  },
+  "flags": [
+    "historical_accepted",
+    "planned_cli_without_accepted_job",
+    "workflow_incomplete"
+  ],
+  "ready_for_handoff": false,
+  "workflow": {
+    "discovery": false,
+    "consultation": true,
+    "build": false,
+    "independent_check": false,
+    "reviewer_distinct": false,
+    "decision": false,
+    "design_decision": false,
+    "delivery_acceptance": false,
+    "delivery": false,
+    "design_time": null,
+    "acceptance_time": null,
+    "ordered": false,
+    "violations": [],
+    "complete": false
+  },
+  "limits": "Pure metadata evaluation only: no network, browser or answer-semantic verification. Consultation receipts are coordinator-authored metadata and are never certified as correct answers; evidence is only shape/host checked. The evaluator never launches, accepts, retries or reroutes work, and missing evidence is never counted as a contribution. Timestamps and verification states are taken verbatim from the caller-supplied records.",
+  "pending_proposals": 0
+}

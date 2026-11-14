@@ -1,0 +1,491 @@
+{
+  "checkedDate": "2026-10-10",
+  "references": [
+    {
+      "doi": "10.1109/TGRS.2011.2120616",
+      "url": "https://doi.org/10.1109/TGRS.2011.2120616",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Flattening Gamma: Radiometric Terrain Correction for SAR Imagery"
+      ],
+      "authors": [
+        "David Small"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2011,
+            8
+          ]
+        ]
+      },
+      "container": [
+        "IEEE Transactions on Geoscience and Remote Sensing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)"
+    },
+    {
+      "doi": "10.1109/TGRS.2002.808066",
+      "url": "https://doi.org/10.1109/TGRS.2002.808066",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "A test statistic in the complex wishart distribution and its application to change detection in polarimetric SAR data"
+      ],
+      "authors": [
+        "K. Conradsen",
+        "A.A. Nielsen",
+        "J. Schou",
+        "H. Skriver"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2003,
+            1
+          ]
+        ]
+      },
+      "container": [
+        "IEEE Transactions on Geoscience and Remote Sensing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)"
+    },
+    {
+      "doi": "10.1109/36.964973",
+      "url": "https://doi.org/10.1109/36.964973",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Filtering of multichannel SAR images"
+      ],
+      "authors": [
+        "S. Quegan",
+        "Jiong Jiong Yu"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2001
+          ]
+        ]
+      },
+      "container": [
+        "IEEE Transactions on Geoscience and Remote Sensing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)"
+    },
+    {
+      "doi": "10.1016/j.cageo.2019.104331",
+      "url": "https://doi.org/10.1016/j.cageo.2019.104331",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Small baseline InSAR time series analysis: Unwrapping error correction and noise reduction"
+      ],
+      "authors": [
+        "Zhang Yunjun",
+        "Heresh Fattahi",
+        "Falk Amelung"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2019,
+            12
+          ]
+        ]
+      },
+      "container": [
+        "Computers &amp; Geosciences"
+      ],
+      "publisher": "Elsevier BV"
+    },
+    {
+      "doi": "10.1109/TGRS.2009.2029236",
+      "url": "https://doi.org/10.1109/TGRS.2009.2029236",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Flood Detection in Urban Areas Using TerraSAR-X"
+      ],
+      "authors": [
+        "D.C. Mason",
+        "R. Speck",
+        "B. Devereux",
+        "G.J.-P. Schumann",
+        "J.C. Neal",
+        "P.D. Bates"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            2
+          ]
+        ]
+      },
+      "container": [
+        "IEEE Transactions on Geoscience and Remote Sensing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)"
+    },
+    {
+      "doi": "10.1016/j.rse.2014.02.015",
+      "url": "https://doi.org/10.1016/j.rse.2014.02.015",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Good practices for estimating area and assessing accuracy of land change"
+      ],
+      "authors": [
+        "Pontus Olofsson",
+        "Giles M. Foody",
+        "Martin Herold",
+        "Stephen V. Stehman",
+        "Curtis E. Woodcock",
+        "Michael A. Wulder"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            5
+          ]
+        ]
+      },
+      "container": [
+        "Remote Sensing of Environment"
+      ],
+      "publisher": "Elsevier BV"
+    },
+    {
+      "doi": "10.1016/j.rse.2009.08.014",
+      "url": "https://doi.org/10.1016/j.rse.2009.08.014",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Detecting trend and seasonal changes in satellite image time series"
+      ],
+      "authors": [
+        "Jan Verbesselt",
+        "Rob Hyndman",
+        "Glenn Newnham",
+        "Darius Culvenor"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            1
+          ]
+        ]
+      },
+      "container": [
+        "Remote Sensing of Environment"
+      ],
+      "publisher": "Elsevier BV"
+    },
+    {
+      "doi": "10.1016/j.rse.2014.01.011",
+      "url": "https://doi.org/10.1016/j.rse.2014.01.011",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Continuous change detection and classification of land cover using all available Landsat data"
+      ],
+      "authors": [
+        "Zhe Zhu",
+        "Curtis E. Woodcock"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            3
+          ]
+        ]
+      },
+      "container": [
+        "Remote Sensing of Environment"
+      ],
+      "publisher": "Elsevier BV"
+    },
+    {
+      "doi": "10.1016/S0034-4257(96)00067-3",
+      "url": "https://doi.org/10.1016/S0034-4257(96)00067-3",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "NDWI\u2014A normalized difference water index for remote sensing of vegetation liquid water from space"
+      ],
+      "authors": [
+        "Bo-cai Gao"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1996,
+            12
+          ]
+        ]
+      },
+      "container": [
+        "Remote Sensing of Environment"
+      ],
+      "publisher": "Elsevier BV"
+    },
+    {
+      "doi": "10.1038/sdata.2015.66",
+      "url": "https://doi.org/10.1038/sdata.2015.66",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "The climate hazards infrared precipitation with stations\u2014a new environmental record for monitoring extremes"
+      ],
+      "authors": [
+        "Chris Funk",
+        "Pete Peterson",
+        "Martin Landsfeld",
+        "Diego Pedreros",
+        "James Verdin",
+        "Shraddhanand Shukla",
+        "Gregory Husak",
+        "James Rowland",
+        "Laura Harrison",
+        "Andrew Hoell",
+        "Joel Michaelsen"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            12,
+            8
+          ]
+        ]
+      },
+      "container": [
+        "Scientific Data"
+      ],
+      "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+      "doi": "10.5194/essd-13-4349-2021",
+      "url": "https://doi.org/10.5194/essd-13-4349-2021",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "doi": "10.1198/016214506000001437",
+      "url": "https://doi.org/10.1198/016214506000001437",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Strictly Proper Scoring Rules, Prediction, and Estimation"
+      ],
+      "authors": [
+        "Tilmann Gneiting",
+        "Adrian E Raftery"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2007,
+            3
+          ]
+        ]
+      },
+      "container": [
+        "Journal of the American Statistical Association"
+      ],
+      "publisher": "Informa UK Limited"
+    },
+    {
+      "doi": "10.1371/journal.pcbi.1008618",
+      "url": "https://doi.org/10.1371/journal.pcbi.1008618",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Evaluating epidemic forecasts in an interval format"
+      ],
+      "authors": [
+        "Johannes Bracher",
+        "Evan L. Ray",
+        "Tilmann Gneiting",
+        "Nicholas G. Reich"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2021,
+            2,
+            12
+          ]
+        ]
+      },
+      "container": [
+        "PLOS Computational Biology"
+      ],
+      "publisher": "Public Library of Science (PLoS)"
+    },
+    {
+      "doi": "10.1111/ecog.02881",
+      "url": "https://doi.org/10.1111/ecog.02881",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Cross\u2010validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure"
+      ],
+      "authors": [
+        "David R. Roberts",
+        "Volker Bahn",
+        "Simone Ciuti",
+        "Mark S. Boyce",
+        "Jane Elith",
+        "Gurutzeta Guillera\u2010Arroita",
+        "Severin Hauenstein",
+        "Jos\u00e9 J. Lahoz\u2010Monfort",
+        "Boris Schr\u00f6der",
+        "Wilfried Thuiller",
+        "David I. Warton",
+        "Brendan A. Wintle",
+        "Florian Hartig",
+        "Carsten F. Dormann"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2017,
+            3,
+            3
+          ]
+        ]
+      },
+      "container": [
+        "Ecography"
+      ],
+      "publisher": "Wiley"
+    },
+    {
+      "doi": "10.1111/2041-210X.13650",
+      "url": "https://doi.org/10.1111/2041-210X.13650",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Predicting into unknown space? Estimating the area of applicability of spatial prediction models"
+      ],
+      "authors": [
+        "Hanna Meyer",
+        "Edzer Pebesma"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2021,
+            7,
+            26
+          ]
+        ]
+      },
+      "container": [
+        "Methods in Ecology and Evolution"
+      ],
+      "publisher": "Wiley"
+    },
+    {
+      "doi": "10.1016/j.envsoft.2016.02.008",
+      "url": "https://doi.org/10.1016/j.envsoft.2016.02.008",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "doi": "10.1002/hyp.7687",
+      "url": "https://doi.org/10.1002/hyp.7687",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Modelling rapid flow response of a tile\u2010drained field site using a 2D physically based model: assessment of \u2018equifinal\u2019 model setups"
+      ],
+      "authors": [
+        "Julian Klaus",
+        "Erwin Zehe"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            4,
+            26
+          ]
+        ]
+      },
+      "container": [
+        "Hydrological Processes"
+      ],
+      "publisher": "Wiley",
+      "auditVerdict": "Rejected citation mismatch: registered title differs from the claimed McMillan river-flow paper; retained solely as audit evidence, not a recommendation."
+    },
+    {
+      "doi": "10.1002/hyp.9384",
+      "url": "https://doi.org/10.1002/hyp.9384",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "Benchmarking observational uncertainties for hydrology: rainfall, river discharge and water quality"
+      ],
+      "authors": [
+        "Hilary McMillan",
+        "Tobias Krueger",
+        "Jim Freer"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2012,
+            6,
+            11
+          ]
+        ]
+      },
+      "container": [
+        "Hydrological Processes"
+      ],
+      "publisher": "Wiley"
+    },
+    {
+      "doi": "10.1007/s10236-003-0036-9",
+      "url": "https://doi.org/10.1007/s10236-003-0036-9",
+      "accessDepth": "Crossref registered bibliographic metadata; not proof of full-text access",
+      "title": [
+        "The Ensemble Kalman Filter: theoretical formulation and practical implementation"
+      ],
+      "authors": [
+        "Geir Evensen"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2003,
+            11,
+            1
+          ]
+        ]
+      },
+      "container": [
+        "Ocean Dynamics"
+      ],
+      "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+      "doi": "10.1002/hyp.7587",
+      "url": "https://doi.org/10.1002/hyp.7587",
+      "title": [
+        "Impacts of uncertain river flow data on rainfall-runoff model calibration and discharge predictions"
+      ],
+      "authors": [
+        "Hilary McMillan",
+        "Jim Freer",
+        "Florian Pappenberger",
+        "Tobias Krueger",
+        "Martyn Clark"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            3,
+            2
+          ]
+        ]
+      },
+      "publisher": "Wiley",
+      "accessDepth": "Primary publisher metadata and abstract plus author-hosted publication listing; corrects supplied erroneous DOI7587/7687 substitution."
+    }
+  ]
+}

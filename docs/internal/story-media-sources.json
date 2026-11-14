@@ -1,0 +1,58 @@
+{
+  "nisar": {
+    "src": "/images/story/nisar.webp",
+    "width": 1600,
+    "height": 586,
+    "bytes": 90358,
+    "alt": "Artist\u2019s concept of NISAR above Earth, with a large radar reflector and solar arrays",
+    "caption": "Artist\u2019s concept of the NISAR spacecraft orbiting Earth, with its deployable radar reflector and solar arrays.",
+    "credit": "NASA/JPL-Caltech",
+    "sourceUrl": "https://science.nasa.gov/photojournal/nisar-in-orbit-over-northeastern-india-artists-concept/",
+    "license": "Public Domain / NASA Media Usage Guidelines",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "date": "2025-03-12",
+    "changes": "Downloaded from NASA Photojournal catalog PIA26496 (2558x937 JPEG), proportionally scaled to 1600x586, and encoded to WebP (quality 82). Preserved original artist concept composition without AI generation or synthetic modifications. Displayed with responsive crops; original source and license remain linked."
+  },
+  "tehran": {
+    "src": "/images/story/tehran.webp",
+    "width": 1600,
+    "height": 405,
+    "bytes": 159922,
+    "alt": "Tehran\u2019s northern skyline beneath the snow-covered Alborz mountains",
+    "caption": "Tehran metropolitan landscape and northern district skyline set against the backdrop of the Alborz mountain range, presented as geographical and regional context.",
+    "credit": "Amir Pashaei, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tehran_in_a_clean_day.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2019-04-02",
+    "changes": "Sourced from Wikimedia Commons high-resolution panorama, proportionally scaled to 1600x405, and encoded to WebP (quality 82) for web delivery. Preserved authentic photographic composition without synthetic modifications. Displayed with responsive crops; original source and license remain linked."
+  },
+  "tokyo": {
+    "src": "/images/story/tokyo.webp",
+    "width": 1600,
+    "height": 900,
+    "bytes": 254436,
+    "alt": "Tokyo\u2019s skyline at sunset, with Tokyo Tower among the buildings",
+    "caption": "Daytime metropolitan vista of Tokyo looking toward Minato City and Tokyo Tower, providing coastal urban context for Earth observation studies.",
+    "credit": "David Kernan, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "date": "2023-12-04",
+    "changes": "Sourced from Wikimedia Commons high-resolution photograph, proportionally scaled to 1600x900 (16:9), and encoded to WebP (quality 82) for web delivery. Preserved authentic photographic composition without synthetic modifications. Displayed with responsive crops; original source and license remain linked."
+  },
+  "earth": {
+    "src": "/images/story/earth.webp",
+    "width": 1024,
+    "height": 512,
+    "bytes": 48174,
+    "alt": "NASA Blue Marble global land and ocean mosaic used as a contextual globe texture",
+    "caption": "Historical Blue Marble global mosaic, used for a schematic Earth in the spacecraft lesson, not a current satellite acquisition.",
+    "credit": "NASA Goddard Space Flight Center / Reto St\u00f6ckli and Robert Simmon",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/",
+    "license": "NASA Media Usage Guidelines; freely available educational imagery",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "date": "2002-05-26",
+    "changes": "Downloaded the linked NASA land_ocean_ice_2048.jpg global mosaic; proportionally resized to1024x512 and encoded WebP quality78. No AI generation. Source image https://assets.science.nasa.gov/content/dam/science/esd/eo/content-feature/bluemarble/images/land_ocean_ice_2048.jpg ."
+  }
+}

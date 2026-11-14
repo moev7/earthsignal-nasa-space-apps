@@ -1,0 +1,1364 @@
+{
+  "scope": "Sources directly used in the research deliverables; discovery results not relied on are excluded. Presence of a URL does not imply full-text reading, local accuracy validation, or package installation.",
+  "sources": [
+    {
+      "url": "https://www.bipm.org/en/web/guest/publications/guides",
+      "labels": [
+        "BIPM uncertainty guides",
+        "JCGM 100/101 uncertainty guides"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "open book/guide",
+      "accessDepth": "Official/author text index and selected accessible sections; not whole-book reading."
+    },
+    {
+      "url": "https://nisar-docs.asf.alaska.edu/gcov/",
+      "labels": [
+        "ASF GCOV guide"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1109/TGRS.2002.808066",
+      "labels": [
+        "Conradsen et al.\u2019s Wishart method"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "A test statistic in the complex wishart distribution and its application to change detection in polarimetric SAR data"
+      ],
+      "registeredAuthors": [
+        "K. Conradsen",
+        "A.A. Nielsen",
+        "J. Schou",
+        "H. Skriver"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://developers.google.com/earth-engine/tutorials/community/detecting-changes-in-sentinel-1-imagery-pt-1",
+      "labels": [
+        "Earth Engine statistical SAR tutorial"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1214/aos/1013699998",
+      "labels": [
+        "Benjamini and Yekutieli"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading."
+    },
+    {
+      "url": "https://doi.org/10.1109/36.964973",
+      "labels": [
+        "Quegan and Yu"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Filtering of multichannel SAR images"
+      ],
+      "registeredAuthors": [
+        "S. Quegan",
+        "Jiong Jiong Yu"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1109/TGRS.2011.2120616",
+      "labels": [
+        "Small\u2019s RTC paper"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Flattening Gamma: Radiometric Terrain Correction for SAR Imagery"
+      ],
+      "registeredAuthors": [
+        "David Small"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://www.jpl.nasa.gov/go/opera/products/dswx-product-suite/",
+      "labels": [
+        "OPERA water product suite"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1016/j.rse.2014.02.015",
+      "labels": [
+        "Olofsson et al. (2014)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Good practices for estimating area and assessing accuracy of land change"
+      ],
+      "registeredAuthors": [
+        "Pontus Olofsson",
+        "Giles M. Foody",
+        "Martin Herold",
+        "Stephen V. Stehman",
+        "Curtis E. Woodcock",
+        "Michael A. Wulder"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1016/j.rse.2009.08.014",
+      "labels": [
+        "BFAST (Verbesselt et al., 2010)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Detecting trend and seasonal changes in satellite image time series"
+      ],
+      "registeredAuthors": [
+        "Jan Verbesselt",
+        "Rob Hyndman",
+        "Glenn Newnham",
+        "Darius Culvenor"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1016/j.rse.2014.01.011",
+      "labels": [
+        "CCDC (Zhu and Woodcock, 2014)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Continuous change detection and classification of land cover using all available Landsat data"
+      ],
+      "registeredAuthors": [
+        "Zhe Zhu",
+        "Curtis E. Woodcock"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://hls.gsfc.nasa.gov/algorithms/",
+      "labels": [
+        "HLS algorithms"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1016/S0034-4257(96)00067-3",
+      "labels": [
+        "Gao (1996)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "NDWI\u2014A normalized difference water index for remote sensing of vegetation liquid water from space"
+      ],
+      "registeredAuthors": [
+        "Bo-cai Gao"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1038/sdata.2015.66",
+      "labels": [
+        "CHIRPS"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "The climate hazards infrared precipitation with stations\u2014a new environmental record for monitoring extremes"
+      ],
+      "registeredAuthors": [
+        "Chris Funk",
+        "Pete Peterson",
+        "Martin Landsfeld",
+        "Diego Pedreros",
+        "James Verdin",
+        "Shraddhanand Shukla",
+        "Gregory Husak",
+        "James Rowland",
+        "Laura Harrison",
+        "Andrew Hoell",
+        "Joel Michaelsen"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.5194/essd-13-4349-2021",
+      "labels": [
+        "ERA5-Land"
+      ],
+      "usedIn": [
+        "REPORT.md",
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": null,
+      "registeredAuthors": null,
+      "metadataStatus": "lookup blocked/rate-limited"
+    },
+    {
+      "url": "https://climatedataguide.ucar.edu/climate-data/standardized-precipitation-evapotranspiration-index-spei",
+      "labels": [
+        "SPEI developer guidance"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.fao.org/4/x0490e/x0490e00.htm",
+      "labels": [
+        "FAO-56",
+        "Allen et al., FAO Irrigation and Drainage Paper 56 (1998)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "open book/guide",
+      "accessDepth": "Official/author text index and selected accessible sections; not whole-book reading."
+    },
+    {
+      "url": "https://www.jpl.nasa.gov/go/opera/products/dist-product-suite/",
+      "labels": [
+        "OPERA DIST suite"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-known-issues",
+      "labels": [
+        "USGS known issues"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://confluence.ecmwf.int/spaces/CKB/pages/340759409/UTCI%2B-%2BUser%2BGuide",
+      "labels": [
+        "ECMWF\u2019s UTCI documentation"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://appliedsciences.nasa.gov/sites/default/files/2025-05/Part%203%20FIRMS%202025%20Q%26A%20Session.docx.pdf",
+      "labels": [
+        "FIRMS guidance"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://pubs.usgs.gov/publication/70156000",
+      "labels": [
+        "MTBS"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://nisar-docs.asf.alaska.edu/gunw/",
+      "labels": [
+        "ASF GUNW guide"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.jpl.nasa.gov/go/opera/products/disp-product-suite/",
+      "labels": [
+        "OPERA DISP suite"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1016/j.cageo.2019.104331",
+      "labels": [
+        "MintPy\u2019s foundational method"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Small baseline InSAR time series analysis: Unwrapping error correction and noise reduction"
+      ],
+      "registeredAuthors": [
+        "Zhang Yunjun",
+        "Heresh Fattahi",
+        "Falk Amelung"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://api.waterdata.usgs.gov/docs/ogcapi/migration/",
+      "labels": [
+        "USGS migration documentation"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://waterdata.usgs.gov/blog/api-waterservices-decom/",
+      "labels": [
+        "2027 WaterServices retirement notice"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.usgs.gov/faqs/why-might-usgs-streamflow-data-be-revised",
+      "labels": [
+        "USGS provisional-data guidance"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://otexts.com/fpp3/tscv.html",
+      "labels": [
+        "Forecasting: Principles and Practice"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "open book/guide",
+      "accessDepth": "Official/author text index and selected accessible sections; not whole-book reading."
+    },
+    {
+      "url": "https://hess.copernicus.org/articles/23/5089/2019/",
+      "labels": [
+        "Kratzert et al."
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://hess.copernicus.org/articles/21/5293/2017/",
+      "labels": [
+        "CAMELS"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://water.noaa.gov/about/api",
+      "labels": [
+        "NOAA NWPS/NWM and HEFS"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.cnrfc.noaa.gov/documentation/WRverification_help.php",
+      "labels": [
+        "CNRFC verification methodology"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://doi.org/10.1198/016214506000001437",
+      "labels": [
+        "Gneiting and Raftery"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Strictly Proper Scoring Rules, Prediction, and Estimation"
+      ],
+      "registeredAuthors": [
+        "Tilmann Gneiting",
+        "Adrian E Raftery"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1371/journal.pcbi.1008618",
+      "labels": [
+        "Bracher et al."
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Evaluating epidemic forecasts in an interval format"
+      ],
+      "registeredAuthors": [
+        "Johannes Bracher",
+        "Evan L. Ray",
+        "Tilmann Gneiting",
+        "Nicholas G. Reich"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0d441de75945e5acbc865406fc9a2559-Abstract.html",
+      "labels": [
+        "ACI"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://doi.org/10.1111/ecog.02881",
+      "labels": [
+        "Roberts et al."
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Cross\u2010validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure"
+      ],
+      "registeredAuthors": [
+        "David R. Roberts",
+        "Volker Bahn",
+        "Simone Ciuti",
+        "Mark S. Boyce",
+        "Jane Elith",
+        "Gurutzeta Guillera\u2010Arroita",
+        "Severin Hauenstein",
+        "Jos\u00e9 J. Lahoz\u2010Monfort",
+        "Boris Schr\u00f6der",
+        "Wilfried Thuiller",
+        "David I. Warton",
+        "Brendan A. Wintle",
+        "Florian Hartig",
+        "Carsten F. Dormann"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://www.nature.com/articles/s41467-020-18321-y",
+      "labels": [
+        "Ploton et al."
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://doi.org/10.1111/2041-210X.13650",
+      "labels": [
+        "Meyer and Pebesma"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Predicting into unknown space? Estimating the area of applicability of spatial prediction models"
+      ],
+      "registeredAuthors": [
+        "Hanna Meyer",
+        "Edzer Pebesma"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://miguelhernan.org/whatifbook",
+      "labels": [
+        "Hern\u00e1n and Robins\u2019 open book",
+        "Hern\u00e1n & Robins, Causal Inference: What If"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "open book/guide",
+      "accessDepth": "Official/author text index and selected accessible sections; not whole-book reading."
+    },
+    {
+      "url": "https://doi.org/10.1016/j.envsoft.2016.02.008",
+      "labels": [
+        "Pianosi et al.\u2019s sensitivity workflow"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": null,
+      "registeredAuthors": null,
+      "metadataStatus": "lookup blocked/rate-limited"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.02732",
+      "labels": [
+        "Prithvi-EO-2.0"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://github.com/BErukky/disasterWatch/blob/main/backend/src/services/displacement.js",
+      "labels": [
+        "displacement service"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://science.nasa.gov/mission/nisar/mission-overview/",
+      "labels": [
+        "NASA records NISAR\u2019s launch on 30 July 2025"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://github.com/BErukky/disasterWatch/blob/main/backend/src/services/guardian.js",
+      "labels": [
+        "GUARDIAN service"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://guardian.jpl.nasa.gov/about.html",
+      "labels": [
+        "GUARDIAN description"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://github.com/isce-framework/isce3",
+      "labels": [
+        "ISCE3"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/insarlab/MintPy",
+      "labels": [
+        "MintPy"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/aria-tools/ARIA-tools",
+      "labels": [
+        "ARIA-tools"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/ASFHyP3/hyp3",
+      "labels": [
+        "ASF HyP3"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/johntruckenbrodt/pyroSAR",
+      "labels": [
+        "pyroSAR"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/opera-adt/DSWX-SAR",
+      "labels": [
+        "DSWX-SAR"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/nasa/PROTEUS",
+      "labels": [
+        "PROTEUS"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/OPERA-Cal-Val/OPERA_Applications",
+      "labels": [
+        "OPERA applications"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/OPERA-Cal-Val/DSWx-Requirement-Verification",
+      "labels": [
+        "DSWx verification"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/opera-adt/dist-s1",
+      "labels": [
+        "DIST-S1"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/nasa/HLS-Data-Resources",
+      "labels": [
+        "HLS resources"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/Remote-Sensing-of-Land-Resource-Lab/pyxccd",
+      "labels": [
+        "pyxccd"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/GERSL/pycold",
+      "labels": [
+        "pycold"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/bfast2/bfast",
+      "labels": [
+        "BFAST"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/eMapR/LT-GEE",
+      "labels": [
+        "LandTrendr GEE"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/statsmodels/statsmodels",
+      "labels": [
+        "statsmodels"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/sktime/sktime",
+      "labels": [
+        "sktime"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/scikit-learn/scikit-learn",
+      "labels": [
+        "scikit-learn"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/scikit-learn-contrib/MAPIE",
+      "labels": [
+        "MAPIE"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/neuralhydrology/neuralhydrology",
+      "labels": [
+        "NeuralHydrology"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/Deltares/hydromt",
+      "labels": [
+        "HydroMT"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/SALib/SALib",
+      "labels": [
+        "SALib"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/DOI-USGS/hyswap",
+      "labels": [
+        "HYSWAP"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/google-research-datasets/global_streamflow_model_paper",
+      "labels": [
+        "Global streamflow paper resources"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/pydata/xarray",
+      "labels": [
+        "xarray"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/corteva/rioxarray",
+      "labels": [
+        "rioxarray"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/rasterio/rasterio",
+      "labels": [
+        "Rasterio"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/opendatacube/odc-stac",
+      "labels": [
+        "odc-stac"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/gjoseph92/stackstac",
+      "labels": [
+        "stackstac"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/stac-utils/pystac-client",
+      "labels": [
+        "pystac-client"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/xarray-contrib/xskillscore",
+      "labels": [
+        "xskillscore"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/pyproj4/pyproj",
+      "labels": [
+        "pyproj"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/scipy/scipy",
+      "labels": [
+        "SciPy"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/torchgeo/torchgeo",
+      "labels": [
+        "TorchGeo"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/torchgeo/terratorch",
+      "labels": [
+        "TerraTorch"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/NASA-IMPACT/Prithvi-EO-2.0",
+      "labels": [
+        "Prithvi-EO-2.0"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://github.com/ServiceNow/geo-bench",
+      "labels": [
+        "GEO-Bench"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "repository or selected public source path",
+      "accessDepth": "Public GitHub metadata/README or specified source path; see repositories.json. Not a complete repository execution audit."
+    },
+    {
+      "url": "https://www.ogc.org/standards/stac/",
+      "labels": [
+        "OGC STAC"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://www.w3.org/TR/prov-primer/",
+      "labels": [
+        "W3C PROV"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://otexts.com/fpp3/",
+      "labels": [
+        "Hyndman & Athanasopoulos, Forecasting: Principles and Practice, 3rd ed."
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "open book/guide",
+      "accessDepth": "Official/author text index and selected accessible sections; not whole-book reading."
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781119951001",
+      "labels": [
+        "Beven, Rainfall\u2013Runoff Modelling: The Primer, 2nd ed. (2012)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "book publisher",
+      "accessDepth": "Publisher metadata/description/chapter summaries or preview; not purchased/full-book access."
+    },
+    {
+      "url": "https://www.routledge.com/Polarimetric-Radar-Imaging-From-Basics-toApplications/Lee-Pottier/p/book/9781420054972",
+      "labels": [
+        "Lee & Pottier, Polarimetric Radar Imaging (2009)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "book publisher",
+      "accessDepth": "Publisher metadata/description/chapter summaries or preview; not purchased/full-book access."
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781119115151",
+      "labels": [
+        "Cressie, Statistics for Spatial Data (1993)"
+      ],
+      "usedIn": [
+        "REPORT.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "book publisher",
+      "accessDepth": "Publisher metadata/description/chapter summaries or preview; not purchased/full-book access."
+    },
+    {
+      "url": "https://hess.copernicus.org/articles/23/4323/2019/",
+      "labels": [
+        "Knoben, Freer and Woods (2019)"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://proceedings.mlr.press/v139/hoedt21a.html",
+      "labels": [
+        "MC-LSTM (Hoedt et al., 2021)"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://doi.org/10.1007/s10236-003-0036-9",
+      "labels": [
+        "Evensen (2003)"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "The Ensemble Kalman Filter: theoretical formulation and practical implementation"
+      ],
+      "registeredAuthors": [
+        "Geir Evensen"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1002/hyp.7587",
+      "labels": [
+        "McMillan et al. (2010)"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Impacts of uncertain river flow data on rainfall-runoff model calibration and discharge predictions"
+      ],
+      "registeredAuthors": [
+        "Hilary McMillan",
+        "Jim Freer",
+        "Florian Pappenberger",
+        "Tobias Krueger",
+        "Martyn Clark"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://doi.org/10.1002/hyp.9384",
+      "labels": [
+        "McMillan, Krueger and Freer (2012) review"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "scholarly primary reference",
+      "accessDepth": "Primary publisher/author search result or accessible abstract; metadata separately checked where available. No claim of complete paper reading.",
+      "registeredTitle": [
+        "Benchmarking observational uncertainties for hydrology: rainfall, river discharge and water quality"
+      ],
+      "registeredAuthors": [
+        "Hilary McMillan",
+        "Tobias Krueger",
+        "Jim Freer"
+      ],
+      "metadataStatus": "registered metadata checked"
+    },
+    {
+      "url": "https://www.nasa.gov/nasa-earth-exchange-nex/gddp/downscaled-climate-projections-nex-gddp-cmip6/",
+      "labels": [
+        "NASA NEX-GDDP-CMIP6"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://gmd.copernicus.org/articles/12/3055/2019/",
+      "labels": [
+        "Lange (2019), ISIMIP3BASD"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "primary paper/preprint",
+      "accessDepth": "Accessible publisher/proceedings/author abstract and selected text; preprints are not automatically peer-reviewed."
+    },
+    {
+      "url": "https://www.usgs.gov/publications/examining-current-bias-and-future-projection-consistency-globally-downscaled-climate",
+      "labels": [
+        "USGS study of downscaled climate projection consistency"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://ntrs.nasa.gov/citations/20180004003",
+      "labels": [
+        "NASA SMAP resolution assessment"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    },
+    {
+      "url": "https://ghsl.jrc.ec.europa.eu/documents/GHSL_data_access.pdf",
+      "labels": [
+        "GHSL population documentation"
+      ],
+      "usedIn": [
+        "EXTENSIONS.md"
+      ],
+      "checkedDate": "2026-10-10",
+      "type": "official technical/source documentation",
+      "accessDepth": "Official page, guide or primary-source listing; selected content inspected. Dataset support/version must be checked at implementation."
+    }
+  ]
+}

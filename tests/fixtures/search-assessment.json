@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0", "id": "search-test-owner-a", "kind": "assessment", "status": "completed", "phase": "complete",
+  "createdAt": "2026-10-13T00:00:00Z", "updatedAt": "2026-10-13T00:00:00Z", "error": null,
+  "request": {"schemaVersion":"1.0","domain":"water","question":"change","area":{"type":"Polygon","coordinates":[[[-114.8,36],[-114.7,36],[-114.7,36.1],[-114.8,36.1],[-114.8,36]]]},"start":"2025-01-01","end":"2025-01-10"},
+  "result": {
+    "schemaVersion":"1.0","kind":"assessment","domain":"water","question":"change","area":{"type":"Polygon","coordinates":[[[-114.8,36],[-114.7,36],[-114.7,36.1],[-114.8,36.1],[-114.8,36]]]},
+    "time":{"start":"2025-01-01","end":"2025-01-10"},"processedAt":"2026-10-13T00:00:00Z","methodVersion":"synthetic-search-test","title":"Synthetic owner A search fixture","outcome":"partial",
+    "evidence":[{"id":"gauge-evidence","sourceId":"usgs-daily","sourceVersion":"test","title":"Synthetic station evidence","url":"https://example.org/test","geometry":null,"spatialSupport":{"resolution":null,"unit":"station","description":"Test fixture only"},"timestamps":{"observedStart":null,"observedEnd":null,"publishedAt":null,"retrievedAt":"2026-10-13T00:00:00Z","validThrough":null},"quantity":"daily mean discharge","unit":"ft3/s","quality":{"commonCoveragePercent":null,"notes":[]},"maskPolicy":"synthetic","methodVersion":"synthetic-search-test","hashes":{},"public":false}],
+    "claims":[{"id":"explanation","type":"Possible explanation","text":"A flood explanation requires independent reference evidence.","evidenceIds":["gauge-evidence"],"methodVersion":"synthetic-search-test","assumptions":[],"uncertainty":["No field validation"],"applicability":["Synthetic fixture"],"counterevidence":[]}],
+    "metrics":[{"id":"discharge","label":"Station discharge","value":null,"unit":"ft3/s","evidenceIds":["gauge-evidence"],"description":"Withheld test measurement","denominator":null}],
+    "quality":[{"dimension":"prediction","status":"withheld","message":"Forecast withheld in this synthetic fixture"}],
+    "brief":{"title":"Synthetic search fixture","sections":[{"id":"meaning","title":"Meaning","claimIds":["explanation"]}]},"artifacts":[],
+    "series":[{"id":"station-history","label":"Synthetic station history","unit":"ft3/s","evidenceIds":["gauge-evidence"],"points":[{"date":"2025-01-01","value":null,"quality":"unavailable"}]}]
+  }
+}

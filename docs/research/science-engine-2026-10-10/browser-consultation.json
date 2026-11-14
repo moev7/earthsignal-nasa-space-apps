@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "provider": "Perplexity website",
+  "plan": "Free visibly shown at access check",
+  "model": "Unknown; page showed Search mode/model control without a verified named model",
+  "mode": "Search; one bounded public generic scientific-source request",
+  "conversationUrl": "https://www.perplexity.ai/search/9a1e7c01-fd37-4f4b-8129-f2a00e7fbb1b",
+  "question": "What measurement uncertainty, structured validation, seasonality and calibrated-forecast gaps should a small multi-sensor EO decision app address before adding prediction? Provide primary sources and rank five upgrades.",
+  "sharingScope": "Generic scientific application description only. No private repository/code, credentials, observation fixtures, logs or user data uploaded.",
+  "evidence": "Actual completed answer visible in native T3 browser after24sresearch, with substantive ranked recommendations and links; not just landing page.",
+  "recommendations": [
+    "uncertainty-aware measurements",
+    "matched-support independent validation",
+    "seasonal baseline",
+    "calibrated probabilistic forecasts",
+    "decision utility evaluation"
+  ],
+  "coordinatorVerdict": "Accepted as bounded source-finding/requirements advice, not scientific validation or proof of the quoted accuracy figures. Verified relevant NOAA CNRFC methodology, USGS Landsat product issues and CSTools primary paper independently. Did not adopt unsupported per-pixel accuracy guarantees or old Sentinel quality targets. USGS lake-temperature source endpoint403: numerical boundary-error claim not used.",
+  "effect": "Reinforced measurement/validation/baseline-first priority and distinction among observed change, causal attribution, forecasts and conditional scenarios. Report supplies concrete code audit and falsifiable checks absent from adviser brief.",
+  "skill": "/Users/amireza/.codex/skills/browser-consultation/SKILL.md"
+}

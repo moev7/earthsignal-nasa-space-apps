@@ -1,0 +1,343 @@
+{
+  "method": "Public git HEAD ref plus comparison of previously retrieved README/selected source content to immutable raw URLs. HEAD alone is not proof of the originally inspected content; match fields provide that check. No packages installed.",
+  "readmePins": [
+    {
+      "repository": "BErukky/disasterWatch",
+      "headShaAtVerification": "9b880a7393de241f124f567053705af8c7b53e00",
+      "headCheckedAt": "2026-10-09T21:01:04.299286+00:00",
+      "inspectedReadmeSha256": "6348511036b51a0c5e00a3cf0f501088ca5741dd0c02ba2b68b1bfe7ac719b99",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "isce-framework/isce3",
+      "headShaAtVerification": "ba0f9960359cebdba34b6bde099e306cf6db1eba",
+      "headCheckedAt": "2026-10-09T21:01:04.435332+00:00",
+      "inspectedReadmeSha256": "5a764f5d2dc7c0ae9f43cbf941483c826a2781f6dd6b7f63f19573742bb0acaa",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/isce-framework/isce3/ba0f9960359cebdba34b6bde099e306cf6db1eba/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "insarlab/MintPy",
+      "headShaAtVerification": "9e0d46b2593483ba89452102efd21c1575662190",
+      "headCheckedAt": "2026-10-09T21:01:04.475687+00:00"
+    },
+    {
+      "repository": "aria-tools/ARIA-tools",
+      "headShaAtVerification": "8e59ff24217986e9f8de34938549360ea53441b5",
+      "headCheckedAt": "2026-10-09T21:01:04.433673+00:00",
+      "inspectedReadmeSha256": "51fc79ce75c30dc7df55e6f0068f92782672873312e671ea0a1d5074d8e391bf",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/aria-tools/ARIA-tools/8e59ff24217986e9f8de34938549360ea53441b5/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "ASFHyP3/hyp3",
+      "headShaAtVerification": "b18a5eab0c0cb7153386f376d0fdec705d6d8c4e",
+      "headCheckedAt": "2026-10-09T21:01:05.739310+00:00",
+      "inspectedReadmeSha256": "022ee970a48d7bc20b56136b2589d917e411b55022c0b5ad6c05be156ac371d4",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/ASFHyP3/hyp3/b18a5eab0c0cb7153386f376d0fdec705d6d8c4e/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "johntruckenbrodt/pyroSAR",
+      "headShaAtVerification": "a3e6f2576a54294fb4e2a7f3f85ff1b4ae681729",
+      "headCheckedAt": "2026-10-09T21:01:06.062046+00:00",
+      "inspectedReadmeSha256": "0e91792d7274602b48f339bffb45b78674419426059e0e053581e3240db4a9a0",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/johntruckenbrodt/pyroSAR/a3e6f2576a54294fb4e2a7f3f85ff1b4ae681729/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "opera-adt/dist-s1",
+      "headShaAtVerification": "2da3b7eaec3a148202f846fd474b1399e37405b9",
+      "headCheckedAt": "2026-10-09T21:01:06.195582+00:00",
+      "inspectedReadmeSha256": "bf7db6a444ce6a97c76e90fc792c62cf72444bfb67678850f0b4a6dad990d921",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/opera-adt/dist-s1/2da3b7eaec3a148202f846fd474b1399e37405b9/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "OPERA-Cal-Val/DSWx-Requirement-Verification",
+      "headShaAtVerification": "6ad638e4dd36131550075451da3a56e209351f2b",
+      "headCheckedAt": "2026-10-09T21:01:06.065231+00:00",
+      "inspectedReadmeSha256": "f9ba7b1f37a824d7abff1a80905c156334abfa2bc66f25c3049a2daa9f94808f",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/OPERA-Cal-Val/DSWx-Requirement-Verification/6ad638e4dd36131550075451da3a56e209351f2b/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "nasa/HLS-Data-Resources",
+      "headShaAtVerification": "3ac8d6a3e47df95ab3a239e9a474da8a682df503",
+      "headCheckedAt": "2026-10-09T21:01:07.333961+00:00",
+      "inspectedReadmeSha256": "102d0fcc26b1f54c2f1982df48b313fdd999e6c2604249d983fcf198de45a510",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/nasa/HLS-Data-Resources/3ac8d6a3e47df95ab3a239e9a474da8a682df503/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "Remote-Sensing-of-Land-Resource-Lab/pyxccd",
+      "headShaAtVerification": "b52404c29b2a986e8020a384c3030123faf78fd3",
+      "headCheckedAt": "2026-10-09T21:01:07.522898+00:00",
+      "inspectedReadmeSha256": "b732e69f7ae8f6811330a5a1e8f394ced4ce7efedfb67cb9e21193cc19234436",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/Remote-Sensing-of-Land-Resource-Lab/pyxccd/b52404c29b2a986e8020a384c3030123faf78fd3/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "GERSL/pycold",
+      "headShaAtVerification": "af0d22f98c0c4536ff8cd340eb370815f6b520a3",
+      "headCheckedAt": "2026-10-09T21:01:07.576313+00:00",
+      "inspectedReadmeSha256": "aefbb31a4c1d399eb625e62278c9303a6ef84c659aa41e221e36f5d1b43ea3e9",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/GERSL/pycold/af0d22f98c0c4536ff8cd340eb370815f6b520a3/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "bfast2/bfast",
+      "headShaAtVerification": "8dad57ca7093f8b18a6e131ea4b999cbd59ccc0a",
+      "headCheckedAt": "2026-10-09T21:01:07.839054+00:00",
+      "inspectedReadmeSha256": "442a7a3bfa564d2edb940acda515de4e7a64e788905fa7b41b75d60ea4ad977b",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/bfast2/bfast/8dad57ca7093f8b18a6e131ea4b999cbd59ccc0a/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "eMapR/LT-GEE",
+      "headShaAtVerification": "c17bacdb76d0cf1b942300f6f9ddfe368b41eed0",
+      "headCheckedAt": "2026-10-09T21:01:08.830697+00:00",
+      "inspectedReadmeSha256": "24a53b8e0bbcff967e933ae3deda0fb327aeb4ffc7304eb0b52901fe3a833554",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/eMapR/LT-GEE/c17bacdb76d0cf1b942300f6f9ddfe368b41eed0/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "neuralhydrology/neuralhydrology",
+      "headShaAtVerification": "74ea8bd75fc50efc557d8a1a9308f594fc407343",
+      "headCheckedAt": "2026-10-09T21:01:09.045294+00:00",
+      "inspectedReadmeSha256": "22299ba8aa95cb11befb090f451d6fa401e9eb10e187854a3889d0e17820c2d8",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/neuralhydrology/neuralhydrology/74ea8bd75fc50efc557d8a1a9308f594fc407343/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "statsmodels/statsmodels",
+      "headShaAtVerification": "9bf43a292c6e906754744fef3b1a77c5e549410f",
+      "headCheckedAt": "2026-10-09T21:01:09.546957+00:00",
+      "inspectedReadmeSha256": "d430fa04083d240c9f0e75aa90bc73c13cb1a874f4c7b4ce29bddbb6366c4a42",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/statsmodels/statsmodels/9bf43a292c6e906754744fef3b1a77c5e549410f/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "sktime/sktime",
+      "headShaAtVerification": "5ba6fba23e4929395aa0fab1061967d85eb86c86",
+      "headCheckedAt": "2026-10-09T21:01:09.837558+00:00",
+      "inspectedReadmeSha256": "9dfb78a706c79450b4b96d6bb209de8196fd0d64d24066b90db3d945dcd6ac59",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/sktime/sktime/5ba6fba23e4929395aa0fab1061967d85eb86c86/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "headShaAtVerification": "46449a10defc79e0615391c15106fc966bbc8261",
+      "headCheckedAt": "2026-10-09T21:01:11.052537+00:00",
+      "inspectedReadmeSha256": "3e0c151adde02aa2501477a7c2a17a87888abe58178c09a2a8eff794bbee3221",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/46449a10defc79e0615391c15106fc966bbc8261/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "scikit-learn-contrib/MAPIE",
+      "headShaAtVerification": "f46a14b8046fa060636a96acc3692026accf25fe",
+      "headCheckedAt": "2026-10-09T21:01:10.695709+00:00",
+      "inspectedReadmeSha256": "23f0539a22edeb233bc027872c39104f64ab09a6c19bb41fc9d29c0f390fe424",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/scikit-learn-contrib/MAPIE/f46a14b8046fa060636a96acc3692026accf25fe/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "SALib/SALib",
+      "headShaAtVerification": "c8b2be52a136d861caf4b1e53a4dae2e036ee390",
+      "headCheckedAt": "2026-10-09T21:01:11.222218+00:00",
+      "inspectedReadmeSha256": "cccf147e49049de025703105c528ffd1d13864f87e722dec0eacafbefbbd4f9e",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/SALib/SALib/c8b2be52a136d861caf4b1e53a4dae2e036ee390/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "Deltares/hydromt",
+      "headShaAtVerification": "53aa0af9a6e1212216e9712f7759e72eef86796b",
+      "headCheckedAt": "2026-10-09T21:01:11.615169+00:00",
+      "inspectedReadmeSha256": "a98fefda51577cdf69194d468633e07f065b378ef2bf77cf5c65d605ca013698",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/Deltares/hydromt/53aa0af9a6e1212216e9712f7759e72eef86796b/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "torchgeo/terratorch",
+      "headShaAtVerification": "7bf8eaba13c4a8a6a0a33e63f8d866d478a3bf31",
+      "headCheckedAt": "2026-10-09T21:01:12.522222+00:00",
+      "inspectedReadmeSha256": "99ce7fe3316680f263b8a03c77edbd19dbdc7e78e02188f2373caf7e75ab0e91",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/torchgeo/terratorch/7bf8eaba13c4a8a6a0a33e63f8d866d478a3bf31/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "NASA-IMPACT/Prithvi-EO-2.0",
+      "headShaAtVerification": "758311280f935d4775c05b26d792768bf1fda841",
+      "headCheckedAt": "2026-10-09T21:01:12.540634+00:00",
+      "inspectedReadmeSha256": "f13bf62e35eac8890f88d3d5b42f96738f3d7cac9b2319207e6757b4fb07d616",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/NASA-IMPACT/Prithvi-EO-2.0/758311280f935d4775c05b26d792768bf1fda841/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "torchgeo/torchgeo",
+      "headShaAtVerification": "08d4669cc8cf0b52c97ffc980d0965b8f9a8dc92",
+      "headCheckedAt": "2026-10-09T21:01:13.122915+00:00",
+      "inspectedReadmeSha256": "54fd9e82e44a9f7cad2d15410567581f35c9a3f96ac0cc4facfd4451a5771bb2",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/torchgeo/torchgeo/08d4669cc8cf0b52c97ffc980d0965b8f9a8dc92/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "rasterio/rasterio",
+      "headShaAtVerification": "3f685650aa3aaaa0642264ddc265e0d8b9ebeee7",
+      "headCheckedAt": "2026-10-09T21:01:13.455422+00:00",
+      "inspectedReadmeSha256": "40072b111231730c66bd253450e7fd16c119289f0f25095e503a128b57576a7d",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/rasterio/rasterio/3f685650aa3aaaa0642264ddc265e0d8b9ebeee7/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "corteva/rioxarray",
+      "headShaAtVerification": "c48a1a38c326d08727a448eace3a90e908801988",
+      "headCheckedAt": "2026-10-09T21:01:14.189324+00:00",
+      "inspectedReadmeSha256": "2baffd96e59159aafefc4e16f4494ff58360860a6e9c62e3bf435f0ca8a1eb96",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/corteva/rioxarray/c48a1a38c326d08727a448eace3a90e908801988/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "opendatacube/odc-stac",
+      "headShaAtVerification": "d3345ed21efddb7aa1962990b734009602334d3f",
+      "headCheckedAt": "2026-10-09T21:01:14.069645+00:00",
+      "inspectedReadmeSha256": "835ccd81a90452b17b46a10c8916b2e9c42b3fa2d4dbca588ef9b61792a531dc",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/opendatacube/odc-stac/d3345ed21efddb7aa1962990b734009602334d3f/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "gjoseph92/stackstac",
+      "headShaAtVerification": "38571909cd83d1f3da0c20e44450560e174ff845",
+      "headCheckedAt": "2026-10-09T21:01:14.686744+00:00",
+      "inspectedReadmeSha256": "56e7b56d59a7b87277151b38ba9b70fcc12a362b056f4f9becec4443395e5e13",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/gjoseph92/stackstac/38571909cd83d1f3da0c20e44450560e174ff845/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "stac-utils/pystac-client",
+      "headShaAtVerification": "f76c1e952b67fe0d5daaca570fa73ee8430be318",
+      "headCheckedAt": "2026-10-09T21:01:15.130991+00:00",
+      "inspectedReadmeSha256": "9a7b9426ffb78f7ff2a1f7154977ecdb49e685e42385ecdecf195d2abc8a6aeb",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/stac-utils/pystac-client/f76c1e952b67fe0d5daaca570fa73ee8430be318/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "pydata/xarray",
+      "headShaAtVerification": "368323201acc529917a69d2b33b20d7d493097ef",
+      "headCheckedAt": "2026-10-09T21:01:15.993894+00:00",
+      "inspectedReadmeSha256": "b6726b01648c887a12872ee59da67ee06307865c465db9fd2ec0026a7c93bccc",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/pydata/xarray/368323201acc529917a69d2b33b20d7d493097ef/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "xarray-contrib/xskillscore",
+      "headShaAtVerification": "42bbeba672d2c73d98ba534515bef5d79c90b74f",
+      "headCheckedAt": "2026-10-09T21:01:15.820102+00:00",
+      "inspectedReadmeSha256": "c35599cab2bbc9a0518870d47c29257cb8a9f2a174a495ddc793bad5cdd91e76",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/xarray-contrib/xskillscore/42bbeba672d2c73d98ba534515bef5d79c90b74f/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "pyproj4/pyproj",
+      "headShaAtVerification": "4fd106e46581beaf778f74c14bc8d1f664490ff3",
+      "headCheckedAt": "2026-10-09T21:01:16.361423+00:00",
+      "inspectedReadmeSha256": "b18ed71f3c58d9e619e944ef938de23a5eb7ddab87482de03f8b91f863db5698",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/pyproj4/pyproj/4fd106e46581beaf778f74c14bc8d1f664490ff3/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "scipy/scipy",
+      "headShaAtVerification": "ecee36d388004b86bdf56bf3fd7498006cddda96",
+      "headCheckedAt": "2026-10-09T21:01:17.244077+00:00",
+      "inspectedReadmeSha256": "6a4d55e53007e0d509dc30f5a8d460c280f0f5bcf2567c910948e7eb23047b10",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/scipy/scipy/ecee36d388004b86bdf56bf3fd7498006cddda96/README.rst",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "opera-adt/DSWX-SAR",
+      "headShaAtVerification": "d9ae8ed5178417dec22a6fc549c4368cfd51ebe9",
+      "headCheckedAt": "2026-10-09T21:01:17.339866+00:00",
+      "inspectedReadmeSha256": "84b188fa254573b094363adf26c74d1de2005bd6aea7c323d592ceb279197583",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/opera-adt/DSWX-SAR/d9ae8ed5178417dec22a6fc549c4368cfd51ebe9/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "nasa/PROTEUS",
+      "headShaAtVerification": "426a9e762804877fd1afe940940e7b86b374ab32",
+      "headCheckedAt": "2026-10-09T21:01:17.525658+00:00",
+      "inspectedReadmeSha256": "6969bd1675823dd79eee9d591ff611c77be9e29dd73af84cb80a79f8be89ec8d",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/nasa/PROTEUS/426a9e762804877fd1afe940940e7b86b374ab32/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "OPERA-Cal-Val/OPERA_Applications",
+      "headShaAtVerification": "452c0145b1dbdd5ca82c6d13d7fadc8fba0bbd06",
+      "headCheckedAt": "2026-10-09T21:01:18.052820+00:00",
+      "inspectedReadmeSha256": "71f692fe7f35be894de68f4f72b11de6c83f28f754ed1e83fc40cae408186d9d",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/OPERA-Cal-Val/OPERA_Applications/452c0145b1dbdd5ca82c6d13d7fadc8fba0bbd06/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "DOI-USGS/hyswap",
+      "headShaAtVerification": "56fe1bf08609b9c16e6c1feea65453a735dd8c78",
+      "headCheckedAt": "2026-10-09T21:01:18.710211+00:00",
+      "inspectedReadmeSha256": "cb2581a9713ef65dadd1ca525828f62a99fcbd858dcfa68560fae0ee0b83781b",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/DOI-USGS/hyswap/56fe1bf08609b9c16e6c1feea65453a735dd8c78/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "google-research-datasets/global_streamflow_model_paper",
+      "headShaAtVerification": "1e88caf06120fc16a8ed61da310d32dfdfe87a13",
+      "headCheckedAt": "2026-10-09T21:01:18.816420+00:00",
+      "inspectedReadmeSha256": "fabb111fae5325075249cdafd56299f5a7643b88398b4c9c41309c07c2c4c4b1",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/google-research-datasets/global_streamflow_model_paper/1e88caf06120fc16a8ed61da310d32dfdfe87a13/README.md",
+      "readmeMatchesPinnedCommit": true
+    },
+    {
+      "repository": "ServiceNow/geo-bench",
+      "headShaAtVerification": "17cac9b7bd0d506866d8356f5817b88d173d2891",
+      "headCheckedAt": "2026-10-09T21:01:19.039367+00:00",
+      "inspectedReadmeSha256": "9064677e85b1adf3fc8f0dc51468e68f59d7a307c33e18ac35f30f6585340a89",
+      "immutableReadmeUrl": "https://raw.githubusercontent.com/ServiceNow/geo-bench/17cac9b7bd0d506866d8356f5817b88d173d2891/README.md",
+      "readmeMatchesPinnedCommit": true
+    }
+  ],
+  "selectedCode": [
+    {
+      "repository": "BErukky/disasterWatch",
+      "path": "backend/src/services/displacement.js",
+      "inspectedSha256": "0a55b11450e0b8012131be353d964e90cbcd0ae5e6fa050659e47d50812b9199",
+      "immutableUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/services/displacement.js",
+      "matchesPinnedCommit": true
+    },
+    {
+      "repository": "BErukky/disasterWatch",
+      "path": "backend/src/services/guardian.js",
+      "inspectedSha256": "1e45090a9da6499de796078a2c867b1a3066ac85651af06c8110a748e80a48e0",
+      "immutableUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/services/guardian.js",
+      "matchesPinnedCommit": true
+    },
+    {
+      "repository": "BErukky/disasterWatch",
+      "path": "backend/src/services/usgs.js",
+      "inspectedSha256": "6cd2c02665cec09521c9abab1ad797ec2443328f99f7fa35f8c39ab1d2b2b994",
+      "immutableUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/services/usgs.js",
+      "matchesPinnedCommit": true
+    },
+    {
+      "repository": "BErukky/disasterWatch",
+      "path": "backend/src/server-native.js",
+      "inspectedSha256": "94dd1d686b8c31202248436af20cbce579c77aa8a769e72cd5a15e4a6d8764a7",
+      "immutableUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/server-native.js",
+      "matchesPinnedCommit": true
+    },
+    {
+      "repository": "BErukky/disasterWatch",
+      "path": "shared/site-schema.ts",
+      "inspectedSha256": "318af1569b2345545e800aaad31142bb00614fcff327ed203de5b2d22120844e",
+      "immutableUrl": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/shared/site-schema.ts",
+      "matchesPinnedCommit": true
+    }
+  ]
+}

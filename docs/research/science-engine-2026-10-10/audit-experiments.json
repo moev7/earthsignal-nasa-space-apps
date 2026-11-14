@@ -1,0 +1,96 @@
+{
+  "purpose": "Synthetic counterexamples for code gates, not measured real-world performance or validated prediction. No production code changed.",
+  "numpyVersion": "2.2.6",
+  "forecastExpiry": {
+    "lastObservation": "2026-10-08",
+    "issueTime": "2026-10-10T12:00:00+00:00",
+    "emitted": [
+      {
+        "horizon": 1,
+        "validThrough": "2026-10-09T00:00:00+00:00",
+        "expiredAtIssue": true
+      },
+      {
+        "horizon": 3,
+        "validThrough": "2026-10-11T00:00:00+00:00",
+        "expiredAtIssue": false
+      },
+      {
+        "horizon": 7,
+        "validThrough": "2026-10-15T00:00:00+00:00",
+        "expiredAtIssue": false
+      }
+    ]
+  },
+  "ungatedCoverage": {
+    "construction": "2*i training/selection; final365days add1.5*sin(i). Calibration nearlyzero but final error nonzero. Frozen trend can beat persistence while intervals under-cover.",
+    "emitted": [
+      {
+        "horizon": 1,
+        "coverage": 0.0,
+        "width": 0.0
+      },
+      {
+        "horizon": 3,
+        "coverage": 0.0,
+        "width": 0.0
+      },
+      {
+        "horizon": 7,
+        "coverage": 0.0,
+        "width": 0.0
+      }
+    ],
+    "validation": [
+      {
+        "horizonDays": 1,
+        "intervalCoverage": 0.0,
+        "improvementFraction": 0.5017831740592296,
+        "model": "local-trend"
+      },
+      {
+        "horizonDays": 3,
+        "intervalCoverage": 0.0,
+        "improvementFraction": 0.8340897768853823,
+        "model": "local-trend"
+      },
+      {
+        "horizonDays": 7,
+        "intervalCoverage": 0.0,
+        "improvementFraction": 0.9299501561142446,
+        "model": "local-trend"
+      }
+    ]
+  },
+  "seasonalSingleYear": {
+    "sampleCount": 12,
+    "distinctYears": 1,
+    "supported": true
+  },
+  "nonconsecutiveDates": {
+    "supported": true,
+    "persistent": true,
+    "observations": 3,
+    "threshold": 4.4478,
+    "methodVersion": "persistence-three-observations-robust-v1",
+    "limitations": [
+      "A descriptive monitoring rule, not a regime-shift forecast or cause diagnosis.",
+      "Three acquisitions need not be independent ecological observations."
+    ]
+  },
+  "coverageBias": {
+    "selectedMean": 0.0,
+    "fullMean": 20.0,
+    "selectedP95": 0.0,
+    "fullP95": 100.0,
+    "summary": {
+      "count": 80,
+      "total": 100,
+      "coveragePercent": 80.0,
+      "median": 0.0,
+      "p05": 0.0,
+      "p95": 0.0,
+      "scope": "whole selected area"
+    }
+  }
+}

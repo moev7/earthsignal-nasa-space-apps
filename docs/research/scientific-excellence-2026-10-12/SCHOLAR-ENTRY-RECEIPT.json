@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "scholar-entry-screen-1",
+  "attachmentName": "pasted-text.txt",
+  "attachmentSha256": "5571052254ae54222a2d1915c414671dd09fff83c68a2a2cf59a75c7b67b5a97",
+  "attachmentBytes": 68992,
+  "indexedEntries": 89,
+  "distinctExactTitles": 87,
+  "distinctExactURLs": 88,
+  "visibleHeaderBlocks": 20,
+  "displayTruncationNotices": 15,
+  "duplicateEntries": {
+    "31": 9,
+    "36": 35
+  },
+  "screeningCategories": {
+    "bounded_model_challenger": 19,
+    "current_input_mismatch": 7,
+    "domain_transfer_unestablished": 11,
+    "explanation_or_user_evaluation": 2,
+    "method_guidance": 19,
+    "model_catalogue_or_benchmark": 12,
+    "publication_unresolved": 1,
+    "reference_or_context": 18
+  },
+  "inventorySha256": "7c67305ba2dbad3ea59b9f1b35ed32a035095a0afc11bc0aa9e88e6d00685272",
+  "scope": "Every indexed entry in supplied attachment screened by title/index and existing follow-up. Not all query hits, full-paper reviews or an exhaustive literature search.",
+  "searchQueryCountVerified": false,
+  "codeDataOrWeightsActivated": false
+}

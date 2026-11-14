@@ -1,0 +1,161 @@
+{
+  "purpose": "Section-level provenance for consequential research statements. Bibliographic identity alone is not scientific claim verification. Normative roadmap policies are coordinator proposals, not validated outcomes.",
+  "claims": [
+    {
+      "claim": "GCOV looks and support",
+      "url": "https://nisar-docs.asf.alaska.edu/gcov/",
+      "section": "Number of Looks; Mask; Product Overview",
+      "accessDepth": "Official documentation sections inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "numberOfLooks describes adaptive averaging support; statistical ENL needs independent evaluation."
+    },
+    {
+      "claim": "GUNW correction status",
+      "url": "https://nisar-docs.asf.alaska.edu/gunw/",
+      "section": "Product Overview, ionospheric screen and external corrections paragraphs",
+      "accessDepth": "Official overview inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Listed correction information is not necessarily applied to phase data; validate conventions and correction state."
+    },
+    {
+      "claim": "Processed displacement availability",
+      "url": "https://www.jpl.nasa.gov/go/opera/products/disp-product-suite/",
+      "section": "DISP-S1 access; DISP-NI coming-soon section",
+      "accessDepth": "Official product page inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Product types and availability are distinct; no guaranteed currently available DISP-NI stream."
+    },
+    {
+      "claim": "NOAA live API historical support",
+      "url": "https://water.noaa.gov/about/api",
+      "section": "NWPS Application API; HEFS API; NWM API",
+      "accessDepth": "Official full API information page inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Ordinary API lacks multiyear history; HEFS serves ten days and NWM has short rolling windows. Separate archives or prospective collection are required."
+    },
+    {
+      "claim": "Radar null ratio parameterization",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f.html",
+      "section": "Notes: ratio of independent rescaled chi-squared variables; dfn/dfd orientation",
+      "accessDepth": "Official distribution definition inspected plus independent algebra review",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Gamma(L, μ/L) intensities with a common mean and independence yield after/before F(2La, 2Lb); this does not validate the real GCOV null."
+    },
+    {
+      "claim": "Area accuracy estimator",
+      "url": "https://doi.org/10.1016/j.rse.2014.02.015",
+      "section": "Probability sampling, response design and area estimation (independent reviewer checked4.4)",
+      "accessDepth": "Primary metadata/abstract and accessible author paper section checked by reviewer",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Mapped area and true-class area require distinct estimators and reference sampling; no local accuracy claim."
+    },
+    {
+      "claim": "Interval-score equation",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008618",
+      "section": "Interval-score/WIS definitions",
+      "accessDepth": "Primary metadata; accessible equation checked in independent review",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Width and missed observations both enter intervalscore; doesnotestablish calibratedEarthsignalforecast."
+    },
+    {
+      "claim": "Conformal time-series assumptions",
+      "url": "https://proceedings.mlr.press/v139/xu21h.html",
+      "section": "Abstract validity statement",
+      "accessDepth": "Primary proceedings abstract inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "EnbPI approximate marginal validity uses strongly mixing errors; no arbitrary-shift conditional guarantee follows."
+    },
+    {
+      "claim": "Adaptive coverage distinction",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/0d441de75945e5acbc865406fc9a2559-Abstract.html",
+      "section": "Abstract long-time coverage objective",
+      "accessDepth": "Primary proceedings abstract inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Long-run frequency control differs from calibration at every time, horizon, subgroup or individual condition."
+    },
+    {
+      "claim": "Landsat surface retrieval caveats",
+      "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-known-issues",
+      "section": "Surface Temperature Issues: ASTER gaps, blockiness, vegetation adjustment",
+      "accessDepth": "Official relevant sections inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Retrieval artifacts require screening and context; no universal temperature error bars are asserted."
+    },
+    {
+      "claim": "NISAR timeline",
+      "url": "https://science.nasa.gov/mission/nisar/mission-overview/",
+      "section": "Quick Facts / launch phase",
+      "accessDepth": "Official NASA timeline inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Launch on 30 July 2025 makes an actual March 2025 NISAR pre/post event pair impossible."
+    },
+    {
+      "claim": "GUARDIAN interpretation",
+      "url": "https://guardian.jpl.nasa.gov/about.html",
+      "section": "GUARDIAN Scout research-tool warning",
+      "accessDepth": "Official system description inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Automated signals are research outputs, not guaranteed warnings or earthquake prediction."
+    },
+    {
+      "claim": "Corrected hydrologic uncertainty reference",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/hyp.7587",
+      "section": "Title/authors/date/abstract",
+      "accessDepth": "Primary publisher and author-hosted publication list inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "The McMillan 2010 river-flow paper uses DOI 7587; supplied 7687 was a different paper. No universal station uncertainty is assigned."
+    },
+    {
+      "claim": "Climate scenario distinction",
+      "url": "https://www.nasa.gov/nasa-earth-exchange-nex/gddp/downscaled-climate-projections-nex-gddp-cmip6/",
+      "section": "Dataset description and research-use caveat",
+      "accessDepth": "Official NASA page inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Downscaled scenario ensembles are not date-specific weather forecasts; independent regional validation is needed."
+    },
+    {
+      "claim": "Soil-moisture support",
+      "url": "https://ntrs.nasa.gov/citations/20180004003",
+      "section": "Abstract/discussion of9 km grid and 33 km nominal resolution",
+      "accessDepth": "NASA primary reprint listing inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Grid posting must not be confused with independent spatial resolution; no 30 m direct measurement is inferred."
+    },
+    {
+      "claim": "Mass-conserving model candidate",
+      "url": "https://proceedings.mlr.press/v139/hoedt21a.html",
+      "section": "Abstract",
+      "accessDepth": "Primary proceedings abstract inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "Architecture has a conservation inductive bias; this does not validate our hydrologic inputs or deployment."
+    },
+    {
+      "claim": "Environmental counterfactual design",
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/pdf/10.2307/1942110",
+      "section": "Underwood 1994title/abstract",
+      "accessDepth": "Primary publisher search result inspected",
+      "checkedDate": "2026-10-10",
+      "supportAndLimits": "BACI designs need spatial and temporal sampling design; a causal claim also requires identification assumptions."
+    },
+    {
+      "claim": "Inspected function returns configured displacement, notinterferogram processing",
+      "url": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/services/displacement.js",
+      "section": "Whole inspected public source file/function",
+      "accessDepth": "Public source content compared to immutable commit",
+      "checkedDate": "2026-10-10",
+      "sha256": "0a55b11450e0b8012131be353d964e90cbcd0ae5e6fa050659e47d50812b9199",
+      "matchesPinnedCommit": true,
+      "supportAndLimits": "Limited to the inspected path; not a claim of complete repository audit or fabricated upstream observations."
+    },
+    {
+      "claim": "Inspected function returns hard-codedsummarizedpayload; derivationelsewhere not ruledout",
+      "url": "https://raw.githubusercontent.com/BErukky/disasterWatch/9b880a7393de241f124f567053705af8c7b53e00/backend/src/services/guardian.js",
+      "section": "Whole inspected public source file/function",
+      "accessDepth": "Public source content compared to immutable commit",
+      "checkedDate": "2026-10-10",
+      "sha256": "1e45090a9da6499de796078a2c867b1a3066ac85651af06c8110a748e80a48e0",
+      "matchesPinnedCommit": true,
+      "supportAndLimits": "Limited to the inspected path; not a claim of complete repository audit or fabricated upstream observations."
+    }
+  ]
+}

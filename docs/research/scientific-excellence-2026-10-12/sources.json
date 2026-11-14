@@ -1,0 +1,212 @@
+[
+  {
+    "url": "https://ceos.org/ard/files/PFS/NRB/v5.0/CARD4L-PFS_Normalised_Radar_Backscatter-v5.0.pdf",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Specific historical v5 document; not verified as latest standard."
+  },
+  {
+    "url": "https://doi.org/10.1016/j.rse.2014.02.015",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://doi.org/10.1016/j.rse.2025.114882",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Article text surfaced by web search; direct DOI open intermittently returned internal error."
+  },
+  {
+    "url": "https://epub.uni-regensburg.de/39299/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/BErukky/disasterWatch",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/Nixtla/statsforecast",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/OPERA-Cal-Val/dist-s1-validation",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/Orion-AI-Lab/KuroSiwo",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/Remote-Sensing-of-Land-Resource-Lab/pyxccd",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/SMByC/AcATaMa",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/aliecen/UrbanSARFloods_Dataset",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/cloudtostreet/Sen1Floods11",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/deepcharles/ruptures",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/kipoju/udl4fl",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/opera-adt/DSWX-SAR",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://github.com/opera-adt/dist-s1",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://huggingface.co/datasets/isp-uv-es/WorldFloodsv2",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://mtbs.gov/faqs",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://nisar-docs.asf.alaska.edu/availability-overview/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://nisar-docs.asf.alaska.edu/gcov/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://nisar-docs.asf.alaska.edu/provisional-known-issues/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://nottingham-repository.worktribe.com/output/728216/good-practices-for-estimating-area-and-assessing-accuracy-of-land-change",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://ntrs.nasa.gov/citations/20190002563",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://otexts.com/fpp3/toolbox.html",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://podaac.jpl.nasa.gov/dataset/OPERA_DSWX-S1_CALVAL_V1",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Catalogue entry located; direct page/data retrieval not verified."
+  },
+  {
+    "url": "https://science.nasa.gov/mission/nisar/calibration-and-validation/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/auto_examples/model_selection/plot_tuned_decision_threshold.html",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://uavsar.jpl.nasa.gov/cgi-bin/calibration-nisar.pl",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://water.usgs.gov/data/provisional.html",
+    "accessed_date": "2026-10-12",
+    "role": "Primary source supporting observation revision policy",
+    "qualification": "USGS provisional-data statement retrieved through web search; not operational provider replay."
+  },
+  {
+    "url": "https://www.jpl.nasa.gov/go/opera/products/",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-known-issues",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-quality-assessment-bands",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-temperature",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://www.usgs.gov/publications/statistical-methods-water-resources",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  },
+  {
+    "url": "https://www.wsl.ch/lud/biodiversity_events/papers/Roberts_et_al-2017-Ecography.pdf",
+    "accessed_date": "2026-10-12",
+    "role": "Primary documentation, publication/author record or maintainer material cited in REPORT.md",
+    "qualification": "Inspection scope is the cited claim; no full-book/full-repository audit or data-download verification implied."
+  }
+]

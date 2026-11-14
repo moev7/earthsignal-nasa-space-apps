@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "public-station-arithmetic-check",
+  "station": "USGS-09421500",
+  "sourceVersion": "OGC-v1:ad7aed75280e439c96815ccf2ac3f889",
+  "sourceHashes": {
+    "response": "18d3269898aa3a8486f692c20109c78807cf6234a3b9d29c6bf25c4062d7ad69",
+    "stationMetadata": "57c1e29b2fd0ad24ad7e4afba0ec3ff08aa93b2b79734e8894c860622d42e17b"
+  },
+  "inputHash": "d86de26688393ab6ca897ca91c3651ca531f0f0b3664572528fded0d78dcbadb",
+  "recordedPeriod": {
+    "start": "2021-01-01",
+    "end": "2025-12-31"
+  },
+  "recordedDays": 1826,
+  "finiteDays": 1826,
+  "excludedFromTrendDays": 225,
+  "methodVersion": "station-seasonal-sen-v1",
+  "status": "descriptive",
+  "unit": "ft^3/s/year",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "commonMonths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "pairCount": 72,
+  "slope": -741.6666666666667,
+  "sensitivityRange": {
+    "minimum": -1017.5,
+    "maximum": -614.1666666666667
+  },
+  "signStable": true,
+  "forecastMethod": "gauge-selection-calibration-holdout-v3",
+  "forecastStatus": "all current horizons withheld for baseline failure and stale/expired historical data",
+  "reproduction": "Independent stdlib script reconciles recorded medians/support/slopes/input hash. TypeScript contract parsing passed.",
+  "limits": [
+    "Historical daily mean discharge at one regulated station, not whole-reservoir condition, inundation, volume or causal attribution.",
+    "Support gates and omission sensitivity do not establish calibrated confidence or future usefulness.",
+    "Raw owner-scoped job/artifacts and geometry are not included in this public-source receipt."
+  ]
+}

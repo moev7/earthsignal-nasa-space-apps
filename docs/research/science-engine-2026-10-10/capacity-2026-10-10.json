@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "synthetic-capacity-benchmark",
+  "python": "3.14.4",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+  "cpuCount": 1,
+  "cases": [
+    {
+      "pixels": 10000,
+      "coreSeconds": 0.005119372974149883,
+      "validPixels": 9411,
+      "medianDb": 3.010299956639812,
+      "outputBytes": 80000,
+      "case": "radar-100",
+      "peakRssBytes": 47304704,
+      "processSeconds": 0.2466975020361133
+    },
+    {
+      "pixels": 62500,
+      "coreSeconds": 0.006266707030590624,
+      "validPixels": 58823,
+      "medianDb": 3.010299956639812,
+      "outputBytes": 500000,
+      "case": "radar-250",
+      "peakRssBytes": 49471488,
+      "processSeconds": 0.2677893500076607
+    },
+    {
+      "pixels": 250000,
+      "coreSeconds": 0.01669953897362575,
+      "validPixels": 235294,
+      "medianDb": 3.010299956639812,
+      "outputBytes": 2000000,
+      "case": "radar-500",
+      "peakRssBytes": 57442304,
+      "processSeconds": 0.2324319530162029
+    },
+    {
+      "pixels": 1000000,
+      "coreSeconds": 0.09707382100168616,
+      "validPixels": 941176,
+      "medianDb": 3.010299956639812,
+      "outputBytes": 8000000,
+      "case": "radar-1000",
+      "peakRssBytes": 94932992,
+      "processSeconds": 0.3699894460150972
+    },
+    {
+      "points": 2000,
+      "repetitions": 20,
+      "coreSeconds": 0.003154373524012044,
+      "maxCoreSeconds": 0.05255573202157393,
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "pairs": 120,
+      "case": "seasonal-2000",
+      "peakRssBytes": 24756224,
+      "processSeconds": 0.21636115404544398
+    }
+  ],
+  "limitations": [
+    "Synthetic CPU calculations only; no acquisition discovery, remote transfer, raster decode, export or multi-user latency measured.",
+    "Peak RSS is per subprocess; includes imports but excludes the web/API/worker and operating-system memory.",
+    "Scientific accuracy, new hardware speed and GPU/model inference cannot be inferred from these timings."
+  ]
+}

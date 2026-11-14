@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "checkedAt": "2026-10-10",
+  "scope": "Continuation of interrupted academic research, then user-requested competition assessment for2026 virtual Universal Event.",
+  "sharing": "Only public/generic candidate questions prepared; no private source,credentials,results,files or AOIs sent. No browser credentials extracted.",
+  "completedCurrentConsultations": 0,
+  "receipts": [
+    {
+      "provider": "Kimi website",
+      "status": "unavailable",
+      "role": "Academic Data scholarly discovery and options",
+      "mode": "Academic Data selected; K3 High visibly shown after website available-model notice",
+      "url": "https://www.kimi.ai/agent?chat_enter_method=skill_to_agent",
+      "question": "Requested Academic Data / Scholar Search: identify free-now public scholarly/data methods for a bounded CPU EO evidence application, with primary citations, terms, applicability limits and falsifiable experiments.",
+      "submission": "Inherited attempt has visible capacity/subscription gate; current continuation selected plugin but did not submit another question.",
+      "evidence": {
+        "path": "kimi-academic-gate.png",
+        "sha256": "f6af9d1c3213467d3a468a97b8bfdefce81bd477955f991e8684a3b187d47467",
+        "reading": "Coordinator inspected actual saved screenshot; popup says too many people are chatting and subscription grants priority."
+      },
+      "blocker": "T3 preview automation explicitly reported: No preview automation host is available for status in environment; tools require connected desktop; Do not retry. Host disappeared after successful composer/access checks. No new bounded questions were submitted in this continuation.",
+      "verdict": "No completed plugin search or tool execution attributed; no upgrade or quota evasion.",
+      "effect": "Use independently checked primary sources; leave adviser requirements/options lens explicitly uncompleted."
+    },
+    {
+      "provider": "Perplexity website",
+      "status": "unavailable",
+      "role": "Current primary-source and availability verification",
+      "mode": "Free plan and ordinary Search visible; exact model unknown",
+      "url": "https://www.perplexity.ai/",
+      "question": "Prepared but unsent: verify published OPERA DIST assets, GeoTessera streaming and PPI prerequisites from primary evidence; distinguish free readable sources from presently usable CPU assets.",
+      "submission": "No new question sent; inherited draft response not recovered.",
+      "evidence": "Live free Search composer inspected; no answer inspected.",
+      "blocker": "T3 preview automation explicitly reported: No preview automation host is available for status in environment; tools require connected desktop; Do not retry. Host disappeared after successful composer/access checks. No new bounded questions were submitted in this continuation.",
+      "verdict": "No current completed source consultation claimed.",
+      "effect": "Source verification performed directly; older recorded Perplexity research receipt retained separately."
+    },
+    {
+      "provider": "DeepSeek website",
+      "status": "unavailable",
+      "role": "Logic and scientific failure-mode critique",
+      "mode": "Ordinary composer; named model unknown",
+      "url": "https://chat.deepseek.com/a/chat/s/56f5b506-ab60-4e23-9acf-110327167640",
+      "question": "Prepared but unsent: discriminate annual-feature lookahead, shared-source pseudo-independence and delayed multi-horizon calibration outcomes before stronger claims.",
+      "submission": "Relevant inherited Satellite methods tests chat found; navigation timed out, no answer inspected.",
+      "evidence": "Exact relevant conversation link visible before navigation; landing page is not a consultation.",
+      "blocker": "T3 preview automation explicitly reported: No preview automation host is available for status in environment; tools require connected desktop; Do not retry. Host disappeared after successful composer/access checks. No new bounded questions were submitted in this continuation.",
+      "verdict": "Inherited statistical-critique attribution unverified; no completed current receipt.",
+      "effect": "Coordinator and independent Codex source/code review check assumptions directly; browser advice gap remains."
+    },
+    {
+      "provider": "Claude website",
+      "status": "unavailable",
+      "role": "Evidence-led design and challenge story tradeoffs",
+      "mode": "Free / Sonnet5.5 Medium visibly shown at access",
+      "url": "https://claude.ai/chat/618f7109-9f7e-46ff-ac22-742ffad53829",
+      "question": "Prepared but unsent: rank minimal flows for observation, interpretation, context and scenarios without causal/real-time overclaiming; specify assumptions,reversal conditions and user acceptance check.",
+      "submission": "Relevant inherited Earth-observation interface design for evidence-based planning chat opened; host disappeared before answer inspection.",
+      "evidence": "Live Free mode and exact relevant conversation URL inspected; no reply read.",
+      "blocker": "T3 preview automation explicitly reported: No preview automation host is available for status in environment; tools require connected desktop; Do not retry. Host disappeared after successful composer/access checks. No new bounded questions were submitted in this continuation.",
+      "verdict": "No completed new design consultation attributed.",
+      "effect": "Existing implemented guide-design receipts remain historical; new competition flow remains a recommendation, not independently user-validated."
+    }
+  ],
+  "historicalRelatedRecords": [
+    {
+      "provider": "Perplexity",
+      "record": "../science-engine-2026-10-10/browser-consultation.json",
+      "scope": "Earlier uncertainty/validation source-finding; not Academic Data output or new competition ruling."
+    },
+    {
+      "provider": "Claude",
+      "record": "../../decision-observatory.md",
+      "url": "https://claude.ai/chat/c44af7a6-473b-4030-8899-5a69a11a2c84",
+      "scope": "Previously recorded guide selector/review/payload/sign-in design; not new academic reply or eligibility ruling."
+    }
+  ],
+  "policy": "Browser-advice availability does not grant CLI/API entitlement. Independent Codex review is not counted as a browser consultation."
+}

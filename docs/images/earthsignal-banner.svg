@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title description">
+  <title id="title">Earthsignal — Earth observatory</title>
+  <desc id="description">Charcoal and lime Earthsignal branding with decorative orbital contours. The illustration contains no scientific measurements.</desc>
+  <defs>
+    <linearGradient id="surface" x2="1" y2="1"><stop offset="0" stop-color="#161d1a"/><stop offset="1" stop-color="#0e1111"/></linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#b5ff3d" stop-opacity=".12"/><stop offset="1" stop-color="#b5ff3d" stop-opacity="0"/></radialGradient>
+    <clipPath id="frame"><rect width="1280" height="320" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1280" height="320" fill="url(#surface)"/>
+    <circle cx="1090" cy="160" r="260" fill="url(#glow)"/>
+    <g fill="none" stroke="#b5ff3d" stroke-width="1.5">
+      <ellipse cx="1076" cy="160" rx="130" ry="104" opacity=".7"/><ellipse cx="1076" cy="160" rx="172" ry="137" opacity=".3"/>
+      <ellipse cx="1076" cy="160" rx="214" ry="170" opacity=".17"/><ellipse cx="1076" cy="160" rx="255" ry="203" opacity=".1"/>
+      <path d="M948 181c31-18 44-32 49-55s22-21 47-8 20 5 41-9 47-10 62 8 28 35 57 20m-248 74c33-11 58-5 76 8s37 25 59 8 46-20 67-6" opacity=".55"/>
+      <path d="M970 112c13 18 24 28 43 19s17 8 21 33 18 23 38 24 16 24 35 36 46 10 71-7" opacity=".7"/>
+    </g>
+    <circle cx="982" cy="195" r="7" fill="#b5ff3d"/><circle cx="1149" cy="83" r="5" fill="#b5ff3d"/>
+    <g transform="translate(54 46)" fill="none" stroke="#b5ff3d" stroke-width="3.5" stroke-linecap="round">
+      <path d="M3 18C3 6 16 0 25 5m8 5c8 10 2 25-10 26m-12-2c-7-2-10-7-9-13"/><circle cx="18" cy="19" r="7"/><circle cx="29" cy="4" r="3"/><circle cx="4" cy="32" r="3"/>
+    </g>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <text x="109" y="75" fill="#f4f7f3" font-size="34" font-weight="700" letter-spacing="-1">earthsignal</text>
+      <text x="54" y="120" fill="#b5ff3d" font-size="13" font-weight="700" letter-spacing="3">EARTH OBSERVATORY</text>
+      <text x="54" y="180" fill="#f4f7f3" font-size="48" font-weight="700" letter-spacing="-1.5">Environmental change,</text>
+      <text x="54" y="236" fill="#f4f7f3" font-size="48" font-weight="700" letter-spacing="-1.5">with evidence.</text>
+      <text x="56" y="285" fill="#b7c2b9" font-size="17">OBSERVE  /  COMPARE  /  UNDERSTAND  /  INVESTIGATE</text>
+    </g>
+    <rect x=".75" y=".75" width="1278.5" height="318.5" rx="23.25" fill="none" stroke="#34413a" stroke-width="1.5"/>
+  </g>
+</svg>

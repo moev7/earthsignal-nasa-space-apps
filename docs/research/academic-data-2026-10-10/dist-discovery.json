@@ -1,0 +1,142 @@
+{
+  "checkedAt": "2026-10-10",
+  "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2746980408-LPCLOUD&page_size=1&sort_key%5B%5D=-start_date",
+  "responseSha256": "2ec04a7636f1596bc075391daa4e13f7cc03281020327136c156240bdda36be0",
+  "bytes": 19264,
+  "granules": [
+    {
+      "id": "G4353905990-LPCLOUD",
+      "title": "OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1",
+      "time_start": "2026-10-08T23:46:33.477Z",
+      "time_end": "2026-10-08T23:46:33.477Z",
+      "links": [
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-DIST-STATUS.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-IND.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-ANOM.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-HIST.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-ANOM-MAX.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-DIST-CONF.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-DIST-DATE.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-DIST-COUNT.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-DIST-DUR.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_VEG-LAST-DATE.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-DIST-STATUS.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-ANOM.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-ANOM-MAX.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-DIST-CONF.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-DIST-DATE.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-DIST-COUNT.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-DIST-DUR.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_GEN-LAST-DATE.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1_DATA-MASK.tif",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1.cmr.json",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#"
+        },
+        {
+          "href": "s3://lp-prod-protected/OPERA_L3_DIST-ALERT-HLS_V1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1/OPERA_L3_DIST-ALERT-HLS_T55GEN_20261008T234633Z_20261010T023838Z_L8_30_v1.cmr.json",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#"
+        },
+        {
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#"
+        },
+        {
+          "href": "https://search.earthdata.nasa.gov/search/granules?p=C2746980408-LPCLOUD",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#"
+        },
+        {
+          "href": "https://doi.org/10.5067/SNWG/OPERA_L3_DIST-ALERT-HLS_V1.001",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#"
+        },
+        {
+          "href": "https://www.earthdata.nasa.gov/centers/lp-daac",
+          "type": null,
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#"
+        }
+      ]
+    }
+  ],
+  "scope": "Public CMR metadata probe only. No science asset, pixel crop, authentication or access/CPU feasibility claim."
+}

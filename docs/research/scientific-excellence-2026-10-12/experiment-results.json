@@ -1,0 +1,93 @@
+{
+  "scope": "Synthetic counterexamples; not field error rates",
+  "seed": 20261012,
+  "radar_unchanged_mean_power": [
+    {
+      "independent_gamma_looks": 1,
+      "pixels": 65536,
+      "fraction_exceeding_3db": 0.6699218749999999
+    },
+    {
+      "independent_gamma_looks": 4,
+      "pixels": 65536,
+      "fraction_exceeding_3db": 0.3485260009765625
+    },
+    {
+      "independent_gamma_looks": 16,
+      "pixels": 65536,
+      "fraction_exceeding_3db": 0.0538330078125
+    }
+  ],
+  "unbalanced_seasonal_sampling": {
+    "supported": true,
+    "sampleCount": 13,
+    "distinctYearCount": 2,
+    "median": 100.0,
+    "mad": 0.0,
+    "percentile": 7.6923076923076925,
+    "reason": "Requires 12 distinct dated samples across 2 earlier years in a \u00b130-day calendar window."
+  },
+  "year_balanced_alternative": {
+    "median": 50.0,
+    "midrank_percentile": 50.0,
+    "note": "Alternative estimand; not universally preferable."
+  },
+  "equal_value_duplicate_quality": [
+    {
+      "order": [
+        "Approved",
+        "Provisional"
+      ],
+      "retained": {
+        "date": "2025-06-01",
+        "value": 100.0,
+        "quality": "Provisional"
+      }
+    },
+    {
+      "order": [
+        "Provisional",
+        "Approved"
+      ],
+      "retained": {
+        "date": "2025-06-01",
+        "value": 100.0,
+        "quality": "Approved"
+      }
+    }
+  ],
+  "forecast_quality_numerical_gate": {
+    "approved_count": 3,
+    "provisional_count": 3,
+    "same_selection_hash": true,
+    "same_validation": true,
+    "note": "Provisional values are not inherently invalid; policy and vintage handling must be explicit."
+  },
+  "forecast_remaining_lead": [
+    {
+      "label_days": 3,
+      "remaining_days": 0.5
+    },
+    {
+      "label_days": 7,
+      "remaining_days": 4.5
+    }
+  ],
+  "thermal_shared_retrieval_offset": {
+    "median": 2.0,
+    "coveragePercent": 100.0,
+    "p05": 2.0,
+    "p95": 2.0
+  },
+  "latest_singleton": {
+    "crop_calls": 1,
+    "observations": 1
+  },
+  "failed_first_endpoint": {
+    "observations": 3,
+    "missing": [
+      "Selected sentinel crop: fixture_unavailable. Pixel measurements withheld for that acquisition.",
+      "Endpoint comparison: common_comparison_unavailable. Independent medians are not subtracted as change."
+    ]
+  }
+}

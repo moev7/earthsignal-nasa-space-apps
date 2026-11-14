@@ -1,0 +1,145 @@
+[
+  {
+    "repository": "cloudtostreet/Sen1Floods11",
+    "url": "https://github.com/cloudtostreet/Sen1Floods11",
+    "default_branch": "master",
+    "head_sha": "b9e460dabe70230111a3c3d36cd0c5ce03606ee9",
+    "head_committed_at": "2021-04-09T06:33:39Z",
+    "license_spdx": null,
+    "archived": false,
+    "pushed_at": "2021-04-09T06:33:39Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "Orion-AI-Lab/KuroSiwo",
+    "url": "https://github.com/Orion-AI-Lab/KuroSiwo",
+    "default_branch": "main",
+    "head_sha": "4347ed173c4e48f5a9d578bb5fe8453706b08e5e",
+    "head_committed_at": "2026-07-16T11:37:33Z",
+    "license_spdx": "MIT",
+    "archived": false,
+    "pushed_at": "2026-07-16T11:37:33Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "aliecen/UrbanSARFloods_Dataset",
+    "url": "https://github.com/aliecen/UrbanSARFloods_Dataset",
+    "default_branch": "main",
+    "head_sha": "227d6849d26a8f7ed2c57b13e409cbd882c184c7",
+    "head_committed_at": "2026-01-06T16:14:02Z",
+    "license_spdx": null,
+    "archived": false,
+    "pushed_at": "2026-01-06T16:14:02Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "Remote-Sensing-of-Land-Resource-Lab/pyxccd",
+    "url": "https://github.com/Remote-Sensing-of-Land-Resource-Lab/pyxccd",
+    "default_branch": "devel",
+    "head_sha": "53a770435b4674f2260520319915a983cf828782",
+    "head_committed_at": "2026-10-11T06:48:41Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-10-11T06:48:50Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "opera-adt/DSWX-SAR",
+    "url": "https://github.com/opera-adt/DSWX-SAR",
+    "default_branch": "main",
+    "head_sha": "d9ae8ed5178417dec22a6fc549c4368cfd51ebe9",
+    "head_committed_at": "2026-03-03T19:46:54Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-10-07T19:03:58Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "opera-adt/dist-s1",
+    "url": "https://github.com/opera-adt/dist-s1",
+    "default_branch": "dev",
+    "head_sha": "2da3b7eaec3a148202f846fd474b1399e37405b9",
+    "head_committed_at": "2026-09-02T17:32:41Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-09-28T20:33:56Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "OPERA-Cal-Val/dist-s1-validation",
+    "url": "https://github.com/OPERA-Cal-Val/dist-s1-validation",
+    "default_branch": "main",
+    "head_sha": "475f80ad836996cbf239c95d67833ad20b0ed1a8",
+    "head_committed_at": "2026-04-30T19:43:35Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-04-30T19:43:42Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "BErukky/disasterWatch",
+    "url": "https://github.com/BErukky/disasterWatch",
+    "default_branch": "main",
+    "head_sha": "9b880a7393de241f124f567053705af8c7b53e00",
+    "head_committed_at": "2026-09-22T15:17:09Z",
+    "license_spdx": null,
+    "archived": false,
+    "pushed_at": "2026-09-22T15:33:06Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "SMByC/AcATaMa",
+    "url": "https://github.com/SMByC/AcATaMa",
+    "default_branch": "main",
+    "head_sha": "23a4ba55b1d65401be66544aacf6024471ba8850",
+    "head_committed_at": "2026-08-15T15:43:40Z",
+    "license_spdx": "GPL-3.0",
+    "archived": false,
+    "pushed_at": "2026-08-15T15:44:57Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "kipoju/udl4fl",
+    "url": "https://github.com/kipoju/udl4fl",
+    "default_branch": "main",
+    "head_sha": "8f56cc7970ac9e561bfcd04a9ae0aa8e58c1c709",
+    "head_committed_at": "2025-07-17T14:59:17Z",
+    "license_spdx": "LGPL-3.0",
+    "archived": false,
+    "pushed_at": "2025-07-17T14:59:23Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "deepcharles/ruptures",
+    "url": "https://github.com/deepcharles/ruptures",
+    "default_branch": "master",
+    "head_sha": "ee1c8ff8a548d54c641b2bb471562165931f31c7",
+    "head_committed_at": "2026-05-26T14:40:03Z",
+    "license_spdx": "BSD-2-Clause",
+    "archived": false,
+    "pushed_at": "2026-10-06T00:36:17Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "Nixtla/statsforecast",
+    "url": "https://github.com/Nixtla/statsforecast",
+    "default_branch": "main",
+    "head_sha": "aab6789d67577ca6f2896ea1684b4dd09c3569df",
+    "head_committed_at": "2026-10-10T02:02:12Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2026-10-10T02:02:13Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  },
+  {
+    "repository": "GERSL/pycold",
+    "url": "https://github.com/GERSL/pycold",
+    "default_branch": "devel",
+    "head_sha": "af0d22f98c0c4536ff8cd340eb370815f6b520a3",
+    "head_committed_at": "2025-08-21T05:15:55Z",
+    "license_spdx": "Apache-2.0",
+    "archived": false,
+    "pushed_at": "2025-08-21T05:15:56Z",
+    "verification": "Public GitHub API metadata retrieved 2026-10-12; not code audit, dataset licence determination or benchmark."
+  }
+]

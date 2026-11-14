@@ -1,0 +1,97 @@
+{
+  "verified": "2026-11-12",
+  "sources": [
+    {
+      "id": "pad",
+      "title": "Heavenly Loop",
+      "author": "isaiah658",
+      "page": "https://opengameart.org/content/heavenly-loop",
+      "download": "https://opengameart.org/sites/default/files/Heavenly%20Loop_0.ogg",
+      "file": "heavenly.ogg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "a842e9e054019132cacc8fd352e7b31c000ebb51e0b227a2511e1bccb4eb166e"
+    },
+    {
+      "id": "water",
+      "title": "Water Waves",
+      "author": "transitking (submitted by qubodup)",
+      "page": "https://opengameart.org/content/water-waves",
+      "download": "https://opengameart.org/sites/default/files/wave_03_cc0-11505__transitking__wavesound.flac",
+      "file": "water.flac",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "1657a0002367e6e97eb34fc9f4d841f4a910981450c634bdc6c09ae1978049c1"
+    },
+    {
+      "id": "collapse",
+      "title": "Bridge Collapse.wav",
+      "author": "Wdomino",
+      "page": "https://freesound.org/people/Wdomino/sounds/508546/",
+      "download": "https://cdn.freesound.org/previews/508/508546_5026978-hq.mp3",
+      "file": "collapse.mp3",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "067a0c1bb638e636641577d1220d9ce22e4b1302c3a58c62f9a9c0fbeeb11b0a"
+    },
+    {
+      "id": "materials",
+      "title": "75 CC0 breaking / falling / hit sfx",
+      "author": "rubberduck",
+      "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+      "download": "https://opengameart.org/sites/default/files/sfx_breaking_and_falling.zip",
+      "file": "rubble.zip",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalSha256": "e6ee04d91c5f4d30cfda1260d2c9d1faf96fda36319287215fbd07bcb1a80451"
+    }
+  ],
+  "assets": [
+    {
+      "src": "/audio/story/orbital-ambience.mp3",
+      "sources": [
+        "pad"
+      ],
+      "changes": "Slowed, filtered, diffuse echoes, softened loop boundaries; ambience, not real space sound.",
+      "bytes": 561500,
+      "sha256": "988b14836fecad79b4dbac282064e2e85c4d6e200636ae2e6d3205b1a1e08199"
+    },
+    {
+      "src": "/audio/story/water-flow.mp3",
+      "sources": [
+        "water"
+      ],
+      "changes": "Trimmed and filtered recorded water texture; not a literal aquifer recording.",
+      "bytes": 30788,
+      "sha256": "d4e4839d94373527be8353232619cd0f13755dffeb0a4816a7de58456394c7ea"
+    },
+    {
+      "src": "/audio/story/ground-shift.mp3",
+      "sources": [
+        "materials"
+      ],
+      "changes": "Layered recorded wood and rock textures.",
+      "bytes": 36332,
+      "sha256": "633480b719743ca854cb3a770e39a59b57d55b587f80245cced17bb8143d9238"
+    },
+    {
+      "src": "/audio/story/collapse-materials.mp3",
+      "sources": [
+        "collapse",
+        "materials"
+      ],
+      "changes": "Layered recorded bridge/material foley, compressed and loudness-balanced to bring out the crumble body on small speakers. Illustrative material sound, not an actual building-collapse recording.",
+      "bytes": 84889,
+      "sha256": "05ad1c296a9c9c958e57addf8de935ee52112a076ebf271f08fc747bc15cc41a"
+    },
+    {
+      "src": "/audio/story/orbital-wash.mp3",
+      "sources": [
+        "pad"
+      ],
+      "changes": "Filtered sustained excerpt with long diffuse decay; designed instrument transition, not recorded radar.",
+      "bytes": 71108,
+      "sha256": "5e42aaa0158c5a2665285f930d7e99917a0c064880b86a2de029f7f2c694d33e"
+    }
+  ]
+}
