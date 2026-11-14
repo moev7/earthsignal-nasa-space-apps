@@ -1,10 +1,11 @@
 /* Scroll-driven NISAR time-lapse in the "real observations" chapter. */
 .sa-watch { margin: 8px 0 40px; }
-/* Scroll-driven: a tall track with the figure pinned; ~45vh of scrolling per acquisition. */
-.sa-track.is-scrolling { height: calc(var(--sa-steps, 10) * 45vh + 100vh); }
+/* One short journey through every acquisition; adding dates cannot turn this
+   into an unbounded scroll tunnel. The date slider still reaches every pass. */
+.sa-track.is-scrolling { height: calc(100svh + clamp(100svh, calc(var(--sa-steps, 10) * 10svh), 160svh)); }
 .sa-track.is-scrolling .sa-sticky {
   position: sticky; top: var(--sa-pin-top, 110px);
-  min-height: calc(100vh - var(--sa-pin-top, 110px)); padding-bottom: 16px;
+  min-height: calc(100svh - var(--sa-pin-top, 110px)); padding-bottom: 16px;
 }
 .sa-sticky > h3 { margin: 0 0 18px; font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.15; letter-spacing: -.015em; font-weight: 620; }
 .sa-timelapse {
