@@ -35,6 +35,18 @@ A five-mission game version is available at `/?mode=game`.
 
 The numbers show ground motion, not building safety. The products are provisional and the 3D buildings are illustrative.
 
+## Reviewed radar studies
+
+Three single observations, each kept on its original grid with no resampling and checked against the source values. Each opens at `/studies/<id>`.
+
+| Study | Mission | Source |
+|---|---|---|
+| `tehran-validated-gcov-20261028` | NISAR L2 GCOV, 28 Oct 2026 | NASA–ISRO, ASF DAAC |
+| `rcm-manitoba-2025` | RADARSAT Constellation Mission, 27 Feb 2025 | Canadian Space Agency |
+| `radarsat-1-arctic-1996` | RADARSAT-1, 4 Mar 1996 | Canadian Space Agency |
+
+The radar processor under Advanced tools (`/workspace?view=sar`) finds and processes more scenes and lets you inspect the values pixel by pixel. Different sensors use different calibrations, so their values are not directly comparable. See [challenge processing](docs/challenge-processing.md).
+
 ## Run it
 
 You need Node 22.13 or later.
@@ -55,11 +67,12 @@ PYTHONPATH=. python -m service.ground_motion_timeseries \
 
 | Path | What it holds |
 |---|---|
-| `app/` | Routes: story `/`, `/explore`, `/compare`, `/workspace` |
+| `app/` | Routes: story `/`, `/explore`, `/compare`, `/studies/<id>`, `/workspace` |
 | `features/public-story/` | The story, the game and the time-lapse |
 | `features/ground-truth/` | 3D city scenes and the result-bundle loader |
-| `service/` | Python NISAR processing (GUNW reading, ground motion, time series) |
-| `public/data/` | Frozen result bundles |
+| `features/science/` | Workspace tools, including the radar workbench |
+| `service/` | Python radar processing (NISAR GUNW and GCOV, RADARSAT, ground motion, time series) |
+| `public/data/` | Frozen result bundles and reviewed radar studies |
 | `scripts/` | Build, release check and deployment |
 
 More detail: [service guide](service/README.md), [deployment](docs/deployment.md), [reproducibility](docs/reproducibility.md), [contributing](CONTRIBUTING.md).
