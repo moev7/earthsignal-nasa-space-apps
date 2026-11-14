@@ -502,8 +502,8 @@
   letter-spacing: 0.04em;
 }
 .es-public.es-page-story :is(.ea-radar-scene, .ea-water-host) > .ed-details {
-  margin: 0;
-  padding: 0;
+  margin: var(--earth-space-6) 0 0;
+  padding: var(--earth-space-4) 0;
   border: 0;
   border-top: 1px solid var(--earth-line);
 }

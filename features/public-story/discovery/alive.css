@@ -121,7 +121,8 @@
 }
 .es-public .ea-still-controls {
   display: flex;
-  gap: 8px;
+  gap: var(--earth-space-3);
+  padding-top: var(--earth-space-3);
   flex-wrap: wrap;
 }
 .es-public .ea-still-controls button,

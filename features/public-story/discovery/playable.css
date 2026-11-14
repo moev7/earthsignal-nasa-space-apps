@@ -554,8 +554,8 @@
   margin-top: 10px;
 }
 .es-public.es-page-story .eg-game.ea-game .play-bonus {
-  margin: 16px 0;
-  padding: 0;
+  margin: var(--earth-space-6) 0;
+  padding: var(--earth-space-4) 0;
   border-top: 1px solid var(--earth-line);
 }
 .es-public.es-page-story .eg-game.ea-game .play-bonus > summary {
@@ -573,15 +573,16 @@
   margin: 10px 0;
 }
 .es-public.es-page-story .eg-game.ea-game .ed-game-next {
-  padding: 16px 0;
-  margin: 0;
+  padding: var(--earth-space-8) 0;
+  margin: var(--earth-space-8) 0 0;
 }
 .es-public.es-page-story .eg-game.ea-game .ed-game-next p {
   font-size: var(--earth-type-body);
 }
 .es-public.es-page-story .eg-game.ea-game .ex-truth-audit {
-  margin: 0 0 12px;
-  padding: 0;
+  margin: var(--earth-space-6) 0;
+  padding: var(--earth-space-4) 0;
+  border-bottom: 0;
 }
 .es-public.es-page-story .eg-game.ea-game .ed-map-image {
   max-height: 380px;

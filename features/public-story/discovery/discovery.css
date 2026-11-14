@@ -3,6 +3,17 @@
   color: var(--es-text, #f1eee7);
   min-width: 0;
 }
+/* Context belongs to the experiment, with room before the next section. */
+.es-public .ed-world > .es-context-note {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-block: var(--earth-space-6) var(--earth-space-8);
+}
+.es-public .ed-world > .ed-details,
+.es-public .ed-mission > .ed-details {
+  margin-block: var(--earth-space-6);
+}
 .es-public .ed-invitation {
   font-size: clamp(18px, 1.6vw, 23px);
   line-height: 1.5;
@@ -593,7 +604,8 @@
   color: #b5bcb8;
 }
 .es-public .ed-game-next {
-  padding: 28px 0;
+  margin-top: var(--earth-space-8);
+  padding: var(--earth-space-8) 0;
   border-top: 1px solid #404948;
   display: flex;
   align-items: center;
