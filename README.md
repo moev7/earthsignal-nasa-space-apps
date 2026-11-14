@@ -10,6 +10,8 @@ An interactive story built on real NISAR radar data for NASA Space Apps 2026: *D
 
 **[🌍 Step into the story →](https://nasa.r8volt.com)**
 
+<img src="docs/images/readme/city-3d.jpg" alt="The story's opening: a 3D model of a real south-west Tehran neighbourhood, built from mapped buildings and coloured by satellite-measured ground motion" width="100%" />
+
 </div>
 
 ---
@@ -24,7 +26,15 @@ Scroll from a quiet street, down into the water beneath it, and back up into orb
 4. **📍 Back on real ground.** Real NISAR images of Tehran, and four months of the city sinking, one satellite pass at a time, as you scroll.
 5. **🗼 Another path.** Tokyo once faced the same problem, and changed course.
 
-🎮 Prefer to play? Try the five-mission game at [`/?mode=game`](https://nasa.r8volt.com/?mode=game), with Echo as your co-pilot.
+<img src="docs/images/readme/timelapse.jpg" alt="The scroll-driven time-lapse: a NISAR map of south-west Tehran on 10 September 2026, with a chart showing one place 77 mm lower after 84 days" width="100%" />
+
+<sub>⏱️ Scroll and the map moves through time: each step is a real NISAR pass, and the chart tracks how far one place has sunk.</sub>
+
+## 🎮 Play it as a game
+
+Prefer to play? The five-mission game, at [`/?mode=game`](https://nasa.r8volt.com/?mode=game), hands you the instruments. Pull a well valve, bend a pipe and catch a radar echo, while Echo, your co-pilot, keeps score. Collect all five findings to crack the city's secret.
+
+<img src="docs/images/readme/game.jpg" alt="Game mode: a points counter, five mission buttons and a findings tracker above a 3D city with the headline 'The city keeps a secret. You have the instruments.'" width="100%" />
 
 ## 📉 What we found
 
@@ -43,6 +53,17 @@ Three hand-checked radar views, each one shown exactly as the satellite recorded
 - 🧊 **The Canadian Arctic**, RADARSAT-1, March 1996
 
 Want to go further? The radar processor in **Advanced tools** lets you find new scenes and inspect them pixel by pixel.
+
+<table>
+<tr>
+<td width="45%"><img src="docs/images/readme/radar-study.jpg" alt="A reviewed Tehran NISAR study: the original radar pixels beside tools to pin and compare two cells, and a chart of values along one row" /></td>
+<td width="55%"><img src="docs/images/readme/advanced-tools.jpg" alt="Advanced tools: search, a place-and-question view, a scientific explorer and the radar processor, opening on 'Follow a question to the evidence.'" /></td>
+</tr>
+<tr>
+<td><sub>🔬 Pin two pixels and compare them, read along a row, and download what you find.</sub></td>
+<td><sub>🧪 Advanced tools for researchers: follow a question all the way to the evidence.</sub></td>
+</tr>
+</table>
 
 ## 🙏 Data from
 
