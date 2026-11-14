@@ -1,0 +1,134 @@
+{
+  "method": "gauge-forecast-information-v1",
+  "status": "resolved",
+  "reason": null,
+  "issueTime": "2026-10-12T13:51:34.485316Z",
+  "snapshotHash": "af5a11a94aec157726724c311fef561393b40df0076dfa8933cc6bad2a6202b6",
+  "availabilityBasis": "local-receipt-only",
+  "identity": {
+    "station": "USGS-09421500",
+    "timeSeriesId": "ad7aed75280e439c96815ccf2ac3f889",
+    "parameter": "00060",
+    "statistic": "00003",
+    "unit": "ft^3/s"
+  },
+  "start": "2025-06-01",
+  "end": "2025-06-03",
+  "counts": {
+    "calendarDays": 3,
+    "attemptedRecords": 3,
+    "retainedRecords": 3,
+    "excludedRecords": 0,
+    "unknownCalendarDays": 0,
+    "nullWithdrawals": 0,
+    "unresolvedStationTime": 0,
+    "incompleteAtIssue": 0
+  },
+  "exclusionReasons": {},
+  "latestRetainedDate": "2025-06-03",
+  "stationTime": {
+    "ruleVersion": "usgs-nist-station-day-v1",
+    "registryHashes": [
+      "df09aed8e7840c6483551fb8748fce8d125d39626a83d9dd97c5c16c24fe7d41"
+    ],
+    "registrySource": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-zone-codes/items?f=json",
+    "dstRuleSource": "https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst",
+    "minYear": 2007,
+    "reviewCeiling": "2026-12-31",
+    "retainedMetadataCount": 1,
+    "properties": {
+      "country_code": "US",
+      "time_zone_abbreviation": "PST",
+      "uses_daylight_savings": "Y"
+    },
+    "stationPropertiesHash": "f246959aaaebeee41b6ef56e88fe1b7a921797c411ec4cee76c349f31ccaded5",
+    "metadataHash": "f246959aaaebeee41b6ef56e88fe1b7a921797c411ec4cee76c349f31ccaded5"
+  },
+  "timingAttempts": [
+    {
+      "horizonDays": 1,
+      "status": "expired",
+      "reason": "target_expired",
+      "timingEligible": false,
+      "observationCutoff": {
+        "date": "2025-06-03",
+        "start": "2025-06-03T00:00:00-07:00",
+        "end": "2025-06-04T00:00:00-07:00",
+        "startUtc": "2025-06-03T07:00:00Z",
+        "endUtc": "2025-06-04T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "targetInterval": {
+        "date": "2025-06-04",
+        "start": "2025-06-04T00:00:00-07:00",
+        "end": "2025-06-05T00:00:00-07:00",
+        "startUtc": "2025-06-04T07:00:00Z",
+        "endUtc": "2025-06-05T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "lagHours": 11886.859579254444,
+      "leadStartHours": -11886.859579254444,
+      "leadEndHours": -11862.859579254444,
+      "ruleVersion": "usgs-nist-station-day-v1"
+    },
+    {
+      "horizonDays": 3,
+      "status": "expired",
+      "reason": "target_expired",
+      "timingEligible": false,
+      "observationCutoff": {
+        "date": "2025-06-03",
+        "start": "2025-06-03T00:00:00-07:00",
+        "end": "2025-06-04T00:00:00-07:00",
+        "startUtc": "2025-06-03T07:00:00Z",
+        "endUtc": "2025-06-04T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "targetInterval": {
+        "date": "2025-06-06",
+        "start": "2025-06-06T00:00:00-07:00",
+        "end": "2025-06-07T00:00:00-07:00",
+        "startUtc": "2025-06-06T07:00:00Z",
+        "endUtc": "2025-06-07T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "lagHours": 11886.859579254444,
+      "leadStartHours": -11838.859579254444,
+      "leadEndHours": -11814.859579254444,
+      "ruleVersion": "usgs-nist-station-day-v1"
+    },
+    {
+      "horizonDays": 7,
+      "status": "expired",
+      "reason": "target_expired",
+      "timingEligible": false,
+      "observationCutoff": {
+        "date": "2025-06-03",
+        "start": "2025-06-03T00:00:00-07:00",
+        "end": "2025-06-04T00:00:00-07:00",
+        "startUtc": "2025-06-03T07:00:00Z",
+        "endUtc": "2025-06-04T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "targetInterval": {
+        "date": "2025-06-10",
+        "start": "2025-06-10T00:00:00-07:00",
+        "end": "2025-06-11T00:00:00-07:00",
+        "startUtc": "2025-06-10T07:00:00Z",
+        "endUtc": "2025-06-11T07:00:00Z",
+        "durationHours": 24.0
+      },
+      "lagHours": 11886.859579254444,
+      "leadStartHours": -11742.859579254444,
+      "leadEndHours": -11718.859579254444,
+      "ruleVersion": "usgs-nist-station-day-v1"
+    }
+  ],
+  "limitations": [
+    "Local receipt integrity does not prove true or complete historical upstream availability.",
+    "Snapshot pin must come from independently trusted capture or storage.",
+    "Station metadata is not proof of historical station configuration.",
+    "Timing eligibility is not publication readiness, a prediction, skill or full E5 acceptance."
+  ],
+  "informationHash": "670d3e4e643ffe49ec046a7f65b1e7fee53d9a9700b6c4eb2754b198aa816b47"
+}

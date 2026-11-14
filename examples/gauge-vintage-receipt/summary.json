@@ -1,0 +1,24 @@
+{
+  "check": "bounded-live-retrieval-historical-public-USGS-records",
+  "station": "USGS-09421500",
+  "dates": [
+    "2025-06-01",
+    "2025-06-03"
+  ],
+  "transferBytes": 7065,
+  "seconds": 1.944,
+  "localProcessPeakRssBytes": 35192832,
+  "observedDays": 3,
+  "captured": true,
+  "missing": [],
+  "snapshotHash": "af5a11a94aec157726724c311fef561393b40df0076dfa8933cc6bad2a6202b6",
+  "recordedDays": 3,
+  "unknownDays": 0,
+  "receipt": "2026-10-12T13:51:34.485316Z",
+  "stationTime": {
+    "country_code": "US",
+    "time_zone_abbreviation": "PST",
+    "uses_daylight_savings": "Y"
+  },
+  "ledgerBytes": 20480
+}

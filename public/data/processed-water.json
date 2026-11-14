@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "id": "opera-water-20230331",
+  "title": "Lake Mead region",
+  "product": "OPERA DSWx-HLS B01 mosaic",
+  "sensorFamily": "Optical \u00b7 Landsat / Sentinel-2",
+  "date": "2023-03-31",
+  "dateBasis": "Date from the repository mosaic filename; individual contributing granules are not embedded in this raster.",
+  "maturity": "Historical repository example; notebook describes provisional products",
+  "source": {
+    "repository": "https://github.com/OPERA-Cal-Val/OPERA_Applications",
+    "url": "https://github.com/OPERA-Cal-Val/OPERA_Applications/blob/452c0145b1dbdd5ca82c6d13d7fadc8fba0bbd06/DSWx/Reservoir/data/B01_mosaics/2023/20230331.tif",
+    "notebook": "https://github.com/OPERA-Cal-Val/OPERA_Applications/blob/452c0145b1dbdd5ca82c6d13d7fadc8fba0bbd06/DSWx/Reservoir/Reservoir_Monitoring.ipynb",
+    "commit": "452c0145b1dbdd5ca82c6d13d7fadc8fba0bbd06",
+    "blobSha": "65ae6cbb470346bdd64a499a7ea881169c243a6f",
+    "sha256": "317bc6c665b31f034ff3d1edee6413a4718305215b51302fdf75382eec05d213",
+    "license": "Apache-2.0 (repository)"
+  },
+  "processing": {
+    "method": "Native projected pixel counts \u00d7 absolute affine pixel area; no resampling before counting. Classes 0, 1, 2 included; all other values excluded. No reservoir boundary applied.",
+    "processedAt": "2026-10-08T15:40:11.263928+00:00",
+    "software": {
+      "rasterio": "1.4.4",
+      "numpy": "2.5.3"
+    },
+    "nativeCrs": "EPSG:32611",
+    "resolutionMetres": [
+      30.0,
+      30.0
+    ],
+    "pixelAreaM2": 900.0,
+    "shape": [
+      6994,
+      6992
+    ],
+    "nativeBounds": [
+      600000.0,
+      3890220.0,
+      809760.0,
+      4100040.0
+    ],
+    "displayCrs": "EPSG:3857",
+    "displayResampling": "nearest",
+    "displaySize": [
+      1194,
+      1200
+    ]
+  },
+  "classes": {
+    "0": {
+      "pixels": 45578688,
+      "areaKm2": 41020.8192
+    },
+    "1": {
+      "pixels": 447485,
+      "areaKm2": 402.7365
+    },
+    "2": {
+      "pixels": 109531,
+      "areaKm2": 98.5779
+    },
+    "252": {
+      "pixels": 1375219,
+      "areaKm2": 1237.6971
+    },
+    "253": {
+      "pixels": 1388957,
+      "areaKm2": 1250.0613
+    },
+    "255": {
+      "pixels": 2168,
+      "areaKm2": 1.9512
+    }
+  },
+  "includedPixels": 46135704,
+  "totalPixels": 48902048,
+  "includedCoveragePercent": 94.34309172491099,
+  "openWaterClassAreaKm2": 402.7365,
+  "class2AreaKm2": 98.5779,
+  "imageBounds": [
+    [
+      35.10731096063997,
+      -115.90214616115489
+    ],
+    [
+      37.041254047568394,
+      -113.52113587801435
+    ]
+  ],
+  "imageUrl": "/data/lake-mead-water.png",
+  "rasterUrl": "/data/lake-mead-water.tif",
+  "caveat": "Areas describe class footprints across the entire supplied mosaic, not Lake Mead alone. Class 2 is not converted into an exact subpixel water area. Excluded codes are not interpreted as water. One historical mosaic cannot establish water-level change, flooding, volume, or current conditions."
+}

@@ -1,0 +1,379 @@
+{
+  "schemaVersion": "native-inspection-development-1",
+  "status": "development-only; inspection utility not evaluated",
+  "originalMeasurementsChanged": false,
+  "source": {
+    "manifestSha256": "31a95a132073e4a96db750ba58aa4167595fad72c44991582faa8f7cfbef8df5",
+    "nativeArraysSha256": "a326bb0833522f5dc3b9432f8f791b3fe60e4c4315422d5a081ad27b5f2aff79",
+    "selectionMaskSha256": "bd0a90564021dfacd912064d41cb8d7c6960eadfaaebdf1fc5b727c0ec8a6383",
+    "artifactSha256": {
+      "before.tif": "7df6a769895ae6a41f4f252297d577faf5e3378df403b633e590a0ab29761ba2",
+      "after.tif": "62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+      "difference.tif": "b0c590e94b3516d05c79d9f2ef4cf5ffa0c55989350d74b5fdcc48217e20b027",
+      "validity.tif": "9df8e829363f3a9c23cda127d8ceab4ea18f20ef394aee2b740fe0bb501d2536"
+    },
+    "beforeId": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+    "afterId": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+    "crs": "EPSG:32611",
+    "transform": [
+      702640.0,
+      10.0,
+      0,
+      3992970.0,
+      0,
+      -10.0
+    ],
+    "selection": "Original geographic bbox pixel-centre mask; not padded rectangular window"
+  },
+  "summary": {
+    "totalPixels": 10002,
+    "validPixels": 10002,
+    "validPercent": 100.0,
+    "pixelAreaM2": 100.0,
+    "validAreaKm2": 1.0002,
+    "beforeMedianDb": -15.979136593404938,
+    "afterMedianDb": -18.229334910318972,
+    "medianChangeDb": -1.4612621665000916,
+    "p05Db": -6.727505445480347,
+    "p95Db": 3.4822025537490844,
+    "increasedAreaKm2": 0.0698,
+    "decreasedAreaKm2": 0.3156,
+    "withinThresholdAreaKm2": 0.6148
+  },
+  "inspectionWindows": {
+    "schemaVersion": "native-inspection-windows-v1",
+    "blockSizePixels": 32,
+    "limit": 12,
+    "thresholdDb": 3.0,
+    "selectedPixels": 10002,
+    "validPixels": 10002,
+    "unknownPixels": 0,
+    "candidateWindows": 12,
+    "returnedWindows": 12,
+    "omittedWindows": 0,
+    "status": "candidates",
+    "ranking": "exceeded-pixel-count_then_peak-absolute-db_then_native-order",
+    "candidates": [
+      {
+        "window": {
+          "rowStart": 32,
+          "rowEndExclusive": 64,
+          "columnStart": 64,
+          "columnEndExclusive": 94
+        },
+        "selectedPixels": 897,
+        "validPixels": 897,
+        "unknownPixels": 0,
+        "increasedPixels": 17,
+        "decreasedPixels": 446,
+        "withinThresholdPixels": 434,
+        "exceededAreaKm2": 0.0463,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 38,
+          "column": 77,
+          "differenceDb": -12.48598861694336,
+          "coordinate": [
+            -114.7416003734859,
+            36.05658586333302
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 64,
+          "rowEndExclusive": 96,
+          "columnStart": 32,
+          "columnEndExclusive": 64
+        },
+        "selectedPixels": 1024,
+        "validPixels": 1024,
+        "unknownPixels": 0,
+        "increasedPixels": 65,
+        "decreasedPixels": 389,
+        "withinThresholdPixels": 570,
+        "exceededAreaKm2": 0.0454,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 78,
+          "column": 34,
+          "differenceDb": -12.35028076171875,
+          "coordinate": [
+            -114.74647387612504,
+            36.05307213996106
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 0,
+          "rowEndExclusive": 32,
+          "columnStart": 64,
+          "columnEndExclusive": 94
+        },
+        "selectedPixels": 858,
+        "validPixels": 858,
+        "unknownPixels": 0,
+        "increasedPixels": 14,
+        "decreasedPixels": 413,
+        "withinThresholdPixels": 431,
+        "exceededAreaKm2": 0.0427,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 5,
+          "column": 82,
+          "differenceDb": -12.342293739318848,
+          "coordinate": [
+            -114.74096062838422,
+            36.05954832026329
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 64,
+          "rowEndExclusive": 96,
+          "columnStart": 0,
+          "columnEndExclusive": 32
+        },
+        "selectedPixels": 933,
+        "validPixels": 933,
+        "unknownPixels": 0,
+        "increasedPixels": 77,
+        "decreasedPixels": 318,
+        "withinThresholdPixels": 538,
+        "exceededAreaKm2": 0.0395,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 83,
+          "column": 13,
+          "differenceDb": -10.65330696105957,
+          "coordinate": [
+            -114.74881649643989,
+            36.052665488502775
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 64,
+          "rowEndExclusive": 96,
+          "columnStart": 64,
+          "columnEndExclusive": 94
+        },
+        "selectedPixels": 928,
+        "validPixels": 928,
+        "unknownPixels": 0,
+        "increasedPixels": 42,
+        "decreasedPixels": 335,
+        "withinThresholdPixels": 551,
+        "exceededAreaKm2": 0.037700000000000004,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 81,
+          "column": 87,
+          "differenceDb": -10.560681343078613,
+          "coordinate": [
+            -114.74060168905659,
+            36.0526911489599
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 0,
+          "rowEndExclusive": 32,
+          "columnStart": 0,
+          "columnEndExclusive": 32
+        },
+        "selectedPixels": 924,
+        "validPixels": 924,
+        "unknownPixels": 0,
+        "increasedPixels": 61,
+        "decreasedPixels": 275,
+        "withinThresholdPixels": 588,
+        "exceededAreaKm2": 0.033600000000000005,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 4,
+          "column": 19,
+          "differenceDb": -12.577780723571777,
+          "coordinate": [
+            -114.74794798116785,
+            36.05976999352916
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 32,
+          "rowEndExclusive": 64,
+          "columnStart": 0,
+          "columnEndExclusive": 32
+        },
+        "selectedPixels": 960,
+        "validPixels": 960,
+        "unknownPixels": 0,
+        "increasedPixels": 89,
+        "decreasedPixels": 213,
+        "withinThresholdPixels": 658,
+        "exceededAreaKm2": 0.0302,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 50,
+          "column": 2,
+          "differenceDb": -10.482940673828125,
+          "coordinate": [
+            -114.74995219423772,
+            36.05566134343036
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 96,
+          "rowEndExclusive": 114,
+          "columnStart": 0,
+          "columnEndExclusive": 32
+        },
+        "selectedPixels": 492,
+        "validPixels": 492,
+        "unknownPixels": 0,
+        "increasedPixels": 12,
+        "decreasedPixels": 250,
+        "withinThresholdPixels": 230,
+        "exceededAreaKm2": 0.0262,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 103,
+          "column": 26,
+          "differenceDb": -11.185523986816406,
+          "coordinate": [
+            -114.74742561985077,
+            36.05083660857471
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 0,
+          "rowEndExclusive": 32,
+          "columnStart": 32,
+          "columnEndExclusive": 64
+        },
+        "selectedPixels": 985,
+        "validPixels": 985,
+        "unknownPixels": 0,
+        "increasedPixels": 124,
+        "decreasedPixels": 131,
+        "withinThresholdPixels": 730,
+        "exceededAreaKm2": 0.025500000000000002,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 28,
+          "column": 48,
+          "differenceDb": 10.688543319702148,
+          "coordinate": [
+            -114.74479211447455,
+            36.057547348640036
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 96,
+          "rowEndExclusive": 114,
+          "columnStart": 32,
+          "columnEndExclusive": 64
+        },
+        "selectedPixels": 519,
+        "validPixels": 519,
+        "unknownPixels": 0,
+        "increasedPixels": 17,
+        "decreasedPixels": 214,
+        "withinThresholdPixels": 288,
+        "exceededAreaKm2": 0.023100000000000002,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 109,
+          "column": 37,
+          "differenceDb": -10.536855697631836,
+          "coordinate": [
+            -114.74622070797817,
+            36.050273129900546
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 32,
+          "rowEndExclusive": 64,
+          "columnStart": 32,
+          "columnEndExclusive": 64
+        },
+        "selectedPixels": 1024,
+        "validPixels": 1024,
+        "unknownPixels": 0,
+        "increasedPixels": 142,
+        "decreasedPixels": 86,
+        "withinThresholdPixels": 796,
+        "exceededAreaKm2": 0.0228,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 46,
+          "column": 59,
+          "differenceDb": 11.486079216003418,
+          "coordinate": [
+            -114.74361799906643,
+            36.05590277924814
+          ],
+          "coordinateStatus": "available"
+        }
+      },
+      {
+        "window": {
+          "rowStart": 96,
+          "rowEndExclusive": 114,
+          "columnStart": 64,
+          "columnEndExclusive": 94
+        },
+        "selectedPixels": 458,
+        "validPixels": 458,
+        "unknownPixels": 0,
+        "increasedPixels": 38,
+        "decreasedPixels": 86,
+        "withinThresholdPixels": 334,
+        "exceededAreaKm2": 0.012400000000000001,
+        "validPercent": 100.0,
+        "representative": {
+          "row": 108,
+          "column": 68,
+          "differenceDb": -9.804482460021973,
+          "coordinate": [
+            -114.74277905732765,
+            36.05029848622464
+          ],
+          "coordinateStatus": "available"
+        }
+      }
+    ],
+    "limitations": [
+      "No event class, statistical significance, or confidence is established.",
+      "Fixed native windows are inspection aids, not feature objects.",
+      "Areas are nominal projected pixel footprints, not measured ground areas.",
+      "Thresholding and ranking are heuristic and unvalidated."
+    ]
+  },
+  "fieldAccuracyEstablished": false,
+  "humanInspectionBenefitEstablished": false
+}

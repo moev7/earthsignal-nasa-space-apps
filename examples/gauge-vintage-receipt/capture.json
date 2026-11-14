@@ -1,0 +1,108 @@
+[
+  {
+    "status": "captured",
+    "receipt": {
+      "policyVersion": "usgs-observation-vintages-v1",
+      "receivedAt": "2026-10-12T13:51:34.485316Z",
+      "insertedVersions": 3,
+      "unchangedRecords": 0
+    },
+    "snapshot": {
+      "policyVersion": "usgs-observation-vintages-v1",
+      "availabilityBasis": "local-receipt-only",
+      "identity": {
+        "station": "USGS-09421500",
+        "timeSeriesId": "ad7aed75280e439c96815ccf2ac3f889",
+        "parameter": "00060",
+        "statistic": "00003",
+        "unit": "ft^3/s"
+      },
+      "issueTime": "2026-10-12T13:51:34.485316Z",
+      "start": "2025-06-01",
+      "end": "2025-06-03",
+      "calendarDays": 3,
+      "unknownDays": 0,
+      "observations": [
+        {
+          "contentHash": "8f9006d0f69f5430f0b2a94db6d0125937a1c8eabaab3889fb46290ef7896822",
+          "date": "2025-06-01",
+          "firstReceivedAt": "2026-10-12T13:51:34.485316Z",
+          "identity": {
+            "parameter": "00060",
+            "station": "USGS-09421500",
+            "statistic": "00003",
+            "timeSeriesId": "ad7aed75280e439c96815ccf2ac3f889",
+            "unit": "ft^3/s"
+          },
+          "qualifiers": [],
+          "quality": "Provisional",
+          "receivedAt": "2026-10-12T13:51:34.485316Z",
+          "revision": 1,
+          "sourceMetadataHash": "57c1e29b2fd0ad24ad7e4afba0ec3ff08aa93b2b79734e8894c860622d42e17b",
+          "sourceResponseHash": "73d127e643ca18bb0e845e3990f75206c55f528a1cb251b8d955c279082e698d",
+          "stationPropertiesHash": "f246959aaaebeee41b6ef56e88fe1b7a921797c411ec4cee76c349f31ccaded5",
+          "stationTimeProperties": {
+            "country_code": "US",
+            "time_zone_abbreviation": "PST",
+            "uses_daylight_savings": "Y"
+          },
+          "value": 14300.0,
+          "versionHash": "cc8b65e893b488bcfd04263499b4a7cbbcd9819db565394068010f58a6194812"
+        },
+        {
+          "contentHash": "47da88064ed3ebaf132073af62ac15f74397910aea800a9df4b27ddb15e3df50",
+          "date": "2025-06-02",
+          "firstReceivedAt": "2026-10-12T13:51:34.485316Z",
+          "identity": {
+            "parameter": "00060",
+            "station": "USGS-09421500",
+            "statistic": "00003",
+            "timeSeriesId": "ad7aed75280e439c96815ccf2ac3f889",
+            "unit": "ft^3/s"
+          },
+          "qualifiers": [],
+          "quality": "Provisional",
+          "receivedAt": "2026-10-12T13:51:34.485316Z",
+          "revision": 1,
+          "sourceMetadataHash": "57c1e29b2fd0ad24ad7e4afba0ec3ff08aa93b2b79734e8894c860622d42e17b",
+          "sourceResponseHash": "73d127e643ca18bb0e845e3990f75206c55f528a1cb251b8d955c279082e698d",
+          "stationPropertiesHash": "f246959aaaebeee41b6ef56e88fe1b7a921797c411ec4cee76c349f31ccaded5",
+          "stationTimeProperties": {
+            "country_code": "US",
+            "time_zone_abbreviation": "PST",
+            "uses_daylight_savings": "Y"
+          },
+          "value": 16700.0,
+          "versionHash": "f42b9b3b190caa965184fddfe9d363e2a3c8ed12648fdae3422511866f103665"
+        },
+        {
+          "contentHash": "d11386ad4d830ef26aff9df10139be3256826da48b651dd3855c3331cc8e388d",
+          "date": "2025-06-03",
+          "firstReceivedAt": "2026-10-12T13:51:34.485316Z",
+          "identity": {
+            "parameter": "00060",
+            "station": "USGS-09421500",
+            "statistic": "00003",
+            "timeSeriesId": "ad7aed75280e439c96815ccf2ac3f889",
+            "unit": "ft^3/s"
+          },
+          "qualifiers": [],
+          "quality": "Provisional",
+          "receivedAt": "2026-10-12T13:51:34.485316Z",
+          "revision": 1,
+          "sourceMetadataHash": "57c1e29b2fd0ad24ad7e4afba0ec3ff08aa93b2b79734e8894c860622d42e17b",
+          "sourceResponseHash": "73d127e643ca18bb0e845e3990f75206c55f528a1cb251b8d955c279082e698d",
+          "stationPropertiesHash": "f246959aaaebeee41b6ef56e88fe1b7a921797c411ec4cee76c349f31ccaded5",
+          "stationTimeProperties": {
+            "country_code": "US",
+            "time_zone_abbreviation": "PST",
+            "uses_daylight_savings": "Y"
+          },
+          "value": 17600.0,
+          "versionHash": "d7c22ac1ef6c3b19e1f0a52445d0b34eda20fd4bbbab05cd24d40e61d9aa7aa2"
+        }
+      ],
+      "snapshotHash": "af5a11a94aec157726724c311fef561393b40df0076dfa8933cc6bad2a6202b6"
+    }
+  }
+]

@@ -1,0 +1,325 @@
+{
+  "planSha256": "364c2df188c5ef4623000eb7a68adbda4e92d72b0f6781c44193dfd10c45df61",
+  "assetBodyBytes": 19687587,
+  "sourcePathsOnly": true,
+  "files": [
+    {
+      "role": "after",
+      "bytes": 9805934,
+      "sha256": "1526fa22e326b9d89abc4cbea9190e0231159897466600669c1650fbdf361866",
+      "providerIdentityVerified": {
+        "algorithm": "sha256",
+        "value": "1526fa22e326b9d89abc4cbea9190e0231159897466600669c1650fbdf361866"
+      }
+    },
+    {
+      "role": "before",
+      "bytes": 9862725,
+      "sha256": "7c41e9783075600a21d6e380c46e858260935014d16d081470d56eb980f8203f",
+      "providerIdentityVerified": {
+        "algorithm": "sha256",
+        "value": "7c41e9783075600a21d6e380c46e858260935014d16d081470d56eb980f8203f"
+      }
+    },
+    {
+      "role": "label",
+      "bytes": 9464,
+      "sha256": "5831507e143de4108d3e18bb4f1c16c1230d3d434e7bceb3e154a62c8f2d61b9",
+      "providerIdentityVerified": {
+        "algorithm": "git-blob-sha1",
+        "value": "7b50594dca83b938a1c1853d7582243ad1831961"
+      }
+    },
+    {
+      "role": "validity",
+      "bytes": 9464,
+      "sha256": "f27d72473c502384fc4e84195c79799049d52d64d5e73597fa1993ef6729e116",
+      "providerIdentityVerified": {
+        "algorithm": "git-blob-sha1",
+        "value": "3ccf3635e230960b084b18f080b40b83ff4b7dd9"
+      }
+    }
+  ],
+  "schemaVersion": "geoid-development-acquisition-1",
+  "sourceRevision": "868407460bf3db492f50730a57585916baa71dc6",
+  "sourceScope": "Four complete individual sample GeoTIFFs, provider identities verified; no shards accessed",
+  "cropArchiveSha256": "73661a1b15b7d34fc58dee68810a270607cfa7e673f2452d2e3b173b27877074",
+  "cropArchiveBytes": 938364,
+  "cropArchiveContents": {
+    "before": {
+      "shape": [
+        2,
+        256,
+        256
+      ],
+      "dtype": "float32",
+      "sha256COrderBytes": "ad8b873734fb7b7c823c102888c4be738d84045a7c18efb38b81861591898879"
+    },
+    "before_native_mask": {
+      "shape": [
+        2,
+        256,
+        256
+      ],
+      "dtype": "bool",
+      "sha256COrderBytes": "4017b7a27f5d49ed213ab864b83f7d1f706ecc1039001dadcffed8df6bccddd1"
+    },
+    "after": {
+      "shape": [
+        2,
+        256,
+        256
+      ],
+      "dtype": "float32",
+      "sha256COrderBytes": "228db775d0197768ef832d6b6355c1ce6e1da723400a664fd4c9bd9b91a80578"
+    },
+    "after_native_mask": {
+      "shape": [
+        2,
+        256,
+        256
+      ],
+      "dtype": "bool",
+      "sha256COrderBytes": "4017b7a27f5d49ed213ab864b83f7d1f706ecc1039001dadcffed8df6bccddd1"
+    },
+    "label": {
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "dtype": "uint8",
+      "sha256COrderBytes": "148abe827d6f47c967f390b8d5f9aa0b725cf34474162c5d10b98da180fd8296"
+    },
+    "label_native_mask": {
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "dtype": "bool",
+      "sha256COrderBytes": "e26afd0b9d7cf2ce4ace11971ec17ca4c040daeb2cefdc90888c2b789d0b1a00"
+    },
+    "validity": {
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "dtype": "uint8",
+      "sha256COrderBytes": "e26afd0b9d7cf2ce4ace11971ec17ca4c040daeb2cefdc90888c2b789d0b1a00"
+    },
+    "validity_native_mask": {
+      "shape": [
+        1,
+        256,
+        256
+      ],
+      "dtype": "bool",
+      "sha256COrderBytes": "e26afd0b9d7cf2ce4ace11971ec17ca4c040daeb2cefdc90888c2b789d0b1a00"
+    }
+  },
+  "nativeMetadata": {
+    "before": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "count": 2,
+      "dtypes": [
+        "float32",
+        "float32"
+      ],
+      "crs": "EPSG:32632",
+      "transform": [
+        10.000000000000114,
+        0.0,
+        614400.0,
+        0.0,
+        -10.0,
+        5693439.999999999,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nodata": null,
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        0.0
+      ],
+      "descriptions": [
+        null,
+        null
+      ],
+      "units": [
+        null,
+        null
+      ],
+      "tags": {
+        "AREA_OR_POINT": "Area"
+      },
+      "bounds": [
+        618240.0,
+        5687039.999999999,
+        620800.0000000001,
+        5689599.999999999
+      ],
+      "driver": "GTiff",
+      "maskFlags": "([<MaskFlags.all_valid: 1>], [<MaskFlags.all_valid: 1>])"
+    },
+    "after": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "count": 2,
+      "dtypes": [
+        "float32",
+        "float32"
+      ],
+      "crs": "EPSG:32632",
+      "transform": [
+        10.000000000000114,
+        0.0,
+        614400.0,
+        0.0,
+        -10.0,
+        5693439.999999999,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nodata": null,
+      "scale": [
+        1.0,
+        1.0
+      ],
+      "offset": [
+        0.0,
+        0.0
+      ],
+      "descriptions": [
+        null,
+        null
+      ],
+      "units": [
+        null,
+        null
+      ],
+      "tags": {
+        "AREA_OR_POINT": "Area"
+      },
+      "bounds": [
+        618240.0,
+        5687039.999999999,
+        620800.0000000001,
+        5689599.999999999
+      ],
+      "driver": "GTiff",
+      "maskFlags": "([<MaskFlags.all_valid: 1>], [<MaskFlags.all_valid: 1>])"
+    },
+    "label": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "count": 1,
+      "dtypes": [
+        "uint8"
+      ],
+      "crs": "EPSG:32632",
+      "transform": [
+        10.000000000000114,
+        0.0,
+        614400.0,
+        0.0,
+        -10.0,
+        5693439.999999999,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nodata": 255.0,
+      "scale": [
+        1.0
+      ],
+      "offset": [
+        0.0
+      ],
+      "descriptions": [
+        null
+      ],
+      "units": [
+        null
+      ],
+      "tags": {
+        "AREA_OR_POINT": "Area"
+      },
+      "bounds": [
+        618240.0,
+        5687039.999999999,
+        620800.0000000001,
+        5689599.999999999
+      ],
+      "driver": "GTiff",
+      "maskFlags": "([<MaskFlags.nodata: 8>],)"
+    },
+    "validity": {
+      "shape": [
+        1024,
+        1024
+      ],
+      "count": 1,
+      "dtypes": [
+        "uint8"
+      ],
+      "crs": "EPSG:32632",
+      "transform": [
+        10.000000000000114,
+        0.0,
+        614400.0,
+        0.0,
+        -10.0,
+        5693439.999999999,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "nodata": 0.0,
+      "scale": [
+        1.0
+      ],
+      "offset": [
+        0.0
+      ],
+      "descriptions": [
+        null
+      ],
+      "units": [
+        null
+      ],
+      "tags": {
+        "AREA_OR_POINT": "Area"
+      },
+      "bounds": [
+        618240.0,
+        5687039.999999999,
+        620800.0000000001,
+        5689599.999999999
+      ],
+      "driver": "GTiff",
+      "maskFlags": "([<MaskFlags.nodata: 8>],)"
+    }
+  },
+  "runtime": {
+    "numpy": "2.3.5",
+    "rasterio": "1.4.4",
+    "gdal": "3.10.3"
+  },
+  "independentReference": false,
+  "futureNISARTransfer": false
+}

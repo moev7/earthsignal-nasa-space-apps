@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "geoid-development-plan-1",
+  "dataset": "links-ads/geoid-flood",
+  "revision": "868407460bf3db492f50730a57585916baa71dc6",
+  "codeRevision": "3a1647ed11aea0c81d5f59a8022e9cb8548bddab",
+  "frozenAt": "2026-10-15T12:24:28.346876+00:00",
+  "status": "development-only",
+  "selectionRule": "First lexicographic s1grd individual file path under sample/ in the pinned provider tree; select its matched before, after, label and validity files. No raster or label bytes inspected. Center 256x256 window on documented 1024x1024 grid, never substitute another crop after inspection.",
+  "tileId": "EMSR712-10-0",
+  "split": "train",
+  "country": "Germany",
+  "eventTime": "2023-12-24T08:00:00",
+  "acquisitionTimes": {
+    "before": "2023-09-08T17:08:41",
+    "after": "2024-01-03T05:34:06",
+    "timezone": "not independently verified; filename timestamps"
+  },
+  "window": {
+    "colOffset": 384,
+    "rowOffset": 384,
+    "width": 256,
+    "height": 256
+  },
+  "expectedGrid": {
+    "width": 1024,
+    "height": 1024,
+    "crs": "EPSG:32632",
+    "spacingMetres": 10
+  },
+  "geometryCompatibility": "unknown: relative orbit, pass direction, look direction and incidence not supplied by this sample manifest; no temporal ratio or attribution permitted",
+  "radiometry": "Provider card and code assert linear sigma0 VV,VH; not independently radiometrically calibrated by Earthsignal",
+  "maskPolicy": "validity==1, labels in 0/1/2, per-band finite positive power <=1000 per pinned producer loader; raster native valid mask also required. Unknown definitions fail.",
+  "analysis": "Per-date per-VV/VH summaries on the same common valid population by provider class; counts, native projected cell area and P05/P25/P50/P75/P95. No pixel-independent confidence intervals, classifier scores, hazard/causal claims or NISAR transfer.",
+  "limitBytes": 67108864,
+  "assets": [
+    {
+      "role": "after",
+      "path": "sample/geoid-flood/EMSR712-10/s1grd/EMSR712-10-0_s1grd_post_20240103T053406.tif",
+      "bytes": 9805934,
+      "identity": {
+        "algorithm": "sha256",
+        "value": "1526fa22e326b9d89abc4cbea9190e0231159897466600669c1650fbdf361866"
+      }
+    },
+    {
+      "role": "before",
+      "path": "sample/geoid-flood/EMSR712-10/s1grd/EMSR712-10-0_s1grd_pre_20230908T170841.tif",
+      "bytes": 9862725,
+      "identity": {
+        "algorithm": "sha256",
+        "value": "7c41e9783075600a21d6e380c46e858260935014d16d081470d56eb980f8203f"
+      }
+    },
+    {
+      "role": "label",
+      "path": "sample/geoid-flood/EMSR712-10/label/EMSR712-10-0_label.tif",
+      "bytes": 9464,
+      "identity": {
+        "algorithm": "git-blob-sha1",
+        "value": "7b50594dca83b938a1c1853d7582243ad1831961"
+      }
+    },
+    {
+      "role": "validity",
+      "path": "sample/geoid-flood/EMSR712-10/validity/EMSR712-10-0_validity.tif",
+      "bytes": 9464,
+      "identity": {
+        "algorithm": "git-blob-sha1",
+        "value": "3ccf3635e230960b084b18f080b40b83ff4b7dd9"
+      }
+    }
+  ],
+  "metadata": {
+    "treeSha256": "808700b42ac7d53e31db63f4bb8f85da1583ae09611ff0c97245971d5008c8a0",
+    "catalogSha256": "c6ec7e3a3c252977069e9fa1613f07a0c01f7a121a0f55e9868f0645aad38022",
+    "cardSha256": "3585f9541ba1ed8581d48ae381c47ecd25bf5f62e65c340c8c6df5212dccf7d1"
+  },
+  "license": "CC-BY-4.0 compilation/labels; modified Copernicus Sentinel-1 and CEMS Rapid Mapping products © European Union; no DEM acquired",
+  "minimumSummaryPixels": 30,
+  "minimumSummaryPixelsMeaning": "Engineering display gate, not a scientific sample-size or independence guarantee"
+}

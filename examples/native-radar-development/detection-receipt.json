@@ -1,0 +1,875 @@
+{
+  "schemaVersion": "radar-development-1",
+  "status": "development-only",
+  "frozenAt": "2026-10-12T19:42:19Z",
+  "originalMeasurementsChanged": false,
+  "fieldAccuracyEstablished": false,
+  "sourceHashScope": "Pinned native exported rasters; not full granules",
+  "verification": {
+    "kind": "native_export_reproduction",
+    "status": "development-only; no reviewed reference labels",
+    "sources": {
+      "before": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+      "after": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001"
+    },
+    "stats": {
+      "p05Db": -6.7275052780583104,
+      "medianDb": -1.4612621180681917,
+      "p95Db": 3.4822026473806704,
+      "minDb": -12.577780891350642,
+      "maxDb": 11.486078965314077
+    },
+    "commonValidPixels": 10002,
+    "excludedPixels": 714,
+    "geometryCoverage": {
+      "windowPixels": 10716,
+      "selectedAreaPixels": 10002,
+      "outsideAreaPixels": 714,
+      "validInsideArea": 10002,
+      "invalidInsideArea": 0,
+      "commonValidPercentOfSelectedArea": 100.0,
+      "originalCommonValidPercentOfWindow": 93.33706606942889,
+      "basis": "separate geometry-only reconstruction using original _roi_mask and frozen CRS/affine/bbox; original result unchanged"
+    },
+    "fixedBaseline": {
+      "method": "strict \u00b13 dB signal excursions",
+      "decreasedPixels": 3156,
+      "increasedPixels": 698,
+      "withinPixels": 6148,
+      "excursionFractionCommonValid": 0.3853229354129174,
+      "denominator": "common positive finite producer-masked native exported pixels; not the whole lake"
+    },
+    "nominalProjectedCellAreaM2": 100.0,
+    "validAreaKm2": 1.0002,
+    "differenceFloat32MaxAbsErrorDb": 4.754469422607599e-07,
+    "originalInputsHashScope": "Native crop power float64 + subswath mask uint8 + exception mask canonical uint16 + inspected ancillary metadata + crop window; not a full-granule checksum",
+    "reproductionHashScope": "four exported GeoTIFFs and their native arrays, distinct from original raw-crop hashes",
+    "fieldAccuracyEstablished": false,
+    "quietCalibration": "withheld: independently reviewed target-stable references not supplied"
+  },
+  "fixedPolicy": {
+    "version": "1.0.0",
+    "status": "fitted_offline_not_activated",
+    "spec": {
+      "method": "fixed_pair",
+      "profile": {
+        "product": {
+          "track": "nisar_l_band",
+          "sensor": "NISAR",
+          "band": "L",
+          "polarization": "HH",
+          "product_type": "GCOV-frequencyA-HHHH",
+          "units": "LINEAR_POWER",
+          "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+          "crid": "P05023",
+          "maturity": "provisional",
+          "known_issues": [
+            "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+            "Original mask is not a layover/shadow mask"
+          ],
+          "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+        },
+        "grid": {
+          "id": "nisar-track5-frame20-frequencyA-lattice",
+          "crs": "EPSG:32611",
+          "shape": [
+            114,
+            94
+          ],
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "linear_units": "metre",
+          "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+        },
+        "stratum": "unclassified-development-crop",
+        "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+        "target_stable_definition": "Independent time-matched review of target class stability; not supplied for this development case",
+        "target_footprint_definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask"
+      },
+      "frozen_at": "2026-10-12T19:42:19Z",
+      "lower_candidates": [],
+      "upper_candidates": [],
+      "lower_tail_budget": 0.0,
+      "upper_tail_budget": 0.0,
+      "minimum_cells": 1,
+      "minimum_independent_units": 1,
+      "minimum_valid_histories": 1,
+      "history_cutoff_seconds": 0,
+      "maximum_history_age_seconds": null,
+      "maximum_history_gap_seconds": null,
+      "support_policy": "positive_finite_producer_mask_and_declared_footprint_if_available; reference_scoring_adds_visible_known_target_stable",
+      "task_parameter_evidence": "Reproduce the original strict \u00b13 dB descriptive baseline on an inspected development case"
+    },
+    "spec_sha256": "e957355dbf15b14875ad71336985cccb60b2e76083469ccd8b15c3ad019b5a2a",
+    "thresholds": {
+      "lower_db": -3.0,
+      "upper_db": 3.0
+    },
+    "attempts": [],
+    "heldout": [],
+    "reasons": [],
+    "field_calibration": "not_established_by_library",
+    "metric": "target_stable_nuisance_alert_fraction",
+    "aggregation": "each_tail_on_every_crop_no_pooled_pixel_target",
+    "independent_groups": [],
+    "independent_units": 0,
+    "heldout_independent_groups": [],
+    "heldout_independent_units": 0,
+    "calibration_tokens": [],
+    "receipt_sha256": "9f73ed531e4f71ba91e73bac93bfdb48b4a0e4be7cf423c357c4a15abd76bcf7"
+  },
+  "fixedDetection": {
+    "version": "1.0.0",
+    "status": "scored",
+    "case": {
+      "case_id": "native-radar-development",
+      "event_id": "lake-mead-2026-development",
+      "site_id": "lake-mead-small-island-patch",
+      "stratum": "unclassified-development-crop",
+      "grid": {
+        "id": "nisar-track5-frame20-frequencyA-lattice",
+        "crs": "EPSG:32611",
+        "shape": [
+          114,
+          94
+        ],
+        "transform": [
+          702640.0,
+          10.0,
+          0,
+          3992970.0,
+          0,
+          -10.0
+        ],
+        "linear_units": "metre",
+        "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+      },
+      "sources": [
+        {
+          "id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+          "acquisition_id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+          "acquired_at": "2026-06-26T12:52:20Z",
+          "sha256": "7df6a769895ae6a41f4f252297d577faf5e3378df403b633e590a0ab29761ba2",
+          "power_sha256": "88ce499ff26b6164bbe286062dd33959b03216a12715ab7a9e9056d5d64ab8d2",
+          "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+          "product": {
+            "track": "nisar_l_band",
+            "sensor": "NISAR",
+            "band": "L",
+            "polarization": "HH",
+            "product_type": "GCOV-frequencyA-HHHH",
+            "units": "LINEAR_POWER",
+            "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+            "crid": "P05023",
+            "maturity": "provisional",
+            "known_issues": [
+              "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+              "Original mask is not a layover/shadow mask"
+            ],
+            "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+          },
+          "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+          "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+        },
+        {
+          "id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+          "acquisition_id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+          "acquired_at": "2026-09-30T12:52:17Z",
+          "sha256": "62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+          "power_sha256": "2a534a744d1ac769414b09fd980081809ef30c82405b59e35f2194863131df88",
+          "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+          "product": {
+            "track": "nisar_l_band",
+            "sensor": "NISAR",
+            "band": "L",
+            "polarization": "HH",
+            "product_type": "GCOV-frequencyA-HHHH",
+            "units": "LINEAR_POWER",
+            "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+            "crid": "P05023",
+            "maturity": "provisional",
+            "known_issues": [
+              "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+              "Original mask is not a layover/shadow mask"
+            ],
+            "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+          },
+          "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+          "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+        }
+      ],
+      "history": null,
+      "footprint": {
+        "definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask",
+        "sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+        "assertion": "externally_asserted_not_certified"
+      },
+      "coverage_denominator": "declared_target_footprint",
+      "missing_within_requested_aoi": "counted_from_supplied_footprint",
+      "metadata_correctness": "externally_asserted_not_certified"
+    },
+    "method": "fixed_pair",
+    "stage": "exploratory",
+    "policy_sha256": "9f73ed531e4f71ba91e73bac93bfdb48b4a0e4be7cf423c357c4a15abd76bcf7",
+    "thresholds": {
+      "lower_db": -3.0,
+      "upper_db": 3.0
+    },
+    "counts": {
+      "total_cells": 10716,
+      "valid_cells": 10002,
+      "unknown_cells": 714,
+      "target_footprint_cells": 10002,
+      "outside_target_footprint_cells": 714,
+      "invalid_within_target_footprint_cells": 0,
+      "native_window_cells": 10716,
+      "signal_decrease_cells": 3156,
+      "signal_increase_cells": 698,
+      "no_alert_cells": 6148
+    },
+    "valid_window_fraction": 0.9333706606942889,
+    "coverage_denominator": "declared_target_footprint",
+    "valid_target_footprint_fraction": 1.0,
+    "flags": {
+      "signal_decrease": -1,
+      "no_alert": 0,
+      "signal_increase": 1,
+      "unknown": 2
+    },
+    "estimand": "pair_log_power_difference",
+    "field_validation": "not_established",
+    "scores_sha256": "d13c05b822f3c8bc2cbfd7af384ceb13d158882ad772076e83db8eb509b99e4d",
+    "flags_sha256": "7d56651bb5387f78b25e8efa20d6be8971934dd6d3cfc2703a6374c3bb59e5eb",
+    "valid_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c"
+  },
+  "empiricalPairPolicy": {
+    "version": "1.0.0",
+    "status": "withheld",
+    "spec": {
+      "method": "empirical_pair",
+      "profile": {
+        "product": {
+          "track": "nisar_l_band",
+          "sensor": "NISAR",
+          "band": "L",
+          "polarization": "HH",
+          "product_type": "GCOV-frequencyA-HHHH",
+          "units": "LINEAR_POWER",
+          "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+          "crid": "P05023",
+          "maturity": "provisional",
+          "known_issues": [
+            "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+            "Original mask is not a layover/shadow mask"
+          ],
+          "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+        },
+        "grid": {
+          "id": "nisar-track5-frame20-frequencyA-lattice",
+          "crs": "EPSG:32611",
+          "shape": [
+            114,
+            94
+          ],
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "linear_units": "metre",
+          "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+        },
+        "stratum": "unclassified-development-crop",
+        "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+        "target_stable_definition": "Independent time-matched review of target class stability; not supplied for this development case",
+        "target_footprint_definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask"
+      },
+      "frozen_at": "2026-10-12T19:42:19Z",
+      "lower_candidates": [
+        -10.0,
+        -6.0,
+        -3.0,
+        -1.0
+      ],
+      "upper_candidates": [
+        1.0,
+        3.0,
+        6.0,
+        10.0
+      ],
+      "lower_tail_budget": 0.05,
+      "upper_tail_budget": 0.05,
+      "minimum_cells": 1,
+      "minimum_independent_units": 2,
+      "minimum_valid_histories": 1,
+      "history_cutoff_seconds": 0,
+      "maximum_history_age_seconds": null,
+      "maximum_history_gap_seconds": null,
+      "support_policy": "positive_finite_producer_mask_and_declared_footprint_if_available; reference_scoring_adds_visible_known_target_stable",
+      "task_parameter_evidence": "Development readiness exercise only: candidate grid/budgets are not preregistered field policy; no reviewed calibration labels exist"
+    },
+    "spec_sha256": "6f78d5dacd42ca856adab1044da086c1eba8cb0f30eba9a313a38b123593a8a6",
+    "thresholds": null,
+    "attempts": [
+      {
+        "case_id": "native-radar-development",
+        "status": "failed",
+        "reasons": [
+          "Missing independently reviewed target-stable reference"
+        ],
+        "asserted_lineage": {
+          "event_id": "lake-mead-2026-development",
+          "site_id": "lake-mead-small-island-patch",
+          "stratum": "unclassified-development-crop",
+          "sources": [
+            {
+              "id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+              "acquisition_id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+              "acquired_at": "2026-06-26T12:52:20Z",
+              "sha256": "7df6a769895ae6a41f4f252297d577faf5e3378df403b633e590a0ab29761ba2",
+              "power_sha256": "88ce499ff26b6164bbe286062dd33959b03216a12715ab7a9e9056d5d64ab8d2",
+              "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+              "product": {
+                "track": "nisar_l_band",
+                "sensor": "NISAR",
+                "band": "L",
+                "polarization": "HH",
+                "product_type": "GCOV-frequencyA-HHHH",
+                "units": "LINEAR_POWER",
+                "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+                "crid": "P05023",
+                "maturity": "provisional",
+                "known_issues": [
+                  "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+                  "Original mask is not a layover/shadow mask"
+                ],
+                "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+              },
+              "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+              "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+            },
+            {
+              "id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquisition_id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquired_at": "2026-09-30T12:52:17Z",
+              "sha256": "62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+              "power_sha256": "2a534a744d1ac769414b09fd980081809ef30c82405b59e35f2194863131df88",
+              "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+              "product": {
+                "track": "nisar_l_band",
+                "sensor": "NISAR",
+                "band": "L",
+                "polarization": "HH",
+                "product_type": "GCOV-frequencyA-HHHH",
+                "units": "LINEAR_POWER",
+                "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+                "crid": "P05023",
+                "maturity": "provisional",
+                "known_issues": [
+                  "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+                  "Original mask is not a layover/shadow mask"
+                ],
+                "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+              },
+              "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+              "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+            }
+          ],
+          "grids": [
+            {
+              "id": "nisar-track5-frame20-frequencyA-lattice",
+              "crs": "EPSG:32611",
+              "shape": [
+                114,
+                94
+              ],
+              "transform": [
+                702640.0,
+                10.0,
+                0,
+                3992970.0,
+                0,
+                -10.0
+              ],
+              "linear_units": "metre",
+              "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+            },
+            {
+              "id": "nisar-track5-frame20-frequencyA-lattice",
+              "crs": "EPSG:32611",
+              "shape": [
+                114,
+                94
+              ],
+              "transform": [
+                702640.0,
+                10.0,
+                0,
+                3992970.0,
+                0,
+                -10.0
+              ],
+              "linear_units": "metre",
+              "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+            }
+          ],
+          "footprint": {
+            "definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask",
+            "sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c"
+          },
+          "reference": null
+        },
+        "lineage": {
+          "case_id": "native-radar-development",
+          "event_id": "lake-mead-2026-development",
+          "site_id": "lake-mead-small-island-patch",
+          "stratum": "unclassified-development-crop",
+          "grid": {
+            "id": "nisar-track5-frame20-frequencyA-lattice",
+            "crs": "EPSG:32611",
+            "shape": [
+              114,
+              94
+            ],
+            "transform": [
+              702640.0,
+              10.0,
+              0,
+              3992970.0,
+              0,
+              -10.0
+            ],
+            "linear_units": "metre",
+            "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+          },
+          "sources": [
+            {
+              "id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+              "acquisition_id": "NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+              "acquired_at": "2026-06-26T12:52:20Z",
+              "sha256": "7df6a769895ae6a41f4f252297d577faf5e3378df403b633e590a0ab29761ba2",
+              "power_sha256": "88ce499ff26b6164bbe286062dd33959b03216a12715ab7a9e9056d5d64ab8d2",
+              "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+              "product": {
+                "track": "nisar_l_band",
+                "sensor": "NISAR",
+                "band": "L",
+                "polarization": "HH",
+                "product_type": "GCOV-frequencyA-HHHH",
+                "units": "LINEAR_POWER",
+                "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+                "crid": "P05023",
+                "maturity": "provisional",
+                "known_issues": [
+                  "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+                  "Original mask is not a layover/shadow mask"
+                ],
+                "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+              },
+              "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+              "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+            },
+            {
+              "id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquisition_id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquired_at": "2026-09-30T12:52:17Z",
+              "sha256": "62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+              "power_sha256": "2a534a744d1ac769414b09fd980081809ef30c82405b59e35f2194863131df88",
+              "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+              "product": {
+                "track": "nisar_l_band",
+                "sensor": "NISAR",
+                "band": "L",
+                "polarization": "HH",
+                "product_type": "GCOV-frequencyA-HHHH",
+                "units": "LINEAR_POWER",
+                "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+                "crid": "P05023",
+                "maturity": "provisional",
+                "known_issues": [
+                  "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+                  "Original mask is not a layover/shadow mask"
+                ],
+                "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+              },
+              "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+              "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+            }
+          ],
+          "history": null,
+          "footprint": {
+            "definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask",
+            "sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+            "assertion": "externally_asserted_not_certified"
+          },
+          "coverage_denominator": "declared_target_footprint",
+          "missing_within_requested_aoi": "counted_from_supplied_footprint",
+          "metadata_correctness": "externally_asserted_not_certified"
+        },
+        "counts": {
+          "total_cells": 10716,
+          "valid_cells": 10002,
+          "unknown_cells": 714,
+          "target_footprint_cells": 10002,
+          "outside_target_footprint_cells": 714,
+          "invalid_within_target_footprint_cells": 0,
+          "native_window_cells": 10716
+        }
+      }
+    ],
+    "heldout": [],
+    "reasons": [
+      "native-radar-development: Missing independently reviewed target-stable reference",
+      "No admitted calibration crop",
+      "Insufficient declared independent units",
+      "Infeasible lower candidate tail-area budget",
+      "Infeasible upper candidate tail-area budget"
+    ],
+    "field_calibration": "not_established_by_library",
+    "metric": "target_stable_nuisance_alert_fraction",
+    "aggregation": "each_tail_on_every_crop_no_pooled_pixel_target",
+    "independent_groups": [
+      [
+        "native-radar-development"
+      ]
+    ],
+    "independent_units": 1,
+    "heldout_independent_groups": [],
+    "heldout_independent_units": 0,
+    "calibration_tokens": [
+      "acquisition:NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+      "acquisition:NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+      "asset:62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+      "asset:7df6a769895ae6a41f4f252297d577faf5e3378df403b633e590a0ab29761ba2",
+      "date:2026-06-26T12:52:20+00:00",
+      "date:2026-09-30T12:52:17+00:00",
+      "event:lake-mead-2026-development",
+      "site:lake-mead-small-island-patch",
+      "source:NISAR_L2_PR_GCOV_024_005_A_020_4005_DHDH_A_20260626T125220_20260626T125255_P05023_N_F_J_001",
+      "source:NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001"
+    ],
+    "candidates": {
+      "lower": [
+        -10.0,
+        -6.0,
+        -3.0,
+        -1.0
+      ],
+      "upper": [
+        1.0,
+        3.0,
+        6.0,
+        10.0
+      ]
+    },
+    "candidate_checks": {
+      "lower": [
+        {
+          "threshold_db": -10.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -6.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -3.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -1.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        }
+      ],
+      "upper": [
+        {
+          "threshold_db": 1.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 3.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 6.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 10.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        }
+      ]
+    },
+    "receipt_sha256": "cbb2900174627e08d662f0655ee68bdb80cfed9bcd684bd9227541710b58672b"
+  },
+  "empiricalTemporalPolicy": {
+    "version": "1.0.0",
+    "status": "withheld",
+    "spec": {
+      "method": "empirical_temporal",
+      "profile": {
+        "product": {
+          "track": "nisar_l_band",
+          "sensor": "NISAR",
+          "band": "L",
+          "polarization": "HH",
+          "product_type": "GCOV-frequencyA-HHHH",
+          "units": "LINEAR_POWER",
+          "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+          "crid": "P05023",
+          "maturity": "provisional",
+          "known_issues": [
+            "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+            "Original mask is not a layover/shadow mask"
+          ],
+          "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+        },
+        "grid": {
+          "id": "nisar-track5-frame20-frequencyA-lattice",
+          "crs": "EPSG:32611",
+          "shape": [
+            114,
+            94
+          ],
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "linear_units": "metre",
+          "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+        },
+        "stratum": "unclassified-development-crop",
+        "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+        "target_stable_definition": "Independent time-matched review of target class stability; not supplied for this development case",
+        "target_footprint_definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask"
+      },
+      "frozen_at": "2026-10-12T19:42:19Z",
+      "lower_candidates": [
+        -10.0,
+        -6.0,
+        -3.0,
+        -1.0
+      ],
+      "upper_candidates": [
+        1.0,
+        3.0,
+        6.0,
+        10.0
+      ],
+      "lower_tail_budget": 0.05,
+      "upper_tail_budget": 0.05,
+      "minimum_cells": 1,
+      "minimum_independent_units": 2,
+      "minimum_valid_histories": 3,
+      "history_cutoff_seconds": 0,
+      "maximum_history_age_seconds": null,
+      "maximum_history_gap_seconds": null,
+      "support_policy": "positive_finite_producer_mask_and_declared_footprint_if_available; reference_scoring_adds_visible_known_target_stable",
+      "task_parameter_evidence": "Development readiness exercise only: candidate grid/budgets are not preregistered field policy; no reviewed calibration labels exist"
+    },
+    "spec_sha256": "e8a1427c9496c4966cf01edfc28c54258eadad9e869cb56adf77d395e8d33cfe",
+    "thresholds": null,
+    "attempts": [
+      {
+        "case_id": "native-radar-development-temporal",
+        "status": "failed",
+        "reasons": [
+          "Temporal method needs history, never pair fallback"
+        ],
+        "asserted_lineage": {
+          "event_id": "lake-mead-2026-development",
+          "site_id": "lake-mead-small-island-patch",
+          "stratum": "unclassified-development-crop",
+          "sources": [
+            {
+              "id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquisition_id": "NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+              "acquired_at": "2026-09-30T12:52:17Z",
+              "sha256": "62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+              "power_sha256": "2a534a744d1ac769414b09fd980081809ef30c82405b59e35f2194863131df88",
+              "mask_sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c",
+              "product": {
+                "track": "nisar_l_band",
+                "sensor": "NISAR",
+                "band": "L",
+                "polarization": "HH",
+                "product_type": "GCOV-frequencyA-HHHH",
+                "units": "LINEAR_POWER",
+                "release": "NISAR_L2_GCOV_PROVISIONAL_V1",
+                "crid": "P05023",
+                "maturity": "provisional",
+                "known_issues": [
+                  "Backscatter difference from provisional radar data. Speckle, soil moisture, vegetation, surface roughness and acquisition conditions can alter backscatter; this measurement does not establish flooding or damage. Native valid-pixel statistics; Web Mercator PNGs are display-only.",
+                  "Original mask is not a layover/shadow mask"
+                ],
+                "geometry": "{\"frameNumber\":20,\"frequencyModes\":{\"A\":{\"acquiredRangeBandwidth\":40000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":40000000.0},\"B\":{\"acquiredRangeBandwidth\":5000000.0,\"polarizations\":[\"HH\",\"HV\"],\"processedRangeBandwidth\":5000000.0}},\"lookDirection\":\"Left\",\"orbitPassDirection\":\"Ascending\",\"productSpecificationVersion\":\"1.5.0\",\"productVersion\":\"1.0.11\",\"trackNumber\":5}"
+              },
+              "producer_mask_definition": "Finite positive exported power after original producer-mask and bbox policy; discarded source values/masks are not reconstructed",
+              "metadata_evidence": "Pinned original manifest and independently checked exported GeoTIFF: source.sha256 covers this export only; HDF5 acquisition identity is asserted by original provenance"
+            }
+          ],
+          "grids": [
+            {
+              "id": "nisar-track5-frame20-frequencyA-lattice",
+              "crs": "EPSG:32611",
+              "shape": [
+                114,
+                94
+              ],
+              "transform": [
+                702640.0,
+                10.0,
+                0,
+                3992970.0,
+                0,
+                -10.0
+              ],
+              "linear_units": "metre",
+              "area_evidence": "Original native GeoTIFF metre CRS/affine; nominal projected cell area, not geodesic"
+            }
+          ],
+          "footprint": {
+            "definition": "Frozen original bbox pixel-centre geometry, separately reconstructed; not a product-quality mask",
+            "sha256": "b92e249b8fa8bd6bde93c59e4dc6626a77e0da8b94c790fb340402764e86f76c"
+          },
+          "reference": null
+        }
+      }
+    ],
+    "heldout": [],
+    "reasons": [
+      "native-radar-development-temporal: Temporal method needs history, never pair fallback",
+      "No admitted calibration crop",
+      "Insufficient declared independent units",
+      "Infeasible lower candidate tail-area budget",
+      "Infeasible upper candidate tail-area budget"
+    ],
+    "field_calibration": "not_established_by_library",
+    "metric": "target_stable_nuisance_alert_fraction",
+    "aggregation": "each_tail_on_every_crop_no_pooled_pixel_target",
+    "independent_groups": [
+      [
+        "native-radar-development-temporal"
+      ]
+    ],
+    "independent_units": 1,
+    "heldout_independent_groups": [],
+    "heldout_independent_units": 0,
+    "calibration_tokens": [
+      "acquisition:NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001",
+      "asset:62366ddfd6e71b1fcec5902081361d1321117b17394b3f91a0a1414aacbde1a2",
+      "date:2026-09-30T12:52:17+00:00",
+      "event:lake-mead-2026-development",
+      "site:lake-mead-small-island-patch",
+      "source:NISAR_L2_PR_GCOV_032_005_A_020_4005_DHDH_A_20260930T125217_20260930T125252_P05023_N_F_J_001"
+    ],
+    "candidates": {
+      "lower": [
+        -10.0,
+        -6.0,
+        -3.0,
+        -1.0
+      ],
+      "upper": [
+        1.0,
+        3.0,
+        6.0,
+        10.0
+      ]
+    },
+    "candidate_checks": {
+      "lower": [
+        {
+          "threshold_db": -10.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -6.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -3.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": -1.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        }
+      ],
+      "upper": [
+        {
+          "threshold_db": 1.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 3.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 6.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        },
+        {
+          "threshold_db": 10.0,
+          "maximum_crop_rate": null,
+          "bottleneck_case_ids": [],
+          "feasible": false
+        }
+      ]
+    },
+    "receipt_sha256": "75c3d3e0a3bcaf42e8426e23952b867170aa45e1ed12210a8795b2c33bfc210c"
+  },
+  "readiness": {
+    "fixedPair": "Observed signal excursions reproduced; no event classes or calibrated confidence",
+    "empiricalPair": "Withheld: independently reviewed target-stable references and sufficient independent units absent",
+    "empiricalTemporal": "Withheld: no frozen compatible preceding history or independently reviewed reference",
+    "nextEvidence": [
+      "Independent, time-matched target-stable and true-change labels",
+      "Separate calibration and untouched event/site acquisitions",
+      "Frozen compatible preceding native history for temporal detection"
+    ]
+  }
+}

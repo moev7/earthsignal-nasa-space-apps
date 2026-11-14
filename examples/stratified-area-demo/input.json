@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "kind": "stratified-area-experiment",
+  "evidenceKind": "synthetic-software-check",
+  "design": {
+    "schemaVersion": 1,
+    "kind": "stratified-area-design",
+    "methodVersion": "stratified-srswor-equal-area-v1",
+    "frameId": "synthetic-1000-cells",
+    "frameHash": "06c7739581284ea7083be1dec5f76ca5ffb1e1b0b967c1f7c7e4dee19b691f54",
+    "cellAreaM2": 400,
+    "areaBasis": "nominal-equal-area-cells",
+    "classes": [
+      "category-A",
+      "category-B"
+    ],
+    "responseTarget": {
+      "id": "synthetic-cell-target",
+      "version": "1",
+      "definition": "Two mutually exclusive whole-cell categories in a synthetic equal-area frame; no environmental interpretation.",
+      "sha256": "8ba9b02c7de2135a483e0a879b992845852c71c61afa1e944c546294e0cd6961"
+    },
+    "strata": [
+      {
+        "id": "rare-screening-group",
+        "N": 100,
+        "sampleIds": [
+          "rare-00",
+          "rare-01",
+          "rare-02",
+          "rare-03",
+          "rare-04",
+          "rare-05",
+          "rare-06",
+          "rare-07",
+          "rare-08",
+          "rare-09",
+          "rare-10",
+          "rare-11",
+          "rare-12",
+          "rare-13",
+          "rare-14",
+          "rare-15",
+          "rare-16",
+          "rare-17",
+          "rare-18",
+          "rare-19"
+        ]
+      },
+      {
+        "id": "common-screening-group",
+        "N": 900,
+        "sampleIds": [
+          "common-00",
+          "common-01",
+          "common-02",
+          "common-03",
+          "common-04",
+          "common-05",
+          "common-06",
+          "common-07",
+          "common-08",
+          "common-09",
+          "common-10",
+          "common-11",
+          "common-12",
+          "common-13",
+          "common-14",
+          "common-15",
+          "common-16",
+          "common-17",
+          "common-18",
+          "common-19",
+          "common-20",
+          "common-21",
+          "common-22",
+          "common-23",
+          "common-24",
+          "common-25",
+          "common-26",
+          "common-27",
+          "common-28",
+          "common-29"
+        ]
+      }
+    ]
+  },
+  "outcomes": {
+    "schemaVersion": 1,
+    "kind": "stratified-reference-outcomes",
+    "designHash": "a67b1b010d35ff3f43e593ae496a0d7b7f5a769b699c96d212c774638a02ad41",
+    "responseTargetHash": "8ba9b02c7de2135a483e0a879b992845852c71c61afa1e944c546294e0cd6961",
+    "records": [
+      {
+        "sampleId": "rare-00",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-01",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-02",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-03",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-04",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-05",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-06",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-07",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "rare-08",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-09",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-10",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-11",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-12",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-13",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-14",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-15",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-16",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-17",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-18",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "rare-19",
+        "stratumId": "rare-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-00",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "common-01",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "common-02",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-A"
+      },
+      {
+        "sampleId": "common-03",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-04",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-05",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-06",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-07",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-08",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-09",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-10",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-11",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-12",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-13",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-14",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-15",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-16",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-17",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-18",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-19",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-20",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-21",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-22",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-23",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-24",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-25",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-26",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-27",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-28",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      },
+      {
+        "sampleId": "common-29",
+        "stratumId": "common-screening-group",
+        "status": "reviewed",
+        "visibility": "observable",
+        "label": "category-B"
+      }
+    ]
+  },
+  "context": {
+    "studyId": "synthetic-stratified-demo-v1",
+    "stage": "development",
+    "sourceEvidence": [
+      {
+        "id": "synthetic-source-no-satellite",
+        "sha256": "80eeb959cb7e89099e0e20bfc5eb1a7bf786a049b4ef708e32f237a21a53b6a4",
+        "observedAt": "2026-01-01T00:00:00Z"
+      }
+    ],
+    "geometryHash": "bed1772f70f54ee1d902240b4f88d79a700e41dbea182a332bdbb05d324b6a4a",
+    "protocolFrozenAt": "2025-01-01T00:00:00Z",
+    "selectionFrozenAt": "2025-02-01T00:00:00Z",
+    "outcomesFrozenAt": "2026-02-01T00:00:00Z",
+    "referenceQuality": "unverified",
+    "reviewEvidenceHash": null
+  }
+}

@@ -1,0 +1,492 @@
+{
+ "schema": "earthsignal.result-bundle/1",
+ "id": "tehran-sw-2026",
+ "title": "South-west Tehran, June–October 2026",
+ "generated_at": "2026-11-07T07:39:15+00:00",
+ "provenance": "measured",
+ "producer": {
+  "software": "earthsignal",
+  "algorithm": "ground-motion-1.0",
+  "code_version": "648f248"
+ },
+ "source": {
+  "mission": "NISAR (NASA-ISRO SAR mission)",
+  "sensor": "L-band SAR, 24.4 cm wavelength",
+  "product": "Level-2 geocoded unwrapped interferograms (GUNW)",
+  "provider": "NASA Alaska Satellite Facility DAAC",
+  "collections_searched": [
+   "NISAR_L2_GUNW_V1",
+   "NISAR_L2_GUNW_PROVISIONAL_V1"
+  ],
+  "product_status": "provisional",
+  "period": {
+   "start": "2026-06-18",
+   "end": "2026-10-21"
+  },
+  "stacks": [
+   {
+    "direction": "A",
+    "track": 56,
+    "frame": 19,
+    "pairs": 9,
+    "first": "2026-06-18",
+    "last": "2026-10-16",
+    "troposphere_applied": true,
+    "measured_fraction": 0.4393
+   },
+   {
+    "direction": "A",
+    "track": 56,
+    "frame": 20,
+    "pairs": 9,
+    "first": "2026-06-18",
+    "last": "2026-10-16",
+    "troposphere_applied": true,
+    "measured_fraction": 0.5962
+   },
+   {
+    "direction": "D",
+    "track": 136,
+    "frame": 70,
+    "pairs": 9,
+    "first": "2026-06-23",
+    "last": "2026-10-21",
+    "troposphere_applied": false,
+    "measured_fraction": 0.5387
+   },
+   {
+    "direction": "D",
+    "track": 136,
+    "frame": 71,
+    "pairs": 9,
+    "first": "2026-06-23",
+    "last": "2026-10-21",
+    "troposphere_applied": false,
+    "measured_fraction": 0.4546
+   }
+  ],
+  "granules": [
+   "NISAR_L2_PR_GUNW_023_056_A_019_024_2000_SH_20260618T014554_20260618T014628_20260630T014553_20260630T014628_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_023_056_A_020_024_2000_SH_20260618T014627_20260618T014702_20260630T014627_20260630T014701_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_023_136_D_070_024_2000_SH_20260623T152550_20260623T152625_20260705T152549_20260705T152624_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_023_136_D_071_024_2000_SH_20260623T152624_20260623T152658_20260705T152623_20260705T152658_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_024_056_A_019_025_2000_SH_20260630T014553_20260630T014628_20260712T014552_20260712T014627_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_024_056_A_020_025_2000_SH_20260630T014627_20260630T014701_20260712T014626_20260712T014701_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_024_136_D_070_025_2000_SH_20260705T152549_20260705T152624_20260717T152548_20260717T152623_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_024_136_D_071_025_2000_SH_20260705T152623_20260705T152658_20260717T152622_20260717T152657_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_025_056_A_019_026_2000_SH_20260712T014552_20260712T014627_20260724T014552_20260724T014626_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_025_056_A_020_026_2000_SH_20260712T014626_20260712T014701_20260724T014625_20260724T014700_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_025_136_D_070_027_2000_SH_20260717T152548_20260717T152623_20260810T152547_20260810T152622_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_025_136_D_071_027_2000_SH_20260717T152622_20260717T152657_20260810T152621_20260810T152656_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_026_056_A_019_028_2000_SH_20260724T014552_20260724T014626_20260817T014550_20260817T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_026_056_A_020_028_2000_SH_20260724T014625_20260724T014700_20260817T014624_20260817T014659_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_027_136_D_070_028_2000_SH_20260810T152547_20260810T152622_20260822T152547_20260822T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_027_136_D_071_028_2000_SH_20260810T152621_20260810T152656_20260822T152620_20260822T152655_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_028_056_A_019_029_2000_SH_20260817T014550_20260817T014625_20260829T014550_20260829T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_028_056_A_020_029_2000_SH_20260817T014624_20260817T014659_20260829T014624_20260829T014659_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_028_136_D_070_029_2000_SH_20260822T152547_20260822T152621_20260903T152546_20260903T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_028_136_D_071_029_2000_SH_20260822T152620_20260822T152655_20260903T152620_20260903T152655_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_029_056_A_019_030_2000_SH_20260829T014550_20260829T014625_20260910T014550_20260910T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_029_056_A_020_030_2000_SH_20260829T014624_20260829T014659_20260910T014624_20260910T014658_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_029_136_D_070_030_2000_SH_20260903T152546_20260903T152621_20260915T152546_20260915T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_029_136_D_071_030_2000_SH_20260903T152620_20260903T152655_20260915T152620_20260915T152655_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_030_056_A_019_031_2000_SH_20260910T014550_20260910T014625_20260922T014550_20260922T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_030_056_A_020_031_2000_SH_20260910T014624_20260910T014658_20260922T014624_20260922T014659_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_030_136_D_070_031_2000_SH_20260915T152546_20260915T152621_20260927T152546_20260927T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_030_136_D_071_031_2000_SH_20260915T152620_20260915T152655_20260927T152620_20260927T152655_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_031_056_A_019_032_2000_SH_20260922T014550_20260922T014625_20261004T014550_20261004T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_031_056_A_020_032_2000_SH_20260922T014624_20260922T014659_20261004T014624_20261004T014659_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_031_136_D_070_032_2000_SH_20260927T152546_20260927T152621_20261009T152546_20261009T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_031_136_D_071_032_2000_SH_20260927T152620_20260927T152655_20261009T152620_20261009T152655_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_032_056_A_019_033_2000_SH_20261004T014550_20261004T014625_20261016T014550_20261016T014625_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_032_056_A_020_033_2000_SH_20261004T014624_20261004T014659_20261016T014624_20261016T014659_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_032_136_D_070_033_2000_SH_20261009T152546_20261009T152621_20261021T152546_20261021T152621_P05023_N_F_J_001",
+   "NISAR_L2_PR_GUNW_032_136_D_071_033_2000_SH_20261009T152620_20261009T152655_20261021T152620_20261021T152655_P05023_N_F_J_001"
+  ],
+  "rejected_granules": []
+ },
+ "processing": {
+  "min_coherence": 0.4,
+  "min_coverage": 0.6,
+  "corrections": [
+   "ionosphere (product)",
+   "troposphere wet+hydrostatic (product, at reference height; per-stack decision in stacks[])"
+  ],
+  "rate": "sum of displacements over sum of time spans per pixel (12- and 24-day pairs)",
+  "vertical": "ascending + descending line-of-sight rates, north motion assumed zero",
+  "reference": "median of the whole area",
+  "reference_area_lonlat": [
+   51.05,
+   35.5,
+   51.65,
+   35.8
+  ],
+  "reference_offsets_mm_per_year": {
+   "A": 51.5,
+   "D": 8.25
+  },
+  "grid_crs": "EPSG:32639",
+  "grid_spacing_m": 80.0
+ },
+ "bbox_lonlat": [
+  51.05,
+  35.5,
+  51.65,
+  35.8
+ ],
+ "layers": {
+  "vertical_rate": {
+   "file": "vertical_rate.png",
+   "units": "mm/yr",
+   "positive": "up",
+   "bounds": [
+    [
+     35.5,
+     51.05
+    ],
+    [
+     35.8,
+     51.65
+    ]
+   ],
+   "image_projection": "pixels aligned to Web Mercator (EPSG:3857); bounds are [[south, west], [north, east]] in degrees",
+   "sampling": "nearest 80 m pixel, no interpolation across gaps",
+   "colour": {
+    "limit_mm_per_year": 250.0,
+    "alpha": 220,
+    "no_data": "transparent",
+    "stops": [
+     {
+      "value": -250.0,
+      "colour": "#c23d17"
+     },
+     {
+      "value": -125.0,
+      "colour": "#f0a35e"
+     },
+     {
+      "value": 0.0,
+      "colour": "#f4f1ea"
+     },
+     {
+      "value": 125.0,
+      "colour": "#6e9fd3"
+     },
+     {
+      "value": 250.0,
+      "colour": "#22508f"
+     }
+    ]
+   }
+  }
+ },
+ "values": {
+  "file": "vertical_grid.json",
+  "cell_m": 400.0,
+  "method": "median of 5x5 pixels; empty when fewer than 13 were measured",
+  "sigma": "one standard error per pixel, propagated from the line-of-sight stack scatter"
+ },
+ "buildings": {
+  "file": "buildings.geojson",
+  "count": 22955,
+  "categories": {
+   "low": 8125,
+   "not_enough_evidence": 10523,
+   "not_measured": 243,
+   "elevated": 3758,
+   "high": 306
+  },
+  "bbox_lonlat": [
+   51.05,
+   35.55,
+   51.45,
+   35.72
+  ],
+  "osm_snapshot": "2026-11-05T21:23:02Z",
+  "heights": {
+   "height": 2640,
+   "levels": 589,
+   "default": 19726
+  },
+  "method": {
+   "tilt": "local plane fit of vertical rate over 7x7 pixels",
+   "significance": "tilt must exceed twice its standard error",
+   "categories": "years for the measured ground tilt to reach 1 in 500: high <= 10, elevated <= 30, low > 30",
+   "levels": "Bjerrum (1963), applied to ground tilt as context only"
+  },
+  "category_rule": {
+   "high": "ground tilt reaches 1 in 500 within 10 years at the measured rate",
+   "elevated": "1 in 500 within 30 years",
+   "low": "more than 30 years",
+   "not_enough_evidence": "measured tilt smaller than twice its uncertainty",
+   "not_measured": "no radar measurement beneath the building"
+  },
+  "fields": {
+   "vertical_mm_per_year": "local mean vertical rate, negative = sinking",
+   "ground_tilt_per_year": "slope change per year (dimensionless; 0.002 = 1 in 500)",
+   "tilt_toward_deg": "bearing the ground tilts toward, degrees from north",
+   "years_to_1_in_N": "years for the measured tilt to accumulate to 1 in N"
+  },
+  "attribution": "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+  "licence": "ODbL 1.0"
+ },
+ "focus": {
+  "file": "focus.json",
+  "centre_lonlat": [
+   51.32896,
+   35.65689
+  ],
+  "size_m": 1200.0,
+  "selection": "automatic: the 1.2 km square with the most \"high\" building ratings",
+  "buildings": 145,
+  "categories": {
+   "elevated": 66,
+   "high": 79
+  }
+ },
+ "stats": {
+  "measured_fraction": 0.678,
+  "measured_area_km2": 1238.2,
+  "vertical_rate_p1": -265.7,
+  "vertical_rate_median": 2.4,
+  "vertical_rate_p99": 137.0,
+  "median_sigma": 100.1,
+  "area_km2_sinking_faster_than": {
+   "50": 335.3,
+   "100": 209.1,
+   "200": 63.2
+  },
+  "area_km2_sinking_faster_than_2sigma": {
+   "50": 125.3,
+   "100": 122.3,
+   "200": 57.7
+  },
+  "fastest_neighbourhood": {
+   "lon": 51.3308,
+   "lat": 35.6473,
+   "vertical_rate": -307.9,
+   "size_m": 1200.0
+  }
+ },
+ "caveats": [
+  {
+   "id": "relative",
+   "text": "Rates are relative to the median of the whole area, not absolute. A stable benchmark (GNSS) would be needed to fix the zero.",
+   "source": "method"
+  },
+  {
+   "id": "short_record",
+   "text": "Built from 4 months of data (2026-06-18 to 2026-10-21). The yearly rate is a straight-line extrapolation and may include seasonal motion.",
+   "source": "method"
+  },
+  {
+   "id": "uncertainty",
+   "text": "A typical 80 m pixel is uncertain by about ±100 mm/yr (one standard error, median over the area), mostly from atmospheric delay. Read patterns several kilometres wide, not single pixels.",
+   "source": "method"
+  },
+  {
+   "id": "vertical_assumption",
+   "text": "Vertical motion is computed from two viewing directions assuming no north-south ground motion.",
+   "source": "method"
+  },
+  {
+   "id": "no_data",
+   "text": "Transparent areas were not measured (water, vegetation change, steep terrain or low coherence). Not measured does not mean not moving.",
+   "source": "method"
+  },
+  {
+   "id": "provisional",
+   "text": "NISAR products in this bundle are PROVISIONAL releases; calibration and processing may change in later versions.",
+   "source": "method"
+  },
+  {
+   "id": "both_directions",
+   "text": "The south-west sinking bowl appears independently in the ascending and descending passes (their rates correlate at 0.66), so it is not an artefact of one viewing geometry.",
+   "source": "analyst"
+  },
+  {
+   "id": "foothill_uplift",
+   "text": "Apparent uplift along the northern Alborz foothills is most likely an elevation-dependent atmospheric artefact, not real uplift.",
+   "source": "analyst"
+  },
+  {
+   "id": "stripes",
+   "text": "Faint diagonal stripes along radar swath edges are processing artefacts.",
+   "source": "analyst"
+  },
+  {
+   "id": "descending_noise",
+   "text": "The descending passes are about twice as noisy as the ascending ones; the product troposphere correction made them worse, so it was applied to the ascending passes only.",
+   "source": "analyst"
+  },
+  {
+   "id": "tilt_not_damage",
+   "text": "Building ratings describe ground tilt beneath each footprint from 80 m radar pixels. They are not an assessment of any building.",
+   "source": "method"
+  },
+  {
+   "id": "osm_partial",
+   "text": "OpenStreetMap does not map every building. Missing buildings are unmapped, not unaffected.",
+   "source": "method"
+  },
+  {
+   "id": "heights",
+   "text": "Most buildings have no height in OpenStreetMap and use a flagged estimate.",
+   "source": "method"
+  }
+ ],
+ "attribution": [
+  "NISAR data: NASA/JPL-Caltech and ISRO, distributed by the ASF DAAC",
+  "© OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)"
+ ],
+ "files": {
+  "vertical_rate.png": {
+   "bytes": 553200,
+   "sha256": "32f170050ff8a2ce891bb381f6e92439b51b0114bf7f731698606720baf47b5f"
+  },
+  "vertical_grid.json": {
+   "bytes": 88522,
+   "sha256": "2cfa8aa9b4946d807445e9e679efa7b8fb21eb59a8c0b9169a3875b822c46385"
+  },
+  "buildings.geojson": {
+   "bytes": 11978004,
+   "sha256": "84b62245422964b672ef16e2aadc21e16c7d0302a6ef12fd3b98ad509c59f6dd"
+  },
+  "focus.json": {
+   "bytes": 98771,
+   "sha256": "64fcc04b93b4a74b02c93112c19b44fbce6d3e680b9a6abbbeb1c49ca22da2f4"
+  },
+  "frames/vertical_2026-06-18.png": {
+   "bytes": 44712,
+   "sha256": "595da649c3e3b5fe869b33deee4aa09f4fa15e1287d2f3f22f52ae30e27871b1"
+  },
+  "frames/vertical_2026-06-30.png": {
+   "bytes": 384802,
+   "sha256": "6680c425bc21a07b6d8dca6a1c18d9b1eb49341cf76e767548290ae15ae531fd"
+  },
+  "frames/vertical_2026-07-12.png": {
+   "bytes": 441414,
+   "sha256": "3f69603fd4e18111c14b5315a03e2e62a2e7553bac75f9fadad07b90c9fa6c19"
+  },
+  "frames/vertical_2026-07-24.png": {
+   "bytes": 458324,
+   "sha256": "48b87197ff08f5a0f5c5b8b255bc21ba0c25b7afd0dc8766f7bdc24c7331347a"
+  },
+  "frames/vertical_2026-08-17.png": {
+   "bytes": 494116,
+   "sha256": "14a2873a1d601c10b4473f6a3b1f5ebb2a6f86802cb2d9a71e54572b69154559"
+  },
+  "frames/vertical_2026-08-29.png": {
+   "bytes": 501643,
+   "sha256": "959fdf77c72ec597547a0e6edac454034fb4ca3ec164bbc5732ab88242aa4cbf"
+  },
+  "frames/vertical_2026-09-10.png": {
+   "bytes": 524614,
+   "sha256": "0196f0968fdd8b34df474da4a7eb8cc02677089a70ce1293ff8d1f5c6bb8bb1f"
+  },
+  "frames/vertical_2026-09-22.png": {
+   "bytes": 540245,
+   "sha256": "c784e580c1fc58f4729b734dc99fb6e8c1d745d78e6d35b5081ed64a0b92c96d"
+  },
+  "frames/vertical_2026-10-04.png": {
+   "bytes": 550537,
+   "sha256": "a0349f7dec1cf9e6a1c89bc942ae307651c9fc44829edfe82258a5cea99a1361"
+  },
+  "frames/vertical_2026-10-16.png": {
+   "bytes": 553280,
+   "sha256": "767866298a45117c6c0218e87bbc2c4493d2fecb28afc68c682f48bc04f26ca6"
+  },
+  "timeseries.json": {
+   "bytes": 388806,
+   "sha256": "77bcd33da4d473c4fb535bc074e3ecca218b08d2f5452814939829b43bd63e85"
+  }
+ },
+ "timeseries": {
+  "file": "timeseries.json",
+  "frames": [
+   "frames/vertical_2026-06-18.png",
+   "frames/vertical_2026-06-30.png",
+   "frames/vertical_2026-07-12.png",
+   "frames/vertical_2026-07-24.png",
+   "frames/vertical_2026-08-17.png",
+   "frames/vertical_2026-08-29.png",
+   "frames/vertical_2026-09-10.png",
+   "frames/vertical_2026-09-22.png",
+   "frames/vertical_2026-10-04.png",
+   "frames/vertical_2026-10-16.png"
+  ],
+  "dates": [
+   "2026-06-18",
+   "2026-06-30",
+   "2026-07-12",
+   "2026-07-24",
+   "2026-08-17",
+   "2026-08-29",
+   "2026-09-10",
+   "2026-09-22",
+   "2026-10-04",
+   "2026-10-16"
+  ],
+  "units": "mm",
+  "positive": "up",
+  "colour": {
+   "limit_mm": 80.0,
+   "stops": [
+    {
+     "value": -80.0,
+     "colour": "#c23d17"
+    },
+    {
+     "value": -40.0,
+     "colour": "#f0a35e"
+    },
+    {
+     "value": 0.0,
+     "colour": "#f4f1ea"
+    },
+    {
+     "value": 40.0,
+     "colour": "#6e9fd3"
+    },
+    {
+     "value": 80.0,
+     "colour": "#22508f"
+    }
+   ]
+  },
+  "method": "sequential pairs added per track/frame into cumulative line-of-sight displacement; descending dates interpolated linearly onto the ascending dates; vertical from both directions with north motion assumed zero; each date referenced to the whole-area median",
+  "bridging": "a step unreliable at a pixel is filled with that pixel's measured rate x the step length",
+  "chains": [
+   {
+    "direction": "A",
+    "track": 56,
+    "frame": 19,
+    "epochs": 10,
+    "bridged_fraction": 0.064
+   },
+   {
+    "direction": "A",
+    "track": 56,
+    "frame": 20,
+    "epochs": 10,
+    "bridged_fraction": 0.0697
+   },
+   {
+    "direction": "D",
+    "track": 136,
+    "frame": 70,
+    "epochs": 10,
+    "bridged_fraction": 0.0824
+   },
+   {
+    "direction": "D",
+    "track": 136,
+    "frame": 71,
+    "epochs": 10,
+    "bridged_fraction": 0.0964
+   }
+  ],
+  "days": 120,
+  "fastest_1pct_mm": -81.9
+ }
+}

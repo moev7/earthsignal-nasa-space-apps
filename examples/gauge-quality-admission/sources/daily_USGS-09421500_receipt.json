@@ -1,0 +1,14 @@
+{
+  "id": "daily_09421500",
+  "station_id": "USGS-09421500",
+  "kind": "daily_items",
+  "initial_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/daily/items?f=json&monitoring_location_id=USGS-09421500&parameter_code=00060&statistic_id=00003&datetime=2021-10-02/2025-09-30&limit=2000",
+  "final_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/daily/items?f=json&monitoring_location_id=USGS-09421500&parameter_code=00060&statistic_id=00003&datetime=2021-10-02/2025-09-30&limit=2000",
+  "status": 200,
+  "start_utc": "2026-10-13T10:31:45.138918Z",
+  "completion_utc": "2026-10-13T10:31:46.695614Z",
+  "elapsed_seconds": 1.556696,
+  "byte_count": 970841,
+  "sha256": "4738828b875a07dec9e14dd37e04144504cd0d6ff17318cbcbcb229862c3ef61",
+  "error": null
+}

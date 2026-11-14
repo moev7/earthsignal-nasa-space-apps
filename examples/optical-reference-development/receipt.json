@@ -1,0 +1,519 @@
+{
+  "schemaVersion": "experiment-1",
+  "area": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -114.75,
+          36.05
+        ],
+        [
+          -114.74,
+          36.05
+        ],
+        [
+          -114.74,
+          36.06
+        ],
+        [
+          -114.75,
+          36.06
+        ],
+        [
+          -114.75,
+          36.05
+        ]
+      ]
+    ]
+  },
+  "results": [
+    {
+      "side": "before",
+      "itemId": "S2B_T11SPV_20260628T182412_L2A",
+      "observedAt": "2026-06-28T18:34:25.348000Z",
+      "bands": {
+        "scl": {
+          "arrayHash": "7c383c2a53fd989eb677ce2c2cdb771f50f3dbe04900165fe4c3c3d38459b36f",
+          "aoiHash": "8584f6b2208458123834afc3e3fd2c9af6151e4b19ff8046f96e02d8542d0db0",
+          "transform": [
+            702640.0,
+            20.0,
+            0,
+            3992980.0,
+            0,
+            -20.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            58,
+            47
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/6/S2B_T11SPV_20260628T182412_L2A/SCL.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Scene classification map (SCL)",
+            "gsd": 20,
+            "proj:shape": [
+              5490,
+              5490
+            ],
+            "proj:transform": [
+              20,
+              0,
+              600000,
+              0,
+              -20,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint8",
+                "spatial_resolution": 20
+              }
+            ],
+            "file:checksum": "12204530710a932b22b31ce973ef9eb433c9e25b5cabfc44bcf6a2dec9b5e1497b3d",
+            "file:size": 263740,
+            "roles": [
+              "data"
+            ]
+          },
+          "etag": "\"fe42f9fa68216201515ce2f141b0970c\""
+        },
+        "red": {
+          "arrayHash": "492043c1be7c691f841cd8ccae9453a81106771f0bb953c42ec13199b49670b2",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/6/S2B_T11SPV_20260628T182412_L2A/B04.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Red - 10m",
+            "eo:bands": [
+              {
+                "name": "B04",
+                "common_name": "red",
+                "center_wavelength": 0.665,
+                "full_width_half_max": 0.038
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "1220c24571eeee9e6378103ba5a771de709ed33c79320de6595e606d36ca35ab03d6",
+            "file:size": 224584858,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"4e2b4c233ea8f88079680922385a138c-27\""
+        },
+        "green": {
+          "arrayHash": "08504200a2b35f06a95cc220e1d185cbf927089575999f63b59ff17e5c55a5ad",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/6/S2B_T11SPV_20260628T182412_L2A/B03.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Green - 10m",
+            "eo:bands": [
+              {
+                "name": "B03",
+                "common_name": "green",
+                "center_wavelength": 0.56,
+                "full_width_half_max": 0.045
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "122072252c8f392c88406e46d822960d1d70f0966c6d104cef657c19f9308764fd98",
+            "file:size": 222018424,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"f4e20143388d29c3bffcb397c7070ddb-27\""
+        },
+        "blue": {
+          "arrayHash": "5381d04fa90728097cdd6dc8d066028e83a52bb5a81c7fdf1c64c0a6394841c8",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/6/S2B_T11SPV_20260628T182412_L2A/B02.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Blue - 10m",
+            "eo:bands": [
+              {
+                "name": "B02",
+                "common_name": "blue",
+                "center_wavelength": 0.49,
+                "full_width_half_max": 0.098
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "12202315c3c90e2ca491cdd5f2e0ad3a6df8ccb335db3b71833c5522df2fc4de0884",
+            "file:size": 217155689,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"aeada7653cf13e452e60730f7f2dae40-26\""
+        }
+      },
+      "sclCounts": {
+        "5": 298,
+        "6": 2201
+      },
+      "aoiPixels": 2499,
+      "sclWaterPixels": 2201,
+      "status": "unreviewed optical classifier; not independent truth",
+      "archiveHash": "f39722c6a8d1706da85551f586897cb6ddc0e3a177a60fc6b3eb7930154baac5"
+    },
+    {
+      "side": "after",
+      "itemId": "S2C_T11SPV_20261001T182825_L2A",
+      "observedAt": "2026-10-01T18:34:28.978000Z",
+      "bands": {
+        "scl": {
+          "arrayHash": "5120c87a6360b1e8830c763d01566bf75d43e7896512a718ec68ca197d519eec",
+          "aoiHash": "8584f6b2208458123834afc3e3fd2c9af6151e4b19ff8046f96e02d8542d0db0",
+          "transform": [
+            702640.0,
+            20.0,
+            0,
+            3992980.0,
+            0,
+            -20.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            58,
+            47
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/10/S2C_T11SPV_20261001T182825_L2A/SCL.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Scene classification map (SCL)",
+            "gsd": 20,
+            "proj:shape": [
+              5490,
+              5490
+            ],
+            "proj:transform": [
+              20,
+              0,
+              600000,
+              0,
+              -20,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint8",
+                "spatial_resolution": 20
+              }
+            ],
+            "file:checksum": "1220040f12850b082ad125b6a8490330ede155e11aa10afcd07e4b497eedbd5b0390",
+            "file:size": 613245,
+            "roles": [
+              "data"
+            ]
+          },
+          "etag": "\"19f0358137e1891a3f8eb7cb7acea8d1\""
+        },
+        "red": {
+          "arrayHash": "2bf109f9c44f1a4f405f56f17b936daff2cccbf8485b49624fc9c250f1070739",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/10/S2C_T11SPV_20261001T182825_L2A/B04.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Red - 10m",
+            "eo:bands": [
+              {
+                "name": "B04",
+                "common_name": "red",
+                "center_wavelength": 0.665,
+                "full_width_half_max": 0.038
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "122031d242c2f536e228e268713bb31b89f048c43662d1de7ec00ac9b3ad5e36a080",
+            "file:size": 228622881,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"4ea1cc149faa26aa9ffc9e6a5d894d67-28\""
+        },
+        "green": {
+          "arrayHash": "5a69001eb3f64d3d4d0ad18e2f7fb50758b57ad5e153f00e685c53029d47a92e",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/10/S2C_T11SPV_20261001T182825_L2A/B03.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Green - 10m",
+            "eo:bands": [
+              {
+                "name": "B03",
+                "common_name": "green",
+                "center_wavelength": 0.56,
+                "full_width_half_max": 0.045
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "122077cec6d7fa0f2fdbbef5189ffd6d91eb05eedd1db19b8a9c68bfa962b5736c08",
+            "file:size": 224932659,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"8bc37003854ccea83e5967b9257f160d-27\""
+        },
+        "blue": {
+          "arrayHash": "43ad6f63fdbe20ed34076c7b6cf952ae4ec08c3ea5fae69588670791db2092aa",
+          "aoiHash": "6b21eeb5edc35eac469bbeac710f7ea2e131f3bd44a5a74b00d590bb6dfd4847",
+          "transform": [
+            702640.0,
+            10.0,
+            0,
+            3992970.0,
+            0,
+            -10.0
+          ],
+          "crs": "PROJCS[\"WGS 84 / UTM zone 11N\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-117],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32611\"]]",
+          "shape": [
+            114,
+            94
+          ],
+          "asset": {
+            "href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/11/S/PV/2026/10/S2C_T11SPV_20261001T182825_L2A/B02.tif",
+            "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+            "title": "Blue - 10m",
+            "eo:bands": [
+              {
+                "name": "B02",
+                "common_name": "blue",
+                "center_wavelength": 0.49,
+                "full_width_half_max": 0.098
+              }
+            ],
+            "gsd": 10,
+            "proj:shape": [
+              10980,
+              10980
+            ],
+            "proj:transform": [
+              10,
+              0,
+              600000,
+              0,
+              -10,
+              4000020
+            ],
+            "raster:bands": [
+              {
+                "nodata": 0,
+                "data_type": "uint16",
+                "spatial_resolution": 10,
+                "scale": 0.0001,
+                "offset": -0.1
+              }
+            ],
+            "file:checksum": "12200b781925e6bf92dd059b199edf74a7729d17df25129fc7b6289075b4c2922e26",
+            "file:size": 218587718,
+            "roles": [
+              "data",
+              "reflectance"
+            ]
+          },
+          "etag": "\"9cd4793df60e566296a948d1df6a69a1-27\""
+        }
+      },
+      "sclCounts": {
+        "2": 42,
+        "5": 273,
+        "6": 2180,
+        "8": 3,
+        "9": 1
+      },
+      "aoiPixels": 2499,
+      "sclWaterPixels": 2180,
+      "status": "unreviewed optical classifier; not independent truth",
+      "archiveHash": "2b6adf832f2970fc6602cc38dd0a95a7c1f7f4a6bc717b177437287403405f03"
+    }
+  ],
+  "bytesTransferred": 6307848,
+  "elapsedSeconds": 23.643939118999697,
+  "maxRssKiB": 127180,
+  "interpretation": "SCL classes and RGB visibility only. No field accuracy, water-transition attribution or real-time claim."
+}

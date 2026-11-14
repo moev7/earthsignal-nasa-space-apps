@@ -1,0 +1,14 @@
+{
+  "id": "station_09421500",
+  "station_id": "USGS-09421500",
+  "kind": "monitoring_location",
+  "initial_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items/USGS-09421500?f=json",
+  "final_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items/USGS-09421500?f=json",
+  "status": 200,
+  "start_utc": "2026-10-13T10:31:44.012457Z",
+  "completion_utc": "2026-10-13T10:31:45.137925Z",
+  "elapsed_seconds": 1.125468,
+  "byte_count": 3443,
+  "sha256": "57c1e29b2fd0ad24ad7e4afba0ec3ff08aa93b2b79734e8894c860622d42e17b",
+  "error": null
+}

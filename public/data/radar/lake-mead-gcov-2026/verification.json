@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "jobId": "932485953d57489eb109b90eb34a606b",
+  "exportChecks": "passed",
+  "validPixels": 10002,
+  "medianDb": -1.461262118068192,
+  "nativeSourceReproduction": "passed",
+  "independence": "Independent windows, mask application, ratio arithmetic and digests; shared bounded transport and metadata validator",
+  "transferBytes": 6919780,
+  "extractedInputDigests": "matched",
+  "stats": {
+    "medianDb": -1.4612621180681917,
+    "p05Db": -6.7275052780583104,
+    "p95Db": 3.4822026473806704,
+    "minDb": -12.577780891350642,
+    "maxDb": 11.486078965314077
+  },
+  "runtimeSeconds": 492.756,
+  "memoryPeakMiB": 148.9,
+  "gdalVersion": "3.12.2",
+  "swapBytes": 0
+}

@@ -1,0 +1,278 @@
+{
+  "acquisitionTimes": {
+    "after": "2024-01-03T05:34:06",
+    "before": "2023-09-08T17:08:41",
+    "timezone": "not independently verified; filename timestamps"
+  },
+  "assets": [
+    {
+      "bytes": 9805934,
+      "providerIdentity": {
+        "algorithm": "sha256",
+        "value": "1526fa22e326b9d89abc4cbea9190e0231159897466600669c1650fbdf361866"
+      },
+      "role": "after",
+      "sha256": "1526fa22e326b9d89abc4cbea9190e0231159897466600669c1650fbdf361866",
+      "sourcePath": "sample/geoid-flood/EMSR712-10/s1grd/EMSR712-10-0_s1grd_post_20240103T053406.tif"
+    },
+    {
+      "bytes": 9862725,
+      "providerIdentity": {
+        "algorithm": "sha256",
+        "value": "7c41e9783075600a21d6e380c46e858260935014d16d081470d56eb980f8203f"
+      },
+      "role": "before",
+      "sha256": "7c41e9783075600a21d6e380c46e858260935014d16d081470d56eb980f8203f",
+      "sourcePath": "sample/geoid-flood/EMSR712-10/s1grd/EMSR712-10-0_s1grd_pre_20230908T170841.tif"
+    },
+    {
+      "bytes": 9464,
+      "providerIdentity": {
+        "algorithm": "git-blob-sha1",
+        "value": "7b50594dca83b938a1c1853d7582243ad1831961"
+      },
+      "role": "label",
+      "sha256": "5831507e143de4108d3e18bb4f1c16c1230d3d434e7bceb3e154a62c8f2d61b9",
+      "sourcePath": "sample/geoid-flood/EMSR712-10/label/EMSR712-10-0_label.tif"
+    },
+    {
+      "bytes": 9464,
+      "providerIdentity": {
+        "algorithm": "git-blob-sha1",
+        "value": "3ccf3635e230960b084b18f080b40b83ff4b7dd9"
+      },
+      "role": "validity",
+      "sha256": "f27d72473c502384fc4e84195c79799049d52d64d5e73597fa1993ef6729e116",
+      "sourcePath": "sample/geoid-flood/EMSR712-10/validity/EMSR712-10-0_validity.tif"
+    }
+  ],
+  "crop": {
+    "affine": [
+      10.000000000000114,
+      0.0,
+      618240.0,
+      0.0,
+      -10.0,
+      5689599.999999999
+    ],
+    "colOffset": 384,
+    "height": 256,
+    "rowOffset": 384,
+    "width": 256
+  },
+  "dataset": "links-ads/geoid-flood",
+  "eventTime": "2023-12-24T08:00:00",
+  "geometryCompatibility": "unknown: relative orbit, pass direction, look direction and incidence not supplied by this sample manifest; no temporal ratio or attribution permitted",
+  "inSimpleTerms": "Tile EMSR712-10-0: before 2023-09-08T17:08:41 and after 2024-01-03T05:34:06 (filename times; timezone unverified). 7,935 of 65,536 fixed crop pixels (12.11%) pass all shared validity rules. Both dates and both radar bands use those same pixels within each provider class. One static provider label groups both dates; it is not a separate ground observation at each date. Provider background does not independently prove dry ground. Provider background: 7,935 shared pixels. Provider permanent water: 0 shared pixels. This class is absent from the shared population, so its radar summary is withheld. Provider flooded water: 0 shared pixels. This class is absent from the shared population, so its radar summary is withheld.",
+  "license": "CC-BY-4.0 compilation/labels; modified Copernicus Sentinel-1 and CEMS Rapid Mapping products \u00a9 European Union; no DEM acquired",
+  "maskPolicy": {
+    "classGrouping": "Same static provider label for both dates, not per-date ground truth",
+    "common": "label in 0/1/2 AND validity==1 AND all four native masks (both radar bands) AND both dates' both bands finite, >0, <=1000",
+    "denominator": "One common population for all dates/bands; each class uses only its common subset",
+    "native": "Internal TIFF native masks only; no unpinned external sidecars",
+    "perDateValidPixels": "Both bands satisfy power bounds and that date's native masks, before label/validity gates",
+    "rule": "validity==1, labels in 0/1/2, per-band finite positive power <=1000 per pinned producer loader; raster native valid mask also required. Unknown definitions fail."
+  },
+  "minimumSummaryPixels": 30,
+  "nativeGrid": {
+    "affine": [
+      10.000000000000114,
+      0.0,
+      614400.0,
+      0.0,
+      -10.0,
+      5693439.999999999
+    ],
+    "bandOffsets": 0,
+    "bandScales": 1,
+    "cellAreaM2": 100,
+    "crossAssetTransformEquality": "exact",
+    "crs": "EPSG:32632",
+    "height": 1024,
+    "nominalSpacingToleranceM": 1e-09,
+    "width": 1024
+  },
+  "plainLanguage": "Small retrospective provider-labeled development sample (n=1), not current risk. This fixed training-split crop describes recorded radar power within provider classes; one static provider label groups both dates and does not establish either date's ground conditions. The labels are not field truth. Orbit and incidence compatibility are unknown. The 30-pixel display gate is an engineering rule, not an independence or sample-size guarantee.",
+  "planSha256": "364c2df188c5ef4623000eb7a68adbda4e92d72b0f6781c44193dfd10c45df61",
+  "radiometry": "Provider card and code assert linear sigma0 VV,VH; not independently radiometrically calibrated by Earthsignal",
+  "revision": "868407460bf3db492f50730a57585916baa71dc6",
+  "schemaVersion": "geoid-development-sample-1",
+  "split": "train",
+  "summary": {
+    "byClass": {
+      "0": {
+        "areaM2": 793500,
+        "commonPixels": 7935,
+        "perDate": {
+          "after": {
+            "VH": {
+              "percentilesDb": {
+                "p05": -20.864941036059598,
+                "p25": -17.584221701106934,
+                "p50": -15.57694384684347,
+                "p75": -13.743041541761439,
+                "p95": -11.337475605315882
+              },
+              "pixels": 7935
+            },
+            "VV": {
+              "percentilesDb": {
+                "p05": -12.057176074352116,
+                "p25": -9.428767872016078,
+                "p50": -7.59608414572844,
+                "p75": -5.900945026634448,
+                "p95": -3.479871866677705
+              },
+              "pixels": 7935
+            }
+          },
+          "before": {
+            "VH": {
+              "percentilesDb": {
+                "p05": -23.215868581175425,
+                "p25": -19.22835896737748,
+                "p50": -17.11728952478482,
+                "p75": -15.096845906283077,
+                "p95": -12.367464457099304
+              },
+              "pixels": 7935
+            },
+            "VV": {
+              "percentilesDb": {
+                "p05": -14.40700615497793,
+                "p25": -11.932509383366334,
+                "p50": -10.176513144214514,
+                "p75": -8.42315480308766,
+                "p95": -5.963176267866895
+              },
+              "pixels": 7935
+            }
+          }
+        },
+        "providerClass": "background",
+        "status": "displayed"
+      },
+      "1": {
+        "areaM2": 0,
+        "commonPixels": 0,
+        "perDate": null,
+        "providerClass": "permanent water",
+        "status": "withheld-absent-class"
+      },
+      "2": {
+        "areaM2": 0,
+        "commonPixels": 0,
+        "perDate": null,
+        "providerClass": "flooded water",
+        "status": "withheld-absent-class"
+      }
+    },
+    "common": {
+      "areaM2": 793500,
+      "commonPixels": 7935,
+      "perDate": {
+        "after": {
+          "VH": {
+            "percentilesDb": {
+              "p05": -20.864941036059598,
+              "p25": -17.584221701106934,
+              "p50": -15.57694384684347,
+              "p75": -13.743041541761439,
+              "p95": -11.337475605315882
+            },
+            "pixels": 7935
+          },
+          "VV": {
+            "percentilesDb": {
+              "p05": -12.057176074352116,
+              "p25": -9.428767872016078,
+              "p50": -7.59608414572844,
+              "p75": -5.900945026634448,
+              "p95": -3.479871866677705
+            },
+            "pixels": 7935
+          }
+        },
+        "before": {
+          "VH": {
+            "percentilesDb": {
+              "p05": -23.215868581175425,
+              "p25": -19.22835896737748,
+              "p50": -17.11728952478482,
+              "p75": -15.096845906283077,
+              "p95": -12.367464457099304
+            },
+            "pixels": 7935
+          },
+          "VV": {
+            "percentilesDb": {
+              "p05": -14.40700615497793,
+              "p25": -11.932509383366334,
+              "p50": -10.176513144214514,
+              "p75": -8.42315480308766,
+              "p95": -5.963176267866895
+            },
+            "pixels": 7935
+          }
+        }
+      },
+      "status": "displayed"
+    },
+    "labeledPixels": 7936,
+    "mappedPixels": 7936,
+    "nativeValidPixels": 7936,
+    "overlappingExclusions": {
+      "excludedUnionPixels": 57601,
+      "meaning": "Independent counts overlap; do not add. Union is totalPixels minus commonPixels.",
+      "nativeInvalidPixels": 57600,
+      "perBandPowerDiagnostics": {
+        "after": {
+          "VH": {
+            "above1000": 0,
+            "negative": 0,
+            "nonfinite": 0,
+            "zero": 0
+          },
+          "VV": {
+            "above1000": 0,
+            "negative": 0,
+            "nonfinite": 0,
+            "zero": 0
+          }
+        },
+        "before": {
+          "VH": {
+            "above1000": 0,
+            "negative": 0,
+            "nonfinite": 0,
+            "zero": 16
+          },
+          "VV": {
+            "above1000": 0,
+            "negative": 0,
+            "nonfinite": 0,
+            "zero": 0
+          }
+        }
+      },
+      "perDateInvalidPowerPixels": {
+        "after": 0,
+        "before": 16
+      },
+      "unlabeledPixels": 57600,
+      "unmappedPixels": 57600
+    },
+    "perDateValidPixels": {
+      "after": 65536,
+      "before": 65520
+    },
+    "totalPixels": 65536
+  },
+  "tileId": "EMSR712-10-0",
+  "units": {
+    "area": "native projected square metres",
+    "input": "linear sigma0 power, provider asserted",
+    "percentileMethod": "linear",
+    "summary": "10 log10(power), dB"
+  }
+}

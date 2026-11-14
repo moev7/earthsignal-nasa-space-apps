@@ -1,0 +1,94 @@
+{
+    "type":"Feature",
+    "properties":{
+        "id":"USGS-03339000",
+        "agency_code":"USGS",
+        "agency_name":"U.S. Geological Survey",
+        "monitoring_location_number":"03339000",
+        "monitoring_location_name":"VERMILION RIVER NEAR DANVILLE, IL",
+        "district_code":"17",
+        "country_code":"US",
+        "country_name":"United States of America",
+        "state_code":"17",
+        "state_name":"Illinois",
+        "county_code":"183",
+        "county_name":"Vermilion County",
+        "minor_civil_division_code":null,
+        "site_type_code":"ST",
+        "site_type":"Stream",
+        "hydrologic_unit_code":"051201090906",
+        "basin_code":null,
+        "altitude":503.72,
+        "altitude_accuracy":0.01,
+        "altitude_method_code":"X",
+        "altitude_method_name":"GNSS2 - Level 2 Quality Survey Grade Global Navigation Satellite System",
+        "vertical_datum":"NAVD88",
+        "vertical_datum_name":"North American Vertical Datum of 1988",
+        "horizontal_positional_accuracy_code":"F",
+        "horizontal_positional_accuracy":"Accurate to + or - 5 sec.",
+        "horizontal_position_method_code":"X",
+        "horizontal_position_method_name":"GNSS2 - Level 1 Quality Survey Grade Global Navigation Satellite System",
+        "original_horizontal_datum":"NAD83",
+        "original_horizontal_datum_name":"North American Datum of 1983",
+        "drainage_area":1290.0,
+        "contributing_drainage_area":null,
+        "time_zone_abbreviation":"CST",
+        "uses_daylight_savings":"N",
+        "construction_date":null,
+        "aquifer_code":null,
+        "national_aquifer_code":null,
+        "aquifer_type_code":null,
+        "well_constructed_depth":null,
+        "hole_constructed_depth":null,
+        "depth_source_code":null,
+        "revision_note":" WSP 853: 1936(M). WSP 973: 1939. WSP 1305: 1915-16, 1920, 1929. WSP\r\n  1335: 1934(m). WSP 1909: 1960. WDR IL-75-1: Drainage area. WDR\r\n  IL-84-1: 1983. WDR IL-92-1: 1991.",
+        "revision_created":"2017-11-13T06:00:00+00:00",
+        "revision_modified":null
+    },
+    "id":"USGS-03339000",
+    "geometry":{
+        "type":"Point",
+        "coordinates":[
+            -87.5976111111111,
+            40.1010833333333
+        ]
+    },
+    "links":[
+        {
+            "type":"application/json",
+            "rel":"root",
+            "title":"The landing page of this server as JSON",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1?f=json"
+        },
+        {
+            "type":"text/html",
+            "rel":"root",
+            "title":"The landing page of this server as HTML",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1?f=html"
+        },
+        {
+            "rel":"self",
+            "type":"application/geo+json",
+            "title":"This document as JSON",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items/USGS-03339000?f=json"
+        },
+        {
+            "rel":"alternate",
+            "type":"application/ld+json",
+            "title":"This document as RDF (JSON-LD)",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items/USGS-03339000?f=jsonld"
+        },
+        {
+            "rel":"alternate",
+            "type":"text/html",
+            "title":"This document as HTML",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items/USGS-03339000?f=html"
+        },
+        {
+            "rel":"collection",
+            "type":"application/json",
+            "title":"Monitoring locations",
+            "href":"https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations"
+        }
+    ]
+}
