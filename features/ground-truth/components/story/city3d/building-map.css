@@ -1,0 +1,8 @@
+.es-public .es-footprint-map { height: 440px; width: 100%; margin: 24px 0; background: #272d28; border-radius: 12px; z-index: 0; }
+.es-public .es-regional-buildings { margin-top: 32px; }
+.es-public .es-regional-buildings form { margin: 24px 0; }
+.es-public .es-regional-buildings form label { display: block; margin-bottom: 8px; }
+.es-public .es-regional-buildings form > div { display: flex; flex-wrap: wrap; gap: 12px; }
+.es-public .es-regional-buildings input { min-height: 48px; min-width: 0; max-width: 100%; padding: 10px 14px; background: #202923; border: 1px solid #69796d; border-radius: 6px; color: #eef0e9; }
+.es-public .es-regional-buildings .leaflet-control-attribution { color: #222; background: #f5f3eb; font-size: 11px; }
+.es-public .es-regional-buildings .leaflet-control-attribution a { color: #164d3b; }

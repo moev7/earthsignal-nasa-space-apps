@@ -1,0 +1,89 @@
+.es-public .es-scene { min-width: 0; }
+.es-public .es-city-exhibition .es-city-stage { background: #191c1d; border-radius: 0; }
+.es-public .es-city-activity-label { position: absolute; right: 16px; bottom: 12px; margin: 0; padding: 6px 9px; background: #191c1de8; color: #c6ccc5; font-size: var(--earth-type-caption); line-height: 1.4; pointer-events: none; }
+
+.es-public .es-scene-placeholder { min-height: 460px; display: grid; place-content: center; padding: 3rem; color: #d6d9d4; background: #1b211f; line-height: 1.7; }
+.es-public .es-city-stage { position: relative; height:clamp(360px,48vw,620px); overflow: hidden; border-radius: 14px; background: #252a27; }
+.es-public .es-city-stage canvas { position:absolute; inset:0; display: block; width: 100%; height:100%; }
+.es-public .es-city-caption { position:static; padding:10px 0; color: #f0f0e9; pointer-events: none; }
+.es-public .es-city-caption strong, .es-public .es-city-caption span { display: block; }
+.es-public .es-city-caption strong { font-size: 14px; font-weight: 600; }
+.es-public .es-city-caption span { margin-top: 4px; color: #c6ccc5; font-size: var(--earth-type-caption); line-height: 1.5; }
+.es-public .es-city-fallback { position: absolute; inset: 0; display: grid; align-content: center; padding: clamp(24px, 6vw, 70px); background: #1b211f; color: #f0f0e9; }
+.es-public .es-city-fallback p { max-width: 60ch; }
+.es-public .es-city button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 15px; border: 1px solid #58645d; border-radius: 8px; background: #252e28; color: #eef0e9; font: inherit; font-size: var(--earth-type-body); cursor: pointer; line-height: 1.5; min-width: 0; }
+.es-public .es-city button:hover:not(:disabled) { background: #34473b; border-color: #a6c7b3; }
+.es-public .es-city button:disabled { opacity: .5; cursor: default; }
+.es-public .es-city :focus-visible { outline: 2px solid #b1d3bd; outline-offset: 4px; }
+.es-public .es-city-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.es-public .es-city-timeline { flex: 1 1 260px; min-width: 0; display: grid; gap: 6px; font-size: 13px; line-height: 1.5; color: #e0e5dc; }
+.es-public .es-city input[type=range] { width: 100%; min-height: 30px; accent-color: #a6c7b3; }
+.es-public .es-city-note { font-size: 14px; line-height: 1.65; color: #c7cec5; margin: 16px 0; max-width: 80ch; }
+.es-public .es-city-options { border-top: 1px solid #3a433c; margin-top: 18px; padding: 12px 0; }
+.es-public .es-city-options summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; color: #d3e6d7; font-size: 15px; line-height: 1.5; min-width: 0; }
+.es-public .es-city-options p { color: #c7cec5; font-size: var(--earth-type-body); line-height: 1.7; max-width: 75ch; }
+.es-public .es-city-option-row { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; padding: 12px 0; }
+.es-public .es-city-options label { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-height: 44px; color: #d5ded2; font-size: 14px; }
+.es-public .es-city-options select { max-width: 100%; min-height: 44px; padding: 6px 12px; background: #202923; border: 1px solid #68786b; border-radius: 6px; color: #eef0e9; font: inherit; }
+.es-public .es-city-options input[type=checkbox] { width: 18px; height: 18px; accent-color: #a6c7b3; }
+.es-public .es-city-inspector { margin-top: 14px; padding: 24px; background: #202923; border-radius: 12px; }
+.es-public .es-city-inspector > div { display: flex; justify-content: space-between; align-items: center; }
+.es-public .es-city-inspector h4 { margin: 0; font-size: 18px; }
+.es-public .es-city-inspector p { font-size: var(--earth-type-body); color: #cad4c7; }
+.es-public .es-city-inspector dl { display: grid; gap: 12px; }
+.es-public .es-city-inspector dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.es-public .es-city-inspector dt { color: #cad4c7; }
+.es-public .es-city-inspector dd { margin: 0; }
+@media (max-width: 600px) {
+  .es-public .es-city-caption { top: 10px; left: 10px; max-width: calc(100% - 20px); padding: 8px 10px; }
+  .es-public .es-city-caption span { font-size: var(--earth-type-caption); }
+  .es-public .es-city-controls > .es-city-timeline { order: 3; flex-basis: 100%; }
+  .es-public .es-city-controls > button:last-child { flex: 1; }
+  .es-public .es-city-stage { height: 420px; }
+}
+@media print { .es-public .es-city-controls, .es-public .es-city-options { display: none; } }
+.es-public .es-city .es-city-preview-explore { margin-top:8px; border:1px solid #8bcec0; border-radius:6px; color:#121617; background:#8bcec0; padding:8px 12px; min-height:44px; font-size:14px; }
+.es-public .es-city-future { margin-block:24px; padding:24px; background:var(--es-surface); border-radius:12px; }
+.es-public .es-city-future>div { display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-bottom:16px; }
+.es-public .es-city-future h4 { font-size:1.25rem; }
+.es-public .es-city-future p { font-size:.9375rem; }
+.es-public .es-city-scenario>div { padding-block:24px; }
+.es-public .es-city-scenario h4 { font-size:1.2rem; margin-bottom:16px; }
+.es-public .es-city-scenario figure { max-width:800px; margin-block:24px; }
+.es-public .es-city-scenario figure svg { width:100%; cursor:crosshair; }
+.es-public .es-city-scenario figcaption, .es-public .es-city-scenario p { color:var(--es-muted); font-size:.875rem; }
+.es-public .es-city-threshold-scroll { overflow-x:auto; margin-block:24px; }
+.es-public .es-city-threshold-scroll table { width:100%; text-align:left; font-size:.8125rem; border-collapse:collapse; }
+.es-public .es-city-threshold-scroll th, .es-public .es-city-threshold-scroll td { padding:12px; border-bottom:1px solid var(--es-line); }
+.es-public .es-city-threshold-scroll caption { text-align:left; padding-bottom:16px; font-size:.875rem; }
+
+/* Opening fast-forward: compact year counter and ground-tilt counts over the measured neighbourhood. */
+.es-public .es-city-intro { position:absolute; top:10px; left:10px; z-index:2; max-width:min(460px, calc(100% - 20px)); padding:8px 11px; background:#141718d9; border:1px solid #ffffff1f; border-radius:8px; color:#f0f0e9; backdrop-filter:blur(6px); }
+.es-public .es-city-intro-year { margin:0; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+.es-public .es-city-intro-year span { font-size:clamp(26px,3.4vw,36px); line-height:1; font-weight:700; font-variant-numeric:tabular-nums; }
+.es-public .es-city-intro-year small { color:#c6ccc5; font-size:var(--earth-type-caption); }
+.es-public .es-city-intro ul { list-style:none; margin:6px 0 0; padding:0; display:flex; gap:10px; flex-wrap:wrap; }
+.es-public .es-city-intro li { display:flex; align-items:center; gap:5px; white-space:nowrap; font-size:var(--earth-type-body); color:#c6ccc5; }
+.es-public .es-city-intro li i { width:9px; height:9px; border-radius:2px; flex:none; }
+.es-public .es-city-intro li b { min-width:3ch; text-align:right; color:#f0f0e9; font-size:15px; font-variant-numeric:tabular-nums; }
+.es-public .es-city-intro-note { margin:5px 0 0; color:#9aa19a; font-size:var(--earth-type-caption); line-height:1.35; }
+.es-public .es-city-intro button { margin-top:6px; min-height:32px; padding:4px 10px; border-radius:6px; border:1px solid #8bcec0; background:#8bcec0; color:#121617; font-size:var(--earth-type-body); font-weight:600; line-height: 1.5; min-width: 0; }
+.es-public .es-city-intro button:disabled { opacity:.5; }
+.es-public .es-sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width: 560px) {
+  .es-public .es-city-intro { top:6px; left:6px; padding:6px 8px; }
+  .es-public .es-city-intro-note { display:none; }
+}
+
+/* Preview scenes are draggable from the start: hint (fades after first touch) and zoom buttons. */
+.es-public .es-city-handle { position:absolute; left:10px; right:10px; bottom:10px; z-index:2; display:flex; align-items:flex-end; justify-content:space-between; gap:8px; pointer-events:none; }
+.es-public .es-city-hint { margin:0; display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:#141718d9; border:1px solid #8bcec066; color:#e6ebe4; font-size:var(--earth-type-caption); line-height:1.3; transition:opacity .6s ease; animation:es-city-hint-pulse 2.4s ease-in-out 3; }
+.es-public .es-city-hint svg { color:#8bcec0; }
+.es-public .es-city-hint.is-faded { opacity:0; }
+.es-public .es-city-zoom { display:flex; gap:4px; pointer-events:auto; }
+.es-public .es-city-zoom button { width:34px; min-height:44px; display:grid; place-items:center; border-radius:6px; border:1px solid #ffffff2e; background:#141718d9; color:#f0f0e9; font-size:18px; line-height:1; cursor:pointer; height: auto; min-width: 0; }
+.es-public .es-city-zoom button:hover { background:#232829; }
+@keyframes es-city-hint-pulse { 0%,100% { box-shadow:0 0 0 0 #8bcec000; } 50% { box-shadow:0 0 0 5px #8bcec033; } }
+@media (prefers-reduced-motion: reduce) { .es-public .es-city-hint { animation:none; } }
+/* The street-life label moves up so it does not sit on the controls. */
+.es-public .es-city-preview .es-city-activity-label { bottom:54px; }
