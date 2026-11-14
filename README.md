@@ -8,7 +8,7 @@
 
 An interactive story built on real NISAR radar data for NASA Space Apps 2026: *Dancing with the SARs*.
 
-**[🌍 Step into the story →](https://nasa.r8volt.com)**
+**[🌍 Step into the story →](https://nasa.r8volt.com)** · **[📑 View the showcase (PDF)](docs/Earthsignal_Showcase.pdf)**
 
 <img src="docs/images/readme/city-3d.jpg" alt="The story's opening: a 3D model of a real south-west Tehran neighbourhood, built from mapped buildings and coloured by satellite-measured ground motion" width="100%" />
 
