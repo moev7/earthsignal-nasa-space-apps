@@ -1,0 +1,294 @@
+.sign-in-shell {
+  min-height: 100svh;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 42px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--earth-text);
+}
+.sign-in-back {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 9px;
+  margin-bottom: 26px;
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+  text-decoration: none;
+  min-height: 44px;
+}
+.sign-in-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-radius: 24px;
+  border: 1px solid #ffffff1a;
+  overflow: hidden;
+  background: var(--earth-surface);
+}
+.sign-in-story {
+  display: flex;
+  flex-direction: column;
+  padding: 42px;
+  background: var(--earth-surface);
+  border-right: 1px solid #ffffff15;
+  min-width: 0;
+}
+.sign-in-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--earth-accent);
+  margin-bottom: 55px;
+}
+.sign-in-brand strong {
+  display: block;
+  font-size: 25px;
+  color: var(--earth-text);
+  letter-spacing: -0.04em;
+  font-weight: 650;
+  line-height: 1.2;
+}
+.sign-in-brand span {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+  letter-spacing: .08em;
+}
+.sign-in-eyebrow {
+  font-size: var(--earth-type-caption);
+  font-weight: 650;
+  color: var(--earth-accent);
+  letter-spacing: 0.13em;
+}
+.sign-in-story h2 {
+  font-size: clamp(27px, 3.2vw, 39px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  margin: 14px 0 18px;
+  max-width: 340px;
+}
+.sign-in-story > p:not(.sign-in-eyebrow):not(.sign-in-story-note) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--earth-muted);
+  max-width: 310px;
+}
+.sign-in-benefits {
+  display: grid;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 32px 0;
+}
+.sign-in-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--earth-muted);
+  font-size: var(--earth-type-body);
+  line-height: 1.6;
+}
+.sign-in-benefits svg {
+  color: var(--earth-muted);
+  flex: 0 0 18px;
+}
+.sign-in-story-note {
+  margin-top: auto;
+  padding-top: 26px;
+  border-top: 1px solid #ffffff15;
+  color: var(--earth-muted);
+  font-size: var(--earth-type-caption);
+  line-height: 1.6;
+}
+.sign-in-access {
+  padding: 55px 42px 38px;
+  min-width: 0;
+}
+.sign-in-access h1 {
+  font-size: 31px;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin: 12px 0;
+  font-weight: 550;
+}
+.sign-in-intro {
+  color: var(--earth-muted);
+  font-size: var(--earth-type-body);
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+.sign-in-form {
+  display: grid;
+  gap: 22px;
+}
+.sign-in-field {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+.sign-in-field label {
+  font-size: var(--earth-type-label);
+  color: var(--earth-text);
+  font-weight: 500;
+}
+.sign-in-field input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid #ffffff25;
+  border-radius: 9px;
+  background: var(--earth-deep);
+  color: var(--earth-text);
+  font-size: var(--earth-type-control);
+  line-height: 1.5;
+  min-width: 0;
+}
+.sign-in-field input::placeholder {
+  color: var(--earth-muted);
+  font-size: var(--earth-type-body);
+}
+.sign-in-field input:focus {
+  border-color: var(--earth-accent);
+}
+.sign-in-password {
+  position: relative;
+}
+.sign-in-password input {
+  padding-right: 52px;
+}
+.sign-in-password button {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--earth-muted);
+  background: transparent;
+  cursor: pointer;
+  height: auto;
+}
+.sign-in-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  min-height: 50px;
+  padding: 13px 17px;
+  border-radius: 9px;
+  border: 1px solid var(--earth-accent);
+  background: var(--earth-accent);
+  color: var(--earth-deep);
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.sign-in-submit:hover:not(:disabled) {
+  background: var(--earth-accent-hover);
+}
+.sign-in-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.sign-in-message {
+  font-size: var(--earth-type-caption);
+  line-height: 1.7;
+  color: var(--earth-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.sign-in-message:empty {
+  display: none;
+}
+.sign-in-message.is-error {
+  padding: 12px;
+  border: 1px solid #ffad6c45;
+  border-radius: 8px;
+  background: #ffad6c08;
+  color: #efc5a3;
+}
+.sign-in-message svg {
+  flex: 0 0 17px;
+  margin-top: 2px;
+}
+.sign-in-help {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #ffffff15;
+  font-size: var(--earth-type-caption);
+  line-height: 1.8;
+  color: var(--earth-muted);
+}
+.sign-in-help strong {
+  font-weight: 500;
+  color: var(--earth-muted);
+}
+.sign-in-help p + p {
+  margin-top: 14px;
+}
+.sign-in-footer {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+}
+.sign-in-shell :is(a, button, input):focus-visible {
+  outline: 2px solid var(--earth-accent);
+  outline-offset: 4px;
+}
+@media (max-width: 760px) {
+  .sign-in-shell {
+    padding: 22px 18px;
+    justify-content: flex-start;
+  }
+  .sign-in-back {
+    margin-bottom: 14px;
+  }
+  .sign-in-card {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 18px;
+  }
+  .sign-in-story {
+    padding: 24px;
+    border-right: none;
+    border-bottom: 1px solid #ffffff15;
+    min-width: 0;
+  }
+  .sign-in-brand {
+    margin-bottom: 26px;
+  }
+  .sign-in-story h2 {
+    font-size: 29px;
+    max-width: none;
+  }
+  .sign-in-story > p:not(.sign-in-eyebrow):not(.sign-in-story-note) {
+    max-width: none;
+  }
+  .sign-in-benefits,
+  .sign-in-story-note {
+    display: none;
+  }
+  .sign-in-access {
+    padding: 28px 24px;
+    min-width: 0;
+  }
+  .sign-in-access h1 {
+    font-size: 27px;
+  }
+  .sign-in-intro {
+    margin-bottom: 24px;
+    font-size: var(--earth-type-body);
+  }
+}

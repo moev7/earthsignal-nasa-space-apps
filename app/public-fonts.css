@@ -1,0 +1,8 @@
+/* Manrope variable Latin, Fontsource 5.3.0, SIL Open Font License. */
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-variable.woff2') format('woff2');
+}
