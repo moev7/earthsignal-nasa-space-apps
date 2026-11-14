@@ -1,0 +1,83 @@
+.es-missions-question, .es-missions-progress {
+  color: var(--es-text, var(--earth-text));
+  font-family: var(--es-font, var(--earth-font));
+  font-size: .875rem;
+  line-height: 1.6;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.es-missions-question { border-block: 1px solid var(--es-line, var(--earth-line)); margin-block: 28px; }
+.es-missions-question > summary, .es-missions-progress > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.es-missions-question > summary { flex-wrap: wrap; }
+.es-missions-question > summary > span:first-child { flex: 1 1 38ch; }
+.es-missions-question > summary::after, .es-missions-progress > summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin: 0 4px 4px auto;
+}
+.es-missions-question[open] > summary::after, .es-missions-progress[open] > summary::after { transform: rotate(225deg); margin-bottom: -3px; }
+.es-missions-question summary::-webkit-details-marker, .es-missions-progress summary::-webkit-details-marker { display: none; }
+.es-missions-reward { color: var(--es-accent, var(--earth-accent)); font-size: .8125rem; }
+.es-missions-question-body { padding: 8px 0 20px; max-width: 70ch; }
+.es-missions-question-body .es-missions-note, .es-missions-progress-body .es-missions-note { color: var(--es-muted, var(--earth-muted)); font-size: .875rem; margin: 0; }
+.es-missions-answers { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 16px; }
+.es-missions-answers button, .es-missions-actions button {
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--es-line, var(--earth-line));
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.es-missions-answers button:hover, .es-missions-actions button:hover { border-color: var(--es-accent, var(--earth-accent)); }
+.es-missions-answers button[aria-pressed="true"] { background: var(--es-accent, var(--earth-accent)); color: var(--es-deep, var(--earth-deep)); border-color: transparent; }
+.es-missions-answers button:disabled, .es-missions-actions button:disabled { opacity: .6; cursor: default; }
+.es-missions-question :focus-visible, .es-missions-progress :focus-visible { outline: 2px solid var(--es-accent, var(--earth-accent)); outline-offset: 4px; }
+.es-missions-question-body .es-missions-feedback { margin: 0; }
+.es-missions-feedback:empty { display: block; }
+.es-missions-progress { position: relative; font-variant-numeric: tabular-nums; }
+.es-missions-progress > summary { font-size: var(--earth-type-body); line-height: 1.5; min-width: 0; }
+.es-missions-progress-body { padding-block: 12px; }
+.es-missions-compact > .es-missions-progress-body {
+  position: absolute;
+  z-index: 45;
+  inset: 100% 0 auto auto;
+  width: min(370px, calc(100vw - 40px));
+  max-height: min(560px, 65dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px;
+  background: var(--es-surface, var(--earth-surface));
+  border: 1px solid var(--es-line, var(--earth-line));
+  border-radius: 6px;
+}
+.es-missions-checklist { list-style: none; margin: 20px 0; padding: 0; }
+.es-missions-checklist li { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; border-bottom: 1px solid var(--es-line, var(--earth-line)); }
+.es-missions-checklist li > span:last-child { color: var(--es-muted, var(--earth-muted)); white-space: nowrap; }
+.es-missions-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 12px; }
+.es-missions-progress-body .es-missions-storage { color: var(--es-muted, var(--earth-muted)); font-size: .8125rem; margin-top: 20px; }
+.es-missions-reset { margin-top: 20px; }
+@media (max-width: 480px) {
+  .es-missions-question > summary > span:first-child { flex-basis: 100%; }
+  .es-missions-answers { flex-direction: column; }
+}

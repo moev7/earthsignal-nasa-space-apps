@@ -1,0 +1,1516 @@
+/* The investigation is an explicit alternate experience. Every rule is scoped. */
+.es-public .eg-game {
+  --eg-ink: #f1eee7;
+  --eg-muted: #b5bcb8;
+  --eg-line: #404948;
+  --eg-panel: #222627;
+  --eg-mint: #8bcec0;
+  --eg-amber: #e7b66e;
+  color: var(--eg-ink);
+  padding-top: 24px;
+  padding-bottom: 48px;
+  max-width: 1540px;
+}
+.es-public .eg-game button,
+.es-public .eg-game a {
+  touch-action: manipulation;
+}
+.es-public .eg-game button {
+  font: inherit;
+  cursor: pointer;
+}
+.es-public .eg-game button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.es-public .eg-game :is(button, a, input, summary):focus-visible {
+  outline: 2px solid var(--eg-amber);
+  outline-offset: 5px;
+}
+.es-public .eg-game [data-game-title] {
+  scroll-margin-top: 210px;
+  outline-offset: 8px;
+}
+.es-public .eg-game .eg-status-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--eg-line);
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1.5px;
+}
+.es-public .eg-status-ribbon > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--eg-muted);
+}
+.es-public .eg-status-ribbon i,
+.es-public .eg-guide-top i {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  border-radius: 50%;
+  background: var(--eg-mint);
+  box-shadow: 0 0 12px #b4edc840;
+}
+.es-public .eg-status-ribbon > div {
+  display: flex;
+  gap: 8px;
+}
+.es-public .eg-status-ribbon button,
+.es-public .eg-map-return,
+.es-public .eg-file-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--eg-line);
+  background: transparent;
+  color: var(--eg-ink);
+  min-height: 44px;
+  padding: 9px 14px;
+  border-radius: 5px;
+  font-size: var(--earth-type-body);
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-game .eg-opening {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(28px, 5vw, 80px);
+  align-items: center;
+  min-height: 660px;
+  padding: 44px 0 50px;
+}
+.es-public .eg-overline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--earth-type-caption);
+  letter-spacing: 2px;
+  color: var(--eg-amber);
+  text-transform: uppercase;
+  margin: 0 0 22px;
+}
+.es-public .eg-game h1 {
+  font-family: "Barlow Condensed", var(--es-font);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--eg-ink);
+  margin: 0;
+  font-size: clamp(48px, 5.8vw, 88px);
+}
+.es-public .eg-game h1 em {
+  font-style: normal;
+  color: var(--eg-mint);
+}
+.es-public .eg-opening h1 {
+  font-size: clamp(66px, 7.2vw, 110px);
+  line-height: 1.15;
+}
+.es-public .eg-opening-lead {
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.65;
+  max-width: 430px;
+  color: var(--eg-muted);
+  margin: 24px 0;
+}
+.es-public .eg-transmission {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 18px 15px 3px;
+  background: linear-gradient(110deg, #263c33, #1c302a80);
+  border: 1px solid #6c8e7040;
+  border-radius: 10px;
+  margin: 24px 0;
+  max-width: 460px;
+  min-height: 160px;
+}
+.es-public .eg-echo-portrait {
+  width: 130px;
+  min-width: 100px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+.es-public .eg-transmission > div {
+  flex: 1;
+  min-width: 0;
+}
+.es-public .eg-transmission span,
+.es-public .eg-guide-top > span {
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1.6px;
+  color: var(--eg-mint);
+}
+.es-public .eg-transmission p {
+  font-size: var(--earth-type-body);
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.es-public .eg-transmission button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  color: var(--eg-amber);
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-game .eg-launch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  background: var(--eg-mint);
+  color: #17362c;
+  border: 1px solid var(--eg-mint);
+  min-height: 52px;
+  padding: 13px 21px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.16s;
+}
+.es-public .eg-game .eg-launch:hover {
+  background: #d5f8dc;
+}
+.es-public .eg-game .eg-fine {
+  font-size: var(--earth-type-caption);
+  line-height: 1.7;
+  color: var(--eg-muted);
+  margin: 13px 0;
+}
+.es-public .eg-opening-map {
+  min-width: 0;
+  transform: rotate(-1deg);
+}
+.es-public .eg-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--earth-type-caption);
+  color: var(--eg-muted);
+  letter-spacing: 1px;
+  margin-bottom: 13px;
+  text-transform: uppercase;
+}
+.es-public .eg-map-heading > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--eg-ink);
+}
+.es-public .eg-game .eg-field-map {
+  position: relative;
+  aspect-ratio: 1.24;
+  min-height: 400px;
+  isolation: isolate;
+  border: 1px solid #617c6c;
+  box-shadow: 0 20px 60px #0002;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #102b2d;
+}
+.es-public .eg-map-terrain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.es-public .eg-map-terrain svg {
+  width: 100%;
+  height: 100%;
+}
+.es-public .eg-field-map ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.es-public .eg-map-node {
+  position: absolute;
+  width: 44%;
+  margin: 0;
+}
+.es-public .eg-map-node-0 {
+  left: 4%;
+  top: 24%;
+}
+.es-public .eg-map-node-1 {
+  left: 48%;
+  top: 43%;
+}
+.es-public .eg-map-node-2 {
+  left: 47%;
+  top: 11%;
+}
+.es-public .eg-map-node-3 {
+  left: 8%;
+  top: 61%;
+}
+.es-public .eg-map-node-4 {
+  left: 51%;
+  top: 76%;
+}
+.es-public .eg-map-node a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 62px;
+  padding: 10px 11px;
+  background: #17332fe8;
+  backdrop-filter: blur(4px);
+  border: 1px solid #698c7966;
+  border-radius: 8px;
+  color: var(--eg-ink);
+  text-decoration: none;
+  box-shadow: 0 5px 20px #0002;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.es-public .eg-map-node a:hover,
+.es-public .eg-map-node[data-selected="true"] a {
+  background: #2b5140;
+  border-color: var(--eg-mint);
+}
+.es-public .eg-map-node[data-earned="true"] a {
+  border-color: #b4edc88a;
+}
+.es-public .eg-map-node a > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--eg-muted);
+  width: 14px;
+}
+.es-public .eg-map-pin {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #b4edc817;
+  color: var(--eg-mint);
+}
+.es-public .eg-map-node[data-earned="true"] .eg-map-pin {
+  background: var(--eg-mint);
+  color: #15372e;
+}
+.es-public .eg-map-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.es-public .eg-map-label small {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--eg-muted);
+  line-height: 1.5;
+}
+.es-public .eg-map-label strong {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.es-public .eg-map-note {
+  position: absolute;
+  bottom: 3px;
+  left: 18px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #a3bcae;
+}
+.es-public .eg-file-open {
+  border: 0;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--eg-mint);
+  padding: 16px 2px;
+}
+.es-public .eg-world-enter[data-arriving="true"] {
+  animation: eg-arrive 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+@keyframes eg-arrive {
+  from {
+    opacity: 0.4;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.es-public .eg-mission {
+  padding: 38px 0 22px;
+}
+.es-public .eg-game .eg-mission-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.es-public .eg-mission-heading h1 {
+  font-size: clamp(46px, 5vw, 76px);
+}
+.es-public .eg-mission-heading h1 > span {
+  color: var(--eg-mint);
+}
+.es-public .eg-mission-heading > div > p:last-child {
+  font-size: 16px;
+  color: var(--eg-muted);
+  line-height: 1.6;
+  margin: 15px 0 0;
+}
+.es-public .eg-map-return {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 26px;
+}
+.es-public .eg-mission-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: clamp(20px, 3vw, 46px);
+  align-items: start;
+}
+.es-public .eg-mission-main {
+  min-width: 0;
+}
+.es-public .eg-postcard {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  padding: 19px 22px;
+  background: #2a392520;
+  border-left: 3px solid var(--eg-amber);
+  margin-bottom: 18px;
+}
+.es-public .eg-postcard > span {
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1.6px;
+  white-space: nowrap;
+  color: var(--eg-amber);
+  padding-top: 4px;
+}
+.es-public .eg-postcard p {
+  margin: 0;
+  color: var(--eg-ink);
+  font-size: var(--earth-type-body);
+  line-height: 1.65;
+  max-width: 64ch;
+}
+.es-public .eg-prediction {
+  border: 1px solid var(--eg-line);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.es-public .eg-prediction summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 17px;
+  min-height: 48px;
+  cursor: pointer;
+  color: var(--eg-muted);
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-prediction summary::after {
+  content: "+";
+  margin-left: auto;
+}
+.es-public .eg-prediction[open] summary::after {
+  content: "−";
+}
+.es-public .eg-prediction > div {
+  padding: 0 18px 18px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.es-public .eg-prediction > div > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.es-public .eg-prediction button {
+  background: #1b3029;
+  color: var(--eg-ink);
+  border: 1px solid var(--eg-line);
+  border-radius: 4px;
+  min-height: 48px;
+  text-align: left;
+  padding: 10px 13px;
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-prediction button[aria-pressed="true"] {
+  border-color: var(--eg-amber);
+  background: #ffd18b0d;
+}
+.es-public .eg-prediction .eg-compare-prediction {
+  margin-top: 12px;
+  color: var(--eg-amber);
+  border: 0;
+  background: none;
+}
+.es-public .eg-world-slot {
+  border: 1px solid #58736470;
+  background: #102322;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px #0001;
+  min-width: 0;
+}
+.es-public .eg-world-slot > * {
+  max-width: 100%;
+}
+.es-public .eg-game .eg-science-label {
+  font-size: var(--earth-type-caption);
+  color: var(--eg-muted);
+  line-height: 1.6;
+  margin: 12px 0 26px;
+  letter-spacing: 0.15px;
+}
+.es-public .eg-guide {
+  position: sticky;
+  top: 210px;
+  min-width: 0;
+  background: linear-gradient(155deg, #263d31, #193128);
+  border: 1px solid #80a98a70;
+  border-radius: 12px;
+  padding: 17px;
+  box-shadow: 0 12px 32px #0002;
+}
+.es-public .eg-guide-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.es-public .eg-guide-top > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-guide-top > button {
+  border: 0;
+  background: none;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--eg-muted);
+}
+.es-public .eg-guide-face {
+  display: flex;
+  align-items: center;
+  margin: 0 -5px 8px;
+  gap: 0;
+}
+.es-public .eg-guide-face .eg-echo-portrait {
+  width: 105px;
+  min-width: 105px;
+}
+.es-public .eg-guide-face small {
+  color: var(--eg-amber);
+  text-transform: uppercase;
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1px;
+}
+.es-public .eg-guide-face p {
+  font-size: var(--earth-type-body);
+  line-height: 1.65;
+  margin: 6px 0 0;
+}
+.es-public .eg-objective {
+  padding: 15px 0;
+  border-top: 1px solid #88a88c45;
+  border-bottom: 1px solid #88a88c45;
+}
+.es-public .eg-objective > span,
+.es-public .eg-pocket > span {
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1.8px;
+  color: var(--eg-mint);
+}
+.es-public .eg-objective p {
+  font-size: var(--earth-type-body);
+  line-height: 1.6;
+  margin: 9px 0 0;
+  color: #e9f3df;
+}
+.es-public .eg-hint-area {
+  padding-top: 19px;
+}
+.es-public .eg-hint-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: var(--earth-type-caption);
+  color: var(--eg-amber);
+}
+.es-public .eg-hint-label > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.es-public .eg-hint-label i {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border: 1px solid var(--eg-amber);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.es-public .eg-hint-label i[data-on="true"] {
+  background: var(--eg-amber);
+  opacity: 1;
+}
+.es-public .eg-hint-area > p {
+  font-size: var(--earth-type-body);
+  line-height: 1.7;
+  color: #cfdfc9;
+  min-height: 62px;
+}
+.es-public .eg-hint-area > button,
+.es-public .eg-pocket button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  background: #b4edc815;
+  border: 1px solid #91bf9360;
+  border-radius: 5px;
+  color: var(--eg-mint);
+  font-size: var(--earth-type-body);
+  padding: 10px 12px;
+  width: 100%;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-hint-area .eg-quiet-button {
+  min-height: 44px;
+  border: 0;
+  background: none;
+  justify-content: center;
+  font-size: var(--earth-type-body);
+  color: var(--eg-muted);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-pocket {
+  padding-top: 19px;
+  margin-top: 18px;
+  border-top: 1px solid #88a88c45;
+}
+.es-public .eg-pocket > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 14px 0;
+}
+.es-public .eg-pocket > div > span {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #709276;
+  border-radius: 6px;
+  color: #66876e;
+}
+.es-public .eg-pocket > div > span[data-earned="true"] {
+  border: 1px solid var(--eg-mint);
+  color: var(--eg-mint);
+  background: #b4edc815;
+}
+.es-public .eg-pocket button {
+  background: none;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.es-public .eg-guide[data-reacting="true"] .eg-echo-body {
+  animation: eg-echo-nod 0.55s ease-out;
+}
+@keyframes eg-echo-nod {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-7px) rotate(-3deg);
+    transform-origin: 75px 60px;
+  }
+}
+.es-public .eg-guide-quiet {
+  position: sticky;
+  top: 210px;
+  border: 1px dashed var(--eg-line);
+  border-radius: 8px;
+  padding: 14px;
+}
+.es-public .eg-guide-quiet button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: none;
+  color: var(--eg-mint);
+  font-size: var(--earth-type-body);
+  min-height: 44px;
+  padding: 0;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-guide-quiet .eg-echo-portrait {
+  width: 65px;
+  min-width: 65px;
+}
+.es-public .eg-guide-quiet p {
+  font-size: var(--earth-type-body);
+  line-height: 1.7;
+  color: var(--eg-muted);
+}
+.es-public .eg-game .es-field-challenge {
+  margin-top: 27px;
+  padding: 22px;
+  border: 1px solid #647b5d80;
+  border-radius: 10px;
+  background: #22322740;
+}
+.es-public .eg-game .es-field-challenge > header {
+  gap: 12px;
+}
+.es-public .eg-game .es-field-challenge h3 {
+  font-size: 29px;
+  line-height: 1.15;
+}
+.es-public .eg-game .es-field-reward {
+  font-size: var(--earth-type-caption);
+  padding: 7px 10px;
+}
+.es-public .eg-game .es-field-kind {
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-game .es-field-work {
+  font-size: 13px;
+}
+.es-public .eg-game .es-field-work > p {
+  font-size: var(--earth-type-body);
+  line-height: 1.8;
+}
+.es-public .eg-game .es-quest-feedback {
+  font-size: var(--earth-type-body);
+  line-height: 1.7;
+}
+.es-public .eg-game .es-order-cards li {
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-game .es-order-cards button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.es-public .eg-game .es-field-exit {
+  display: none;
+} /* Deck provides one deliberate onward action. */
+.es-public .eg-game .es-quest-primary {
+  font-size: 13px;
+  min-height: 48px;
+}
+.es-public .eg-game .es-quest-actions > button {
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-game .es-clue-reveal {
+  margin-top: 18px;
+  padding: 18px;
+  gap: 16px;
+  background: #b4edc80d;
+  border-radius: 7px;
+}
+.es-public .eg-game .es-clue-reveal h4 {
+  font-size: 24px;
+}
+.es-public .eg-game .es-clue-reveal p {
+  font-size: var(--earth-type-body);
+  line-height: 1.8;
+}
+.es-public .eg-game .es-clue-reveal .es-quest-eyebrow {
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-game .es-clue-reveal a {
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-mission-next {
+  border-top: 1px solid var(--eg-line);
+  margin-top: 28px;
+  padding-top: 23px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  justify-content: space-between;
+}
+.es-public .eg-mission-next > div {
+  display: flex;
+  gap: 13px;
+  align-items: start;
+  color: var(--eg-muted);
+}
+.es-public .eg-mission-next > div > svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--eg-mint);
+}
+.es-public .eg-mission-next p {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  max-width: 360px;
+  font-size: var(--earth-type-body);
+  line-height: 1.6;
+}
+.es-public .eg-mission-next p span {
+  font-size: var(--earth-type-body);
+}
+.es-public .eg-mission-next strong {
+  font-size: 14px;
+  color: var(--eg-ink);
+}
+.es-public .eg-mission-next .eg-launch {
+  flex-shrink: 0;
+  font-size: var(--earth-type-caption);
+  padding: 12px 15px;
+  min-height: 48px;
+}
+.es-public .eg-aquifer-world {
+  padding: 22px;
+}
+.es-public .eg-world-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: var(--earth-type-caption);
+  letter-spacing: 1px;
+  color: var(--eg-muted);
+  margin-bottom: 12px;
+}
+.es-public .eg-world-label output {
+  color: var(--eg-amber);
+  text-transform: uppercase;
+}
+.es-public .eg-game .eg-aquifer-world .es-aquifer-object {
+  margin: 0;
+  border: 0;
+  background: none;
+}
+.es-public .eg-game .eg-aquifer-world .es-aquifer-object-view {
+  height: clamp(240px, 31vw, 420px);
+}
+.es-public .eg-game .eg-aquifer-world .es-aquifer-object figcaption {
+  font-size: 14px;
+  margin-top: 10px;
+}
+.es-public .eg-game .eg-aquifer-world .es-aquifer-key {
+  font-size: var(--earth-type-caption);
+  gap: 15px;
+}
+.es-public .eg-game .eg-aquifer-world .es-water-controls {
+  margin-top: 15px;
+}
+.es-public .eg-game .eg-aquifer-world .es-water-controls summary {
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-game .eg-aquifer-world .es-water-controls label {
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-game .eg-aquifer-world .es-water-presets button {
+  font-size: var(--earth-type-body);
+  min-height: 44px;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-scene-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  border-top: 1px solid var(--eg-line);
+  padding-top: 16px;
+  margin-top: 18px;
+}
+.es-public .eg-scene-sequence button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--eg-muted);
+  background: transparent;
+  border: 1px solid var(--eg-line);
+  border-radius: 4px;
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-scene-sequence button span {
+  font-size: var(--earth-type-body);
+  color: var(--eg-mint);
+}
+.es-public .eg-scene-sequence button[aria-pressed="true"] {
+  background: #b4edc81a;
+  border-color: var(--eg-mint);
+  color: var(--eg-ink);
+}
+.es-public .eg-scene-sequence .eg-play-sequence {
+  color: var(--eg-amber);
+}
+.es-public .eg-game .eg-world-slot .es-scene-help {
+  margin: 10px 15px;
+}
+.es-public .eg-game .eg-world-slot .es-scene-help summary {
+  font-size: var(--earth-type-body);
+  min-height: 44px;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-tool-switch {
+  display: flex;
+  padding: 12px;
+  gap: 8px;
+  background: #1e362b;
+}
+.es-public .eg-tool-switch button {
+  flex: 1;
+  min-height: 48px;
+  padding: 10px;
+  color: var(--eg-muted);
+  border: 1px solid var(--eg-line);
+  border-radius: 5px;
+  background: none;
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-tool-switch button[aria-pressed="true"] {
+  color: var(--eg-ink);
+  background: #b4edc81a;
+  border-color: var(--eg-mint);
+}
+.es-public .eg-game .eg-world-slot .es-story-photo {
+  margin: 0;
+}
+.es-public .eg-game .eg-world-slot .es-story-photo figcaption {
+  padding: 12px 16px;
+  font-size: var(--earth-type-caption);
+}
+.es-public .eg-game .eg-world-slot .es-photo-object {
+  max-height: 340px;
+}
+.es-public .eg-game .eg-world-slot .es-story-photo .es-photo-object img {
+  max-height: 340px;
+  object-fit: cover;
+}
+.es-public .eg-world-slot .eg-launch {
+  margin: 15px;
+}
+.es-public .eg-game .eg-world-slot .ec-tokyo-story {
+  padding: 18px;
+}
+.es-public .eg-game .eg-world-slot .ec-tokyo-figure {
+  margin: 0;
+}
+.es-public .eg-game .eg-world-slot .gt-interferogram {
+  margin: 0;
+}
+.es-public .eg-expanded-map {
+  max-width: 900px;
+  margin: 20px auto;
+}
+.es-public .eg-expanded-map .eg-field-map {
+  aspect-ratio: 1.8;
+  min-height: 370px;
+}
+.es-public .eg-evidence-room {
+  padding: 44px 0 28px;
+  max-width: 1100px;
+  margin: auto;
+}
+.es-public .eg-evidence-room > .eg-mission-heading > .eg-echo-portrait {
+  width: 180px;
+}
+.es-public .eg-game .eg-evidence-room .es-case-file {
+  margin: 25px 0;
+  padding: 30px;
+  background: linear-gradient(150deg, #2d3c2a55, #17302755);
+  border: 1px solid #7d987569;
+  border-radius: 12px;
+}
+.es-public .eg-game .eg-evidence-room .es-case-file h2 {
+  font-size: 38px;
+}
+.es-public .eg-game .eg-evidence-room .es-case-file p {
+  font-size: var(--earth-type-body);
+  line-height: 1.8;
+}
+.es-public .eg-game .eg-evidence-room .es-case-file h3 {
+  font-size: 27px;
+}
+.es-public .eg-game .eg-evidence-room .es-case-findings {
+  grid-template-columns: 1fr 1fr;
+}
+.es-public .eg-game .eg-evidence-room .es-case-findings li {
+  padding: 20px;
+}
+.es-public .eg-settings {
+  border-top: 1px solid var(--eg-line);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+.es-public .eg-settings > details {
+  max-width: 600px;
+  flex: 1;
+}
+.es-public .eg-settings summary,
+.es-public .eg-settings > a,
+.es-public .eg-sources > summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--earth-type-body);
+  color: var(--eg-muted);
+  min-height: 44px;
+  cursor: pointer;
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .eg-settings p {
+  font-size: var(--earth-type-body);
+  line-height: 1.7;
+  color: var(--eg-muted);
+}
+.es-public .eg-sources {
+  border-top: 1px solid var(--eg-line);
+  padding: 15px 0;
+}
+.es-public .eg-sources .es-sources {
+  margin-top: 20px;
+}
+.es-public .eg-game[data-motion="still"] * {
+  animation: none !important;
+  transition: none !important;
+}
+@media (min-width: 1500px) {
+  .es-public .eg-mission-grid {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+}
+@media (max-width: 1050px) {
+  .es-public .eg-game .eg-opening {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 30px;
+  }
+  .es-public .eg-opening h1 {
+    font-size: 76px;
+  }
+  .es-public .eg-map-pin {
+    width: 30px;
+    height: 30px;
+  }
+  .es-public .eg-map-label strong {
+    font-size: 10px;
+  }
+  .es-public .eg-map-label small {
+    font-size: 7px;
+  }
+  .es-public .eg-map-node a {
+    padding: 8px;
+    gap: 7px;
+  }
+  .es-public .eg-map-node a > svg {
+    display: none;
+  }
+  .es-public .eg-mission-grid {
+    grid-template-columns: minmax(0, 1fr) 265px;
+    gap: 20px;
+  }
+  .es-public .eg-guide {
+    padding: 13px;
+  }
+  .es-public .eg-guide-face .eg-echo-portrait {
+    width: 90px;
+    min-width: 90px;
+  }
+  .es-public .eg-guide-face p {
+    font-size: var(--earth-type-body);
+  }
+  .es-public .eg-mission-next {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+@media (max-width: 800px) {
+  .es-public .eg-game .eg-opening {
+    grid-template-columns: 1fr;
+    padding-top: 28px;
+  }
+  .es-public .eg-opening-copy {
+    max-width: 620px;
+  }
+  .es-public .eg-opening h1 {
+    font-size: clamp(68px, 12vw, 98px);
+  }
+  .es-public .eg-opening-lead {
+    max-width: 530px;
+  }
+  .es-public .eg-opening-map {
+    transform: none;
+  }
+  .es-public .eg-game .eg-field-map {
+    aspect-ratio: 1.6;
+    min-height: 360px;
+  }
+  .es-public .eg-map-label strong {
+    font-size: 12px;
+  }
+  .es-public .eg-map-label small {
+    font-size: 8px;
+  }
+  .es-public .eg-map-node a {
+    padding: 10px;
+    gap: 10px;
+  }
+  .es-public .eg-game .eg-mission-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .es-public .eg-mission-main {
+    width: 100%;
+  }
+  .es-public .eg-guide,
+  .es-public .eg-guide-quiet {
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .es-public .eg-guide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+  .es-public .eg-guide-top {
+    grid-column: 1/-1;
+  }
+  .es-public .eg-guide-face {
+    grid-column: 1;
+  }
+  .es-public .eg-objective {
+    grid-column: 1;
+    border-bottom: 0;
+  }
+  .es-public .eg-hint-area {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+  .es-public .eg-pocket {
+    grid-column: 1/-1;
+  }
+  .es-public .eg-pocket > div {
+    justify-content: start;
+    gap: 12px;
+  }
+  .es-public .eg-guide-quiet button {
+    gap: 10px;
+  }
+  .es-public .eg-guide-quiet .eg-echo-portrait {
+    width: 55px;
+  }
+  .es-public .eg-guide-quiet p {
+    margin: 0;
+  }
+  .es-public .eg-map-return {
+    margin-top: 0;
+  }
+  .es-public .eg-game .eg-mission-heading {
+    align-items: start;
+  }
+  .es-public .eg-mission-heading h1 {
+    font-size: 52px;
+  }
+  .es-public .eg-game .eg-evidence-room .es-case-findings {
+    grid-template-columns: 1fr;
+  }
+  .es-public .eg-transmission {
+    max-width: 530px;
+  }
+  .es-public .eg-game .eg-aquifer-world .es-aquifer-object-view {
+    height: 330px;
+  }
+}
+@media (max-width: 520px) {
+  .es-public .eg-game {
+    padding-top: 16px;
+  }
+  .es-public .eg-status-ribbon {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 11px !important;
+    font-size: var(--earth-type-caption) !important;
+    letter-spacing: 1px !important;
+  }
+  .es-public .eg-status-ribbon > div {
+    justify-content: space-between;
+  }
+  .es-public .eg-status-ribbon button {
+    flex: 1;
+    font-size: var(--earth-type-body);
+    line-height: 1.5;
+    min-width: 0;
+  }
+  .es-public .eg-game .eg-opening {
+    padding-top: 22px;
+    gap: 30px;
+  }
+  .es-public .eg-opening h1 {
+    font-size: 72px;
+  }
+  .es-public .eg-overline {
+    font-size: var(--earth-type-caption);
+    letter-spacing: 1.3px;
+  }
+  .es-public .eg-opening-lead {
+    font-size: 15px;
+  }
+  .es-public .eg-transmission {
+    padding: 10px 12px 10px 0;
+  }
+  .es-public .eg-transmission .eg-echo-portrait {
+    width: 100px;
+    min-width: 90px;
+  }
+  .es-public .eg-transmission p {
+    font-size: var(--earth-type-body);
+  }
+  .es-public .eg-transmission span {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-opening-map .eg-map-heading {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-game .eg-field-map {
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 44px 15px 42px;
+  }
+  .es-public .eg-field-map ol {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .es-public .eg-field-map .eg-map-node {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+  }
+  .es-public .eg-map-node a {
+    min-height: 62px;
+    padding: 10px 14px;
+  }
+  .es-public .eg-map-node:nth-child(even) {
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+  .es-public .eg-map-node:nth-child(odd) {
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  .es-public .eg-map-pin {
+    width: 36px;
+    height: 36px;
+  }
+  .es-public .eg-map-label strong {
+    font-size: 13px;
+  }
+  .es-public .eg-map-label small {
+    font-size: 8px;
+  }
+  .es-public .eg-map-note {
+    font-size: 8px;
+    left: 15px;
+  }
+  .es-public .eg-mission {
+    padding-top: 24px;
+  }
+  .es-public .eg-game .eg-mission-heading {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .es-public .eg-mission-heading h1 {
+    font-size: 48px;
+  }
+  .es-public .eg-mission-heading > div > p:last-child {
+    font-size: var(--earth-type-body);
+  }
+  .es-public .eg-map-return {
+    padding: 9px 12px;
+    min-height: 44px;
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-postcard {
+    gap: 12px;
+    padding: 14px;
+  }
+  .es-public .eg-postcard > span {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-postcard p {
+    font-size: var(--earth-type-body);
+  }
+  .es-public .eg-prediction summary {
+    font-size: var(--earth-type-body);
+    line-height: 1.5;
+    min-width: 0;
+  }
+  .es-public .eg-prediction > div > div {
+    grid-template-columns: 1fr;
+  }
+  .es-public .eg-aquifer-world {
+    padding: 14px;
+  }
+  .es-public .eg-world-label {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-game .eg-aquifer-world .es-aquifer-object-view {
+    height: 260px;
+  }
+  .es-public .eg-game .eg-aquifer-world .es-aquifer-key {
+    gap: 9px;
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-scene-sequence button {
+    font-size: var(--earth-type-body);
+    flex: 1;
+    justify-content: center;
+    line-height: 1.5;
+    min-width: 0;
+  }
+  .es-public .eg-game .es-field-challenge {
+    padding: 17px;
+  }
+  .es-public .eg-game .es-field-challenge h3 {
+    font-size: 26px;
+  }
+  .es-public .eg-game .es-field-challenge > header {
+    flex-wrap: wrap;
+  }
+  .es-public .eg-game .es-field-reward {
+    margin-left: auto;
+  }
+  .es-public .eg-game .es-order-cards li {
+    font-size: var(--earth-type-caption);
+    padding: 12px 8px;
+    gap: 7px;
+  }
+  .es-public .eg-game .es-order-cards li > svg {
+    display: none;
+  }
+  .es-public .eg-game .eg-evidence-room .es-case-file {
+    padding: 20px;
+  }
+  .es-public .eg-game .eg-evidence-room .es-case-file > header {
+    flex-direction: column;
+  }
+  .es-public .eg-game .eg-evidence-room .es-case-rank {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .es-public .eg-evidence-room > .eg-mission-heading > .eg-echo-portrait {
+    display: none;
+  }
+  .es-public .eg-guide {
+    display: block;
+    padding: 15px;
+  }
+  .es-public .eg-guide-face {
+    gap: 10px;
+  }
+  .es-public .eg-guide-face .eg-echo-portrait {
+    width: 110px;
+  }
+  .es-public .eg-guide-face p {
+    font-size: var(--earth-type-body);
+  }
+  .es-public .eg-objective {
+    border-bottom: 1px solid #88a88c45;
+  }
+  .es-public .eg-hint-area > p {
+    min-height: 0;
+  }
+  .es-public .eg-settings {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .es-public .eg-tool-switch button {
+    font-size: var(--earth-type-body);
+    line-height: 1.5;
+    min-width: 0;
+  }
+  .es-public .eg-game .eg-world-slot .ec-tokyo-story {
+    padding: 12px;
+  }
+}
+@media (max-height: 850px) {
+  .es-public .eg-guide,
+  .es-public .eg-guide-quiet {
+    position: relative;
+    top: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .es-public .eg-game * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.es-public .eg-mission-main {
+  grid-column: 1;
+  grid-row: 1;
+}
+.es-public .eg-mission-grid > .eg-guide,
+.es-public .eg-mission-grid > .eg-guide-quiet {
+  grid-column: 2;
+  grid-row: 1;
+}
+.es-public .es-quest-echo-link {
+  border: 1px solid var(--es-line);
+  background: none;
+  color: var(--es-accent);
+  border-radius: 4px;
+  min-height: 44px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  font: inherit;
+  font-size: var(--earth-type-caption);
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .es-public .eg-mission-grid > .eg-guide,
+  .es-public .eg-mission-grid > .eg-guide-quiet {
+    order: 0;
+  }
+  .es-public .eg-mission-main {
+    order: 1;
+  }
+  .es-public .eg-guide .eg-pocket {
+    display: none;
+  }
+  .es-public .eg-guide .eg-guide-face {
+    margin-bottom: 0;
+  }
+  .es-public .eg-guide .eg-objective {
+    padding-bottom: 5px;
+  }
+  .es-public .eg-guide .eg-hint-area {
+    padding-top: 0;
+  }
+  .es-public .eg-guide .eg-hint-area > p {
+    min-height: 0;
+  }
+  .es-public .eg-guide {
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 520px) {
+  .es-public .eg-guide .eg-guide-face {
+    display: none;
+  }
+  .es-public .eg-guide .eg-objective {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    border-bottom: 0;
+  }
+  .es-public .eg-guide .eg-objective > span {
+    display: none;
+  }
+  .es-public .eg-guide .eg-objective p {
+    font-size: var(--earth-type-body);
+    margin: 0;
+  }
+  .es-public .eg-guide .eg-hint-label {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-guide .eg-hint-area > p {
+    font-size: var(--earth-type-body);
+    margin: 8px 0;
+  }
+  .es-public .eg-guide .eg-guide-top > span {
+    font-size: var(--earth-type-caption);
+  }
+  .es-public .eg-guide .eg-guide-top > button {
+    min-height: 36px;
+  }
+  .es-public .eg-guide .eg-hint-area > button {
+    font-size: var(--earth-type-body);
+    line-height: 1.5;
+    min-width: 0;
+  }
+  .es-public .es-quest-echo-link {
+    padding: 7px;
+    font-size: var(--earth-type-caption);
+  }
+}
+
+@media (max-width: 520px) {
+  .es-public[data-experience="game"] .es-quest-trail {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding-block: 6px;
+  }
+  .es-public[data-experience="game"] .es-quest-trail ol {
+    flex-basis: 100%;
+    gap: 4px;
+  }
+  .es-public[data-experience="game"] .es-quest-trail li > a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .es-public[data-experience="game"] .es-quest-echo-link {
+    flex: 1;
+  }
+  .es-public[data-experience="game"] .es-quest-file-link {
+    margin-left: auto;
+    min-width: 44px;
+    justify-content: center;
+  }
+  .es-public .eg-game [data-game-title],
+  .es-public .eg-game [id] {
+    scroll-margin-top: 245px;
+  }
+}

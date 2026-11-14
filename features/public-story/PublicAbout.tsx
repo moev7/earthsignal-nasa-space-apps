@@ -1,0 +1,1 @@
+export { PublicAbout } from './PublicPages'

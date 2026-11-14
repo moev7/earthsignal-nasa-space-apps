@@ -1,0 +1,196 @@
+/* The existing exhibition palette; a larger scene and a quieter reading path. */
+.es-public .es-journey { --journey-inset: 140px; }
+.es-public .es-journey-hero { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr); align-items:center; gap:40px 32px; min-height:calc(100svh - 132px); padding-block:64px 0; }
+.es-public .es-journey-title { position:relative; z-index:1; padding-block:20px; }
+.es-public .es-journey-title h1 { font-size:clamp(3.5rem,6.6vw,6rem); line-height:1.15; letter-spacing:-.04em; font-weight:550; }
+.es-public .es-journey-title h1 span { color:var(--es-accent); }
+.es-public .es-journey-title > p { max-width:29ch; margin-top:28px; font-size:1.1rem; }
+.es-public .es-journey-title > .es-action { margin-top:32px; }
+.es-public .es-journey-title .es-journey-invitation { margin-top:16px; font-size:.875rem; color:var(--es-muted); }
+.es-public .es-journey-city { min-width:0; }
+.es-public .es-journey-city > figcaption { max-width:70ch; margin-top:12px; font-size:.8125rem; color:var(--es-muted); }
+.es-public .es-journey-city .es-city-stage { height:min(67svh,720px); min-height:400px; }
+.es-public .es-journey .es-city-stage, .es-public .es-journey .es-city, .es-public .es-journey .es-scene { border:0; border-radius:0; }
+.es-public .es-journey-start { grid-column:1/-1; display:flex; justify-content:space-between; align-items:baseline; gap:32px; padding-block:28px; border-block:1px solid var(--es-line); margin-top:16px; }
+.es-public .es-journey-start > p { color:var(--es-muted); font-size:.9375rem; }
+.es-public .es-journey-start > .es-missions-progress { flex:0 1 42%; }
+.es-public .es-scroll-act, .es-public .es-radar-act, .es-public .es-response-act { padding-block:128px 40px; }
+.es-public .es-act-heading { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:end; gap:48px; margin-bottom:56px; }
+.es-public .es-act-heading h2 { font-size:clamp(2.75rem,5.2vw,4.75rem); line-height:1.15; font-weight:500; letter-spacing:-.04em; }
+.es-public .es-act-heading > p { max-width:34ch; font-size:1.125rem; color:var(--es-muted); padding-bottom:4px; }
+.es-public .es-act-grid { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr); align-items:start; gap:clamp(32px,5vw,88px); scroll-margin-top:var(--journey-inset); }
+.es-public .es-story-visual { position:sticky; top:var(--journey-inset); min-width:0; }
+.es-public .es-story-visual:has(details[open]) { position:relative; top:auto; }
+.es-public .es-story-object { min-width:0; }
+.es-public .es-story-object .es-city-stage { height:clamp(360px,54svh,660px); }
+.es-public .es-story-beat { position:relative; min-height:72svh; padding-block:clamp(72px,13svh,160px); }
+.es-public .es-story-beat:last-child { padding-bottom:44px; }
+.es-public .es-story-beat h3 { font-size:clamp(1.65rem,2.3vw,2.125rem); line-height:1.2; margin-bottom:24px; }
+.es-public .es-story-beat > p { max-width:39ch; font-size:1.0625rem; }
+.es-public .es-beat-marker { width:32px; height:2px; background:var(--es-line); margin-bottom:24px; }
+.es-public .es-story-beat[data-current] .es-beat-marker { width:64px; background:var(--es-accent); }
+.es-public .es-story-evidence { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:4px 12px; margin-top:16px; padding-top:12px; border-top:1px solid var(--es-line); font-size:.8125rem; color:var(--es-muted); }
+.es-public .es-story-evidence > span { max-width:65ch; flex:1 1 230px; }
+.es-public .es-story-motion-note { color:var(--es-muted); font-size:.8125rem; margin-top:12px; }
+.es-public .es-scene-help { min-width:0; font-size:.875rem; color:var(--es-muted); }
+.es-public .es-scene-help > summary { display:flex; align-items:center; gap:8px; width:44px; min-height:44px; cursor:pointer; list-style:none; }
+.es-public .es-scene-help > summary span { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.es-public .es-scene-help[open] > summary { width:auto; }
+.es-public .es-scene-help[open] > summary span { position:static; width:auto; height:auto; clip-path:none; white-space:normal; }
+.es-public .es-scene-help > div { max-width:70ch; padding:8px 0 24px; }
+.es-public .es-scene-help > div p + p { margin-top:14px; }
+.es-public .es-story-evidence:has(.es-scene-help[open]) { display:block; }
+.es-public .es-aquifer-object { margin:0; }
+.es-public .es-aquifer-object-view { display:flex; align-items:center; min-height:0; }
+.es-public .es-aquifer-object-view svg { display:block; width:100%; height:auto; }
+.es-public .es-aquifer-object > figcaption { font-size:1.0625rem; max-width:50ch; }
+.es-public .es-aquifer-object .es-aquifer-key { gap:10px 20px; margin-top:16px; font-size:.8125rem; }
+.es-public .es-water-controls { border-top:1px solid var(--es-line); margin-top:20px; font-size:.875rem; }
+.es-public .es-water-controls > summary { min-height:48px; padding-block:12px; cursor:pointer; }
+.es-public .es-water-controls > div { padding-block:8px 20px; }
+.es-public .es-water-controls label { display:block; margin-bottom:6px; }
+.es-public .es-water-controls input[type=range] { width:100%; min-height:44px; accent-color:var(--es-accent); }
+.es-public .es-water-presets { display:flex; flex-wrap:wrap; gap:8px; }
+.es-public .es-water-presets button, .es-public .es-follow-story { min-height:44px; padding:8px 14px; border:1px solid var(--es-line); border-radius:6px; background:transparent; color:var(--es-text); font:inherit; font-size:var(--earth-type-body); line-height: 1.5; min-width: 0; }
+.es-public .es-water-presets button[aria-pressed=true] { background:var(--es-accent); color:var(--es-deep); border-color:var(--es-accent); }
+.es-public .es-follow-story { margin-top:12px; color:var(--es-accent); }
+.es-public .es-act-appendix { margin-top:40px; }
+.es-public .es-act-appendix > .es-disclosure { margin-top:0; }
+.es-public .es-evidence-exits { display:flex; flex-wrap:wrap; align-items:center; gap:12px 32px; padding-top:24px; }
+.es-public .es-radar-act-grid { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr); align-items:start; gap:clamp(32px,5vw,88px); }
+.es-public .es-radar-act-object, .es-public .es-radar-act-copy { min-width:0; }
+.es-public .es-radar-act-copy { padding-top:32px; }
+.es-public .es-radar-act-copy > h3 { font-size:2rem; margin-bottom:24px; }
+.es-public .es-radar-act-copy > p { font-size:1.0625rem; }
+.es-public .es-radar-act .es-radar-lesson { border:0; border-radius:0; background:transparent; padding:0; }
+.es-public .es-radar-act .es-radar-heading { font-size:var(--earth-type-caption); }
+.es-public .es-radar-act .es-radar-stage { min-height:380px; height:52svh; max-height:650px; border-radius:0; }
+.es-public .es-response-act > .ec-tokyo-story { margin-top:0; border-radius:0; background:transparent; padding:0; }
+.es-public .es-response-learning { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; padding-top:56px; }
+.es-public .es-response-learning h3 { font-size:2rem; margin-bottom:20px; }
+.es-public .es-response-questions { border-top:1px solid var(--es-line); font-size:.9375rem; }
+.es-public .es-response-questions > summary { min-height:52px; padding-block:12px; cursor:pointer; }
+.es-public .es-response-questions ol { padding-left:24px; }
+.es-public .es-response-questions li { padding-block:16px; }
+.es-public .es-response-questions h4 { margin-bottom:10px; font-size:1.0625rem; }
+.es-public .es-journey-finish { display:flex; justify-content:space-between; align-items:start; gap:64px; padding-block:64px; margin-top:64px; border-block:1px solid var(--es-line); }
+.es-public .es-journey-finish > div { max-width:65ch; }
+.es-public .es-journey-finish h3 { font-size:2rem; margin-bottom:20px; }
+.es-public .es-finish-links { display:flex; flex-direction:column; gap:20px; align-items:start; }
+.es-public .es-finish-links > a { display:inline-flex; gap:12px; align-items:center; min-height:44px; }
+.es-public .es-story-header-progress { margin-left:auto; }
+.es-public .es-city-story-controls { border-top:1px solid var(--es-line); margin-top:16px; }
+.es-public .es-city-story-controls > summary { padding-block:12px; min-height:48px; cursor:pointer; font-size:var(--earth-type-body); line-height: 1.5; min-width: 0; }
+.es-public .es-city-story-meta, .es-public .es-city-story-actions { display:flex; align-items:center; flex-wrap:wrap; gap:8px 16px; margin-top:14px; font-size:.8125rem; }
+.es-public .es-city-story-status { display:flex; align-items:center; flex-wrap:wrap; gap:8px 20px; margin-top:12px; }
+.es-public .es-city-story-status .es-city-note { margin:0; }
+.es-public .es-city-story-action { min-height:44px; padding:8px 14px; font:inherit; font-size:.875rem; }
+.es-public .es-city-story-actions button, .es-public .es-city-follow { min-height:44px; padding:8px 14px; border:1px solid var(--es-line); border-radius:6px; background:transparent; color:var(--es-accent); font:inherit; }
+@media (max-width:1050px) {
+  .es-public .es-journey { --journey-inset:168px; }
+  .es-public .es-journey-hero { grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:32px; padding-top:48px; }
+  .es-public .es-journey-title h1 { font-size:clamp(3.25rem,6.4vw,5rem); }
+  .es-public .es-act-grid, .es-public .es-radar-act-grid { grid-template-columns:minmax(0,1.6fr) minmax(250px,1fr); gap:32px; }
+  .es-public .es-act-heading { gap:32px; }
+  .es-public .es-story-beat h3 { font-size:1.75rem; }
+}
+@media (max-width:760px) {
+  .es-public .es-journey { --journey-inset:168px; }
+  .es-public .es-journey-hero { grid-template-columns:minmax(0,1fr); padding-top:32px; gap:24px; }
+  .es-public .es-journey-title { padding:0; }
+  .es-public .es-journey-title h1 { font-size:clamp(3.25rem,10vw,5rem); }
+  .es-public .es-journey-title > p { max-width:43ch; font-size:1.0625rem; margin-top:20px; }
+  .es-public .es-journey-title > .es-action { margin-top:24px; }
+  .es-public .es-journey-city .es-city-stage { height:48svh; min-height:280px; }
+  .es-public .es-journey-start { display:block; padding-block:20px; margin-top:4px; }
+  .es-public .es-journey-start > .es-missions-progress { margin-top:8px; }
+  .es-public .es-scroll-act, .es-public .es-radar-act, .es-public .es-response-act { padding-top:80px; }
+  .es-public .es-act-heading { grid-template-columns:minmax(0,1fr); gap:24px; margin-bottom:32px; }
+  .es-public .es-act-heading h2 { font-size:clamp(2.75rem,9vw,4rem); }
+  .es-public .es-act-heading > p { font-size:1.0625rem; max-width:45ch; }
+  .es-public .es-act-grid { display:block; }
+  .es-public .es-story-visual { z-index:2; background:var(--es-bg); padding-bottom:12px; }
+  .es-public .es-story-object .es-city-stage { height:26svh; min-height:190px; }
+  .es-public .es-story-beat { min-height:68svh; padding-block:56px; background:var(--es-bg); }
+  .es-public .es-story-beat > p { max-width:55ch; }
+  .es-public .es-aquifer-object-view { min-height:0; height:22svh; }
+  .es-public .es-aquifer-object-view svg { max-height:100%; }
+  .es-public .es-aquifer-object > figcaption { font-size:.9375rem; }
+  .es-public .es-aquifer-object .es-aquifer-key { margin-top:8px; gap:6px 10px; font-size:var(--earth-type-caption); }
+  .es-public .es-water-controls { margin-top:10px; }
+  .es-public .es-story-evidence { margin-top:8px; padding-top:4px; font-size:var(--earth-type-caption); }
+  .es-public .es-radar-act-grid { display:block; }
+  .es-public .es-radar-act .es-radar-stage { min-height:280px; height:44svh; }
+  .es-public .es-radar-act-copy { padding-top:40px; }
+  .es-public .es-response-learning { grid-template-columns:minmax(0,1fr); gap:32px; padding-top:32px; }
+  .es-public .es-journey-finish { display:block; padding-block:40px; margin-top:40px; }
+  .es-public .es-finish-links { margin-top:32px; }
+  .es-public .es-story-header-progress { margin-left:0; }
+}
+@media (max-height:650px), (prefers-reduced-motion:reduce) {
+  .es-public .es-story-visual { position:relative; top:auto; }
+  .es-public .es-story-beat { min-height:0; padding-block:32px; }
+}
+.es-public .es-journey .es-city-stage canvas { width:100%; height:100%; display:block; }
+.es-public .es-story-header-progress { flex:0 0 auto; }
+.es-public .es-story-header-progress > details > summary { white-space:normal; }
+@media(max-width:760px){
+  .es-public .es-chapter-position { min-width:0; }
+  .es-public .es-contents { min-width:44px; }
+  .es-public .es-story-header-progress > details > summary { gap:6px; font-size:var(--earth-type-body); line-height: 1.5; min-width: 0; white-space: normal; }
+  .es-public .es-story-header-progress .es-missions-progress-body { position:fixed; top:var(--es-header-height, 155px); right:20px; left:20px; width:auto; max-height:60dvh; }
+}
+@media print {
+  .es-public .es-journey-hero, .es-public .es-act-grid, .es-public .es-act-heading, .es-public .es-radar-act-grid, .es-public .es-response-learning { display:block; }
+  .es-public .es-story-visual { position:static; }
+  .es-public .es-story-beat { min-height:0; padding-block:20px; }
+  .es-public .es-journey-start, .es-public .es-scroll-act, .es-public .es-radar-act, .es-public .es-response-act { padding-block:24px; }
+  .es-public .es-missions-question, .es-public .es-missions-progress { display:none; }
+}
+@media(max-width:760px){
+  .es-public .es-journey-title { display:contents; }
+  .es-public .es-journey-title h1 { order:0; }
+  .es-public .es-journey-city { order:1; }
+  .es-public .es-journey-title > p { order:2; margin-top:0; }
+  .es-public .es-journey-title > .es-action { order:3; justify-self:start; margin-top:0; }
+  .es-public .es-journey-title > .es-journey-invitation { order:4; margin-top:0; }
+  .es-public .es-journey-start { order:5; }
+}
+.es-public .es-radar-story-reading { font-size:.9375rem; margin-top:20px; color:var(--es-muted); }
+.es-public .es-radar-story-reading strong { color:var(--es-text); font-weight:500; }
+.es-public .es-radar-story-details { margin-top:20px; border-top:1px solid var(--es-line); }
+.es-public .es-radar-story-details > summary { min-height:48px; padding-block:12px; cursor:pointer; font-size:var(--earth-type-body); line-height: 1.5; min-width: 0; }
+.es-public .es-radar-story-details > div { padding-top:16px; }
+
+/* The regular story follows ordinary scroll. The optional investigation keeps
+   its compact, button-driven chapter layout in quest.css. */
+.es-public .es-scroll-journey { --journey-inset:132px; }
+.es-public .es-scroll-journey .es-story-visual { position:sticky; top:var(--journey-inset); }
+.es-public .es-scroll-journey .es-story-beat { min-height:60svh; padding-block:clamp(64px,12svh,120px); }
+.es-public .es-scroll-journey .es-aquifer-object-view { height:clamp(260px,45svh,470px); }
+.es-public .es-scroll-journey .es-aquifer-object-view svg { width:100%; max-height:100%; }
+.es-public .es-story-mode-link { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:8px 12px; border:1px solid var(--es-line); border-radius:5px; color:var(--es-accent); text-decoration:none; font-size:var(--earth-type-body); white-space:normal; }
+.es-public .es-story-mode-link:hover { border-color:var(--es-accent); }
+.es-public .es-optional-game { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:16px; color:var(--es-muted); font-size:.8125rem; line-height:1.5; text-decoration:none; }
+.es-public .es-optional-game:hover { color:var(--es-accent); }
+.es-public .es-story-mode-link:focus-visible, .es-public .es-optional-game:focus-visible { outline:2px solid var(--es-accent); outline-offset:4px; }
+@media(max-width:760px){
+  .es-public .es-scroll-journey { --journey-inset:122px; }
+  .es-public .es-scroll-journey .es-story-visual { z-index:2; background:var(--es-bg); padding-bottom:12px; }
+  .es-public .es-scroll-journey .es-story-beats { display:block; padding-top:24px; }
+  .es-public .es-scroll-journey .es-story-beat { min-height:60svh; padding-block:48px; }
+  .es-public .es-scroll-journey .es-aquifer-object-view { height:24svh; min-height:140px; max-height:240px; }
+  .es-public .es-scroll-journey .es-aquifer-object > figcaption { font-size:.875rem; padding-block:8px; }
+  .es-public .es-scroll-journey .es-story-object .es-city-stage { height:30svh; min-height:200px; }
+  .es-public .es-scroll-journey .es-optional-game { order:4; justify-self:start; margin:0; }
+  .es-public .es-story-mode-link { padding-inline:8px; font-size:var(--earth-type-body); white-space: normal; }
+}
+@media(max-height:650px),(prefers-reduced-motion:reduce){
+  .es-public .es-scroll-journey .es-story-visual { position:relative; top:auto; }
+  .es-public .es-scroll-journey .es-story-beat { min-height:0; padding-block:28px; }
+}
+@media print {
+  .es-public .es-scroll-journey .es-story-visual { position:static; }
+  .es-public .es-scroll-journey .es-story-beat { min-height:0; padding-block:20px; }
+  .es-public .es-optional-game, .es-public .es-story-mode-link { display:none; }
+}

@@ -1,0 +1,15 @@
+.es-public .es-learning-lab { margin-block:24px; }
+.es-public .es-learning-lab figure { margin-block:24px; }
+.es-public .es-learning-lab figure>svg { width:100%; max-height:550px; display:block; }
+.es-public .es-learning-lab figcaption { color:var(--es-muted); font-size:.875rem; margin-top:16px; }
+.es-public .es-mechanism-comparison { width:100%; min-width:0; aspect-ratio:820/460; min-height:260px; background:var(--es-deep); border-radius:12px; }
+.es-public .es-mechanism-comparison svg { width:100%; height:100%; }
+.es-public .es-mechanism-comparison [role=slider]>span:last-child { box-shadow:none; background:var(--es-deep); color:var(--es-accent); border-color:var(--es-accent); }
+.es-public .es-mechanism-comparison>span { font-family:var(--es-font); text-transform:none; letter-spacing:normal; background:var(--es-deep); border-radius:4px; color:var(--es-text); font-size:var(--earth-type-caption); }
+.es-public .es-learning-lab h3 { margin-top:32px; }
+.es-public .es-learning-lab h4 { margin-block:20px 12px; font-size:1.2rem; }
+.es-public .es-learning-lab .es-facts>div { margin-bottom:16px; }
+.es-public .es-learning-lab dt { color:var(--es-muted); font-size:.8125rem; }
+.es-public .es-learning-lab dd { margin:8px 0 0; }
+.es-public .es-learning-lab table { width:100%; border-collapse:collapse; font-size:.8125rem; }
+.es-public .es-learning-lab th, .es-public .es-learning-lab td { text-align:left; padding:12px; border-bottom:1px solid var(--es-line); }

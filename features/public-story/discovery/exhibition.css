@@ -1,0 +1,606 @@
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints) {
+  border-top: 1px solid var(--earth-line);
+  padding: clamp(20px, 3vw, 36px) 0;
+  margin: 24px 0;
+  color: var(--earth-text);
+}
+.es-public
+  :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints)
+  header {
+  margin-bottom: 22px;
+}
+.es-public
+  :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints)
+  h3 {
+  font-family: var(--font-display, "Barlow Condensed", sans-serif);
+  font-size: clamp(1.65rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 9px 0 12px;
+  max-width: 30ch;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints) p {
+  max-width: 66ch;
+  line-height: 1.65;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) small {
+  color: var(--earth-accent);
+  font-size: var(--earth-type-caption);
+  letter-spacing: 0.05em;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) label {
+  display: block;
+  font-size: 0.875rem;
+  margin: 16px 0;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) label output {
+  float: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--earth-accent);
+}
+.es-public
+  :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge)
+  input[type="range"] {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--earth-accent);
+  touch-action: pan-y;
+}
+.es-public
+  :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints)
+  button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--earth-line);
+  border-radius: 5px;
+  background: var(--earth-surface);
+  color: var(--earth-text);
+  font: inherit;
+  cursor: pointer;
+}
+.es-public
+  :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge, .ex-footprints)
+  button:hover {
+  border-color: var(--earth-accent);
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) details {
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+  margin-top: 16px;
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) summary {
+  min-height: 44px;
+  cursor: pointer;
+  padding: 12px 0;
+}
+.es-public :is(.ex-phase, .ex-policy, .ex-gauge) svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--earth-deep);
+}
+.es-public :is(.ex-phase, .ex-season, .ex-policy, .ex-gauge) svg text {
+  fill: var(--earth-muted);
+  font: 11px var(--earth-font);
+}
+.es-public .ex-phase > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.es-public .ex-phase > header svg {
+  width: 70px;
+  flex: none;
+  background: none;
+}
+.es-public .ex-wave {
+  margin: 16px 0;
+}
+.es-public .ex-twins {
+  padding: 0 0 16px;
+}
+.es-public .ex-phase-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+.es-public .ex-phase-numbers :is(span, div) {
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+  min-width: 0;
+}
+.es-public .ex-phase-numbers b {
+  display: block;
+  font-size: clamp(0.95rem, 1.4vw, 1.3rem);
+  color: var(--earth-text);
+  font-variant-numeric: tabular-nums;
+}
+.es-public .ex-phase-numbers dd {
+  margin: 0;
+  color: var(--earth-text);
+  overflow-wrap: anywhere;
+}
+.es-public .ex-live-caption {
+  padding: 12px 0 12px 16px;
+  border-left: 2px solid var(--earth-accent);
+  font-size: 0.9rem;
+  min-height: 50px;
+}
+.es-public .ex-triangle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.es-public .ex-season-dials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+.es-public .ex-season-dials > span {
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+}
+.es-public .ex-season-dials b {
+  display: block;
+  font:
+    600 clamp(2rem, 4vw, 3.5rem)/1.2 "Barlow Condensed",
+    sans-serif;
+  color: var(--earth-text);
+}
+.es-public .ex-season-dials small {
+  display: block;
+}
+.es-public .ex-season-valves {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.es-public .ex-supply-route {
+  width: 100%;
+  height: auto;
+  max-height: 100px;
+  margin: 12px 0 24px;
+}
+.es-public .ex-season-ledger {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 28px 0;
+  border-block: 1px solid var(--earth-line);
+}
+.es-public .ex-season-ledger li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 10px;
+  border-right: 1px solid var(--earth-line);
+  font-size: var(--earth-type-caption);
+}
+.es-public .ex-season-ledger li:last-child {
+  border: 0;
+}
+.es-public .ex-season-ledger li[data-filled="true"] {
+  background: var(--earth-deep);
+}
+.es-public .ex-season-ledger span {
+  color: var(--earth-muted);
+}
+.es-public .ex-policy-comparison {
+  display: flex;
+  gap: 40px;
+  padding: 12px 0;
+}
+.es-public .ex-policy-comparison b {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--earth-accent);
+  font-variant-numeric: tabular-nums;
+}
+.es-public .ex-human-scale {
+  max-width: 620px;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.es-public .ex-human-scale svg {
+  width: 100%;
+  height: auto;
+}
+.es-public .ex-human-scale svg text {
+  fill: var(--earth-muted);
+  font: 10px var(--earth-font);
+}
+.es-public .ex-human-scale figcaption {
+  font-size: var(--earth-type-caption);
+  line-height: 1.6;
+}
+.es-public .ex-human-scale strong {
+  color: var(--earth-accent);
+}
+.es-public .ex-human-scale small {
+  display: block;
+  color: var(--earth-muted);
+  font-size: var(--earth-type-caption);
+}
+.es-public .ex-truth-audit {
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--earth-line);
+  padding-bottom: 24px;
+}
+.es-public .ex-truth-audit h3 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  max-width: 32ch;
+}
+.es-public .ex-truth-audit ol {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.es-public .ex-truth-audit li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-top: 2px solid var(--earth-line);
+  padding-top: 12px;
+}
+.es-public .ex-truth-audit li[data-proved="true"] {
+  border-color: var(--earth-accent);
+}
+.es-public .ex-truth-audit li :is(span, small) {
+  display: block;
+  color: var(--earth-muted);
+  font-size: var(--earth-type-caption);
+  margin: 6px 0;
+}
+.es-public .ex-truth-audit li span {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.es-public .ex-truth-audit li[data-proved="true"] span {
+  color: var(--earth-accent);
+}
+.es-public .ex-footprint-tray {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.es-public .ex-footprint-tray button {
+  padding: 8px;
+  background: var(--earth-deep);
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .ex-footprint-tray button[aria-pressed="true"] {
+  border-color: var(--earth-accent);
+}
+.es-public .ex-footprint-tray svg {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+.es-public .ex-dossier {
+  border: 1px solid var(--earth-line);
+  padding: clamp(20px, 4vw, 48px);
+  margin: 36px 0;
+  background: var(--earth-deep);
+  position: relative;
+}
+.es-public .ex-dossier > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--earth-line);
+  padding-bottom: 24px;
+}
+.es-public .ex-dossier small {
+  color: var(--earth-accent);
+  letter-spacing: 0.1em;
+  font-size: var(--earth-type-caption);
+}
+.es-public .ex-dossier h2 {
+  font:
+    600 clamp(2.2rem, 5vw, 4rem)/1.2 "Barlow Condensed",
+    sans-serif;
+  max-width: 18ch;
+  margin: 14px 0 0;
+}
+.es-public .ex-dossier > header > span {
+  color: var(--earth-accent);
+  font-size: var(--earth-type-caption);
+  white-space: nowrap;
+}
+.es-public .ex-dossier-readings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding-top: 24px;
+}
+.es-public .ex-dossier-readings article {
+  border-bottom: 1px solid var(--earth-line);
+  padding-bottom: 18px;
+}
+.es-public .ex-dossier-readings article > span {
+  font-size: var(--earth-type-caption);
+  color: var(--earth-accent);
+}
+.es-public .ex-dossier-readings h3 {
+  font-size: 1rem;
+  margin: 12px 0;
+}
+.es-public .ex-dossier-readings p {
+  font-size: var(--earth-type-body);
+  color: var(--earth-muted);
+  font-variant-numeric: tabular-nums;
+}
+.es-public .ex-dossier[data-complete="true"] {
+  border-color: var(--earth-accent);
+  animation: ex-dossier-reveal 0.7s ease-out both;
+}
+.es-public .ex-soil-lens {
+  padding: 16px 0;
+  border-block: 1px solid var(--earth-line);
+  margin: 16px 0;
+}
+.es-public .ex-soil-lens svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+.es-public .ex-soil-lens svg text {
+  fill: var(--earth-muted);
+  font: 9px var(--earth-font);
+}
+.es-public .ex-soil-lens > span {
+  font-size: var(--earth-type-caption);
+  color: var(--earth-muted);
+}
+.es-public .ex-neighbourhood-reading {
+  font-size: 0.9rem;
+  margin: 18px 0;
+}
+.es-public .ex-neighbourhood-reading strong {
+  color: var(--earth-text);
+}
+.es-public .ex-neighbourhood-reading summary {
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+.es-public .ex-radar-bridge {
+  margin: 64px 0;
+  padding-top: 36px;
+  border-top: 1px solid var(--earth-line);
+}
+.es-public .ex-radar-bridge h3 {
+  font:
+    600 clamp(2rem, 4vw, 3.4rem)/1.2 "Barlow Condensed",
+    sans-serif;
+  max-width: 26ch;
+  margin: 14px 0;
+}
+.es-public .ex-radar-bridge header > small {
+  color: var(--earth-accent);
+  letter-spacing: 0.1em;
+}
+.es-public .ex-radar-bridge p {
+  max-width: 70ch;
+  line-height: 1.65;
+}
+.es-public .ex-two-quantities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 30px 0;
+}
+.es-public .ex-two-quantities > div {
+  padding: 18px 0;
+  border-block: 1px solid var(--earth-line);
+}
+.es-public .ex-two-quantities svg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  margin-bottom: 16px;
+}
+.es-public .ex-two-quantities :is(b, span) {
+  display: block;
+  font-size: 0.9rem;
+}
+.es-public .ex-two-quantities span {
+  color: var(--earth-muted);
+  margin-top: 8px;
+  font-size: var(--earth-type-caption);
+}
+.es-public .ex-study-hook {
+  max-width: 65ch;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+.es-public .ex-study-hook strong {
+  font-size: 1.8rem;
+  color: var(--earth-accent);
+  font-variant-numeric: tabular-nums;
+}
+@keyframes ex-dossier-reveal {
+  from {
+    opacity: 0.2;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.es-public [data-motion="still"] .ex-dossier {
+  animation: none;
+}
+@media (max-width: 700px) {
+  .es-public .ex-truth-audit ol {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .es-public .ex-phase-numbers {
+    grid-template-columns: 1fr 1fr;
+  }
+  .es-public .ex-triangle,
+  .es-public .ex-dossier-readings {
+    grid-template-columns: 1fr;
+  }
+  .es-public .ex-dossier > header {
+    display: block;
+  }
+  .es-public .ex-dossier > header > span {
+    display: block;
+    margin-top: 18px;
+  }
+  .es-public .ex-human-scale {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .es-public .ex-season-ledger {
+    grid-template-columns: 1fr 1fr;
+  }
+  .es-public .ex-season-valves {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .es-public .ex-footprint-tray {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .es-public .ex-dossier {
+    animation: none;
+  }
+}
+.es-public .ex-echo-stamp {
+  display: inline-block;
+  color: var(--earth-muted);
+  font-size: var(--earth-type-caption);
+  margin-left: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.es-public.es-page-story :is(.ea-radar-scene, .ea-water-host) > .ed-details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--earth-line);
+}
+.es-public.es-page-story
+  :is(.ea-radar-scene, .ea-water-host)
+  > .ed-details
+  > summary {
+  min-height: 44px;
+  padding: 10px 0;
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+  min-width: 0;
+}
+@media (min-width: 1100px) {
+  .es-public .eg-game .ed-world {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    column-gap: 32px;
+    align-items: start;
+  }
+  .es-public .eg-game .ed-world > * {
+    grid-column: 1;
+    min-width: 0;
+  }
+  .es-public .eg-game .ed-world > .ea-partner {
+    grid-column: 2;
+    grid-row: 1 / span 30;
+    position: sticky;
+    top: calc(var(--es-header-height, 116px) + 104px);
+    align-self: start;
+    margin: 0;
+    display: block;
+    padding: 18px 16px;
+    border: 1px solid var(--earth-line);
+    background: var(--earth-deep);
+  }
+  .es-public .eg-game .ed-world > .ea-partner > .eg-echo-portrait {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+  .es-public .eg-game .ed-world > .ea-partner p {
+    font-size: var(--earth-type-body);
+    line-height: 1.65;
+  }
+  .es-public .eg-game .ed-world > .ea-partner .ea-partner-actions {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .es-public .eg-game .ed-world > .ea-partner .ex-echo-stamp {
+    display: block;
+    margin: 6px 0;
+  }
+}
+.es-public .ex-note-art {
+  width: 100%;
+  height: 75px;
+  margin: 10px 0 16px;
+  display: block;
+  fill: var(--earth-accent);
+  stroke: var(--earth-accent);
+  stroke-width: 1.5;
+}
+.es-public .ex-note-art path {
+  fill: none;
+}
+.es-public .ex-note-art text {
+  fill: var(--earth-muted);
+  stroke: none;
+  font: 9px var(--earth-font);
+}
+.es-public #phase-instrument {
+  scroll-margin-top: calc(var(--es-header-height, 116px) + 16px);
+}
+@media (max-width: 800px) {
+  .es-public.es-page-story .eg-game.ea-game .eg-status-ribbon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    padding-block: 8px;
+  }
+  .es-public.es-page-story .eg-game.ea-game .eg-status-ribbon > .ep-route {
+    display: none;
+  }
+  .es-public.es-page-story .eg-game.ea-game .eg-status-ribbon > .ep-campaign {
+    flex: 1 1 100%;
+  }
+  .es-public.es-page-story
+    .eg-game.ea-game
+    .eg-status-ribbon
+    > .ep-hud-actions {
+    margin-left: 0;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+  .es-public.es-page-story .eg-game.ea-game h1[data-game-title] {
+    scroll-margin-top: calc(var(--es-header-height, 116px) + 100px);
+  }
+}

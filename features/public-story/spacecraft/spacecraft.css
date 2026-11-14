@@ -1,0 +1,67 @@
+.es-public .es-spacecraft { overflow-anchor:none; min-width:0; width:100%; color:var(--es-text,#eeeae1); background:var(--es-deep,#101a1c); border:1px solid var(--es-line,#38504d); border-radius:0; }
+.es-public .es-spacecraft-heading { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding:16px 20px; font-size:.8125rem; color:var(--es-muted,#a4b9b3); }
+.es-public .es-spacecraft-stage { position:relative; min-height:0; height:clamp(320px,50svh,520px); overflow:hidden; background:#0d171b; isolation:isolate; }
+.es-public .es-spacecraft-stage>canvas { position:absolute; inset:0; display:block; width:100%; height:100%; }
+.es-public .es-spacecraft-stage>canvas[hidden] { display:none; }
+.es-public .es-spacecraft-stage-actions { position:static; display:flex; flex-wrap:wrap; gap:12px; padding:12px 20px 0; }
+.es-public .es-spacecraft-stage-actions button { background:#0d171be8; }
+.es-public .es-spacecraft-fallback { position:absolute; inset:0; overflow:hidden; }
+.es-public .es-spacecraft-fallback .es-scene-help { display:none; }
+.es-public .es-spacecraft-fallback>.es-story-photo { margin:0; height:100%; display:flex; flex-direction:column; }
+.es-public .es-spacecraft-fallback .es-photo-object { flex:1; min-height:0; }
+.es-public .es-spacecraft-fallback .es-photo-object>img { height:100%; width:100%; object-fit:contain; }
+.es-public .es-spacecraft-fallback figcaption { padding:8px 16px; }
+.es-public .es-spacecraft-scale { margin:0; padding:10px 20px; color:var(--es-muted,#a4b9b3); font-size:var(--earth-type-caption); line-height:1.6; border-bottom:1px solid var(--es-line,#38504d); }
+.es-public .es-spacecraft-body { padding:20px; }
+.es-public .es-spacecraft-status { position:absolute; inset:12px 12px auto; max-height:calc(100% - 24px); padding:12px; background:var(--es-deep,#101a1c); font-size:.875rem; }
+.es-public .es-spacecraft-status p { font-size:var(--earth-type-body); line-height:1.6; }
+.es-public .es-spacecraft-actions, .es-public .es-spacecraft-steps { display:flex; flex-wrap:wrap; gap:12px; }
+.es-public .es-spacecraft button { min-height:44px; min-width:44px; padding:10px 13px; border:1px solid var(--es-line,#38504d); border-radius:6px; color:var(--es-text,#eeeae1); background:transparent; font:inherit; font-size:var(--earth-type-body); line-height:1.4; cursor:pointer; }
+.es-public .es-spacecraft button:hover { border-color:var(--es-accent,#8bcec0); }
+.es-public .es-spacecraft button:focus-visible, .es-public .es-spacecraft summary:focus-visible, .es-public .es-spacecraft a:focus-visible { outline:2px solid var(--es-accent,#8bcec0); outline-offset:3px; }
+.es-public .es-spacecraft button[aria-pressed=true] { border-color:var(--es-accent,#8bcec0); color:var(--es-accent,#8bcec0); background:#8bcec00d; }
+.es-public .es-spacecraft button:disabled { opacity:.45; cursor:default; }
+.es-public .es-spacecraft-parts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.es-public .es-spacecraft-parts button { border:0; border-bottom:1px solid var(--es-line); border-radius:0; padding:8px 4px; }
+.es-public .es-spacecraft-description { padding:16px 0 8px; }
+.es-public .es-spacecraft h3 { font-size:1rem; font-weight:500; line-height:1.5; margin:0 0 10px; }
+.es-public .es-spacecraft-description p, .es-public .es-spacecraft-science, .es-public .es-spacecraft-sources p { font-size:var(--earth-type-body); line-height:1.75; margin:8px 0; max-width:75ch; }
+.es-public .es-spacecraft-description strong { font-weight:500; }
+.es-public .es-spacecraft a { color:var(--es-accent,#8bcec0); text-decoration:underline; text-underline-offset:3px; }
+.es-public .es-spacecraft-hint { color:var(--es-muted,#a4b9b3); font-size:var(--earth-type-caption); line-height:1.7; margin:12px 0; }
+.es-public .es-spacecraft-signal { margin-top:0; padding-top:16px; }
+.es-public .es-spacecraft-signal[hidden] { display:none; }
+.es-public .es-spacecraft .es-spacecraft-send { color:#0d171b; background:var(--es-accent,#8bcec0); border-color:var(--es-accent,#8bcec0); }
+.es-public .es-spacecraft-steps { margin-top:16px; }
+.es-public .es-spacecraft-steps button { flex:1 1 100px; border-bottom-width:3px; }
+.es-public .es-spacecraft-readout { margin:16px 0 8px; font-size:.9375rem; line-height:1.7; min-height:3.4em; }
+.es-public .es-spacecraft-readout[data-phase=send] { color:#ffc272; }
+.es-public .es-spacecraft-readout[data-phase=echo], .es-public .es-spacecraft-readout[data-phase=receive] { color:#8bcec0; }
+.es-public .es-spacecraft-sources { margin-top:20px; border-top:1px solid var(--es-line,#38504d); }
+.es-public .es-spacecraft summary { min-height:44px; padding:12px 0; font-size:var(--earth-type-body); cursor:pointer; line-height:1.5; min-width:0; }
+.es-public .es-spacecraft-sources .es-story-photo { margin:16px 0 0; }
+@media(max-width:540px) {
+  .es-public .es-spacecraft-body { padding:16px; }
+  .es-public .es-spacecraft-heading { padding:14px 16px; gap:12px; }
+  .es-public .es-spacecraft-heading>span:last-child { display:none; }
+  .es-public .es-spacecraft-steps { gap:6px; }
+  .es-public .es-spacecraft-steps button { flex-basis:80px; padding:10px 8px; }
+}
+
+.es-public .es-spacecraft-modes { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(120px, 100%), 1fr)); padding-inline:20px; gap:12px; }
+.es-public .es-spacecraft-modes button { border:0; border-bottom:2px solid var(--es-line); border-radius:0; padding:8px 4px; }
+.es-public .es-spacecraft-modes button[aria-pressed=true] { border-color:var(--es-accent); background:transparent; }
+.es-public .es-spacecraft-camera { border-top:1px solid var(--es-line); margin-top:8px; }
+.es-public .es-spacecraft-camera .es-spacecraft-actions { padding-block:8px; }
+.es-public .es-orbital-scale { height:100%; margin:0; display:flex; flex-direction:column; }
+.es-public .es-orbital-scale svg { width:100%; min-height:0; flex:1; }
+.es-public .es-orbital-scale figcaption { padding:8px 16px; font-size:var(--earth-type-caption); color:var(--es-muted); line-height:1.5; }
+@media(max-width:540px) {
+ .es-public .es-spacecraft-modes { padding-inline:12px; gap:12px; grid-template-columns:repeat(auto-fit, minmax(min(120px, 100%), 1fr)); }
+ .es-public .es-spacecraft-stage-actions { padding-inline:16px; gap:12px; }
+ .es-public .es-spacecraft-stage { height:clamp(300px,48svh,420px); }
+ .es-public .es-spacecraft-parts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .es-public .es-spacecraft-description p { line-height:1.65; }
+}
+
+.es-public .es-orbital-scale input { display:block; width:100%; min-height:44px; accent-color:var(--es-accent); }

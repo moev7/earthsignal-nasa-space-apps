@@ -1,0 +1,266 @@
+.policy-city {
+  --pc-ink: var(--eg-ink, #f1eee7);
+  --pc-muted: var(--eg-muted, #b5bcb8);
+  --pc-line: var(--eg-line, #404948);
+  --pc-panel: var(--eg-panel, #222627);
+  --pc-mint: var(--eg-mint, #8bcec0);
+  --pc-amber: var(--eg-amber, #e7b66e);
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  color: var(--pc-ink);
+  isolation: isolate;
+}
+
+.policy-city .policy-city__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  font-size: var(--earth-type-caption);
+  line-height: 1.5;
+  color: var(--pc-muted);
+}
+
+.policy-city .policy-city__disclaimer {
+  color: var(--pc-amber);
+}
+
+.policy-city .policy-city__model {
+  display: grid;
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--pc-line);
+  border-radius: 14px;
+  background: radial-gradient(ellipse at 48% 40%, #343f3b 0%, #222627 65%);
+}
+
+.policy-city .policy-city__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 330px;
+  aspect-ratio: 760 / 370;
+}
+
+.policy-city .policy-city__building-shadow {
+  fill: #47534e;
+  opacity: 0.23;
+}
+
+.policy-city .policy-city__wall-light {
+  fill: #e0dfd2;
+}
+.policy-city .policy-city__wall-shade {
+  fill: #96a79f;
+}
+.policy-city .policy-city__roof {
+  fill: #f1eee7;
+}
+.policy-city .policy-city__rooftop {
+  fill: #b5bcb8;
+}
+.policy-city .policy-city__building[data-warm="true"] .policy-city__wall-light {
+  fill: #cfbea0;
+}
+.policy-city .policy-city__building[data-warm="true"] .policy-city__wall-shade {
+  fill: #a28f75;
+}
+.policy-city .policy-city__building[data-warm="true"] .policy-city__roof {
+  fill: #e2d4b8;
+}
+.policy-city .policy-city__windows {
+  fill: none;
+  stroke: #536d68;
+  stroke-width: 4;
+  stroke-dasharray: 4 5;
+}
+.policy-city .policy-city__pipe-bed {
+  fill: none;
+  stroke: #47534e;
+  stroke-width: 13;
+  stroke-linejoin: round;
+}
+.policy-city .policy-city__supply-route {
+  fill: none;
+  stroke: var(--pc-mint);
+  stroke-width: 8;
+  stroke-linejoin: round;
+}
+.policy-city .policy-city__supply-route[data-connected="false"] {
+  stroke: #81988b;
+  stroke-width: 4;
+  stroke-dasharray: 5 6;
+}
+.policy-city .policy-city__well-route {
+  fill: none;
+  stroke: #35adbc;
+  stroke-linejoin: round;
+}
+.policy-city .policy-city__flow-marks {
+  fill: none;
+  stroke: #f1eee7;
+  stroke-width: 2;
+}
+
+.policy-city .policy-city__model .policy-city__legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 12px 16px 16px;
+  color: var(--pc-muted);
+  font-size: var(--earth-type-caption);
+  line-height: 1.5;
+}
+
+.policy-city .policy-city__legend span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.policy-city .policy-city__legend i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pc-mint);
+}
+
+.policy-city .policy-city__legend [data-route="well"] {
+  background: #35adbc;
+}
+.policy-city .policy-city__legend [data-route="monitor"] {
+  background: var(--pc-amber);
+}
+
+.policy-city .policy-city__controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.policy-city .policy-city__controls .policy-city__choice {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  min-width: 0;
+  min-height: 66px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--pc-line);
+  border-radius: 10px;
+  color: var(--pc-ink);
+  background: var(--pc-panel);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.policy-city .policy-city__controls .policy-city__choice[data-current="true"] {
+  border-color: var(--pc-mint);
+}
+.policy-city .policy-city__controls .policy-city__choice[aria-pressed="true"] {
+  color: var(--pc-ink);
+  background: #293c36;
+  border-color: var(--pc-mint);
+}
+.policy-city .policy-city__controls .policy-city__choice:hover {
+  border-color: var(--pc-ink);
+}
+.policy-city .policy-city__controls .policy-city__choice:focus-visible {
+  outline: 3px solid var(--pc-amber);
+  outline-offset: 3px;
+}
+.policy-city .policy-city__choice-icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #343f3b;
+  color: var(--pc-mint);
+  text-align: center;
+  line-height: 22px;
+}
+.policy-city
+  .policy-city__controls
+  .policy-city__choice[aria-pressed="true"]
+  .policy-city__choice-icon {
+  color: #121617;
+  background: var(--pc-mint);
+}
+.policy-city .policy-city__choice-copy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.policy-city .policy-city__choice-copy strong {
+  font-size: var(--earth-type-body);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.policy-city .policy-city__choice-copy small {
+  color: var(--pc-muted);
+  font-size: var(--earth-type-caption);
+  line-height: 1.4;
+}
+
+.policy-city .policy-city__readout {
+  display: grid;
+  gap: 12px;
+  padding: 8px 0;
+  min-width: 0;
+}
+
+.policy-city .policy-city__next {
+  margin: 0;
+  color: var(--pc-mint);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.policy-city .policy-city__result {
+  margin: 0;
+  color: var(--pc-muted);
+  font-size: var(--earth-type-body);
+  line-height: 1.5;
+}
+
+/* State changes are immediate: no loops, transitions, timers or visibility work. */
+@media (max-width: 540px) {
+  .policy-city {
+    gap: 16px;
+  }
+  .policy-city .policy-city__controls {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .policy-city .policy-city__controls .policy-city__choice {
+    min-height: 48px;
+    padding: 8px 10px;
+  }
+  .policy-city .policy-city__choice-copy {
+    display: grid;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .policy-city .policy-city__choice-copy strong {
+    font-size: var(--earth-type-body);
+    line-height: 1.5;
+  }
+  .policy-city .policy-city__choice-copy small {
+    font-size: var(--earth-type-caption);
+  }
+  .policy-city .policy-city__model .policy-city__legend {
+    gap: 8px 20px;
+    padding: 12px 16px 16px;
+    font-size: var(--earth-type-caption);
+  }
+}

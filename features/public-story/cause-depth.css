@@ -1,0 +1,47 @@
+.es-public .es-mechanism-guide{margin:28px 0 20px}
+.es-public .es-mechanism-guide>p{font-size:.9375rem;margin-bottom:12px}
+.es-public .es-mechanism-guide>p>span{color:var(--es-muted);font-size:.8125rem;margin-left:12px}
+.es-public .es-mechanism-guide ol{display:flex;gap:12px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+.es-public .es-mechanism-guide li{display:flex;align-items:center;gap:8px;flex:1 1 150px;min-width:0}
+.es-public .es-mechanism-guide button{flex:1;min-height:52px;padding:12px;border:0;border-bottom:2px solid var(--es-line);color:var(--es-muted);background:transparent;font-size:1rem;text-align:left;line-height:1.5;min-width:0}
+.es-public .es-mechanism-guide button[aria-pressed=true]{border-color:var(--es-accent);color:var(--es-text)}
+.es-public .es-mechanism-guide li>svg{flex:none;color:var(--es-muted)}
+.es-public .es-indicator-lens{margin-top:48px;padding-top:32px;border-top:1px solid var(--es-line)}
+.es-public .es-indicator-lens header,.es-public .es-cause-city-context header{margin-bottom:24px;max-width:70ch}
+.es-public .es-cause-lab .es-indicator-lens h5,.es-public .es-cause-lab .es-cause-city-context h5{font-size:1.5rem;line-height:1.3;font-weight:500;margin:0 0 12px}
+.es-public .es-indicator-lens header p{font-size:var(--earth-type-body);color:var(--es-muted)}
+.es-public .es-indicator-layout{display:grid;grid-template-columns:minmax(180px,.7fr) minmax(0,1.8fr);gap:48px;align-items:center}
+.es-public .es-indicator-picker{display:flex;flex-direction:column;gap:12px;flex-wrap:wrap}
+.es-public .es-indicator-picker button{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:52px;padding:12px 0;border:0;border-bottom:1px solid var(--es-line);background:transparent;color:var(--es-muted);text-align:left;font-size:1rem;line-height:1.5;min-width:0;flex:1 1 140px}
+.es-public .es-indicator-picker button[aria-pressed=true]{color:var(--es-accent);border-color:var(--es-accent)}
+.es-public .es-indicator-picker svg{flex:none}
+.es-public .es-cause-lab .es-indicator-layout figure{margin:0;min-width:0}
+.es-public .es-indicator-layout figure>svg{width:100%;height:auto;display:block;color:var(--es-text)}
+.es-public .es-indicator-layout svg text{font-family:var(--es-font);font-size:18px}
+.es-public .es-indicator-layout svg text:not([fill]){fill:currentColor}
+.es-public .es-indicator-layout figcaption{line-height:1.65;max-width:65ch;margin-top:16px}
+.es-public .es-indicator-layout figcaption strong{display:block;color:var(--es-text);font-weight:500;font-size:1rem;margin-bottom:8px}
+.es-public .es-indicator-layout figcaption span{display:block;font-size:.9375rem;color:var(--es-muted)}
+.es-public .es-cause-city-context{margin-top:48px;padding-top:32px;border-top:1px solid var(--es-line)}
+.es-public .es-cause-city-context header p{font-size:1rem;line-height:1.7}
+.es-public .es-cause-city-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.es-public .es-cause-city-pair .es-story-photo{margin:0}
+.es-public .es-cause-lab .es-cause-city-pair .es-photo-object>img{aspect-ratio:2.3;object-fit:cover}
+.es-public .es-cause-city-pair h6{font-size:1.125rem;font-weight:500;line-height:1.4;margin:20px 0 12px}
+.es-public .es-cause-city-pair article>p{font-size:.9375rem;line-height:1.7;max-width:50ch}
+.es-public .es-cause-city-pair article>a{display:inline-flex;align-items:center;gap:12px;min-height:48px;margin-top:12px;color:var(--es-accent);font-size:.9375rem}
+.es-public .es-cause-focus{fill:none;stroke:var(--es-accent);stroke-width:2;stroke-dasharray:5 4;pointer-events:none}
+@media(max-width:760px){
+ .es-public .es-mechanism-guide>p>span{display:block;margin:6px 0 0}
+ .es-public .es-mechanism-guide ol{gap:12px;flex-wrap:wrap}
+ .es-public .es-mechanism-guide li{gap:8px;flex:1 1 150px}
+ .es-public .es-mechanism-guide li>svg{width:12px}
+ .es-public .es-mechanism-guide button{font-size:var(--earth-type-body);padding:10px 4px;line-height:1.5;min-height:64px;min-width:0}
+ .es-public .es-indicator-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+ .es-public .es-indicator-picker{flex-direction:row;gap:12px;flex-wrap:wrap}
+ .es-public .es-indicator-picker button{flex:1 1 140px;min-width:0;font-size:var(--earth-type-body);line-height:1.5}
+ .es-public .es-indicator-picker svg{display:none}
+ .es-public .es-indicator-layout svg text{font-size:25px}
+ .es-public .es-cause-city-pair{grid-template-columns:minmax(0,1fr);gap:36px}
+ .es-public .es-cause-lab .es-cause-city-pair .es-photo-object>img{aspect-ratio:2.1}
+}
